@@ -23,7 +23,7 @@ Si l'image n'est pas trouvée, elle est recherchée en dernier recourt dans le r
 ### Signature
 
     [php]
-    public function getImageUrl($name, $detectstyle = true, $size = null)
+    public function getImageUrl(string $name, bool $detectstyle = true, int $size = null):string
 
 ### Description
 
@@ -33,7 +33,7 @@ Si l'image n'est pas trouvée, elle est recherchée en dernier recourt dans le r
 
 -
 
-## Liste des paramêtres
+## Liste des paramètres
 
 
 name

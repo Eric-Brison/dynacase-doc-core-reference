@@ -1,7 +1,7 @@
 # Action/getParam
  
 
-## L'applicabilité ( marquer new / deprecated )
+## L'applicabilité
 
    Applicable
 
@@ -20,36 +20,36 @@ CORE_EXTERNURL
 : Url d'accès au serveur. Elle est composé à partir du paramètre application "*CORE_URLINDEX*". Si ce paramètre n'est pas renseigné, il est composé en fonction de l'url d'accès à l'action.
 
 ISIE
-: Égale à true, si l'url d'accès à l'action provient d'un navigateur Internet Explorer (toutes version confondues)
+: Égale à *true*, si l'url d'accès à l'action provient d'un navigateur Internet Explorer (toutes version confondues). Est égale à *false* en mode console (*wsh*).
 
 ISIE6
-: Égale à true, si l'url d'accès à l'action provient d'un navigateur Internet Explorer version 6
+: Égale à true, si l'url d'accès à l'action provient d'un navigateur Internet Explorer version 6. Est égale à *false* en mode console (*wsh*).
 
 ISIE7
-: Égale à true, si l'url d'accès à l'action provient d'un navigateur Internet Explorer version 7
+: Égale à true, si l'url d'accès à l'action provient d'un navigateur Internet Explorer version 7. Est égale à *false* en mode console (*wsh*).
 
 ISIE8
-: Égale à true, si l'url d'accès à l'action provient d'un navigateur Internet Explorer version 8
+: Égale à true, si l'url d'accès à l'action provient d'un navigateur Internet Explorer version 8. Est égale à *false* en mode console (*wsh*).
 
 ISIE9
-: Égale à true, si l'url d'accès à l'action provient d'un navigateur Internet Explorer version 9
+: Égale à true, si l'url d'accès à l'action provient d'un navigateur Internet Explorer version 9. Est égale à *false* en mode console (*wsh*).
 
 ISIE10
-: Égale à true, si l'url d'accès à l'action provient d'un navigateur Internet Explorer version 10
+: Égale à true, si l'url d'accès à l'action provient d'un navigateur Internet Explorer version 10. Est égale à *false* en mode console (*wsh*).
 
 ISSAFARI
-: Égale à true, si l'url d'accès à l'action provient d'un navigateur Safari (Windows ou MacOs X)
+: Égale à true, si l'url d'accès à l'action provient d'un navigateur Safari (Windows ou MacOs X). Est égale à *false* en mode console (*wsh*).
 
 ISCHROME
-: Égale à true, si l'url d'accès à l'action provient d'un navigateur Google Chrome (Windows , MacOs X ou Linux)
+: Égale à true, si l'url d'accès à l'action provient d'un navigateur Google Chrome (Windows , MacOs X ou Linux). Est égale à *false* en mode console (*wsh*).
 
 ISAPPLEWEBKIT
-: Égale à true, si l'url d'accès à l'action provient d'un navigateur Google Chrome ou Safari utilsant AppleWebKit.
+: Égale à true, si l'url d'accès à l'action provient d'un navigateur Google Chrome ou Safari utilsant AppleWebKit. Est égale à *false* en mode console (*wsh*).
 
 ### Signature
 
     [php]
-    public function getParam($name, $def = "")
+    public function getParam(string $name, mixed $def = ""):mixed
 
 ### Description
 
@@ -57,7 +57,7 @@ ISAPPLEWEBKIT
 ### Avertissements
 
 
-## Liste des paramêtres
+## Liste des paramètres
 
 name
 : [in] (string) nom du paramètre
@@ -67,6 +67,7 @@ def
 
 ## Valeur de retour
 
+Le retour est la valeur du paramètre. Si le paramètre n'existe pas ou est *null* c'est la valeur *def* qui est retournée.
 
 ## Erreurs / Exceptions
 
@@ -90,9 +91,11 @@ def
 
 Bien que cette méthode soit définie sur la classe Action, elle est un raccourci pour accéder à la méthode Application::getParam de l'application dont est issue l'action.
 
+Cette méthode ne peut fonctionner que si l'action est initialisé (`::isAffected()`) . Si ce n'est pas le cas, la valeur *def* est toujours retournée.
+
 Les paramètres applicatifs sont déclarés dans le fichier &lt;APPLICATION_NAME&gt;_init.php.
 
-Les valeurs des paramètres sont visibles et modifiable avec l'application *APPMNG*.
+Les valeurs des paramètres sont visibles et modifiables avec l'application *APPMNG*.
 
 ## See also
 

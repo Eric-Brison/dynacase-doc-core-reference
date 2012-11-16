@@ -18,7 +18,7 @@ Dans le cas d'une action exécutée depuis une interface web, elle récupère le
 ### Signature
 
     [php]
-    public static function getArgument($k, $def = '')
+    public static function getArgument(string $k, string $def = ''): mixed
 
 ### Description
 
@@ -27,7 +27,7 @@ Dans le cas d'une action exécutée depuis une interface web, elle récupère le
 ### Avertissements
 
 
-## Liste des paramêtres
+## Liste des paramètres
 
 k
 : [in] (string) nom du paramètre
