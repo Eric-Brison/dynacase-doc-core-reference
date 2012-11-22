@@ -8,7 +8,7 @@ La famille
 :   Celle-ci correspond à une structure type permettant de stocker et de représenter des données (par exemple le type compte-rendu de réunion, composé d'un titre, d'une liste de participants, d'une description, etc.). Si on fait une analogie avec le paradigme objet, elle correspond à la classe.
 
 Le document
-:   Il correspond un élément d'une famille (par exemple : un document de la famille *compte-rendu* contenant le compte rendu de la réunion marketing du 12 mai 2012 ayant pour invité Mickaël, Jean et Paul). Si on fait une analogie avec le paradigme objet, il correspond à un objet étant une instance de sa famille de référence.
+:   Il correspond à un élément d'une famille (par exemple : un document de la famille *compte-rendu* contenant le compte rendu de la réunion marketing du 12 mai 2012 ayant pour invité Mickaël, Jean et Paul). Si on fait une analogie avec le paradigme objet, il correspond à un objet étant une instance de sa famille de référence.
 
 Les collections
 :   Les collections sont des documents regroupant des documents. Il en existe plusieurs types :
@@ -56,7 +56,7 @@ Des contrôles de vues
 
 Des règles métiers
 :   Elles sont l'ensemble des règles s'appliquant à un type de document. Elles peuvent être de type très divers (ajout d'une règle de calcul de numéro chrono, ajout de contraintes particulières sur la mise en forme des données, calcul automatique d'une valeur, aide aux utilisateur pour la saisie des valeurs).  
-    Elles s'implémentent de deux manières :
+    Elles se déclarent de deux manières :
     
     * via une classe associée à la famille : celle-ci permet de surcharger les comportements par défaut de Dynacase lors des étapes de la vie du document (création, sauvegarde, édition, etc.);
     * via un fichier PHP : celui-ci liste des méthodes permettant de guider la saisie des utilisateurs (par exemple rechercher uniquement les salles disponibles).
@@ -106,13 +106,13 @@ Tableau
 
 ## Les attributs
 
-Un attribut correspond à un champ de données dans la définition d'une famille et l'ensemble des attributs définissent le contenu du document. Lors de la définition d'un attribut au sein d'une famille, on lui adjoint des caractéristiques parmi les suivantes :
+Un attribut correspond à un champ de données dans la définition d'une famille. L'ensemble des attributs définissent le contenu du document. Lors de la définition d'un attribut au sein d'une famille, on lui adjoint des caractéristiques parmi les suivantes :
 
 Type d'attribut
 :   Il permet d'indiquer de quel type est l'attribut (texte, date, numérique, etc.).
 
 Visibilité
-:   Elle définit la manière dont l'utilisateur pourra interagir avec l'attribut, qui peut être soit éditable, en lecture seule, etc. Cet élément peut-être surchargé via les mécanismes des masques / contrôle de vue pour présenter une visibilité de manière dynamique (suivant l'état du document, ou la personne le consultant par exemple).
+:   Elle définit la manière dont l'utilisateur pourra interagir avec l'attribut, qui peut être soit éditable, en lecture seule, etc. Cet élément peut-être surchargé via les mécanismes des masques / contrôles de vues pour présenter une visibilité de manière dynamique (suivant l'état du document, ou la personne le consultant par exemple).
 
 Label
 :   Il est affiché à côté de l'attribut dans les représentations des documents. Cet élément peut être traduit.
@@ -121,7 +121,7 @@ Méthode de calcul (facultatif)
 :   Un attribut ayant une méthode de calcul est dit *calculé*. Sa valeur est automatiquement calculée par Dynacase à chaque sauvegarde du document. Elle se présente sous la forme d'une méthode PHP renvoyant la nouvelle valeur.
 
 Aide à la saisie (facultatif)
-:   Un attribut possédant une aide à la saisie suggère des valeurs possibles aux utilisateurs lors de sa valorisation. L'aide à la saisie se présente sous la forme d'une méthode PHP renvoyant la liste des valeurs possibles.
+:   Un attribut possédant une aide à la saisie suggère des valeurs possibles aux utilisateurs lors de sa valorisation. L'aide à la saisie se présente sous la forme d'une fonction PHP renvoyant la liste des valeurs possibles.
 
 Contrainte (facultatif)
 :   Elle permet de valider l'information avant sa sauvegarde. Celle-ci se présente sous la forme d'une méthode PHP renvoyant un statut et, en cas de non respect de la contrainte, un message permettant de guider l'utilisateur dans le choix de la valeur.
@@ -130,14 +130,14 @@ Vue particulière (facultatif)
 :   Si cette propriété est présente la représentation de l'attribut peut-être totalement ou partiellement surchargée (présentation d'un graphique dans le formulaire par exemple).
 
 Options (facultatif)
-:   Des options peuvent être adjointes à l'attribut pour modifier son comportement. Celles-ci sont propres à chaque type d'attribut et permettent d'en modifier soit le comportement ou l'affichage.
+:   Des options peuvent être adjointes à l'attribut pour modifier son comportement. Celles-ci sont propres à chaque type d'attribut et permettent d'en modifier soit le comportement soit l'affichage.
 
 ## Famille système
 
 Une famille système permet de créer des documents utilisés par le paramétrage de Dynacase, dont le contenu est recherchable uniquement pour les administrateurs. C'est le cas pour les familles suivantes :
 
 * contrôle de vue : ce document permet de définir la représentation d'un document;
-* modèle de mail : qui permet de définir un modèle d'envoi par mail pour un type de document;
+* modèle de mail : qui permet de définir un modèle d'envoi de courriel pour un type de document;
 * etc.
 
 Ces documents n'ayant pas de sens particulier pour les utilisateurs non administrateurs, ils ne sont pas accessibles via les recherches par défaut pour ne pas surcharger celles-ci avec des informations non pertinentes.
@@ -146,7 +146,7 @@ NB : il est possible dans le cadre d'un développement Dynacase de définir ses 
 
 ## Collection
 
-Une collection est un document qui permet de regrouper un ensemble de documents. Elle peut-être utilisée par Dynacase comme base pour des recherches particulières ou comme moyen de permettre à un utilisateur de faire des requêtes. Il existe, notamment, les types de collections suivants :
+Une collection est un document qui permet de regrouper un ensemble de documents. Elle peut-être utilisée comme base pour des recherches particulières ou comme moyen de permettre à un utilisateur de faire des requêtes. Il existe, notamment, les deux types de collections suivants :
 
 Dossier
 :   Un dossier permet à un utilisateur ou à des règles métier d'ajouter et d'enlever des documents à l'intérieur de ce dossier.
