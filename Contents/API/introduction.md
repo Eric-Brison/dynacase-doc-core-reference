@@ -1,8 +1,9 @@
 # Les essentiels de l'API
 
-Ce chapitre détaille les méthodes et les fonctions qu'il est essentiel de connaître pour la développement d'un module Dynacase. Les API décrites dans ce chapitre abordent les notions principales de Dynacase qui sont :
+Ce chapitre détaille les méthodes et les fonctions qu'il est essentiel de connaître pour le développement d'un module Dynacase.
+Les API décrites dans ce chapitre abordent les notions principales de Dynacase qui sont :
 
-* la manipulation de document,
+* la manipulation de documents,
 * la recherche de documents,
 * les actions et les applications.
 
