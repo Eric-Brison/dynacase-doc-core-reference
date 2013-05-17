@@ -1,8 +1,8 @@
-# Paramétrage de Core {#core-ref:cfc7f53b-7982-431e-a04b-7b54eddf4a75}
+# Déclaration de familles {#core-ref:cfc7f53b-7982-431e-a04b-7b54eddf4a75}
 
 ## Introduction {#core-ref:4b4cb93e-e717-4a42-888d-c2376deab4bb}
 
-Pour paramétrer une application Dynacase, on va utiliser divers formats de fichier :
+Pour ajouter des familles de document à Dynacase, on va utiliser divers formats de fichier :
 
 *   Les familles seront définies dans des fichiers csv ;
 *   Le code php sera à déployer dans des fichiers php, à intégrer à la plate-forme ;
@@ -10,10 +10,10 @@ Pour paramétrer une application Dynacase, on va utiliser divers formats de fich
 
 ## Définition de familles {#core-ref:17500007-32d8-4aee-bc3f-7e569e1cd5a6}
 
-Les familles sont définies dans un fichier csv respectant le format suivant:
+Les familles sont définies dans un fichier csv respectant le format suivant :
 
 *   Encodage : UTF-8,
-*   Délimiteur de texte : `` (vide),
+*   Délimiteur de texte : ` ` (vide),
 *   séparateur de colonnes : `;`.
 
 Exemple de définition d'une famille :
@@ -49,6 +49,9 @@ Exemple de définition d'une famille :
     ATTR;AN_FOLDER;;Dossier;N;N;menu;10;W;;%S%app=ZOO&action=ZOO_ANIMALFOLDER&id=%I%;;;;;
     ;;;;;;;;;;;;;;;;
     END;;;;;;;;;;;;;;;;
+
+**Note** : Le format `ODS` (openDocument Spread Sheet) peut aussi être utilisé
+comme format de fichier d'importation de famille ou de document.
 
 Ce qui donne, vu dans un tableau :
 
@@ -101,30 +104,31 @@ BEGIN
 :   Obligatoire, signale le début d'une définition de famille.
 
 [fromid]
-:   Identifiant logique (nom logique ou id) de la famille de laquelle cette
-    famille hérite.
+:   Identifiant logique (nom logique ou identifiant interne numérique) de la
+ famille de laquelle cette famille hérite.
     
     Laisser vide s'il n'y a pas d'héritage.
     
-    L'utilisation d'un id à la place d'un nom logique est à réserver aux
-    familles de core.
+    L'utilisation d'un identifiant interne numérique à la place d'un nom
+    logique est à réserver aux familles de core.
 
 [title]
 :   Titre de la famille.
     
     Ce titre est utilisé sur les IHM pour désigner la famille.
     
-    Il est automatiquement ajouté au catalogue de traduction, et peut ainsi être
-    traduit.
+    Il est automatiquement ajouté au catalogue de traduction, et peut ainsi 
+    être traduit.
 
 [id]
 :   Identifiant numérique de la famille.
     
     Laisser vide pour utiliser un identifiant logique
-    (Dans ce cas, Dynacase affectera automatiquement un id unique à la famille).
+    (Dans ce cas, Dynacase affectera automatiquement un identifiant interne
+     unique à la famille).
     
-    S'il est valué il faut que cet identifiant ne soit pas déjà pris par un
-    autre document.
+    S'il est renseigné, il faut que cet identifiant ne soit pas déjà pris par
+     un autre document.
     
     Les valeurs entre 900 et 999 peuvent être utilisée pour vos besoins
     spécifiques, bien que l'usage de valeurs numériques fixes soit fortement
@@ -165,7 +169,7 @@ Entre ces 2 lignes, chacune des lignes correspond à :
     
     Une ligne qui ne sera pas traitée lors du traitement de la définition de famille.
     
-    Un commentaire commence toujours par `//`. Par exemple : `//propid;value;;;;;;;;;;;;;;;`
+    Un commentaire commence toujours par `//`. Par exemple : `// Ceci est un commentaire;;;;;;;;;;;;;;;;`
 
 ### Définition de paramètres de propriété {#core-ref:40d229c4-33c4-11e2-9147-a3eaf356c37c}
 
@@ -192,7 +196,7 @@ sort
     
     Les valeurs possibles sont :
     
-    *   `no` : la propriété n'apparaîtra pas les recherches et rapports ;
+    *   `no` : la propriété n'apparaîtra pas dans les recherches et rapports ;
     *   `asc` : la propriété est disponible dans les recherches et les rapports ;
         et est trié par défaut par ordre ascendant ;
     *   `desc` : la propriété est disponible dans les recherches et les rapports ;
@@ -226,37 +230,47 @@ correspondances suivantes :
 Les différents identifiants de propriété sont les suivants :
 
 CPROFID
-:   Valeur par défaut de la propriété *profid*.
+:   Indique le *profil* utilisé pour les documents créé avec cette famille. Affecte la valeur de la propriété `profid` pour les nouveaux documents de cette famille. Contient l'identifiant d'un document profil. 
     
-    Lors de l'import, les vérifications suivantes sont effectuées :
+    Lors de l'importation, les vérifications suivantes sont effectuées :
     
-    *   Si la famille hérité de dossier,
-        le document référencé doit être de la famille profil de dossier ;
+    *   Si la famille hérite de dossier,
+        le profil référencé doit être de la famille profil de dossier ;
     *   Si la famille hérite de recherche,
-        le document référencé doit être de la famille profil de recherche, ;
-    *   Sinon le document référencé doit être de la famille profil de document.
+        le profil référencé doit être de la famille profil de recherche, ;
+    *   Sinon le profil référencé doit être de la famille profil de document.
     
     Si la valeur est vide le profil de document par défaut est enlevé.
 
+    **Note** : Cette propriété ne modifie pas les profils des documents de cette famille qui sont déjà créés au moment de la mise à jour de la famille.  
+
 CVID
-:   Valeur par défaut de la propriété *cvid*.
+:   Indique le *contrôle de vue* qui sera associé pour les documents créé avec cette famille. Affecte la valeur de la propriété `cvid` pour les nouveaux documents de cette famille. Contient l'identifiant d'un document *contrôle de vue*. 
     
-    Lors de l'import, les vérifications suivantes sont effectuées :
+    Lors de l'importation, les vérifications suivantes sont effectuées :
     
     *   Ce document doit être de la famille *contrôle de vue*.
     *   Ce contrôle de vue doit être applicable à la famille en cours.
     
     Si la valeur est vide le contrôle de vue par défaut est enlevé.
 
+    **Note** : Cette propriété ne modifie pas les contrôles de vue des 
+    documents de cette famille qui sont déjà créés au moment de 
+    la mise à jour de la famille.  
+
 DFLDID
 :   Identifiant du dossier principal permettant de constituer une arborescence
     spécifique à la famille .
     
-    Ce dossier est nécessaire pour manipuler les documents d'une famille depuis l'application "ONEFAM".
+    Ce dossier est nécessaire pour manipuler les documents d'une famille 
+    depuis l'application "ONEFAM".
     Il peut être égal à `auto`, ce qui a pour effet de créer un dossier
-    principal automatiquement.
+    principal automatiquement. 
+    Ce dossier aura les restrictions indiquant que seuls des documents de 
+    cette famille et des dossiers pourront être insérés dans ce dossier 
+    principal.
     
-    Si cette propriété est déjà renseignée, 2 cas de figure se présentent :
+    Si cette propriété est déjà renseignée, deux cas de figure se présentent :
     
     *   La nouvelle valeur est 'auto' : Dans ce cas, l'ancienne valeur est
         conservée
@@ -267,38 +281,43 @@ DFLDID
 ICON
 :   Nom du fichier image définissant l'icône de la famille.
     
-    Cette icône doit être une image de taille 48×48 pixels.
+    Cette icône doit être une image carré. 
+    La taille conseillée varie de 48 à 128 pixels. 
+    Le format d'image conseillé est `png`. 
+    Les formats d'images supportés sont `png` et `gif`.
     
-    Si cette propriété est déjà renseignée, la nouvelle valeur ne sera pas prise
-    en compte.
+    Si cette propriété est déjà renseignée, la nouvelle valeur ne sera pas
+    prise en compte.
     
     Si la famille n'a pas encore d'icône, alors la nouvelle valeur est prise en
     compte.
 
 METHOD
-:   Indique le nom du fichier contenant les méthodes supplémentaires de la
+:   Indique le nom du fichier PHP contenant les méthodes supplémentaires de la
     famille.
     
-    Le fichier référencé doit être disponible dans le répertoire *FDL*.
+    Le fichier référencé doit être disponible dans le répertoire *FDL*. 
+
+    **Note** : Le nom du fichier doit être unique parmi tous les fichiers présents dans le répertoire `FDL`. Il est fortement conseillé d'indiquer l'identifiant de la famille dans le nom de fichier. (Exemple : `Method.MyFamily.php` où `MYFAMILY` est l'identifiant de la famille)
     
     Cette propriété peut être utilisé plusieurs fois, avec la sémantique
     suivante :
     
-    *   Lorsque le nom est préfixé par *+*,
+    *   Lorsque le nom est préfixé par `+`,
         son contenu est concaténé directement dans la classe générée ;
-    *   Lorsque le nom est préfixé par *,
+    *   Lorsque le nom est préfixé par `*`,
         le fichier n'est pas intégré directement dans la famille ,
         mais une classe intermédiaire est générée.
         Cela permet notamment une surcharge plus fine des méthodes.
     
     Si la valeur est vide, *toutes* les méthodes associées seront enlevées (y
-    compris celles déclarées avec * ou +).
+    compris celles déclarées avec `*` ou `+`).
 
 PROFID
-:   Identifiant (nom logique ou id) du document profil de famille pour cette
-    famille.
+:   Identifiant (nom logique ou identifiant interne) du document profil de
+ famille pour cette  famille.
     
-    Lors de l'import, les vérifications suivantes sont effectuées :
+    Lors de l'importation, les vérifications suivantes sont effectuées :
     
     *   Ce document doit être de la famille 'profil de famille'.
     
@@ -318,7 +337,7 @@ TAG
     Chaque utilisation de la balise TAG ajoutera une valeur à la propriété
     *atags*.
     
-    **Note** : Les tags applicatifs ne peuvent être supprimés par cette cette
+    **Note** : Les tags applicatifs ne peuvent être supprimés par cette
     directive.
     
     Certains tags sont déjà prédéfinis par Dynacase :
@@ -347,9 +366,12 @@ USEFOR
     Si la valeur est vide l'utilisation spéciale par défaut est enlevée.
 
 WID
-:   Valeur par défaut de la propriété *wid*.
+:   Indique le cycle de vie qui sera associé pour les documents créé avec 
+cette famille. 
+Affecte la valeur de la propriété `wid` pour les nouveaux documents de cette 
+ famille. Contient l'identifiant d'un document *cycle de vie*. 
     
-    Lors de l'import, les vérifications suivantes sont effectuées :
+    Lors de l'importation, les vérifications suivantes sont effectuées :
     
     *   Ce document doit être un document [cycle de vie][workflow] ;
     *   Le cycle de vie doit être applicable à la famille en cours.
@@ -399,8 +421,8 @@ ATTR
     
     Le type *array* doit être contenu dans un *frame*.
     
-    Tous les autres attributs doivent être contenus dans un *array* ou un
-    *frame*.
+    Tous les autres type d'attributs doivent être contenus dans 
+    un *array* ou un  *frame*.
 
 [label]
 :   **facultatif**  
@@ -409,7 +431,7 @@ ATTR
     Ce libellé sera automatiquement traduit s'il est présent dans le catalogue
     de traduction (la clé correspondante est de la forme `[FAMNAME]#[attrid]`,
     avec [FAMNAME] le nom logique de la famille et
-    [attrid] le nom logique de l'attribut, en minuscule).
+    [attrid] l'identifiant de l'attribut, en minuscule).
 
 [in_title]
 :   **Obligatoire** (sauf pour les attributs de type *array*, *frame* ou *tab*)  
@@ -419,12 +441,12 @@ ATTR
     définis comme tels, par ordre croissant de leur *ordre* et en les séparant
     par des espaces.
     
-    Cette caractéristique est ignorée sur les attributs de type *array*, *frame*
-    ou *tab*.
+    Cette caractéristique est ignorée sur les attributs de type 
+    *array*, *frame* ou *tab*.
     
     Si aucun attribut n'est marqué comme composant le titre, ou si tous ces
-    attributs sont vides, le titre sera *Document sans titre* suivi de l'id du
-    document.
+    attributs sont vides, le titre sera *Document sans titre* suivi de 
+    l'identifiant interne du document.
     
     Les valeurs possibles sont :
     
@@ -432,7 +454,8 @@ ATTR
     *   `N` pour *no*
 
 [in_abstract]
-:   **Obligatoire** (sauf pour les attributs de type *array*, *frame* ou *tab*)  
+:   **Obligatoire** (sauf pour les attributs de type 
+    *array*, *frame* ou *tab*)  
     Indique que l'attribut sera utilisé dans le résumé du document.
     
     Le résumé du document est utilisé pour construire la fiche résumé dans
@@ -445,7 +468,8 @@ ATTR
 
 [type]
 :   **Obligatoire** (sauf pour les attributs de type *array*, *frame* ou *tab*)  
-    [Type de l'attribut][type_attribut].
+    Indique le type de l'attribut.
+    Les types d'attributs supportés sont définis au chapitre [Type de l'attribut][type_attribut].
     
     Cette colonne permet également de définir le formatage de l'attribut :
     
@@ -470,15 +494,19 @@ ATTR
         
         Par exemple, `time("%H:%M:%S")`, ou `timestamp("%A %d %B %Y %X")`.
 
+
 [ordre]
 :   **Obligatoire** (sauf pour les attributs de type *frame* ou *tab*)  
     Définit l'ordre de présentation des attributs dans le document.
+     L'ordre est un nombre entier.
+    
+    **Note**: Les tableaux (type `array`) doivent toujours avoir un ordre inférieur aux attributs qui le compose.
     
     Cette caractéristique est ignorée sur les attributs de type *frame* ou *tab*.
 
 [visibility]
 :   **Obligatoire**  
-    Définit la visibilité par défaut de l'attribut.
+    Définit la visibilité par défaut de l'attribut dans les interfaces web de consultation et de modification du document.
     
     Les valeurs possibles sont :
     
@@ -499,14 +527,23 @@ ATTR
     *   `W` (*Writable*) : attribut visible en lecture et modifiable en
         modification.
     
-    Le type array dispose en plus de la visibilité
+    Le type `array` dispose en plus de la visibilité
     
     *   `U` : Interdit l'ajout et la suppression de lignes dans le tableau.
 
+    Cette caractéristique peut être modifiée par les [masques][masque] 
+    des [contrôle de vues][control_de_vue].
 
 [required]
 :   **facultatif**  
-    Indique si l'attribut est obligatoire pour la sauvegarde du document.
+    Indique si l'attribut est obligatoire pour la sauvegarde du document 
+    depuis l'interface web de modification du document. 
+    Cette caractéristique n'est pas prise en compte lors des sauvegardes faite
+     par le code (méthode `Doc::store()`) ni lors de l'importation de document.
+    Par contre, cette caractéristique est prise en compte lors d'un passage de
+     transition (document lié par un cycle de vie -_workflow_-).  
+    Cette caractéristique peut être modifiée par les [masques][masque] 
+    des [contrôle de vues][control_de_vue].
     
     Les valeurs possibles sont :
     
@@ -515,9 +552,9 @@ ATTR
 
 [link]
 :   **facultatif** (Non applicable pour les types "frame", "tab", "array")  
-    Ajoute un hyperlien sur l'attribut (en consultation uniquement).
+    Ajoute un hyperlien sur l'attribut sur les interfaces web de consultation des documents.
     
-    Le texte de l'hyperlien sera la valeur de l'attribut.
+    Par défaut, le texte de l'hyperlien est la valeur de l'attribut. L'option `ltarget` permet de changer ce texte.
     
     L'hyperlien peut être :
     
@@ -542,8 +579,8 @@ ATTR
         il suffit de mettre l'hyperlien suivant : `mailto:%US_MAIL%`.
         
         Autre exemple, soit l'attribut SI_TOWN indiquant la ville de la famille
-        société. Pour avoir la météo de la ville il suffit de mettre l'hyperlien
-        suivant :
+        société.  Pour avoir la météo de la ville 
+        il suffit de mettre l'hyperlien suivant :
         `http://www.location.org/&strLocation=%SI_TOWN%&strCountry=EUR`.
         
         Si la valeur est vide pour un des attributs de l'URL,
@@ -591,7 +628,7 @@ ATTR
     
     *   Utilisation de méthodes du document
         
-        Les références aux méthodes du document sont écrites entre accolades `%`,
+        Les références aux méthodes du document sont écrites entre caractères `%`,
         en notant la méthode comme pour les attributs calculés.
         
         Les parties variables peuvent aussi faire référence à une méthode du
@@ -610,19 +647,27 @@ ATTR
 
 [phpfile]
 :   **Facultatif** (Non applicable pour les types "frame", "tab", "array")  
-    Nom du fichier php pour l'[aide à la saisie][aide_saisie].
+    Nom du fichier php pour l'[aide à la saisie][aide_saisie]. Ce fichier doit être présent dans le répertoire `EXTERNALS`.
 
 [phpfunc]
-:   **Facultatif** (Non applicable pour les types "frame", "tab", "array")  
-    Nom et attributs de la fonction pour l'aide à la saisie,
-    ou nom et attributs de la méthode de calcul s'il s'agit d'un attribut calculé,
-    ou définition des clés-valeurs dans le cas d'un attribut de type énuméré.
+:   **Facultatif** (Non applicable pour les types "frame", "tab", "array") 
+    Cette caractéristique est utilisée pour trois usages différents : 
 
-[elink]
+    1. Nom et attributs de la fonction pour l'[aide à la saisie][aide_saisie]. 
+    Cela nécessite que `phpfile` soit défini.
+    1. Nom et attributs de la méthode de calcul s'il s'agit d'un 
+    [attribut calculé][attribut_calcule]. 
+    Dans ce cas `phpfile` doit être vide.
+    1. Définition des clés-valeurs dans le cas d'un attribut de type énuméré.
+    Le type de l'attribut est `enum`. Les aides à la saisie ne sont pas 
+    autorisé pour les attributs de type `enum`.
+
+<span class="fixme" data-assignedto="mco">Ajouter une ancre qui fonctionne sur elink</span>
+[elink]{#core-ref:d9849af0-0c08-473a-9250-dcf62a55104d}
 :   **facultatif** (Non applicable pour les types "frame", "tab", "array")  
     Extra lien supplémentaire.
     
-    Cet extra lien sera présenté en modification uniquement, sous la forme d'un bouton supplémentaire.
+    Cet extra lien sera présenté dans les interfaces web de modification de document, sous la forme d'un bouton supplémentaire.
     
     La syntaxe de l'extra lien est la même que celle de la colonne *link*.
 
@@ -646,12 +691,8 @@ Un [paramètre de famille][family_param] est défini par la syntaxe suivante :
 
 avec les mêmes correspondances que pour [les attributs][attributs], aux exceptions suivantes :
 
-*   Ils ne sont affichés dans les interfaces par défaut de dynacase qu'en
-    édition. De fait :
-    *   Utiliser une visibilité telle que *R* ou *H* rendra ce paramètre
-        inutilisable dans les interfaces standard.
-    *   Le *link* n'a pas de sens
-*   Le calcul est fait lors de l'accès au paramètre.
+*   Pour les paramètres calculé, le calcul est fait 
+    lors de l'accès au paramètre.
 *   Les méthodes de calcul et de contrainte doivent être statiques (elles sont
     spécifiées par la syntaxe `class::method`).
 
@@ -675,10 +716,10 @@ DEFAULT
 
 [attrid|paramid]
 :   **Obligatoire**  
-    identifiant de l'attribut ou du paramètre auquel s'applique la valeur par défaut.
+    Identifiant de l'attribut ou du paramètre auquel s'applique la valeur par défaut.
 
 [value]
-:   la valeur par défaut, statique, ou la méthode de calcul.
+:   La valeur par défaut, statique, ou la méthode de calcul.
     
     Dans le cas d'une méthode de calcul, sa syntaxe est identique à celle d'un
     [attribut calculé][attribut_calcule].
@@ -727,14 +768,18 @@ DEFAULT
             }
     
     *   Pour définir les valeurs par défaut de chaque cellule lors de
-        l'ajout d'une nouvelle ligne, on spécifie la valeur par défaut de l'attribut
-        correspondant à cette colonne.  
-        De fait, la valeur par défaut d'un attribut contenu dans un *array* doit être simple.
+        l'ajout d'une nouvelle ligne, on spécifie la valeur par défaut de 
+        l'attribut correspondant à cette colonne.  
+        De fait, la valeur par défaut d'un attribut contenu dans un *array* doit 
+        être simple.
 
 [force=yes]
-:   Indique, lors de la surcharge de valeur par défaut, que la nouvelle valeur par défaut écrase l'ancienne.
+:   **facultatif** Indique, lors de la surcharge de valeur par défaut, que la nouvelle valeur par défaut écrase l'ancienne.
     
-    Dans le cas contraire, la nouvelle valeur par défaut n'est pas prise en compte.
+    Dans le cas contraire, la nouvelle valeur par défaut n'est pas prise en compte lors des mises à jours.
+
+    Les valeurs par défaut peuvent être réinitialisées avec la clef
+     [`RESET default`][reset].
 
 ### Définition de valeur initiale de paramètre {#core-ref:da804e2e-3573-11e2-8974-4ba96567fbf9}
 
@@ -767,6 +812,8 @@ INITIAL
 :   Indique, lors de la surcharge de valeur initiale, que la nouvelle valeur initiale écrase l'ancienne.
     
     Dans le cas contraire, la nouvelle valeur initiale n'est pas prise en compte.
+    Les valeurs initiales peuvent être réinitialisées avec la clef
+     [`RESET parameters`][reset].
 
 ### Modification d'attribut père {#core-ref:13dcd96d-561f-463c-a88f-4b9db58e4fbd}
 
@@ -906,13 +953,13 @@ RESET
         La définition de tous les attributs sera effacée
         (les valeurs ne sont pas supprimées des documents existants).
         
-        **Attention** : cela réinitialise aussi la valeur des paramètres de
-        famille.
+        **Attention** : Cela supprime aussi les paramètres de la famille en 
+        conservant les valeurs.
     
     `default`
     :   Réinitialise les valeurs par défaut.
         
-        Toutes les valeurs par défaut sont remises à *vide*
+        Toutes les valeurs par défaut sont effacées.
     
     `properties`
     :   Réinitialise les valeurs des paramètres des propriétés.
@@ -922,7 +969,9 @@ RESET
     `parameters`
     :   Réinitialise les valeurs des paramètres de famille
         
-        Tous les paramètres de famille seront remis à leur valeur par défaut.
+        Toutes les valeurs des paramètres de famille sont effacées. Ces 
+        paramètres utiliseront les valeurs par défaut si elles sont définies.
+
 
 Ces instructions de réinitialisation doivent être placées avant la nouvelle définition des éléments réinitialisés. 
 
@@ -930,7 +979,7 @@ Chaque instruction doit être sur sa propre ligne.
 
 ## Surcharge de définition de famille {#core-ref:686b17c3-220e-4450-a0d0-feb5db002cbc}
 
-La définition d'une famille peut être surchargée, permettant ainsi un import plus modulaire.
+La définition d'une famille peut être surchargée, permettant ainsi une importation plus modulaire.
 Il est bien question ici de la notion de *surcharge* qui change la définition d'une famille,
 et à ne pas confondre avec le mécanisme d'héritage, qui crée une nouvelle famille.
 
@@ -957,23 +1006,25 @@ Lors de la surcharge, le comportement est le suivant :
 
 *   pour les [valeurs par défaut](#core-ref:94fa51e2-3488-11e2-9e34-1f7c912168cf)
     
-    La nouvelle valeur écrase la valeur précédemment définie si *force=yes* est utilisé.
+    La nouvelle valeur écrase la valeur précédemment définie si *force=yes*
+     est utilisé.
 
 *   pour les [valeurs initiale de paramètre](#core-ref:da804e2e-3573-11e2-8974-4ba96567fbf9)
     
-    La nouvelle valeur écrase la valeur précédemment définie si *force=yes* est utilisé.
+    La nouvelle valeur écrase la valeur précédemment définie si *force=yes* 
+    est utilisé.
 
 Ce comportement peut être altéré par l'utilisation des
-[Instructions de réinitialisation](#core-ref:5c661733-772d-42b8-8b3e-b70453ddfd33).
+[Instructions de réinitialisation][reset].
 
 ## Prise en compte d'une définition de famille dans Dynacase {#core-ref:a2a64666-660f-43ca-8edf-943d0037f0df}
 
 Une fois votre définition de famille créée, vous pouvez l'importer dans Dynacase.
 
-Cet import permettra à Dynacase de créer les tables nécessaires aux documents de cette famille,
+Cette importation permettra à Dynacase de créer les tables nécessaires aux documents de cette famille,
 et de rendre la dite famille disponible dans les différentes IHM de Dynacase.
 
-L'import se fait en ligne de commande, avec la commande suivante :
+L'importation se fait en ligne de commande, avec la commande suivante :
 
     ./wsh.php --api=importDocuments --file=[chemin vers le fichier de définition]
 
@@ -991,3 +1042,6 @@ L'import se fait en ligne de commande, avec la commande suivante :
 [definition_attribut]: #core-ref:bc3fad86-33cc-11e2-9a69-1bbd9c32b0f2
 [workflow]: #core-ref:55a53d99-0c24-48d8-8cb9-1caa171f2e9a
 [family_param]: #core-ref:4595c8e7-5002-4dbc-b6bb-882b4123efd8
+[masque]: #core-ref:327ad491-06df-4e5b-b49a-695c75439fe1
+[control_de_vue]: #core-ref:017f061a-7c12-42f8-aa9b-276cf706e7e0
+[reset]: #core-ref:5c661733-772d-42b8-8b3e-b70453ddfd33

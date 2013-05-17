@@ -1,4 +1,4 @@
-# Les paramètres {#core-ref:4595c8e7-5002-4dbc-b6bb-882b4123efd8}
+# Les paramètres de famille {#core-ref:4595c8e7-5002-4dbc-b6bb-882b4123efd8}
 
 ## Présentation {#core-ref:a69c36e0-dabd-46a3-a385-54116327111e}
 

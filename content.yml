@@ -39,11 +39,64 @@ book:
 ##
     - level:   1
       content:  "famille/introduction.md"
-      subtoc:   2
+      subtoc:   1
       flags:
         need-review:  "need review"
     - level:   2
       content:  "famille/attributs.md"
+      subtoc:   1
+    - level:   3
+      content:  "famille/attribut_type_common.md"
+    - level:   3
+      content:  "famille/attribut_type_text.md"
+    - level:   3
+      content:  "famille/attribut_type_longtext.md"
+    - level:   3
+      content:  "famille/attribut_type_image.md"
+    - level:   3
+      content:  "famille/attribut_type_file.md"
+    - level:   3
+      content:  "famille/attribut_type_frame.md"
+    - level:   3
+      content:  "famille/attribut_type_enum.md"
+    - level:   3
+      content:  "famille/attribut_type_date.md"
+    - level:   3
+      content:  "famille/attribut_type_int.md"
+    - level:   3
+      content:  "famille/attribut_type_double.md"
+    - level:   3
+      content:  "famille/attribut_type_money.md"
+    - level:   3
+      content:  "famille/attribut_type_password.md"
+    - level:   3
+      content:  "famille/attribut_type_ifile.md"
+    - level:   3
+      content:  "famille/attribut_type_idoc.md"
+    - level:   3
+      content:  "famille/attribut_type_xml.md"
+    - level:   3
+      content:  "famille/attribut_type_thesaurus.md"
+    - level:   3
+      content:  "famille/attribut_type_tab.md"
+    - level:   3
+      content:  "famille/attribut_type_time.md"
+    - level:   3
+      content:  "famille/attribut_type_timestamp.md"
+    - level:   3
+      content:  "famille/attribut_type_array.md"
+    - level:   3
+      content:  "famille/attribut_type_color.md"
+    - level:   3
+      content:  "famille/attribut_type_menu.md"
+    - level:   3
+      content:  "famille/attribut_type_action.md"
+    - level:   3
+      content:  "famille/attribut_type_docid.md"
+    - level:   3
+      content:  "famille/attribut_type_htmltext.md"
+    - level:   3
+      content:  "famille/attribut_type_account.md"
     - level:   2
       content:  "famille/attribut_visibility.md"
     - level:   2

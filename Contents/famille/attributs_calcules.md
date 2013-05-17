@@ -22,10 +22,10 @@ Le calcul de l'attribut peut être
     
     Par exemple : *attr_e = quantité en stock dans l'ERP*
 
-Ce calcul est effectué au moyen :
+Ce calcul peut est effectué au moyen :
 
-*   soit d'une méthode *publique* de la classe du document contenant l'attribut,
-*   soit d'une méthode statique d'une autre classe.
+*    d'une méthode *publique* de la classe du document contenant l'attribut,
+*    d'une méthode statique d'une autre classe.
 
 Elle doit retourner un résultat sous forme d'une chaîne de caractères.
 Le résultat est mis dans l'attribut sur lequel s'applique le calcul
@@ -267,7 +267,7 @@ Note: on pourrait aussi utiliser une méthode statique, qui aurait sûrement plu
 | article_prix_total    | Prix total    |        | R          | `MathUtils::product(article_qte,article_prix_unitaire)` |
 
     [php]
-    Class MathUtils {
+    class MathUtils {
         public static function product($a, $b){
             return floatval($a) * floatval($b);
         }

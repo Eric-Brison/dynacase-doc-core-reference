@@ -2,8 +2,8 @@
  
 ## Présentation {#core-ref:150d46d0-8925-4d79-9fb6-00a8a21f46df}
 
-Dans dynacase, le *Document* est la structure de base.
-Le document est constitué d'attributs, qui contiennent la donnée.
+Dans Dynacase, le *Document* est la structure de base.
+Le document est constitué d'attributs qui contiennent la donnée.
 
 Un document est fortement structuré, c'est à dire que toutes les informations
 qu'il contient sont typées et ordonnées.

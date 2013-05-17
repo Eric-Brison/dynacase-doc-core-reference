@@ -378,7 +378,7 @@ targetKeyWord
     function getCities($userInput=''){
         $suggestions = array();
         // Liste des villes utilisables
-        availableCities = array(
+        $availableCities = array(
             "Paris",
             "Toulouse",
             "Souillac"
@@ -415,7 +415,7 @@ targetKeyWord
     function getCedex($userInput=''){
         $suggestions = array();
         // Liste des villes utilisables
-        availableCities = array(
+        $availableCities = array(
             "75000" => "Paris",
             "31000" => "Toulouse",
             "46200" => "Souillac"
