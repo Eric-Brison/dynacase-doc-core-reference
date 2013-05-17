@@ -143,22 +143,18 @@ book:
       content:  "comptes_groupes_roles/utilisateurs.md"
       flags:
         need-review: "need review"
-        wip_sub: ""
     - level:   2
       content:  "comptes_groupes_roles/groupes.md"
       flags:
         need-review: "need review"
-        wip_sub: ""
     - level:   2
       content:  "comptes_groupes_roles/roles.md"
       flags:
         need-review: "need review"
-        wip_sub: ""
     - level:   2
       content:  "comptes_groupes_roles/importation_comptes.md"
       flags:
         need-review: "need review"
-        wip_sub: ""
 ##
 # securite
 ##
