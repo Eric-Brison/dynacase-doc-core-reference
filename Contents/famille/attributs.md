@@ -10,10 +10,16 @@ Techniquement, ils correspondent à :
 *   une représentation textuelle en consultation ;
 *   une colonne en base de données pour stocker la donnée.
 
-Les attributs sont typés, et disposent d'options permettant de modifier leur comportement, leur représentation, etc.
+Les attributs sont typés, et disposent d'options permettant de modifier leur
+comportement, leur représentation, etc.
 
-Cette partie présente chaque type d'attribut, décrit son usage, ses représentations, et liste les options disponibles pour chacun de ces types.
+Cette partie présente chaque type d'attribut, décrit son usage, ses
+représentations, et liste les options disponibles pour chacun de ces types.
 
-Note sur les options : Dans Dynacase, les options sont *libres*, ce qui veut dire que vous pouvez utiliser vos propres options pour rajouter des informations sur certains attributs (par exemple, vous pourriez rajouter une option *inSpecialView* pour lister les attributs à afficher dans votre vue spéciale).
+Note sur les options : Dans Dynacase, les options sont *libres*, ce qui veut
+dire que vous pouvez utiliser vos propres options pour rajouter des informations
+sur certains attributs (par exemple, vous pourriez rajouter une option
+*inSpecialView* pour lister les attributs à afficher dans votre vue spéciale).
 De par leur nature extensible, les options n'ont pas de valeur par défaut ;
-aussi, dans leur description, nous indiquerons par *(comportement par défaut)* le comportement de l'option en l'absence de valeur.
+aussi, dans leur description, nous indiquerons par *(comportement par défaut)*
+le comportement de l'option en l'absence de valeur.

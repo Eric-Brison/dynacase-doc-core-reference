@@ -20,7 +20,8 @@ Son retour doit être :
 Les suggestions seront proposées à l'utilisateur en remplacement de la valeur
 refusée par la contrainte.
 
-Les contraintes sont aussi vérifiées lors de l'appel à la méthode `Doc::store()`. Une paramètre optionnel à cette méthode permet de ne pas vérifier les contraintes.
+Les contraintes sont aussi vérifiées lors de l'appel à la méthode `Doc::store()`.
+Un paramètre optionnel à cette méthode permet de ne pas vérifier les contraintes.
 
 ## Syntaxe {#core-ref:28bfa7d5-918e-4f47-a28b-44ceefcd0a23}
 

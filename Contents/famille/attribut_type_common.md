@@ -101,15 +101,14 @@ autosuggest
   Mettre à `no` pour désactiver l'auto-suggestion
 
 eltitle
-: Options pour pour les elink ([extra lien][extralink])
-  Texte affichable surgissant sur le bouton généré par l'[extra lien][extralink].
+: Options pour pour les extra liens (*elink*).
+  Texte affichable surgissant sur le bouton généré par l'extra lien.
 
 elsymbol
-: Caractère affiché sur le bouton généré par l'[extra lien][extralink]. Par défaut c'est le caractère `+` qui est affiché.
+: Caractère affiché sur le bouton généré par l'extra lien. Par défaut c'est le caractère `+` qui est affiché.
 
 eltarget
-: Nom de la fenêtre destinataire sur le bouton généré par l'[extra lien][extralink].
+: Nom de la fenêtre destinataire sur le bouton généré par l'extra lien.
 
 <!-- links -->
-[extralink]: #core-ref:d9849af0-0c08-473a-9250-dcf62a55104d
 [aide_saisie]: #core-ref:0b2d4cd0-4eed-41d8-ac57-37525a444194

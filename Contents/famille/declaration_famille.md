@@ -2,7 +2,8 @@
 
 ## Introduction {#core-ref:4b4cb93e-e717-4a42-888d-c2376deab4bb}
 
-Pour ajouter des familles de document à Dynacase, on va utiliser divers formats de fichier :
+Pour ajouter des familles de document à Dynacase, on va utiliser divers formats
+de fichier :
 
 *   Les familles seront définies dans des fichiers csv ;
 *   Le code php sera à déployer dans des fichiers php, à intégrer à la plate-forme ;
@@ -230,7 +231,10 @@ correspondances suivantes :
 Les différents identifiants de propriété sont les suivants :
 
 CPROFID
-:   Indique le *profil* utilisé pour les documents créé avec cette famille. Affecte la valeur de la propriété `profid` pour les nouveaux documents de cette famille. Contient l'identifiant d'un document profil. 
+:   Indique le *profil* utilisé pour les documents créé avec cette famille.
+    Affecte la valeur de la propriété `profid` pour les nouveaux documents de
+    cette famille.  
+    Contient l'identifiant d'un document profil.
     
     Lors de l'importation, les vérifications suivantes sont effectuées :
     
@@ -242,10 +246,14 @@ CPROFID
     
     Si la valeur est vide le profil de document par défaut est enlevé.
 
-    **Note** : Cette propriété ne modifie pas les profils des documents de cette famille qui sont déjà créés au moment de la mise à jour de la famille.  
+    **Note** : Cette propriété ne modifie pas les profils des documents de cette
+    famille qui sont déjà créés au moment de la mise à jour de la famille.
 
 CVID
-:   Indique le *contrôle de vue* qui sera associé pour les documents créé avec cette famille. Affecte la valeur de la propriété `cvid` pour les nouveaux documents de cette famille. Contient l'identifiant d'un document *contrôle de vue*. 
+:   Indique le *contrôle de vue* qui sera associé aux documents crééx avec cette
+    famille. Affecte la valeur de la propriété `cvid` pour les nouveaux
+    documents de cette famille.  
+    Contient l'identifiant d'un document *contrôle de vue*. 
     
     Lors de l'importation, les vérifications suivantes sont effectuées :
     
@@ -298,7 +306,11 @@ METHOD
     
     Le fichier référencé doit être disponible dans le répertoire *FDL*. 
 
-    **Note** : Le nom du fichier doit être unique parmi tous les fichiers présents dans le répertoire `FDL`. Il est fortement conseillé d'indiquer l'identifiant de la famille dans le nom de fichier. (Exemple : `Method.MyFamily.php` où `MYFAMILY` est l'identifiant de la famille)
+    **Note** : Le nom du fichier doit être unique parmi tous les fichiers
+    présents dans le répertoire `FDL`. Il est fortement conseillé d'indiquer
+    l'identifiant de la famille dans le nom de fichier
+    (par exemple : `Method.MyFamily.php` où `MYFAMILY` est l'identifiant de la
+    famille).
     
     Cette propriété peut être utilisé plusieurs fois, avec la sémantique
     suivante :
@@ -500,13 +512,15 @@ ATTR
     Définit l'ordre de présentation des attributs dans le document.
      L'ordre est un nombre entier.
     
-    **Note**: Les tableaux (type `array`) doivent toujours avoir un ordre inférieur aux attributs qui le compose.
+    **Note**: Les tableaux (type `array`) doivent toujours avoir un ordre
+    inférieur aux attributs qui le composent.
     
     Cette caractéristique est ignorée sur les attributs de type *frame* ou *tab*.
 
 [visibility]
 :   **Obligatoire**  
-    Définit la visibilité par défaut de l'attribut dans les interfaces web de consultation et de modification du document.
+    Définit la visibilité par défaut de l'attribut dans les interfaces web de
+    consultation et de modification du document.
     
     Les valeurs possibles sont :
     
@@ -554,7 +568,8 @@ ATTR
 :   **facultatif** (Non applicable pour les types "frame", "tab", "array")  
     Ajoute un hyperlien sur l'attribut sur les interfaces web de consultation des documents.
     
-    Par défaut, le texte de l'hyperlien est la valeur de l'attribut. L'option `ltarget` permet de changer ce texte.
+    Par défaut, le texte de l'hyperlien est la valeur de l'attribut. L'option
+    `ltarget` permet de changer ce texte.
     
     L'hyperlien peut être :
     
@@ -647,7 +662,8 @@ ATTR
 
 [phpfile]
 :   **Facultatif** (Non applicable pour les types "frame", "tab", "array")  
-    Nom du fichier php pour l'[aide à la saisie][aide_saisie]. Ce fichier doit être présent dans le répertoire `EXTERNALS`.
+    Nom du fichier php pour l'[aide à la saisie][aide_saisie].
+    Ce fichier doit être présent dans le répertoire `EXTERNALS`.
 
 [phpfunc]
 :   **Facultatif** (Non applicable pour les types "frame", "tab", "array") 
@@ -662,12 +678,12 @@ ATTR
     Le type de l'attribut est `enum`. Les aides à la saisie ne sont pas 
     autorisé pour les attributs de type `enum`.
 
-<span class="fixme" data-assignedto="mco">Ajouter une ancre qui fonctionne sur elink</span>
-[elink]{#core-ref:d9849af0-0c08-473a-9250-dcf62a55104d}
+[elink]
 :   **facultatif** (Non applicable pour les types "frame", "tab", "array")  
     Extra lien supplémentaire.
     
-    Cet extra lien sera présenté dans les interfaces web de modification de document, sous la forme d'un bouton supplémentaire.
+    Cet extra lien sera présenté dans les interfaces web de modification de
+    document, sous la forme d'un bouton supplémentaire.
     
     La syntaxe de l'extra lien est la même que celle de la colonne *link*.
 
@@ -689,10 +705,11 @@ Un [paramètre de famille][family_param] est défini par la syntaxe suivante :
 
     PARAM;[id_attribut];[id_conteneur];[label];[in_title];[in_abstract];[type];[ordre];[visibility];[required];[link];[phpfile];[phpfunc];[elink];[constraint];[options]
 
-avec les mêmes correspondances que pour [les attributs][attributs], aux exceptions suivantes :
+avec les mêmes correspondances que pour [les attributs][attributs],
+aux exceptions suivantes :
 
-*   Pour les paramètres calculé, le calcul est fait 
-    lors de l'accès au paramètre.
+*   Pour les paramètres calculés, le calcul est fait lors de l'accès au
+    paramètre.
 *   Les méthodes de calcul et de contrainte doivent être statiques (elles sont
     spécifiées par la syntaxe `class::method`).
 
@@ -702,7 +719,8 @@ Les valeurs par défaut s'appliquent aux attributs comme aux paramètres.
 
 Appliquées aux attributs, elles déterminent la valeur de l'attribut lors de la
 création d'un nouveau document, alors qu'appliquées aux paramètres,
-elles déterminent la valeur du paramètre lorsque l'utilisateur n'a saisi aucune valeur.
+elles déterminent la valeur du paramètre lorsque l'utilisateur n'a saisi aucune
+valeur.
 
 Une valeur par défaut est définie par la syntaxe suivante :
 
@@ -716,7 +734,8 @@ DEFAULT
 
 [attrid|paramid]
 :   **Obligatoire**  
-    Identifiant de l'attribut ou du paramètre auquel s'applique la valeur par défaut.
+    Identifiant de l'attribut ou du paramètre auquel s'applique la valeur par
+    défaut.
 
 [value]
 :   La valeur par défaut, statique, ou la méthode de calcul.
@@ -731,12 +750,14 @@ DEFAULT
     
     Cas particulier des *array*:
     
-    *   Pour définir quelles lignes seront présentes par défaut dans le tableau, on
-        spécifie la valeur par défaut de l'attribut *array*.
+    *   Pour définir quelles lignes seront présentes par défaut dans le tableau,
+        on spécifie la valeur par défaut de l'attribut *array*.
         
-        Cette valeur par défaut est une structure JSON sous la forme d'un tableau d'objets.
+        Cette valeur par défaut est une structure JSON sous la forme d'un
+        tableau d'objets.
         
-        Par exemple,`DEFAULT;ATTR_ARRAY;[{"c1":"1.1", "c2":"1.2"},{"c1":"2.1", "c2":"2.2"}]`
+        Par exemple,
+        `DEFAULT;ATTR_ARRAY;[{"c1":"1.1", "c2":"1.2"},{"c1":"2.1", "c2":"2.2"}]`
         indique que le tableau *ATTR_ARRAY* sera pré-rempli avec 2 lignes.
         
         *   La première ligne aura comme valeurs
@@ -746,12 +767,12 @@ DEFAULT
             *   *2.1* dans la colonne correspondant à l'attribut *c1*
             *   *2.2* dans la colonne correspondant à l'attribut *c2*
         
-        Si l'on souhaite utiliser une méthode de calcul pour cette valeur par défaut,
-        la méthode doit retourner le tableau à 2 dimensions qui, une fois json_encodé,
-        donne la structure précédente.
+        Si l'on souhaite utiliser une méthode de calcul pour cette valeur par
+        défaut, la méthode doit retourner le tableau à 2 dimensions qui, une
+        fois json_encodé, donne la structure précédente.
         
-        Par exemple, la méthode correspondant à la valeur par défaut précédente sera
-        `DEFAULT;ATTR_ARRAY;::defaultArrayValue()`.
+        Par exemple, la méthode correspondant à la valeur par défaut précédente
+        sera `DEFAULT;ATTR_ARRAY;::defaultArrayValue()`.
         
             [php]
             public function defaultArrayValue(){
@@ -770,13 +791,15 @@ DEFAULT
     *   Pour définir les valeurs par défaut de chaque cellule lors de
         l'ajout d'une nouvelle ligne, on spécifie la valeur par défaut de 
         l'attribut correspondant à cette colonne.  
-        De fait, la valeur par défaut d'un attribut contenu dans un *array* doit 
+        De fait, la valeur par défaut d'un attribut contenu dans un *array* doit
         être simple.
 
 [force=yes]
-:   **facultatif** Indique, lors de la surcharge de valeur par défaut, que la nouvelle valeur par défaut écrase l'ancienne.
+:   **facultatif** Indique, lors de la surcharge de valeur par défaut, que la
+    nouvelle valeur par défaut écrase l'ancienne.
     
-    Dans le cas contraire, la nouvelle valeur par défaut n'est pas prise en compte lors des mises à jours.
+    Dans le cas contraire, la nouvelle valeur par défaut n'est pas prise en
+    compte lors des mises à jours.
 
     Les valeurs par défaut peuvent être réinitialisées avec la clef
      [`RESET default`][reset].
@@ -785,8 +808,8 @@ DEFAULT
 
 Les paramètres de familles peuvent avoir des valeurs par défaut,
 utilisées lorsque ces paramètres n'ont pas de valeur explicite ;
-mais il est parfois nécessaire de définir la valeur initiale du paramètre en plus
-de sa valeur par défaut.
+mais il est parfois nécessaire de définir la valeur initiale du paramètre en
+plus de sa valeur par défaut.
 
 Une valeur initiale de paramètre est définie par la syntaxe suivante :
 
@@ -809,7 +832,8 @@ INITIAL
     [attribut calculé][attribut_calcule].
 
 [force=yes]
-:   Indique, lors de la surcharge de valeur initiale, que la nouvelle valeur initiale écrase l'ancienne.
+:   Indique, lors de la surcharge de valeur initiale, que la nouvelle valeur
+    initiale écrase l'ancienne.
     
     Dans le cas contraire, la nouvelle valeur initiale n'est pas prise en compte.
     Les valeurs initiales peuvent être réinitialisées avec la clef
@@ -817,12 +841,13 @@ INITIAL
 
 ### Modification d'attribut père {#core-ref:13dcd96d-561f-463c-a88f-4b9db58e4fbd}
 
-Lorsqu'une famille étend une autre famille, il peut être nécessaire de changer la définition d'un attribut.
-Cela se fait au moyen d'une ligne de la forme :
+Lorsqu'une famille étend une autre famille, il peut être nécessaire de changer
+la définition d'un attribut. Cela se fait au moyen d'une ligne de la forme :
 
     MODATTR;[id_attribut];[id_conteneur];[label];[in_title];[in_abstract];[type];[ordre];[visibility];[required];[link];[phpfile];[phpfunc];[elink];[constraint];[options]
 
-avec les même correspondances que pour la [définition d'un attribut][definition_attribut], à quelques différences près :
+avec les même correspondances que pour la
+[définition d'un attribut][definition_attribut], à quelques différences près :
 
 MODATTR
 :   **Obligatoire**  
@@ -836,7 +861,8 @@ MODATTR
     L'attribut référencé doit obligatoirement exister dans la famille étendue.
 
 [id_conteneur]
-:   Identifiant système de l'attribut structurant ou tableau contenant cet attribut.
+:   Identifiant système de l'attribut structurant ou tableau contenant cet
+    attribut.
     
     Si la valeur est vide, l'attribut conservera sa valeur héritée.
 
@@ -895,8 +921,9 @@ MODATTR
 
 [phpfunc]
 :   Nom et attributs de la fonction pour l'aide à la saisie,
-    ou nom et attributs de la méthode de calcul s'il s'agit d'un attribut calculé,
-    ou définition des clés-valeurs dans le cas d'un attribut de type énuméré.
+    ou nom et attributs de la méthode de calcul s'il s'agit d'un attribut
+    calculé, ou définition des clés-valeurs dans le cas d'un attribut de type
+    énuméré.
     
     Si la valeur est vide, l'attribut conservera sa valeur héritée.
     
@@ -923,8 +950,9 @@ MODATTR
     
     Pour supprimer l'hyperlien, il faut mettre la valeur `-`.
     
-    Afin de modifier la valeur d'une seule option, il est nécessaire de toutes les reporter,
-    car la valeur `-` va effacer entièrement le contenu de la colonne *options*.
+    Afin de modifier la valeur d'une seule option, il est nécessaire de toutes
+    les reporter, car la valeur `-` va effacer entièrement le contenu de la
+    colonne *options*.
 
 ### Instructions de réinitialisation {#core-ref:5c661733-772d-42b8-8b3e-b70453ddfd33}
 
@@ -953,8 +981,8 @@ RESET
         La définition de tous les attributs sera effacée
         (les valeurs ne sont pas supprimées des documents existants).
         
-        **Attention** : Cela supprime aussi les paramètres de la famille en 
-        conservant les valeurs.
+        **Attention** : la définition des paramètres de la famille est également
+        effacée (bien que les valeurs soient également conservées).
     
     `default`
     :   Réinitialise les valeurs par défaut.
@@ -973,18 +1001,21 @@ RESET
         paramètres utiliseront les valeurs par défaut si elles sont définies.
 
 
-Ces instructions de réinitialisation doivent être placées avant la nouvelle définition des éléments réinitialisés. 
+Ces instructions de réinitialisation doivent être placées avant la nouvelle
+définition des éléments réinitialisés.
 
 Chaque instruction doit être sur sa propre ligne.
 
 ## Surcharge de définition de famille {#core-ref:686b17c3-220e-4450-a0d0-feb5db002cbc}
 
-La définition d'une famille peut être surchargée, permettant ainsi une importation plus modulaire.
-Il est bien question ici de la notion de *surcharge* qui change la définition d'une famille,
-et à ne pas confondre avec le mécanisme d'héritage, qui crée une nouvelle famille.
+La définition d'une famille peut être surchargée, permettant ainsi une
+importation plus modulaire.
+Il est bien question ici de la notion de *surcharge* qui change la définition
+d'une famille, et à ne pas confondre avec le mécanisme d'héritage, qui crée une
+nouvelle famille.
 
-Pour surcharger une définition de famille, il suffit d'utiliser le même nom logique
-(sur la ligne *BEGIN*).
+Pour surcharger une définition de famille, il suffit d'utiliser le même nom
+logique (sur la ligne *BEGIN*).
 
 Lors de la surcharge, le comportement est le suivant :
 
@@ -1021,8 +1052,9 @@ Ce comportement peut être altéré par l'utilisation des
 
 Une fois votre définition de famille créée, vous pouvez l'importer dans Dynacase.
 
-Cette importation permettra à Dynacase de créer les tables nécessaires aux documents de cette famille,
-et de rendre la dite famille disponible dans les différentes IHM de Dynacase.
+Cette importation permettra à Dynacase de créer les tables nécessaires aux
+documents de cette famille, et de rendre la dite famille disponible dans les
+différentes IHM de Dynacase.
 
 L'importation se fait en ligne de commande, avec la commande suivante :
 

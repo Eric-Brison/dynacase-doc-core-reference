@@ -22,7 +22,7 @@ Le calcul de l'attribut peut être
     
     Par exemple : *attr_e = quantité en stock dans l'ERP*
 
-Ce calcul peut est effectué au moyen :
+Ce calcul peut être effectué au moyen :
 
 *    d'une méthode *publique* de la classe du document contenant l'attribut,
 *    d'une méthode statique d'une autre classe.
