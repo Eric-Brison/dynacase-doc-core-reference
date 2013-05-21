@@ -33,7 +33,7 @@ Lors de l'upload du fichier, il est enregistré dans le *vault*.
 La valeur stockée est l’identifiant vault du fichier 
 (sous la forme *&lt;type-mime&gt;|&lt;vaultid&gt;|&lt;file-title&gt;*).
 
-Le type utilisé en base de donnée est `timestamp without timezone`. 
+Le type utilisé en base de donnée est `text`. 
 
 ## Options {#core-ref:b1a5a304-9eff-4e7a-8e0d-ab2363eaa346}
 

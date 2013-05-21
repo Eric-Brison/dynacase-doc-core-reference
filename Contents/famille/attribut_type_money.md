@@ -11,7 +11,7 @@ Permet de représenter un format monétaire.
     Le nombre, formaté au moyen de la fonction [`money_format('%!.2n', …)`][PHP_money_format].
     
     ![ money - consultation html ](famille/attributs/money-consultation.png "money - Consultation html")
-
+    
     Le formatage spécifique de *money* doit être conforme à celui utilisé dans la 
     fonction [sprintf][PHP_sprintf]. Par contre, il faut utiliser `%s` et non `%f` car le résultat donné à la fonction de formatage est ce qui est produit par *money_format*.
     Par exemple `money("%s €")` pour ajouter la devise de l'euro.

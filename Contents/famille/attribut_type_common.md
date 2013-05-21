@@ -33,7 +33,7 @@ showempty
 sortable
 :   Indique les modalités de tri de l'attribut.
     
-    Par défaut, les attributs sont considérés comme non sortable.
+    Par défaut, les attributs sont considérés comme non triable.
     
     Les valeurs possibles sont :
     
@@ -58,12 +58,12 @@ vlabel
     
     Les valeurs possibles sont :
     
-    *   pour les attributs de type frame et onglet :
+    *   pour les attributs de type _frame_ et _onglet_ :
         
         *   **`up` (comportement par défaut)**
         *   `none`
     
-    *   pour les attributs de type array :
+    *   pour les attributs de type _array_ :
         
         *   **`left` (valeur par défaut *en consultation*)**
         *   **`up` (valeur par défaut *en modification*)**
@@ -77,7 +77,7 @@ vlabel
 
 
 ititle
-: texte du tooltip du bouton '...' de l'[aide à la saisie][aide_saisie]. 
+: Texte du tooltip du bouton '...' de l'[aide à la saisie][aide_saisie]. 
   Par défaut : «choisissez une valeur »
 
 ltitle
@@ -93,7 +93,7 @@ lconfirm
 lien. Mettre `lconfirm=yes` pour activer la confirmation.
 
 tconfirm
-: texte de la confirmation
+: Texte de la confirmation
 
 autosuggest
 :  En édition, sur une aide à la saisie, indique que la recherche est
@@ -102,13 +102,14 @@ autosuggest
 
 eltitle
 : Options pour pour les extra liens (*elink*).
-  Texte affichable surgissant sur le bouton généré par l'extra lien.
+  Texte affichable surgissant sur le bouton généré par l'[extra lien][elink].
 
 elsymbol
-: Caractère affiché sur le bouton généré par l'extra lien. Par défaut c'est le caractère `+` qui est affiché.
+: Caractère affiché sur le bouton généré par l'[extra lien][elink]. Par défaut c'est le caractère `+` qui est affiché.
 
 eltarget
-: Nom de la fenêtre destinataire sur le bouton généré par l'extra lien.
+: Nom de la fenêtre destinataire sur le bouton généré par l'[extra lien][elink].
 
 <!-- links -->
 [aide_saisie]: #core-ref:0b2d4cd0-4eed-41d8-ac57-37525a444194
+[elink]: #core-ref:edf84026-7980-442f-bc86-88739e49e3b5

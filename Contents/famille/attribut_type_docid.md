@@ -17,7 +17,7 @@ Cela se fait au moyen de la syntaxe *docid("&lt;family>")* (Dans ce cas, les doc
 
 *   modification :
     
-    une aide à la saisie vers les documents de la famille cible (et de ses sous-familles). L'aide à la saisie porte sur le titre uniquement, avec le filtre *contient, insensible à la casse*
+    une aide à la saisie vers les documents de la famille cible (et de ses sous-familles). L'aide à la saisie porte sur le titre uniquement, avec le filtre *contient, insensible à la casse* et aux accents.
     
     ![ docid simple - Modification html ](famille/attributs/docid-simple-modification.png "docid simple - Modification html")
 

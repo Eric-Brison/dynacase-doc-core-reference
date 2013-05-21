@@ -144,7 +144,7 @@ mselectsize
 multiple
 :   Indique que l'énuméré peut être multivalué.
     
-    Les énumérés multiples ne peuvent pas être utilisés dans les tableaux.
+    **Les énumérés multiples ne peuvent pas être utilisés dans les tableaux**.
     
     Les valeurs possibles sont :
     
