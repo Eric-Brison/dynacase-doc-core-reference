@@ -1,8 +1,8 @@
 # Visibilité des attributs {#core-ref:3e67d45e-1fed-446d-82b5-ba941addc7e8}
 
 Les attributs sont caractérisés par leur visibilité. Cette visibilité indique
-si l'attribut est présenté, et s'il est modifiable dans les interfaces. Les différentes
-visibilités disponibles sont les suivantes :
+si l'attribut est présenté, et s'il est modifiable dans les interfaces.
+Les différentes visibilités disponibles sont les suivantes :
 
 `H`
 :   Attribut caché : présent dans la dom, il ne sera pas affiché.
@@ -28,7 +28,9 @@ visibilités disponibles sont les suivantes :
 `W`
 :   Attribut visible en *consultation* et en *modification*, et modifiable
 
-Il est important de distinguer la visibilité et les droits. **La visibilité n'offre pas de protection contre l'accès à l'information** sauf pour la visibilité `I`.
+Il est important de distinguer la visibilité et les droits :
+**La visibilité n'offre pas de protection contre l'accès à l'information**
+sauf pour la visibilité `I`.
 
 
 ## Visibilité des attributs structurants {#core-ref:8349d1e6-ad9b-4c51-957e-b3f63497354c}
