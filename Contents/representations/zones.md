@@ -11,14 +11,14 @@ Par convention :
 *   son nom détermine le nom de la zone,
 *   la fonction php doit être dans un fichier du même nom,
 *   la fonction associée doit porter le même nom. Elle recevra en
-    seul paramètre un objet de la classe `Action` dont la propriété `lay` est
+    paramètre un objet de la classe `Action` dont la propriété `lay` est
     un objet `Layout`.
 
 <span class="fixme" data-assignedto="EBR">préciser les règles de casse</span>
 
 ## Aperçu du système de template {#core-ref:9f10e2bb-b004-418b-8a74-7f155eeef27b}
 
-Le mécanisme de template utilisé dans dynacase utilise des placeholders de la
+Le mécanisme de template utilisé dans Dynacase utilise des placeholders de la
 forme `[keyword]`.
 
 ### Valeurs *atomiques* {#core-ref:e63c75ad-98b5-48b3-a2cb-027392b9b403}
@@ -28,7 +28,7 @@ Elles sont définies au moyen de la méthode `Layout::set`. Par exemple :
 Le template `atomic.xml` :
 
     La somme de [X] + [Y] = [XplusY]
-    Le produit de [X] + [Y] = [XfoisY]
+    Le produit de [X] * [Y] = [XfoisY]
 
 Associé au fichier `atomic.php` :
 
@@ -46,7 +46,7 @@ Associé au fichier `atomic.php` :
 Donne :
 
     La somme de 34 + 78 = 112
-    Le produit de 34 + 78 = 2652
+    Le produit de 34 * 78 = 2652
 
 ### valeurs *multiples* {#core-ref:b0f5c7ed-8146-446f-912a-41add1f48dcb}
 

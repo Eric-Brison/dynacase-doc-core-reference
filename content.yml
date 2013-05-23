@@ -139,11 +139,15 @@ book:
       content:  "representations/introduction.md"
       subtoc:   2
     - level:   2
-      content:  "representations/zones.md"
+      content:  "representations/template_usage.md"
       flags:
         draft: "draft"
     - level:   2
       content:  "representations/vue_de_documents.md"
+      flags:
+        draft: "draft"
+    - level:   2
+      content:  "representations/vue_specifique_de_documents.md"
       flags:
         draft: "draft"
     - level:   2
