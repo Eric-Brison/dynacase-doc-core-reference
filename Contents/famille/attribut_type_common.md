@@ -110,6 +110,16 @@ elsymbol
 eltarget
 : Nom de la fenêtre destinataire sur le bouton généré par l'[extra lien][elink].
 
+viewtemplate
+: Référence de la [vue d'attribut][viewtemplate] à utiliser lors de la
+ consultation du document
+
+edittemplate
+: Référence de la [vue d'attribut][edittemplate] à utiliser lors de la
+ modification du document
+
 <!-- links -->
 [aide_saisie]: #core-ref:0b2d4cd0-4eed-41d8-ac57-37525a444194
 [elink]: #core-ref:edf84026-7980-442f-bc86-88739e49e3b5
+[viewtemplate]: #core-ref:9cb7b313-7294-424d-bd86-a63155025902 "vue de consultation"
+[edittemplate]: #core-ref:4faa4b17-56fc-4e42-a091-f1a97b7591b8 "vue de modification"

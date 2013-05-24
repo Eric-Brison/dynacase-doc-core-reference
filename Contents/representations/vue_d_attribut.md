@@ -83,7 +83,7 @@ le nom en minuscule est recherché.
 Le nom de la méthode est le nom `DOCVIEW`. Dans ce cas, la casse du nom de la
 méthode  n'est pas prise en compte (comme pour les méthodes de PHP en général).
 
-## Vue de consultation {#core-ref:9cb7b313-7294-424d-bd86-a63155025902}
+## Vue de consultation d'attribut {#core-ref:9cb7b313-7294-424d-bd86-a63155025902}
 
 La vue d'attribut remplace la valeur d'un attribut
 
@@ -223,12 +223,15 @@ Dans cet exemple le template est associé à l'attribut `MY_TEXT` avec l'option
 
 ### Utilisation d'un contrôleur d'attribut spécifique
 
-Le contrôleur d'attribut est identique à un contrôleur de [vue de documents][viewcontroler]].
+Le contrôleur d'attribut est identique à un contrôleur de
+ [vue de documents][viewcontroler].
 
 La seule différence c'est qu'il ne contrôle qu'un attribut ou un ensemble 
 d'attribut dans le cas d'un tableau ou d'un cadre.
 
 Exemple : 
+
+    Method.MyFamily.php
 
     [php]
     /**
@@ -258,12 +261,12 @@ Dans cet exemple le template est associé à l'attribut `MY_NUMBER` avec l'optio
 est déclarée dans le fichier [_METHOD_][famprop] de la famille.
 
 
-## Vue de modification {#core-ref:4faa4b17-56fc-4e42-a091-f1a97b7591b8}
+## Vue de modification d'attribut {#core-ref:4faa4b17-56fc-4e42-a091-f1a97b7591b8}
 
-<span class="fixme" data-assignedto="EBR">modèle de boites / zones ?</span>
 La vue d'attribut remplace le champ de saisie d'un attribut du formulaire
 
-Elle s'insère à la place de la valeur d'un attribut depuis la zone `FDL:EDITBODYCARD`.
+Elle s'insère à la place de la valeur d'un attribut depuis la zone 
+`FDL:EDITBODYCARD`.
 
 Extrait d'un formulaire de document avec la zone `FDL:EDITBODYCARD` :
 
@@ -274,6 +277,8 @@ Extrait d'un formulaire de document avec la zone `FDL:EDITBODYCARD` :
            <td><input value="Value 1"/> ...</td>
            <td><input type="button"/> aide à la saisie/ extra link </td>
         </tr>
+    </table>
+    <table>
         <tr>
            <td>Label 2</td>
            <td><input value="Value 2"> ...</td>
@@ -296,6 +301,8 @@ saisie sera :
            <td><input value="Value 1"/> ...</td>
            <td><input type="button"/> aide à la saisie/ extra link </td>
         </tr>
+    </table>
+    <table>
         <tr>
            <td>Label 2</td>
            <td>ICI LE RESULTAT DE LA VUE D'ATTRIBUT </td>
@@ -304,21 +311,58 @@ saisie sera :
 
 La vue d'attribut sera présentée dans une cellule de tableau HTML comme
 représenté ci-dessous. Le template d'un champ doit retourner deux éléments : le
-champ de saisie et les éventuelle boutons de contrôles séparé par des élements
-de cellule `</td><td>`. Car au final le tableau comporte trois colonnes.
+champ de saisie et les éventuelle boutons de contrôles séparé par des éléments
+de cellule `</td><td>`. Car au final le tableau doit comporter trois colonnes pour 
+avoir un alignement correct.
 
 ### Options des vues d'attribut en modification {#core-ref:54fc1da2-da41-4302-a4fa-bfebea1d640f}
 
 Les options disponibles en modification sont les suivantes :
 
 `S`
-:   signifie que le libellé de l'attribut ne sera pas affiché et le template
+:   Signifie que le libellé de l'attribut ne sera pas affiché et le template
     prendra toute la largeur du document.
     
+    L'insertion se fera dans le fragment html suivant :
+&nbsp;
+
+    [html]
+    <table>
+        <tr>
+           <td>Label 1 :</td>
+           <td><input value="Value 1"/> ...</td>
+           <td><input type="button"/> aide à la saisie/ extra link </td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+           <td colspan="3">ICI LE RÉSULTAT DE LA VUE D'ATTRIBUT </td>
+        </tr>
+    </table>
+
 `U`
-:   signifie que l'input généré par le mot-clef `[V_ATTRNAME]` prendra toute la
-    largeur disponible. Cette option est à utiliser si le template ne comporte
-    qu'un seul input.
+:   Signifie que l'input généré par le mot-clef `[V_ATTRNAME]` prendra toute la
+    largeur disponible. Elle n'ajoute pas de `</td><td>` supplémentaire.
+    Cette option est à utiliser si les mots-clefs `[V_ATTRNAME]` sont présents dans 
+    le template. 
+&nbsp;
+
+    [html]
+    <table>
+        <tr>
+           <td>Label 1 :</td>
+           <td><input value="Value 1"/> ...</td>
+           <td><input type="button"/> aide à la saisie/ extra link </td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+           <td>Label 2 :</td>
+           <td>RÉSULTAT DE LA VUE SANS AUTRE TD : Tableau à 2 cellules</td>
+        </tr>
+    </table>
+
+
 
 ### Utilisation des valeurs du document en modification {#core-ref:92002e19-2b6c-474c-9f6b-0ff265dce351}
 
@@ -342,8 +386,11 @@ Lors de l'utilisation d'un contrôleur personnalisé, il est possible d'appeler
 ces méthodes afin de générer les clés correspondantes. Il est également possible
 de définir d'autres clés en utilisant les différentes méthodes du `Layout`.
 
-Les clefs `V_ATTRID` fournies par `Doc::editattr()` retourne par défaut les 2 élements _champ de saisie_ et _boutons de contrôle_ séparés par `</td><td>` pour une insertion dans le formulaire.
-La méthode `Doc::editAttr()` possède un argument qui permet d'omettre le séparateur `</td><td>` pour des constructions de vues plus spécialisées.
+Les clefs `V_ATTRID` fournies par `Doc::editattr()` retourne par défaut 
+les 2 élements _champ de saisie_ et _boutons de contrôle_ séparés par 
+`</td><td>` pour une insertion dans le formulaire.
+La méthode `Doc::editAttr()` possède un argument qui permet d'omettre le 
+séparateur `</td><td>` pour des constructions de vues plus spécialisées.
 
 **Attention** : toutes ces clés respectent les visibilités : si l'utilisateur
 n'a pas le droit de voir un attribut, la clé `V_ATTRID` génère un
@@ -356,7 +403,8 @@ de définir d'autres clés en utilisant les différentes méthodes du `Layout`.
 
 Exemple : 
 
-    Method.MyFamilly.php
+    Method.MyFamily.php
+
     [php]
     /**
      * Affiche le nombre sur 3 chiffres
@@ -382,21 +430,24 @@ Dans ce cas le résultat sera
            <td><input value="Value 1"/> ...</td>
            <td><input type="button"/> aide à la saisie/ extra link </td>
         </tr>
+    </table>
+    <table>
         <tr>
            <td>My number</td>
            <td>Nombre à saisir <input name=_"my_number" value="45"/></td><td></td>
         </tr>
     </table>
 
+Ce qui donne la représentation suivante :
 
 <table style="width:auto">
     <tr>
-       <td align="right">Label 1 :</td>
+       <td style="vertical-align:middle;text-align:right">Label 1 :</td>
        <td><input value="Value 1"/> </td>
        <td><input type="button" value="..."/><input type="button" value="&times;"/>  </td>
     </tr>
     <tr>
-       <td align="right">My number</td>
+       <td style="vertical-align:middle;text-align:right">My number</td>
        <td>Nombre à saisir <input name=_"my_number" value="45"/></td><td></td>
     </tr>
 </table>
@@ -407,17 +458,17 @@ Les vues d'attribut ne sont pas gérées par Dynacase dans les vues de document
 personnalisées. Elles sont utilisés que dans les vues `FDL:VIEWBODYCARD` pour la 
 consultation et `FDL:EDITBODYCARD` pour la modification.
 
-Chaque vue d'attribut travaille sur une instance différente de l'objet `Doc`
+Chaque vue d'attribut utilise la même instance de l'objet `Doc`
 correspondant au document en cours de consultation ou de modification.
 
 Les vues d'attributs ne sont pas applicables aux attributs de type `tab`, ni 
 aux attributs insérés dans un tableau. Dans ce dernier cas, il faut utiliser une 
 [vue de tableau][array_row_view].
 
-<!-- links -->
+<!-- links --> 
 [default_view_controleur]: #core-ref:9c6d90f7-84e8-4d84-bd75-69899b8d5b4f
-[zone_options_view]: #core-ref:ffc29ae1-7438-4a5b-aca2-83dc98be4d9d
-[zone_options_edit]: #core-ref:54fc1da2-da41-4302-a4fa-bfebea1d640f
-[array_row_view]: #core-ref:9e76ac49-3b17-435b-ba25-a7122369be85
-[viewcontroler]: {#core-ref:5da69221-eb2e-41a7-9f7a-d2c2e27c4184}
+[zone_options_view]: #core-ref:ffc29ae1-7438-4a5b-aca2-83dc98be4d9d 
+[zone_options_edit]: #core-ref:54fc1da2-da41-4302-a4fa-bfebea1d640f 
+[array_row_view]: #core-ref:9e76ac49-3b17-435b-ba25-a7122369be85 
+[viewcontroler]: #core-ref:5da69221-eb2e-41a7-9f7a-d2c2e27c4184
 [famprop]: #core-ref:6f013eb8-33c7-11e2-be43-373b9514dea3

@@ -121,6 +121,12 @@ userowadd
     *   **`yes` (comportement par défaut)**
     *   `no`
 
+rowviewzone
+:   Indique une [vue spécifique de tableau][viewrow] pour la consultation.
+
+roweditone
+:   Indique une [vue spécifique de tableau][editrow] pour la modification.
+
 ## Options applicables aux attributs contenus dans un array {#core-ref:2732ecb2-7cc1-414f-8864-7d7e97a6091b}
 
 align
@@ -170,3 +176,5 @@ cwidth
 [JSCOLOR_home]: http://jscolor.com/ "site officiel de JSColor"
 [JSCALENDAR_HOME]: http://www.dynarch.com/projects/calendar/old/ "site officiel de JSCalendar"
 [odt_restrictions]: #core-ref:3742b35d-ddc0-440e-a0aa-08ea2faf0e46
+[viewrow]:  #core-ref:d237e0d4-ca4e-4b9e-8249-45aef7d2ef0f
+[editrow]:  #core-ref:c0ed29f6-02e5-4ff2-8943-511a7d00c106

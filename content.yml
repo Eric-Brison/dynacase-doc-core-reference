@@ -141,23 +141,23 @@ book:
     - level:   2
       content:  "representations/template_usage.md"
       flags:
-        draft: "draft"
+        need-review: "need review"
     - level:   2
       content:  "representations/vue_de_documents.md"
       flags:
-        draft: "draft"
+        need-review: "need review"
     - level:   2
       content:  "representations/vue_specifique_de_documents.md"
       flags:
-        draft: "draft"
+        need-review: "need review"
     - level:   2
       content:  "representations/vue_d_attribut.md"
       flags:
-        draft: "draft"
+        need-review: "need review"
     - level:   2
       content:  "representations/vue_de_range_tableau.md"
       flags:
-        draft: "draft"
+        need-review: "need review"
     - level:   2
       content:  "representations/ooo_layout.md"
       flags:
