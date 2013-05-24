@@ -168,18 +168,36 @@ book:
     - level:   1
       content:  "importation_exportation_documents/introduction.md"
       flags:
-        wip: "work in progress"
+        draft: "draft"
       subtoc:   2
     - level:   2
       content:  "importation_exportation_documents/importations.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
+    - level:   2
+      content:  "importation_exportation_documents/importationsxml.md"
+      flags:
+        draft: "draft"
+    - level:   2
+      content:  "importation_exportation_documents/importationsarchive.md"
+      flags:
+        draft: "draft"
+    - level:   2
+      content:  "importation_exportation_documents/importationswsh.md"
+      flags:
+        draft: "draft"
     - level:   2
       content:  "importation_exportation_documents/exportations.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+         draft: "draft"
+    - level:   2
+      content:  "importation_exportation_documents/exportationsxml.md"
+      flags:
+         draft: "draft"
+    - level:   2
+      content:  "importation_exportation_documents/exportationsprofil.md"
+      flags:
+        draft: "draft"
 ##
 # comptes_groupes_roles
 ##
