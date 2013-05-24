@@ -202,7 +202,7 @@ Par exemple :
         **Pour le moment, le parsing au runtime ne supporte pas de classe
         personnalisée, si `Style::RULE_FLAG_PARSE_ON_RUNTIME` est positionné,
         le fichier sera parsé par le moteur de template de Dynacase. Aussi,
-        positionner une valeur autre que null à l'index clasname lèvera 
+        positionner une valeur autre que null à l'index className lèvera 
         une erreur.**
         
         C'est un tableau contenant :
@@ -346,7 +346,7 @@ Le module `dynacase-jqueryui-installer` ajoute aussi deux autres règles au styl
 
 Le fichier `css` de style est utilisable dans les règles. En l'absence de
 parser, ce fichier doit être autonome. Il doit être composé uniquement de règles
-css valides. Les url d'accès aux images doivent être défini par rapport à la
+css valides. Les url d'accès aux images doivent être définies par rapport à la
 cible. Si la cible est  `mypath/mycss.css` le fichier produit sera placé dans le
 répertoire `css/mypath/mycss.css`.
 
@@ -515,7 +515,7 @@ Les règles de surcharge de style sont :
     );
 
 L'exemple remplace le fichier `DEFAULT.css` par `MONSTYLE.css` en réutilisant
-l'index `style` des sources. Il remplacer aussi la css du calendrier utilisé
+l'index `style` des sources. Il remplace aussi la css du calendrier utilisé
 dans la modification de documents.
 
 
@@ -554,7 +554,7 @@ sera composée de :
 
 ## Créer un nouveau style sans héritage
 
-Pur créer une style sans héritage il est nécessaire de déclarer l'ensemble des
+Pour créer un style sans héritage il est nécessaire de déclarer l'ensemble des
  règles nécessaires aux différentes interfaces :
 
 * dcp/core.css
