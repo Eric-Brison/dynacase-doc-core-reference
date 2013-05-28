@@ -1,14 +1,13 @@
-# Utilisation des templates
+# Utilisation des templates {#core-ref:5f4a2f4b-9ceb-42db-8ac1-2a7baa621ce2}
 
-Les templates utilisées pour les vues de documents sont gérés par la 
- [classe `Layout`][advancedtemplate].  Cette classe permet de renseigner des
-  parties variables définies dans un fichier texte.
-
+Les templates utilisés pour les vues de documents sont gérés par la
+[classe `Layout`][advancedtemplate]. Cette classe permet de renseigner des
+parties variables définies dans un fichier texte.
 
 Le mécanisme de template utilisé dans Dynacase utilise des placeholders de la
 forme `[keyword]`.
 
-## Valeurs *atomiques* 
+## Valeurs *atomiques*  {#core-ref:4fdd120b-eaf1-4fbf-a157-f4eb3ee62e76}
 
 Elles sont définies au moyen de la méthode `Layout::set`. Par exemple :
 
@@ -36,7 +35,7 @@ Donne :
     La somme de 34 + 78 = 112
     Le produit de 34 * 78 = 2652
 
-## valeurs *multiples* 
+## valeurs *multiples*  {#core-ref:587b563e-7371-469f-9d1e-350607056c73}
 
 Elles sont définies au moyen de la méthode `Layout::setBlockData`. Par exemple :
 
@@ -81,7 +80,7 @@ Donne :
     - 3 * 9 = 27
     - 3 * 10 = 30
 
-## Conditions 
+## Conditions  {#core-ref:ecf5bdf3-3d61-4c59-b640-4a62dc2054c5}
 
 Elles sont définies  au moyen de la méthode `Layout::set`. Par exemple :
 
@@ -103,11 +102,11 @@ Donne :
 
     Interdit is false
 
-## Internationalisation 
+## Internationalisation  {#core-ref:6a4b3a9b-11b6-47d4-b387-0ff177dd9f82}
 
 Pour rendre du texte traduisible, il faut utiliser la syntaxe
 `[TEXT:translate me]`. ce texte sera automatiquement ajouté au catalogue de
-traduction, et sera remplacé lors du rendu du template.
+traduction, et sera remplacé par sa traduction lors du rendu du template.
 
 
 

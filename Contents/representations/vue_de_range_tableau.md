@@ -8,7 +8,7 @@ la structure est complexe. Il est ainsi possible de changer la disposition des
 Contrairement aux vues de document, ou aux vues d'attribut, les vues de rangée
 de tableau ne contiennent pas de code. Elles sont donc uniquement composées de :
 
-*   un fichier de template, définissant le structure.
+*   un fichier de template, définissant la structure.
 
 Par convention :
 
@@ -72,8 +72,8 @@ n'est pas obligatoire) :
 
 ## Vue de consultation de rangée de tableau {#core-ref:d237e0d4-ca4e-4b9e-8249-45aef7d2ef0f}
 
-La représentation spécifique de tableaux est insérée en lieu et place de la représentation 
-standard de tableau.
+La représentation spécifique de tableaux est insérée en lieu et place de la
+représentation standard de tableau.
 
 La représentation standard d'un tableau en consultation est :
 
@@ -87,9 +87,8 @@ La représentation standard d'un tableau en consultation est :
                 <tr><td>Valeur 1.1</td><td>Valeur 2.1</td></tr>
                 <tr><td>Valeur 1.2</td><td>Valeur 2.2</td></tr>
             </tbody>
-        <table>
+        </table>
     </fieldset>
-
 
 Afin de spécifier la vue d'attribut à utiliser en consultation, il faut utiliser
 l'option `rowviewzone`.
@@ -103,15 +102,16 @@ instanciées :
 *   `V_ATTRID` pour chaque attribut : la valeur (au format html) de l'attribut
 
 **Attention** : les clés `V_ATTRID` respectent les visibilités : si la
- [visibilité][visibility] est `H` (caché) ou `I` (invisible) ou 
- `O` (écriture seule), les clés  `V_ATTRID` seront des chaînes vides.
+[visibilité][visibility] est `H` (caché) ou `I` (invisible) ou 
+`O` (écriture seule), les clés  `V_ATTRID` seront des chaînes vides. Les clés
+`L_ATTRID` ne sont pas affectées par la visibilité.
 
 De plus, il est possible, comme dans tous les templates, d'utiliser :
 
 *   les paramètres globaux,
 *   les chaînes traduisibles (syntaxe `[TEXT:…]`).
 
-Exemple :
+Exemple :
 
 Le template suivant :
 
@@ -188,7 +188,7 @@ La représentation standard d'un tableau en modification est :
                     <td>Champ n°2.2</td><td>Boutons Champ n°2.2</td></tr>
             </tbody>
             <tfoot>
-                ... autres champs cachés ...
+                … autres champs cachés …
             </tfoot>
         </table>
     </fieldset>
@@ -202,9 +202,10 @@ instanciées :
 *   `V_ATTRID` pour chaque attribut : le champs de saisie correspondant à l'attribut,
 
 **Attention** : les clés `V_ATTRID` respectent les visibilités : si la
- [visibilité][visibility] est `H` (caché) ou `R` (lecture seule) les clefs seront 
- des champs cachés `<input type="hidden" />`. 
- Si la visibilité est `I` (invisible), les clés `V_ATTRID` seront des chaînes vides.
+[visibilité][visibility] est `H` (caché) ou `R` (lecture seule) les clefs seront
+des champs cachés `<input type="hidden" />`.
+Si la visibilité est `I` (invisible), les clés `V_ATTRID` seront des chaînes
+vides. Les clés `L_ATTRID` ne sont pas affectées par la visibilité.
 
 De plus, il est possible, comme dans tous les templates, d'utiliser :
 
@@ -214,26 +215,27 @@ De plus, il est possible, comme dans tous les templates, d'utiliser :
 Le template suivant :
 
     [xml]
-    <?xml version="1.0"?>
+    <?xml version="1.0"?>    
     <table>
-      <table-head>
-        <cell class="special">[TEXT:Identification]</cell>
-        <cell style="background-color:[COLOR_C3]">[L_MY_NUMBERS]</cell>
-      </table-head>
-      <table-body>
-        <cell style="background-color:[COLOR_B6]">
-          <b>[V_MY_ROMANNUMBER]</b><br/>[V_MY_NUMBERLABEL]
-        </cell>
-        <cell>
-          <span> style="text-align:center">[V_MY_NUMBERS]</span>
-        </cell>
-      </table-body >
+        <table-head>
+            <cell class="special">[TEXT:Identification]</cell>
+            <cell style="background-color:[COLOR_C3]">[L_MY_NUMBERS]</cell>
+        </table-head>
+        <table-body>
+            <cell style="background-color:[COLOR_B6]"> <b>[V_MY_ROMANNUMBER]</b>
+                <br/>    
+                [V_MY_NUMBERLABEL]
+            </cell>
+            <cell>
+                <span>style="text-align:center">[V_MY_NUMBERS]</span>
+            </cell>
+        </table-body >
     </table>
 
-produira pour l'exemple le code HTML suivant :
+produira pour l'exemple le code HTML suivant :
 
-À la différence d'un tableau standard, les champs de saisie d'attribut ne sont 
-plus répartis sur deux cellules mais sur une seule cellule (plus de `colspan`) 
+À la différence d'un tableau standard, les champs de saisie d'attribut ne sont
+plus répartis sur deux cellules mais sur une seule cellule (plus de `colspan`)
 dans l'entête de tableau.
 
     [html]
@@ -266,7 +268,7 @@ dans l'entête de tableau.
     </fieldset>
 
 
-Cet exemple produira la représentation suivante :
+Cet exemple produira la représentation suivante :
 
 <fieldset style="border:solid 1px;padding:5px;"><legend style="margin-left:20px">Nom du tableau</legend>  
     <table>

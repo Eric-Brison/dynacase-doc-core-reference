@@ -1,6 +1,6 @@
-# Vue spécifique de document 
+# Vue spécifique de document {#core-ref:2e11bee8-ff4b-46be-b5c1-77972db7c2f9}
 
-La définition d'une nouvelle vue de document nécessite un _contrôleur de vue_ et 
+La définition d'une nouvelle vue de document nécessite un _contrôleur de vue_ et
 un _template_.
 
 Le contrôleur de vue peut être omis. dans ce cas, Dynacase fera appel
@@ -18,7 +18,7 @@ les paramètres reçus par la méthode sont au nombre de 3 :
     hyperliens (`"_self"` par défaut) ;
 *   `$ulink` (booléen) : indique s'il faut générer les hyperliens (`true` par
     défaut) ;
-*   `$abstract` (booléen) : indique s'il ne faut pas générer uniquement les
+*   `$abstract` (booléen) : indique s'il faut générer uniquement les
     attributs de la fiche résumé (`false` par défaut).
 
 Par convention :
@@ -29,6 +29,8 @@ Par convention :
     n'est pas prise en compte).  
     L'objet `Layout` est accessible au moyen de la propriété `lay` de l'objet
     courant (`$this->lay`).
+
+Par exemple, considérons la méthode `mySpecialView` :
 
     [php]
     /**
@@ -56,23 +58,31 @@ Le template associé peut être :
     MYAPP/Layout/myspecialview.xml
 
     [html]
-    <ol>[TEXT:myapp:List of item]
+    <ol>[TEXT:myapp:List of items]
     [BLOCK ITEMS]<li>[itemValue]</li>[ENDBLOCK ITEMS]
     </ol>
 
-## Vue spécifique de consultation 
-La vue spécifique d'un document doit retourner un fragment HTML qui sera inclut 
-dans le corps de la page HTML .
+## Vue spécifique de consultation {#core-ref:284b75f4-7b2c-40ff-9ec8-122e526e5857}
+
+La vue spécifique d'un document doit retourner un fragment HTML qui sera inclus
+dans le corps de la page HTML.
+
+La vue personnalisée est toujours rendue encapsulée dans `FDL:VIEWCARD`, elle-
+même rendue au sein de `FDL:FDL_CARD`(sauf si l'[option][zone_options_view] `S`
+est utilisée) . Aussi cette vue personnalisée doit générer un fragment qui sera
+inséré dans le `body` de la page HTML.
 
     +-------------------------------------------------+
     | FDL:FDL_CARD                                    |
     |-------------------------------------------------|
     |                                                 |
     |  <body>...                                      |
+    |                                                 |
     |  +-------------------------------------------+  |
     |  | FDL:VIEWCARD                              |  |
-    |  |   <div>                                   |  |
     |  |-------------------------------------------|  |
+    |  |                                           |  |
+    |  |  <div>                                    |  |
     |  |                                           |  |
     |  |  +-------------------------------------+  |  |
     |  |  | Vue spécifique de document          |  |  |
@@ -81,9 +91,11 @@ dans le corps de la page HTML .
     |  |  |                                     |  |  |
     |  |  |                                     |  |  |
     |  |  +-------------------------------------+  |  |
-    |  |   </div>                                  |  |
+    |  |                                           |  |
+    |  |  </div>                                   |  |
     |  |                                           |  |
     |  +-------------------------------------------+  |
+    |                                                 |
     |  </body>                                        |
     |                                                 |
     +-------------------------------------------------+
@@ -92,30 +104,25 @@ dans le corps de la page HTML .
 Afin de définir une vue personnalisée, il est possible :
 
 *   d'utiliser un [contrôle de vue][CVDOC],
-*   de spécifier une zone en
-    paramètre http : pour ce faire, il suffit de passer l'identifiant de la zone
-    documentaire dans le paramètre `zone` de l'url d'accès      au document.
+*   de spécifier une zone en paramètre http : pour ce faire, il suffit de passer
+    l'identifiant de la zone documentaire dans le paramètre `zone` de l'url
+    d'accès au document.
 *   d'indiquer la zone documentaire dans l'attribut `defaultView` du fichier
-   _METHOD_  de la famille pour avoir cette vue par défaut lors de la consultation.
+   _METHOD_  de la famille pour avoir cette vue par défaut lors de la
+    consultation.
 
     [php]
     public $defaultView='MYAPP:MYSPECIALVIEW'
 
-La vue personnalisée est toujours rendue encapsulée dans `FDL:VIEWCARD`, elle-
-même rendue au sein de `FDL:FDL_CARD`(sauf si l'[option][zone_options_view] `S`
-est utilisée) . Aussi cette vue personnalisée doit générer un fragment qui sera
-inséré dans le `body` de la page HTML.
-
 ### Contrôleur par défaut {#core-ref:1b7cb4c6-df1e-4124-8f5d-deaeac92561b}
 
-#### Définition du contrôleur par défaut
+#### Définition du contrôleur par défaut {#core-ref:97e54010-0310-4516-bccb-4d38671963e7}
+
 En l'absence de méthode correspondant à la vue, le contrôleur par défaut
- `Doc::viewDefaultCard` est appelé. 
+`Doc::viewDefaultCard` est appelé. 
 
 Ce contrôleur est fait pour les vues de consultations et n'est pas adapté pour
-les vues de modifications.
-
-
+les vues de modification.
 
 #### Utilisation des valeurs du document {#core-ref:a5c38657-4537-404f-b908-c2684d343880}
 
@@ -136,7 +143,6 @@ suivantes :
 
 **Note** : Toutes ces clefs sont en majuscules.
 
-
 Lors de l'utilisation d'un contrôleur personnalisé, il est possible d'appeler
 ces méthodes afin de générer les clés correspondantes. Il est également possible
 de définir d'autres clés en utilisant les différentes méthodes du `Layout`.
@@ -152,30 +158,31 @@ Exemple d'un template sans contrôleur :
 
     [html]
     <h1>[V_TITLE]</h1>
-    <p>L'attribut [L_MY_TEXT] a la valeur : <strong>[V_MY_TEXT]</strong>
+    
+    <p>L'attribut [L_MY_TEXT] a la valeur : <strong>[V_MY_TEXT]</strong></p>
 
 Dans cet exemple l'attribut `MY_TEXT` fait partie de la définition du document.
 
+## Vue spécifique de modification {#core-ref:b2da68cb-2441-4f17-896f-ecffde9aae32}
 
-## Vue spécifique de modification 
+Le template d'une vue de modification s'insère dans un formulaire HTML.
+Il est composé de champs de formulaire afin de permettre à l'utilisateur
+d'effectuer la saisie.
 
-Le template d'une vue de modification s'insère dans un formulaire HTML. 
-Il est composé de champ de formulaire afin de réaliser la saisie par l'utilisateur.
-
-Il est aussi possible d'ajouter des `css` et des `js` spécifique. 
-Se reporter au chapitre [Moteur de template][advancedtemplate].
-
-
+Il est aussi possible d'ajouter des `css` et des `js` spécifique
+(Se reporter au chapitre [Moteur de template][advancedtemplate]).
 
     +-------------------------------------------------+
     | GENERIC:GENERIC_EDIT                            |
     |-------------------------------------------------|
-    |  <body>...                                      |
+    |                                                 |
+    |  <body>                                         |
     |                                                 |
     |  +-------------------------------------------+  |
     |  | FDL:EDITCARD                              |  |
     |  |-------------------------------------------|  |
-    |  |   <form>  ...                             |  |
+    |  |                                           |  |
+    |  |  <form>                                   |  |
     |  |                                           |  |
     |  |  +-------------------------------------+  |  |
     |  |  | Vue spécifique de formulaire        |  |  |
@@ -184,44 +191,44 @@ Se reporter au chapitre [Moteur de template][advancedtemplate].
     |  |  |                                     |  |  |
     |  |  |                                     |  |  |
     |  |  +-------------------------------------+  |  |
-    |  |   </form>                                 |  |
+    |  |                                           |  |
+    |  |  </form>                                  |  |
     |  |                                           |  |
     |  +-------------------------------------------+  |
+    |                                                 |
     |  </body>                                        |
     |                                                 |
     +-------------------------------------------------+
 
-
-
 ### Utilisation des champs de formulaire du document {#core-ref:37dd7910-1c29-461f-9628-5f50c543ed2d}
 
-Pour les vues de modifications de documents le contrôleur par défaut n'est pas 
-adapté car il ne fourni que des valeurs d'attributs et non des champs de saisies
+Pour les vues de modifications de documents le contrôleur par défaut n'est pas
+adapté car il ne fournit que des valeurs d'attributs et non des champs de saisie
 pour un formulaire.
 
 Pour avoir l'équivalent du contrôleur par défaut en modification il faut 
-utiliser la méthode `Doc::editAttr`. Cette méthode initialise les clés 
+utiliser la méthode `Doc::editAttr`. Cette méthode initialise les clés
 suivantes :
 
 *   `L_ATTRID` pour chaque attribut : le libellé (traduit) de l'attribut,
-    entouré d'une balise `<b/>` si l'attribut est obligatoire),
+    (entouré d'une balise `<b/>` si l'attribut est obligatoire),
 *   `V_ATTRID` pour chaque attribut : un input pour l'attribut,
 *   `W_ATTRID` pour chaque attribut : `true` si l'attribut est visible, `false`
     sinon.
 
 **Note** : Toutes ces clefs sont en majuscules.
 
-
 **Attention** : toutes ces clés respectent les visibilités : si l'attribut a 
 une visibilité `H` (caché) pour l'utilisateur, la clé `V_ATTRID` génère un
 `<input value="the value" type="hidden"/>`. Si la visibilité est `I` (invisible)
- aucun champ n'est retourné.
+aucun champ n'est retourné. Les clés `L_ATTRID` ne sont pas affectées par la
+visibilité.
 
 Lors de l'utilisation d'un contrôleur personnalisé, il est possible d'appeler
 ces méthodes afin de générer les clés correspondantes. Il est également possible
 de définir d'autres clés en utilisant les différentes méthodes du `Layout`.
 
-### Utilisation d'un contrôleur spécifique de modification
+### Utilisation d'un contrôleur spécifique de modification {#core-ref:1f1191ea-a02b-4a28-a26b-81a43a7f7d29}
 
 Le contrôleur de modification n'est applicable qu'au formulaire HTML. 
 
@@ -248,12 +255,10 @@ Le template associé peut être :
     <input name="_my_text" value="[textValue]"/>
     
 
-Les noms `name` des champs de formulaire doivent être précédé de `_`  (blanc
-souligné) pour être pris en compte lors de la soumission de façon automatique.
+Le nom (attribut `name`) des champs de formulaire doit être précédé de `_`
+(underscore) pour être pris en compte lors de la soumission de façon automatique.
 Sinon, il est possible de récupérer tout autre champ dans le hook `preStore` 
 avec la fonction `getHttpVars()`.
-
-
 
 <!-- links -->
 [default_view_controleur]: #core-ref:1b7cb4c6-df1e-4124-8f5d-deaeac92561b
