@@ -399,10 +399,12 @@ Un attribut est défini par la syntaxe suivante :
 avec les correspondances suivantes :
 
 #### ATTR {#core-ref:a7f05c53-688b-47f5-9ed2-4acf85545edf}
+
 **Obligatoire**  
 Signale que la ligne est une définition d'attribut.
 
 #### Caractéristique `[id_attribut]` {#core-ref:0a4a238a-b3af-4879-b48b-2783ce5b9000}
+
 **Obligatoire**  
 Identifiant système de l'attribut.
 
@@ -422,6 +424,7 @@ Par exemple : `[FAM]_[TYPE]_[NAME]` avec :
 *   [NAME] : le nom de l'attribut.
 
 #### Caractéristique `[id_conteneur]` {#core-ref:d273a1c6-2575-4671-a46f-f7f5b9473450}
+
 **Obligatoire** (sauf pour les attributs de type *frame* ou *tab*)  
 Identifiant système de l'attribut structurant ou tableau contenant cet
 attribut.
@@ -437,6 +440,7 @@ Tous les autres type d'attributs doivent être contenus dans
 un *array* ou un  *frame*.
 
 #### Caractéristique `[label]` {#core-ref:29e74e07-09ff-49f3-8168-1cc1777d37ad}
+
 **facultatif**  
 Libellé de l'attribut.
 
@@ -446,6 +450,7 @@ avec [FAMNAME] le nom logique de la famille et
 [attrid] l'identifiant de l'attribut, en minuscule).
 
 #### Caractéristique `[in_title]` {#core-ref:b0e414c0-b795-4bbe-b70e-a308b7f1b4ab}
+
 **Obligatoire** (sauf pour les attributs de type *array*, *frame* ou *tab*)  
 Indique que l'attribut sera utilisé dans la composition du titre du document.
 
@@ -466,6 +471,7 @@ Les valeurs possibles sont :
 *   `N` pour *no*
 
 #### Caractéristique `[in_abstract]` {#core-ref:39825a45-a204-440b-ab0c-608e765eb88c}
+
 **Obligatoire** (sauf pour les attributs de type 
 *array*, *frame* ou *tab*)  
 Indique que l'attribut sera utilisé dans le résumé du document.
@@ -479,6 +485,7 @@ Les valeurs possibles sont :
 *   `N` pour *no*
 
 #### Caractéristique `[type]` {#core-ref:a371c892-2749-49a2-831f-0d1f470b9f61}
+
 **Obligatoire** 
 Indique le type de l'attribut.
 Les types d'attributs supportés sont définis au chapitre [Type de l'attribut][type_attribut].
@@ -489,16 +496,18 @@ Cette colonne permet également de définir le formatage de l'attribut :
     
     Le formatage est effectué avec la [syntaxe sprintf][PHP_sprintf].
     
-    Par exemple, `text("%s environ")` ajoute *environ* après la valeur ;
-    tandis que `text("<b>%s</b>")` affichera la valeur en gras.
+    Par exemple :
+    *   `text("%s environ")` ajoute *environ* après la valeur ;
+    *   `text("<b>%s</b>")` affiche la valeur en gras.
 
 *   attributs de type *int* ou *double*
     
     Le formatage est effectué avec la [syntaxe sprintf][PHP_sprintf].
     
-    Par exemple, `double("%.02f")` affiche le nombre avec 2 décimales ;
-    tandis que `integer("%d m³")` : la valeur suivie de *m³* ;
-    et que `double("%.02f %%")` : affiche *%* après le nombre.
+    Par exemple :
+    *   `double("%.02f")` affiche le nombre avec 2 décimales ;
+    *   `integer("%d m³")` affiche la valeur suivie de *m³* ;
+    *   `double("%.02f %%")` affiche *%* après le nombre.
 
 *   attributs de type *date*, *time* et *timestamp*
     
@@ -508,6 +517,7 @@ Cette colonne permet également de définir le formatage de l'attribut :
 
 
 #### Caractéristique `[ordre]` {#core-ref:0833f7ea-e25d-49d9-8648-4a9c13ab9f2d}
+
 **Obligatoire** (sauf pour les attributs de type *frame* ou *tab*)  
 Définit l'ordre de présentation des attributs dans le document.
  L'ordre est un nombre entier.
@@ -518,6 +528,7 @@ inférieur aux attributs qui le composent.
 Cette caractéristique est ignorée sur les attributs de type *frame* ou *tab*.
 
 #### Caractéristique `[visibility]` {#core-ref:6e98d2fb-4327-4679-9cfa-5724b9101992}
+
 **Obligatoire**  
 Définit la visibilité par défaut de l'attribut dans les interfaces web de
 consultation et de modification du document.
@@ -549,6 +560,7 @@ Cette caractéristique peut être modifiée par les [masques][masque]
 des [contrôle de vues][control_de_vue].
 
 #### Caractéristique `[required]` {#core-ref:8c74cf5b-3e03-480f-ba05-1a86ea6ec634}
+
 **facultatif**  
 Indique si l'attribut est obligatoire pour la sauvegarde du document 
 depuis l'interface web de modification du document. 
@@ -565,6 +577,7 @@ Les valeurs possibles sont :
 *   **`N` (valeur par défaut)** pour *no*
 
 #### Caractéristique `[link]` {#core-ref:aaaa5d78-0982-4c3e-a8ed-a125c49572a8}
+
 **facultatif** (Non applicable pour les types "frame", "tab", "array")  
 Ajoute un hyperlien sur l'attribut sur les interfaces web de consultation des documents.
 
@@ -661,49 +674,56 @@ L'hyperlien peut être :
         }
 
 #### Caractéristique `[phpfile]` {#core-ref:7362e2ff-cfb5-45f0-a81d-e02eab6d0fb6}
+
 **Facultatif** (Non applicable pour les types "frame", "tab", "array")  
 Nom du fichier php pour l'[aide à la saisie][aide_saisie].
 Ce fichier doit être présent dans le répertoire `EXTERNALS`.
 
 #### Caractéristique `[phpfunc]` {#core-ref:1128e658-48f5-440f-9fd1-2d714e99eecd}
+
 **Facultatif** (Non applicable pour les types "frame", "tab", "array") 
 Cette caractéristique est utilisée pour trois usages différents : 
     
 ##### Pour les aides à la saisies {#core-ref:a23b0985-70a6-48f0-9724-2368905eb58e}
+
 Nom et attributs de la fonction pour l'[aide à la saisie][aide_saisie]. 
 Cela nécessite que `phpfile` soit défini.
 
 ##### Pour déclarer des attributs calculés {#core-ref:8688316c-6ebf-4c5d-91be-99621a1414c2}
+
 Nom et attributs de la méthode de calcul s'il s'agit d'un 
 [attribut calculé][attribut_calcule]. 
 Dans ce cas `phpfile` doit être vide.
+
 ##### Définition d'énumérés {#core-ref:cd115566-a75d-46b2-908f-00a95ba79f9f}
+
 Définition des clés-valeurs dans le cas d'un attribut de type énuméré.
 Le type de l'attribut est `enum`. Les aides à la saisie ne sont pas 
 autorisé pour les attributs de type `enum`.
 
-L'ensemble des valeurs est une suite de couples `<clef>|<label>` séparés par des 
-virgules. Le label est le texte qui est présenté sur l'interface.
- la clef la valeur qui est stockée en base de données. 
-On peut ainsi modifier les labels sans
-pour autant changer la clef. La suppression d'une clef ne supprime pas les 
-valeurs déjà inséré dans les documents. Si le document contient une clef 
-qui a été supprimée ou qui n'existe pas c'est la clef qui sera affichée 
-et non son libellé qui n'existe pas ou plus.
-Les caractères, ou séquences de caractères, suivants ne sont pas compatibles 
-pour la composition d'une clef ou d'un label d'énuméré :
+L'ensemble des valeurs est une suite de couples `<clef>|<label>` séparés par des
+virgules. Le label est le texte présenté sur l'interface ; la clef la valeur
+stockée en base de données.
 
-*    Les caractères `"` (quote), `'` (apostrophe) et `&` (ampersand)  
-sont à proscrire pour la composition des clefs d'énumérés.
-*    Les séquences `-dot-` (minus "dot" minus) et `-comma-` (minus "comma" minus) 
-sont à proscrire pour la  composition des clefs ou des labels d'énumérés.
-*    Les clefs et les label ne peuvent pas contenir le caractère 
-`|` (pipe), .
+On peut ainsi modifier les labels sans pour autant changer la clef. La
+suppression d'une clef ne supprime pas les valeurs déjà insérées dans les
+documents ; si le document contient une clef qui n'existe pas ou plus, c'est la
+clef qui sera affichée.
+
+Les caractères, ou séquences de caractères, suivants ne sont pas compatibles
+pour la composition d'une clef ou d'un label d'énuméré :
+
+*   Les caractères `"` (quote), `'` (apostrophe) et `&` (ampersand)  
+    sont à proscrire pour la composition des *clefs* d'énumérés.
+*   Les séquences `-dot-` (minus "dot" minus) et `-comma-` (minus "comma" minus) 
+    sont à proscrire pour la  composition des *clefs* ou des *labels* d'énumérés.
+*   Les clefs et les label ne peuvent pas contenir le caractère `|` (pipe).
 
 
 Exemple : `red|Rouge,yellow|Jaune,skyblue|Bleu ciel`.
 
-Si le label contient une virgule il faut précéder celle-ci d'un anti-slash `\`.
+Si le label contient une virgule il faut échapper celle-ci au moyen d'un
+anti-slash `\`.
 
 Exemple  `green|Vert \, foncé \, clair,yellow|Jaune`.
 
@@ -711,20 +731,21 @@ La clef peut aussi désigner une arborescence. Dans ce cas le séparateur pour l
 définition du chemin est le `.` (point).
 
 Exemple : `france|France,france.midi|Midi-Pyrénées,france.midi.gers|Gers,france.midi.haute-garonne|Haute-Garonne`
-Défini l'arborescence :
+définit l'arborescence :
 
 *   France
     * Midi-Pyrénées
         * Gers
         * Haute-Garonne
 
-Dans le cas d'arborescence, c'est la clef finale qui est stockée et non le chemin. 
-Il est possible de changer a posteriori l'arborescence sans impacter 
-les clefs déjà stockées. Si le document enregistre l’énuméré "Gers" 
-c'est la clef _"gers"_ qui sera stockée et non _"france.midi.gers"_.
+Dans le cas d'une arborescence, c'est la clef finale qui est stockée et non le
+chemin.  
+Ainsi, il est possible de changer a posteriori l'arborescence sans impacter les
+clefs déjà stockées. Si le document enregistre l’énuméré "Gers" c'est la clef
+_"gers"_ qui sera stockée et non _"france.midi.gers"_.
 
 Si une clef doit contenir un `.` (point) sans pour autant désigner une arborescence
-il faut précéder le point d'un `\` (antislash).
+il faut échapper celui-ci au moyen d'un anti-slash `\`.
 
 Exemple `19\.6|19,6%,5\.5|5,5%`, permet d'avoir les valeurs `19.6` et `5.5` 
 comme clef.
@@ -734,14 +755,15 @@ est : `<FAMILYNAME>#<ATTRID>#<ENUMKEY>` (exemple `MY_FAMILY#my_color#yellow`).
 `FAMILYNAME` est le nom de la famille et `ATTRID` est l'identifiant de 
 l'attribut en minuscule.
 
-La définition d'un énuméré peut aussi être fournie par une fonction PHP. Dans ce 
-cas la caractéristique `phpfile` doit aussi être renseignée 
-(publié dans le répertoire `EXTERNALS`. La fonction de 
-définition de l'énuméré doit être défini dans le fichier `phpfile`. Cette fonction
-doit retourner la définition sous la forme d'une chaîne de caractères comme 
-décrit ci-dessus.
+La définition d'un énuméré peut aussi être fournie par une fonction PHP. Dans ce
+cas la caractéristique `phpfile` doit aussi être renseignée (et doit alors
+désigner un fichier publié dans le répertoire `EXTERNALS`). La fonction de
+définition de l'énuméré doit être définie dans le fichier référencé par
+`phpfile`. Cette fonction doit retourner la définition sous la forme d'une
+chaîne de caractères comme décrit ci-dessus.
 
 #### Caractéristique `[elink]` {#core-ref:edf84026-7980-442f-bc86-88739e49e3b5}
+
 **facultatif** (Non applicable pour les types "frame", "tab", "array")  
 Extra lien supplémentaire.
 
@@ -751,10 +773,12 @@ document, sous la forme d'un bouton supplémentaire.
 La syntaxe de l'extra lien est la même que celle de la colonne *link*.
 
 #### Caractéristique `[constraint]` {#core-ref:f0177c62-1774-4724-a337-f090406e2d08}
+
 **facultatif** (Non applicable pour les types "frame", "tab", "array")  
 Nom et attributs de la méthode de [contrainte][contrainte].
 
 #### Caractéristique `[options]` {#core-ref:16f74982-e9f6-4d47-a582-79348fe8ffb7}
+
 **facultatif**  
 Liste des options à appliquer à l'attribut. Les options dépendent du [type d'attribut][type_attribut].
 
@@ -852,7 +876,7 @@ DEFAULT
             }
     
     *   Pour définir les valeurs par défaut de chaque cellule lors de
-        l'ajout d'une nouvelle ligne, on spécifie la valeur par défaut de 
+        l'ajout d'une nouvelle ligne, on spécifie la valeur par défaut de
         l'attribut correspondant à cette colonne.  
         De fait, la valeur par défaut d'un attribut contenu dans un *array* doit
         être simple.
@@ -913,10 +937,12 @@ avec les même correspondances que pour la
 [définition d'un attribut][definition_attribut], à quelques différences près :
 
 #### MODATTR {#core-ref:231ae6fe-7179-494e-aedf-949f8ef247d3}
+
 **Obligatoire**  
 Signale que la ligne est une modification d'attribut.
 
 #### Caractéristique `[id_attribut]` {#core-ref:d09609df-0609-4cb5-b3d6-097adc7c38d9}
+
 **Obligatoire**  
 Identifiant système de l'attribut à surcharger.
 Il sera automatiquement converti en minuscules.
@@ -924,27 +950,32 @@ Il sera automatiquement converti en minuscules.
 L'attribut référencé doit obligatoirement exister dans la famille étendue.
 
 #### Caractéristique `[id_conteneur]` {#core-ref:01e6587d-8cfa-489d-92e4-869ac7d1394c}
+
 Identifiant système de l'attribut structurant ou tableau contenant cet
 attribut.
 
 Si la valeur est vide, l'attribut conservera sa valeur héritée.
 
 #### Caractéristique `[label]` {#core-ref:fdc1daef-d630-4b2b-a34a-bd0b0bb6b156}
+
 Libellé de l'attribut.
 
 Si la valeur est vide, l'attribut conservera sa valeur héritée.
 
 #### Caractéristique `[in_title]` {#core-ref:f34b9486-6a00-44d8-b0c0-e83e3336ba34}
+
 Indique que l'attribut sera utilisé dans la composition du titre du document.
 
 Si la valeur est vide, l'attribut conservera sa valeur héritée.
 
 #### Caractéristique `[in_abstract]` {#core-ref:7ed2bf36-1fc0-4ab3-ac99-45902e984db1}
+
 Indique que l'attribut sera utilisé dans le résumé du document.
 
 Si la valeur est vide, l'attribut conservera sa valeur héritée.
 
 #### Caractéristique `[type]` {#core-ref:62b4a0b2-85b3-49f3-945d-1c2fe0383fcb}
+
 [type de l'attribut][type_attribut]
 
 Si la valeur est vide, l'attribut conservera sa valeur héritée.
@@ -953,22 +984,26 @@ Le nouveau type d'attribut doit être compatible avec l'ancien
 (son stockage en base de données doit être de même type).
 
 #### Caractéristique `[ordre]` {#core-ref:f6ada4de-6fcd-4c11-b62a-5dca83b4c98e}
+
 Définit l'ordre de présentation des attributs dans le document.
 
 Si la valeur est vide, l'attribut conservera sa valeur héritée.
 
 #### Caractéristique `[visibility]` {#core-ref:4050923d-2fb2-4804-a304-d8fc9a60afc1}
+
 Définit la visibilité par défaut de l'attribut.
 
 Si la valeur est vide, l'attribut conservera sa valeur héritée.
 
 
 #### Caractéristique `[required]` {#core-ref:baea51d2-7730-4f4b-b351-16e1312ac7cd}
+
 Indique si l'attribut est obligatoire pour la sauvegarde du document.
 
 Si la valeur est vide, l'attribut conservera sa valeur héritée.
 
 #### Caractéristique `[link]` {#core-ref:79eae539-d5fe-438a-a88a-838ec32e476e}
+
 Ajoute un hyperlien sur l'attribut (en consultation uniquement).
 
 Si la valeur est vide, l'attribut conservera sa valeur héritée.
@@ -976,6 +1011,7 @@ Si la valeur est vide, l'attribut conservera sa valeur héritée.
 Pour supprimer l'hyperlien, il faut mettre la valeur `-`.
 
 #### Caractéristique `[phpfile]` {#core-ref:880a365f-4407-44cf-bf43-9fbfc1715d70}
+
 Nom du fichier php pour l'[aide à la saisie][aide_saisie].
 
 Si la valeur est vide, l'attribut conservera sa valeur héritée.
@@ -983,6 +1019,7 @@ Si la valeur est vide, l'attribut conservera sa valeur héritée.
 Pour supprimer l'hyperlien, il faut mettre la valeur `-`.
 
 #### Caractéristique `[phpfunc]` {#core-ref:a847fb60-f96a-4deb-8e35-ac2c7f028455}
+
 Nom et attributs de la fonction pour l'aide à la saisie,
 ou nom et attributs de la méthode de calcul s'il s'agit d'un attribut
 calculé, ou définition des clés-valeurs dans le cas d'un attribut de type
@@ -993,6 +1030,7 @@ Si la valeur est vide, l'attribut conservera sa valeur héritée.
 Pour supprimer l'hyperlien, il faut mettre la valeur `-`.
 
 #### Caractéristique `[elink]` {#core-ref:4e16191a-7686-436b-a31a-65127b48413e}
+
 Extra lien supplémentaire.
 
 Si la valeur est vide, l'attribut conservera sa valeur héritée.
@@ -1000,6 +1038,7 @@ Si la valeur est vide, l'attribut conservera sa valeur héritée.
 Pour supprimer l'hyperlien, il faut mettre la valeur `-`.
 
 #### Caractéristique `[constraint]` {#core-ref:1aa481ee-c90b-4e97-8979-750d30c92408}
+
 Nom et attributs de la méthode de [contrainte][contrainte].
 
 Si la valeur est vide, l'attribut conservera sa valeur héritée.
@@ -1007,6 +1046,7 @@ Si la valeur est vide, l'attribut conservera sa valeur héritée.
 Pour supprimer l'hyperlien, il faut mettre la valeur `-`.
 
 #### Caractéristique `[options]` {#core-ref:c82cd1bc-a5eb-4f19-b0a2-81542ec4c922}
+
 Liste des options à appliquer à l'attribut.
 
 Si la valeur est vide, l'attribut conservera sa valeur héritée.
@@ -1123,7 +1163,8 @@ L'importation se fait en ligne de commande, avec la commande suivante :
 
     ./wsh.php --api=importDocuments --file=[chemin vers le fichier de définition]
 
-<span class="fixme" data-assignedto="nobody">Pour plus de détails sur l'API `importDocuments`, se référer à la documentation correspondante</span>
+Pour plus de détails sur l'API `importDocuments`, se référer à sa
+[documentation][importDocuments]
 
 <!-- links -->
 [PHP_sprintf]: http://php.net/manual/fr/function.sprintf.php "Documentation de la fonction sprintf sur php.net"
@@ -1140,3 +1181,4 @@ L'importation se fait en ligne de commande, avec la commande suivante :
 [masque]: #core-ref:327ad491-06df-4e5b-b49a-695c75439fe1
 [control_de_vue]: #core-ref:017f061a-7c12-42f8-aa9b-276cf706e7e0
 [reset]: #core-ref:5c661733-772d-42b8-8b3e-b70453ddfd33
+[importDocuments]: #core-ref:1c97f553-dcba-454e-96a0-8059230065b3

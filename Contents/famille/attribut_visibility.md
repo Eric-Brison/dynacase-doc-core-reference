@@ -1,4 +1,4 @@
-# Visibilité des attributs {#core-ref:3e67d45e-1fed-446d-82b5-ba941addc7e82}
+# Visibilité des attributs {#core-ref:3e67d45e-1fed-446d-82b5-ba941addc7e8}
 
 Les attributs sont caractérisés par leur visibilité. Cette visibilité indique
 si l'attribut est présenté, et s'il est modifiable dans les interfaces.
