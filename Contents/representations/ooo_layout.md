@@ -86,6 +86,6 @@ définissant des *noms* différents.
 <!-- links -->
 [TE]: #FIXME
 [default_view_controleur]: #core-ref:303fbb4d-a688-4fd7-8329-bbc799251889
-[textual_views_syntax]: #core-ref:9f10e2bb-b004-418b-8a74-7f155eeef27b
+[textual_views_syntax]: #core-ref:5f4a2f4b-9ceb-42db-8ac1-2a7baa621ce2
 [images]: #core-ref:d1625c57-57f6-48eb-ab3e-e3690dddec6c
 [repetables]: #core-ref:9287cbe8-a6ca-41f9-9547-b7a970ae6584

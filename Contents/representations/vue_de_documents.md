@@ -33,30 +33,33 @@ Pour référencer une zone documentaire, la syntaxe suivante est utilisée :
 :   Une transformation peut être appliquée après la composition de la vue. Cette
     transformation est effectuée par le [module de transformation][TE].
     
-    Il suffit d'indiquer le nom du moteur à utiliser comme `pdf` pour une 
-    transformation en PDF. La transformation ne peut fonctionner qu'avec l'option 
-    `B` (binary) 
+    Il suffit d'indiquer le nom du moteur à utiliser comme `pdf` pour une
+    transformation en PDF. La transformation n'est possible' qu'avec l'option
+    `B` (binary).
 
 
 Des paramètres supplémentaires peuvent être fournis en utilisant une syntaxe
 identique aux paramètres des URL. Les valeurs des paramètres doivent être
-encodés comme les URL (l'utilisation de `urlencode` est recommandé). La syntaxe
-complète est avec les paramètres :
-`APP:DOCVIEW:OPTIONS:TRANSFORMATION?param1=valeur1[&param=valeur]*`. Ces
-paramètres supplémentaires sont accessibles depuis le contrôleur avec la
-fonction `getHttpVars()`.
+encodées comme les URL (l'utilisation de la [fonction `urlencode`]
+[PHP_urlencode] est recommandée).  
+La syntaxe complète avec les paramètres est donc :
+`APP:DOCVIEW:OPTIONS:TRANSFORMATION?param1=valeur1[&param=valeur]*`.  
+Ces paramètres supplémentaires sont accessibles depuis le contrôleur avec la
+fonction dynacase `getHttpVars()`.
 
+Le couple `APP:DOCVIEW` indique le template et le contrôleur à utiliser.
 
-Le couple `APP:DOCVIEW` indique le template et le contrôleur à utiliser. Si
-`DOCVIEW` ne comporte pas d'extension  l'extension `.xml` est ajouté dans le nom
-du fichier template.  Le fichier template est recherché par la fonction
-`getLayoutFile` dans le répertoire `APP/Layout`. Le fichier est d'abord
-recherché avec le nom `DOCVIEW` tel qu'il  est décrit et s'il ne le trouve pas,
-le nom en minuscule est recherché.
-
-Le nom de la méthode est le nom `DOCVIEW`. Dans ce cas, la casse du nom de la
-méthode  n'est pas prise en compte (comme pour les méthodes de PHP en général).
-
+*   Le fichier template est recherché avec la logique suivante :
+    1.  Si `DOCVIEW` ne comporte pas d'extension, alors l'extension `.xml` est
+        ajoutée.
+    1.  Le fichier template est recherché par la fonction `getLayoutFile` dans le
+        répertoire `APP/Layout`.
+        1.  Le fichier est d'abord recherché avec le nom `DOCVIEW` tel qu'il est
+            décrit
+        1.  Si le fichier n'est pas trouvé, le nom en minuscule est recherché.
+*   Le nom de la méthode est le nom `DOCVIEW`.  
+    Dans ce cas, la casse du nom de la méthode n'est pas prise en compte
+    (comme pour les méthodes de PHP en général).
 
 Exemples :
 
@@ -103,9 +106,8 @@ donc le template `FDL/Layout/viewbodycard.xml` et le contrôleur
 `Doc::viewbodycard()`.
 
 L'url `?app=FDL&action=FDL_CARD&id=9` affiche le document avec sa vue par défaut.
-Si la famille ne comporte pas de paramétrage spécifique de vue cette url est 
+Si la famille ne comporte pas de paramétrage spécifique de vue, cette url est 
 équivalente à `?app=FDL&action=FDL_CARD&id=9&zone=FDL:VIEWBODYCARD`
-
 
 ### Options des vues documentaires en consultation {#core-ref:96d615e5-b6a6-46d3-b42d-4396dbc42b8b}
 
@@ -143,11 +145,11 @@ Les options disponibles en consultation sont les suivantes :
     générer une page complète.
 
 `B`
-:   Pour les squelette non HTML binaires. cas notamment des fichiers
-    openDocumentText (`*.odt`). Dans ce cas le retour de la vue par la méthode 
-    `Doc::viewDoc()` sera le nom d'un fichier temporaire et non le contenu 
-    comme pour les zones textuelles.
-
+:   Pour les squelette non HTML binaires.
+    Cas notamment des fichiers openDocumentText (`*.odt`).
+    Dans ce cas le retour de la vue par la méthode `Doc::viewDoc()`
+    sera le nom d'un fichier temporaire et non le contenu comme pour les zones
+    textuelles.
 
 ## Définition de la vue de modification {#core-ref:bfbab9da-385a-45a3-af74-b17b4cca2e24}
 
@@ -174,7 +176,6 @@ Cette page est structurée comme suit :
     |                                                 |
     +-------------------------------------------------+
 
-
 La vue de modification par défaut est la zone documentaire `FDL:EDITBODYCARD`.
 Elle utilise donc le template `FDL/Layout/editbodycard.xml` et le contrôleur 
 `Doc::editbodycard()`.
@@ -200,8 +201,8 @@ Les options disponibles en modification sont les suivantes :
     (Obsolète) utilisé pour compatibilité version précédente.
 
 `U`
-:   Le squelette est affiché de manière brute : pas de
- formulaire prédéfini. zone=FDL:EDITBODYCARD:U
+:   Le squelette est affiché de manière brute et n'est pas encapsulé dans un
+    formulaire.
 
 `T`
 :   Le document est affiché comme suit :
@@ -218,3 +219,4 @@ Les options disponibles en modification sont les suivantes :
 [TE]: #FIXME
 [zone_options_view]: #core-ref:96d615e5-b6a6-46d3-b42d-4396dbc42b8b
 [zone_options_edit]: #core-ref:9e341064-ea78-4049-819c-8d0ab765840e
+[PHP_urlencode]: http://php.net/manual/fr/function.urlencode.php "fonction urlencode sur php.net"

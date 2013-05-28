@@ -75,48 +75,48 @@ vlabel
         *   `up`
         *   `none`
 
-
 ititle
-: Texte du tooltip du bouton '...' de l'[aide à la saisie][aide_saisie]. 
-  Par défaut : «choisissez une valeur »
+:   Texte du tooltip du bouton '...' de l'[aide à la saisie][aide_saisie]. 
+    Par défaut : « choisissez une valeur »
 
 ltitle
-: Texte affichable en popup sur l'hyperlien lorsque la souris passe
-  dessus
+:   Texte affichable en popup sur l'hyperlien lorsque la souris passe
+    dessus
 
 ltarget
-: Nom de la fenêtre destinataire de l'hyperlien. Par défaut `_self`.
-  Si `ltarget=fhidden` alors la requête ira dans une fenêtre cachée.
+:   Nom de la fenêtre destinataire de l'hyperlien. Par défaut `_self`.
+    Si `ltarget=fhidden` alors la requête ira dans une fenêtre cachée.
 
 lconfirm
-: Indique si on veut un message de confirmation avant l'activation du
-lien. Mettre `lconfirm=yes` pour activer la confirmation.
+:   Indique si on veut un message de confirmation avant l'activation du
+    lien. Mettre `lconfirm=yes` pour activer la confirmation.
 
 tconfirm
 : Texte de la confirmation
 
 autosuggest
-:  En édition, sur une aide à la saisie, indique que la recherche est
-  lancée à chaque modification du texte saisi. (par défaut `yes`).
-  Mettre à `no` pour désactiver l'auto-suggestion
+:   En édition, sur une aide à la saisie, indique que la recherche est
+    lancée à chaque modification du texte saisi. (par défaut `yes`).
+    Mettre à `no` pour désactiver l'auto-suggestion
 
 eltitle
-: Options pour pour les extra liens (*elink*).
-  Texte affichable surgissant sur le bouton généré par l'[extra lien][elink].
+:   Options pour pour les extra liens (*elink*).
+    Texte affichable surgissant sur le bouton généré par l'[extra lien][elink].
 
 elsymbol
-: Caractère affiché sur le bouton généré par l'[extra lien][elink]. Par défaut c'est le caractère `+` qui est affiché.
+:   Caractère affiché sur le bouton généré par l'[extra lien][elink].
+    Par défaut c'est le caractère `+` qui est affiché.
 
 eltarget
-: Nom de la fenêtre destinataire sur le bouton généré par l'[extra lien][elink].
+:   Nom de la fenêtre destinataire sur le bouton généré par l'[extra lien][elink].
 
 viewtemplate
-: Référence de la [vue d'attribut][viewtemplate] à utiliser lors de la
- consultation du document
+:   Référence de la [vue d'attribut][viewtemplate] à utiliser lors de la
+    consultation du document
 
 edittemplate
-: Référence de la [vue d'attribut][edittemplate] à utiliser lors de la
- modification du document
+:   Référence de la [vue d'attribut][edittemplate] à utiliser lors de la
+    modification du document
 
 <!-- links -->
 [aide_saisie]: #core-ref:0b2d4cd0-4eed-41d8-ac57-37525a444194
