@@ -1,16 +1,16 @@
 # Vue OpenDocument Text {#core-ref:d03e0905-2be1-4649-a823-9f64e94cba29}
 
-Une vue openDocument text permet de générer une *représentation bureautique* du
+Une vue _openDocument text_ permet de générer une *représentation bureautique* du
 document. Cette représentation est au format *odt*, et peut être convertie en
 *pdf*, ou autre format bureautique, au moyen du [moteur de transformation][TE].
 
 Étant donné que cette représentation est binaire, il y a de nombreuses
-différences entre les vues OpenDocument Text et les représentations html.
+différences entre les vues _openDocument text_ et les représentations html.
 
-Il est à noter que les vues openDocument text ne sont utilisables que pour la
+Il est à noter que les vues _openDocument text_ ne sont utilisables que pour la
 consultation.
 
-Une vue OpenDocument Text est composée de :
+Une vue _openDocument text_ est composée de :
 
 *   un fichier de template (au format *odt*), définissant la structure,
 *   une méthode (appelée *contrôleur de vue*) du document à représenter,
@@ -18,7 +18,34 @@ Une vue OpenDocument Text est composée de :
     Cette méthode peut également être omise. Dans ce cas, dynacase fera appel
     au [contrôleur de vue par défaut][default_view_controleur].
 
-<span class="fixme" data-assignedto="EBR">préciser les règles de casse</span>
+La syntaxe de la [zone documentaire][zonedocumentaire] d'une vue _openDocument
+text_ est forcément avec l'option _binaire_ (option `B`).
+
+Exemple :
+
+    MY_APP:my_Document.odt:B
+
+Dans cet exemple le fichier `MY_APP/Layout/my_Document.odt sera utilisé comme
+template.
+
+## Référence d'un template à partir d'un paramètre de famille
+
+Si la famille défini un paramètre de type `file`. Celui peut être utilisé aussi
+comme template au lieu d'avoir le fichier déclaré explicitement. Dans ce cas, la
+syntaxe de la zone est de la forme :
+
+    THIS:MY_ARGFILE:B
+
+Dans cet exemple `MY_ARGFILE` peut être soit un paramètre de la famille ou un
+attribut du document.
+
+Si le paramètre ou l'attribut est un attribut fichier inclus dans un tableau, il
+est nécessaire d'ajouter l'index pour préciser le template.
+
+    THIS:MY_ARGFILES[2]:B
+
+Dans cet exemple, le template est la troisième valeur de l'attribut multiple
+`MY_ARGFILES`.
 
 ## Le contrôleur de vue {#core-ref:a7e88a30-c481-4e94-975f-c91c2eb4257d}
 
@@ -39,7 +66,7 @@ Par convention :
 *   son nom (en minuscule) détermine le nom de la vue,
 *   la méthode associée doit porter le même nom (la casse du nom de la méthode
     n'est pas prise en compte).  
-    L'objet `Layout` est accessible au moyen de la propriété `lay` de l'objet
+    L'objet `OooLayout` est accessible au moyen de la propriété `lay` de l'objet
     courant (`$this->lay`).
 
 ### Contrôleur par défaut {#core-ref:303fbb4d-a688-4fd7-8329-bbc799251889}
@@ -68,7 +95,8 @@ suivantes :
 
 Lors de l'utilisation d'un contrôleur personnalisé, il est possible d'appeler
 ces méthodes afin de générer les clés correspondantes. Il est également possible
-de définir d'autres clés en utilisant les différentes méthodes du `Layout`.
+de définir d'autres clés en utilisant les différentes méthodes de la classe
+`OooLayout`.
 
 **Attention** : Toutes ces clés respectent les visibilités : si la visibilité 
 d'un attribut est `H` pour un utilisateur, les clés `L_ATTRID` et `V_ATTRID` 
@@ -81,8 +109,8 @@ Bien que la syntaxe soit très proche de celle des
 [vues textuelles][textual_views_syntax], il y a quelques différences à prendre
 en compte.
 
-Ces différences sont liées à la structuration des documents odt, qui sont en
-fait des documents xml, et dont la structure doit rester valide.
+Ces différences sont liées à la structuration des documents _odt_, qui sont en
+fait des documents _xml_, et dont la structure doit rester valide.
 
 Parmi ces différences, il y a notamment :
 
@@ -96,26 +124,38 @@ Parmi ces différences, il y a notamment :
     *   tableaux
 *   La gestion des images se fait de [manière spécifique][images]
 
+### Placer une clef dans le template _odt_
+
+<span class="fixme" data-assignedto="MCO">TODO - Champ utilisateur</span>
+
+
+
+### Placer une clef dans les propriétés du template _odt_
+
+<span class="fixme" data-assignedto="MCO">TODO</span>
+
+
+
 ### Images {#core-ref:d1625c57-57f6-48eb-ab3e-e3690dddec6c}
 
 Pour incorporer des images, il faut
 
-1.  insérer une image quelconque dans le fichier, au moyen du menu
+1.  Insérer une image quelconque dans le fichier, au moyen du menu
     <span class="menu"><span class="menu-item">Insertion</span>
     <span class="menu-item">Image</span>
     <span class="menu-item">À partir d'un fichier</span></span>.
     
-2.  cliquer sur le menu contextuel de l'image et choisir
+2.  Cliquer sur le menu contextuel de l'image et choisir
     <span class="menu"><span class="menu-item">image</span></span>
     
-3.  renseigner la clé dans l'onglet *[Options]*, champ *nom*.
+3.  Renseigner la clé dans l'onglet *[Options]*, champ *nom*.
     
     ![ nom de l'image ](representations/odt_insert_image.png)
 
 En ce qui concerne la taille de l'image, la largeur sera conservée.
-La hauteur sera calculée en fonction du ratio de l'image dynacase.
+La hauteur sera calculée en fonction du ratio de l'image.
 
-**Attention** :chaque image doit être insérée de cette façon, et il ne faut
+**Attention** : chaque image doit être insérée de cette façon, et il ne faut
 surtout pas faire de copier coller d'une image. En effet, en cas de copier
 coller, les 2 images font référence en interne à la même image, même en
 définissant des *noms* différents.
@@ -125,13 +165,30 @@ définissant des *noms* différents.
 La gestion des éléments multiples est intrinsèque à la structure d'un fichier
 odt : les listes et tableaux sont multiples par nature. Aussi, utiliser la clé
 d'un attribut multiple dans une liste ou un tableau va automatiquement insérer
-le nombre d'éléments nécessaire.
+le nombre d'éléments nécessaires.
+
+<span class="fixme" data-assignedto="MCO">Dissocier les exemples tableau et
+multivalué - à mettre dans des paragraphes séparés. Retravailler les exemples
+pour bien montrer que les attributs appartiennent bien au même tableau. Il faut
+aussi montrer dans les captures que ce sont des champs et non du simple texte.
+</span>
+
 
 Ainsi, par exemple, le template :
 ![ template ](representations/odt_repetable_source.png)
 
 pourra donner le fichier :
 ![ résultat ](representations/odt_repetable_resultat.png)
+
+#### Déclarer des éléments répétables dans des listes à puces
+
+<span class="fixme" data-assignedto="MCO">TODO</span>
+
+#### Déclarer des éléments répétables dans des listes à puces
+
+<span class="fixme" data-assignedto="MCO">TODO</span>
+
+
 
 ### Conditions {#core-ref:5b53867d-7fb2-4aff-b4dc-941b7d0254b4}
 
@@ -154,13 +211,16 @@ consultation du document généré :
 Le type *htmltext* implique des restrictions d'usage : La valeur de l'attribut
 est filtrée lors de l'incorporation dans un fichier openDocument. Seules
 certaines balises HTML sont supportées. Les balises non supportées sont ignorées
-et non affichées.<span class="fixme" data-assignedto="EBR">ce qui est ignoré, c'est la balise, ou son contenu?</span>
+et leur contenu n'est pas affichés.
 
 Les balises supportées sont :
 
-| balise HTML | balise ODT         | description                                | restriction                                                                                                                                                                                                                                                                                                       |
-| :---------- | :----------------- | :-------------------------------------     | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| balise HTML |     balise ODT     |                description                 |                                                                                                                                                    restriction                                                                                                                                                    |
+| :---------- | :----------------- | :----------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `p`         | `text:p`           | Insère un paragraphe                       | La balise "&lt;p>" doit être au premier niveau.                                                                                                                                                                                                                                                                   |
+| `div`       | `text:p`           | Insère un paragraphe                       | Pour les  "&lt;div>"de premier niveau.                                                                                                                                                                                                                                                                            |
+| `p > div`   | `text:span`        | Insère un texte                            | Pour les  "&lt;div>"de niveau inférieur.                                                                                                                                                                                                                                                                          |
+| `br`        | `text:line-break`  | Insère un retour à la ligne                | Doit être dans une balise &lt;p>                                                                                                                                                                                                                                                                                  |
 | `em/i`      | `text:span`        | Insèrent un texte avec le style "italique" | Doit être dans une balise &lt;p>                                                                                                                                                                                                                                                                                  |
 | `strong/b`  | `text:span`        | Insèrent un texte avec le style "gras"     | Doit être dans une balise &lt;p>                                                                                                                                                                                                                                                                                  |
 | `u`         | `text:span`        | Insère un texte avec le style "souligné"   | Doit être dans une balise &lt;p>                                                                                                                                                                                                                                                                                  |
@@ -171,16 +231,15 @@ Les balises supportées sont :
 | `h2`        | `text:h`           | Insère un titre de niveau 2                | Le style du texte sera celui de "Titre 2"                                                                                                                                                                                                                                                                         |
 | `h3`        | `text:h`           | Insère un titre de niveau 3                | Le style du texte sera celui de "Titre 3"                                                                                                                                                                                                                                                                         |
 | `h4`        | `text:h`           | Insère un titre de niveau 4                | Le style du texte sera celui de "Titre 4"                                                                                                                                                                                                                                                                         |
-| `li`        | `text:lisr`        | Insère une liste à puces numérotée         | Doit être dans une balise &lt;p>                                                                                                                                                                                                                                                                                  |
-| `ul`        | `text:lisr`        | Insère une liste à puces non numérotée     | Doit être dans une balise &lt;p>                                                                                                                                                                                                                                                                                  |
+| `li`        | `text:list-item`   | Insère un élément de liste                 | Doit être dans une balise &lt;ul>  ou    &lt;ol>                                                                                                                                                                                                                                                                  |
+| `ul`        | `text:list`        | Insère une liste à puces non numérotée     | Doit être dans une balise &lt;p>                                                                                                                                                                                                                                                                                  |
+| `ol`        | `text:list`        | Insère une liste à puces numérotée         | Doit être dans une balise &lt;p>                                                                                                                                                                                                                                                                                  |
 | `table`     | `table:table`      | Insère un tableau                          |                                                                                                                                                                                                                                                                                                                   |
 | `tr`        | `table:table-row`  | Insère une rangée tableau                  |                                                                                                                                                                                                                                                                                                                   |
 | `th`        | `table:table-cell` | Insère une cellule entête de               |                                                                                                                                                                                                                                                                                                                   |
 | `td`        | `table:table-cell` | Insère une cellule tableau                 |                                                                                                                                                                                                                                                                                                                   |
 | `img`       | `draw:frame`       | Insère une image                           | L'url de cette image doit être absolue et accessible depuis l'éditeur de texte. Seules les images présente sur les paragraphes de premier niveau sont prises en compte. Pas d'image dans les cellule de tableau. La taille n'est pas configurable. C'est la taille d'origine de l'image qui sera prise en compte. |
 
-<span class="fixme" data-assignedto="EBR">que deviennent les div ? span ? ol ?</span>
-<span class="fixme" data-assignedto="EBR">li et ul -> lisr ?</span>
 
 Une clef correspondant à un attribut *htmltext* doit être placée seule dans le
 paragraphe, et ne doit pas contenir de texte autour.
@@ -203,7 +262,7 @@ paragraphe, et ne doit pas contenir de texte autour.
 *   Les imbrications de paragraphes
     (exemple :&lt;p>Texte&lt;p>Texte&lt;/p>&lt;/p>) faites avec des balises
     div, p ou span (ou toutes autres balises de texte) ne sont pas supportées.
-    <span class="fixme" data-assignedto="EBR">ca veut dire quoi? (le html de l'exemple n'est pas valide…)</span>
+    <span class="fixme" data-assignedto="EBR">ca veut dire quoi? (le html de l'exemple n'est pas valide…): Réponse EBR: Le Html est valide (quoique) mais il n'y a pas d'équivalent en odt => pas supporté.</span>
 
 #### Limitations pour les répétables {#core-ref:49c08a3f-c112-497b-9272-d5753f292113}
 
@@ -235,3 +294,4 @@ Text][advanced_odt]
 [images]: #core-ref:d1625c57-57f6-48eb-ab3e-e3690dddec6c
 [repetables]: #core-ref:9287cbe8-a6ca-41f9-9547-b7a970ae6584
 [advanced_odt]: #core-ref:a8c2d27a-6490-4449-9997-2984613ed219
+[zonedocumentaire]: #core-ref:49b96dc9-64e9-4f5a-a167-396282625c1e
