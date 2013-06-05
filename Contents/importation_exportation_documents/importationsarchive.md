@@ -15,25 +15,25 @@ L'association entre la famille et le fichier est la suivante :
 *   Autre fichier : Famille _Fichiers_ `FILE`
 *   Répertoire : Famille _Dossier_ `DIR`
 
-L'éventuelle arborescence du contenu de l'archive est conservé.
+L'éventuelle arborescence du contenu de l'archive est conservée.
 
-
-        $ unzip -l Files.zip
-        Archive:  Files.zip
-          Length      Date    Time    Name
-        ---------  ---------- -----   ----
-                0  2012-08-30 16:19   Dossier un/
-             1321  2012-08-30 16:19   Dossier un/design.odt
-             3321  2012-08-30 16:19   Dossier un/presentation.odp
-                0  2009-02-26 16:07   Dossier deux/
-           152726  2007-07-06 10:36   Dossier deux/notes techniques.doc
-            63728  2007-07-06 10:36   Dossier deux/architecture.png
+    $ unzip -l Files.zip
+    Archive:  Files.zip
+      Length      Date    Time    Name
+    ---------  ---------- -----   ----
+            0  2012-08-30 16:19   Dossier un/
+         1321  2012-08-30 16:19   Dossier un/design.odt
+         3321  2012-08-30 16:19   Dossier un/presentation.odp
+            0  2009-02-26 16:07   Dossier deux/
+       152726  2007-07-06 10:36   Dossier deux/notes techniques.doc
+        63728  2007-07-06 10:36   Dossier deux/architecture.png
 
 Cet extrait d'archive va créer deux dossiers, 3 documents de la famille
 _fichiers_ et un document de la famille _image_.
 
 Les fichiers sont insérés dans le premier attribut _fichier_ trouvé de la
-famille associée.
+famille associée.<span class="fixme" data-assignedto="EBR">premier au sens
+"order" ?</span>
 
 ## Importation d'archive {#core-ref:ffa26749-fd4a-497a-9b78-6a86e3e0a5e0}
 
@@ -42,8 +42,8 @@ d'indiquer ces relations dans un fichier `fdl.csv` qui est un format CSV
 d'[importation de document][importcsv].
 
 Si ce fichier est présent à la racine de l'archive, alors **seul ce fichier**
-sera importé. Les autres fichiers servent dans ce cas à enregistrer les fichiers
-qui sont indiqués dans le fichier `fdl.csv`.
+est importé. Les autres fichiers peuvent dans ce cas être référencés par le
+fichiers `fdl.csv`.
 
 | //FAM | animal(ZOO_ANIMAL) | Identifiant | Dossier |   nom    |    espèce    |                 photo                  |
 | ----- | ------------------ | ----------- | ------- | -------- | ------------ | -------------------------------------- |
@@ -55,8 +55,9 @@ qui sont indiqués dans le fichier `fdl.csv`.
 | DOC   | ZOO_ANIMAL         |             |         | Olgator  | ZOO_ESP_ALLI | Images/Reptilia_American_alligator.jpg |
 
 Dans cet exemple les chemins des fichiers devant être insérés dans l'attribut
-`an_photo` sont indiqués. Les fichiers devront être présents dans l'archive pour
-être intégrés dans le document.
+`an_photo` sont indiqués. Ces chemins sont relatifs à la racine de l'archive
+(Les fichiers doivent être présents dans l'archive pour être intégrés dans le
+document).
 
 Cela donne une archive telle que celle-ci :
 
@@ -73,16 +74,14 @@ Cela donne une archive telle que celle-ci :
         83728  2007-07-06 10:36   Images/Gator.png 
        163728  2007-07-06 10:36   Images/Reptilia_American_alligator.jpg
 
-
-
 ## Commande d'importation d'archive {#core-ref:fbd78f4f-9c6c-46ab-8218-b1dc2527d919}
 
-La commande à lancer en console est :
+La commande à lancer pour l'[importation en console][wshimport] est :
 
     ./wsh.php --api=importDocuments --archive=yes --file=animals.zip
 
-**Note** : L'option `--archive=yes` doit être indiqué pour ne pas confondre 
-   avec une importation classique de fichier CSV ou XML.
+**Note** : L'option `--archive=yes` doit être indiquée pour ne pas confondre
+avec une importation classique de fichier CSV ou XML.
 
 Le format d'archive peut être [zip][zip] ou [tgz][tgz].
 
@@ -93,3 +92,4 @@ Le format d'archive peut être [zip][zip] ou [tgz][tgz].
 [zip]: http://fr.wikipedia.org/wiki/ZIP_%28format_de_fichier%29 "format ZIP sur Wikipedia"
 [tgz]: http://fr.wikipedia.org/wiki/Tgz "Tar compressé sur Wikipedia"
 [importcsv]: #core-ref:2fb3284a-2424-44b2-93ae-41dc3969e093
+[wshimport]: #core-ref:1c97f553-dcba-454e-96a0-8059230065b3

@@ -1,9 +1,18 @@
 # Importer des documents par ligne de commande {#core-ref:1c97f553-dcba-454e-96a0-8059230065b3}
 
-La commande _wsh_ `importDocuments` permet d'importer des documents en ligne de commande. Les types CVS, ODS, XML, ZIP, TGZ (pour les archives)  sont supportés par le script :
+La commande [_wsh_][wsh] `importDocuments` permet d'importer des documents en
+ligne de commande. Les types suivants sont supportés par le script :
 
-    ./wsh.php --api=importDocuments --file=/home/dev/Bureau/animals.csv
+*   [CVS][import_csv]
+    *   Encodage : UTF-8,
+    *   Délimiteur de texte : ` ` (vide),
+    *   séparateur de colonnes : `;`.
+*   [ODS][import_csv],
+*   [XML][import_xml],
+*   [ZIP][import_archive],
+*   [TGZ][import_archive]
 
+    ./wsh.php --api=importDocuments --help
     Import documents from description file
     Usage :
         --file=<the description file path>
@@ -23,21 +32,19 @@ La commande _wsh_ `importDocuments` permet d'importer des documents en ligne de 
         --strict=<don't import if one error detected> [yes|no], default is 'yes'
         --help (Show usage) 
 
-    
-
-Pour réaliser une importation à blanc, l'option _analyze_ doit être à _yes_. Dans
-ce cas, l'importation est réalisée mais modification n'est enregistrée en base
-de données :
+L'option `--analyze=yes` permet de réaliser une importation *à blanc*. Dans ce
+cas, l'importation est réalisée mais aucune modification n'est enregistrée en
+base de données. Cela permet de récupérer le rapport d'importation :
 
      ./wsh.php --api=importDocuments --analyze=yes --htmlmode=yes --file=animal.xml > report.html
 
-Pour envoyer le rapport par courriel, l'option _to__ doit avoir l'adresse du
-destinataire
+Pour envoyer le rapport par courriel, l'option `--to` permet de désigner
+l'adresse du destinataire :
 
      ./wsh.php --api=importDocuments --to=someone@somewhere.org --file=animal.xml 
 
-Pour avoir un fichier de log, l'option _log_ doit contenir l'endroit où le
-fichier de log sera enregistré
+Pour avoir un fichier de log, l'option `--log` permet de spécifier l'emplacement
+auquel enregistrer le fichier de log :
 
     ./wsh.php --api= importDocuments --file=animaux.xml --htmlmode=yes --analyze=yes --log=/var/tmp/log.txt
     $ cat /var/tmp/log.txt
@@ -49,6 +56,13 @@ fichier de log sera enregistré
     IMPORT COUNT KO : 1
     IMPORT END OK : 02/07/2010 17:10:31
 
-Si une seule erreur est détectée sur le fichier d'importation, aucun document du fichier d'importation ne sera ajouté ou modifié.
+## Gestion des erreurs {#core-ref:1ab32c44-3233-4de6-bede-97f0aa58e617}
+
+Si une seule erreur est détectée sur le fichier d'importation, aucun document du
+fichier d'importation ne sera ajouté ou modifié.
 
 <!-- links -->
+[wsh]: #core-ref:bab8c1c9-fe71-4629-9773-5cd67a8693bf
+[import_csv]: #core-ref:2fb3284a-2424-44b2-93ae-41dc3969e093
+[import_xml]: #core-ref:81ad5a48-4c0f-468b-90ed-fe462fba7b96
+[import_archive]: #core-ref:021b7db1-7baf-48c4-8eb9-4a388355dd86
