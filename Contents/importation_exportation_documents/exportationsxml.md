@@ -3,8 +3,8 @@
 Les documents, hormis les familles, peuvent être exportés en XML. Les fichiers
 XML produits suivent un schéma de famille imposé par dynacase. Chaque famille de
 document a son propre schéma XML. L'exportation _Xml_ d'un contenu de dossier ou
-de recherche peut se faire de deux façons : en générant un fichier par document
-ou avec un seul fichier xml.
+de recherche peut se faire de deux façons : en générant un fichier par document
+ou dans un seul fichier xml.
 
 Si vous voulez utiliser le fichier _Xml_ pour un exportation vers un autre
 contexte dynacase, il faut indiquer l'option "sans les identificateurs", sinon
@@ -16,9 +16,11 @@ d'[importation XML][importXML].
 ## Archive avec un fichier _Xml_ par document {#core-ref:1b0958b2-0788-45bf-974a-a7853a6030e2}
 
 Dans ce cas une archive (zip) est constituée avec un fichier par document.
-Chaque fichier est nommé à l'aide du titre et de l'identifiant du document (ex
-:`alligator {4567].xml`). Chaque fichier fait référence à un [schéma
-xml][xmlschema] issus de la famille. Ce schéma est aussi présent dans l'archive.
+Chaque fichier est nommé à l'aide du titre et de l'identifiant du document (par
+exemple : `alligator {4567].xml`<span class="fixme" data-assignedto="EBR">c'est
+bien accolade ouvrante et crochet fermant?</span>). Chaque fichier fait
+référence à un [schéma xml][xmlschema] issus de la famille. Ce schéma est aussi
+présent dans l'archive.
 
 ## Un fichier _Xml_ seul {#core-ref:9cebde3e-d40c-421c-85f6-e3e8282d547f}
 
@@ -63,8 +65,9 @@ Avec cette option les schémas _Xml_ des familles ne sont pas exportés.
 
 ## Exportation _Xml_ avec fichier {#core-ref:b81787b0-8fca-4f05-97e6-dd163b3fc2aa}
 
-Si vous cochez l'option avec les fichiers ceux-ci seront importés "inline" dans les fichiers xml. La balise de l'attribut
-contiendra dans ce cas le fichier encodé en base 64.
+Si vous cochez l'option avec les fichiers ceux-ci seront importés "inline" dans
+les fichiers xml. La balise de l'attribut contiendra dans ce cas le fichier
+encodé en base 64.
 
     [xml]
     <an_photo vid="27" mime="image/png" title="alligator.png">
@@ -72,64 +75,47 @@ contiendra dans ce cas le fichier encodé en base 64.
     AALGOfPtRkwAAACBjSFJNAAB6JQAAgIMAAPn/AACA6QAAdTAAAOpgAAA6mAAAF2+SX8VGAAEoA0lEQVR42m
     L8//8/wwgE==</an_photo>
 
-
-
 ## Exportation _Xml_ par ligne de commande {#core-ref:63238f3a-de09-45fa-b12b-854c569561c2}
 
-L'exportation en ligne de commande est :
+L'exportation en ligne de commande est :
 
     ./wsh.php --app=FDL --action=EXPORTXMLFLD --id=[folderid] --eformat=[X|Y] --wfile=[N|Y]
 
-Les paramètres sont :
+Les paramètres sont :
 
-id
+`id`
 :   Identifiant d'un dossier ou d'une recherche
 
-eformat
-:   
+`eformat`
+:   Format d'export :
     
     *   X : Archive XML
     *   Y : _Xml_ simple
 
-wfile
-:   
+`wfile`
+:   Avec ou sans les fichiers :
     
     *   Y : Avec fichiers
     *   N : Sans fichier
 
-Exportation _Xml_ sans fichier
-:   
-
-        ./wsh.php --app=FDL --action=EXPORTXMLFLD --id=1180 --eformat=Y > t.xml
-
-Exportation _Xml_ avec fichier
-:   
-
-        ./wsh.php --app=FDL --action=EXPORTXMLFLD --id=1180 --eformat=Y --wfile=Y> t.xml
-
-Exportation Zip sans fichier
-:   
-
-        ./wsh.php --app=FDL --action=EXPORTXMLFLD --id=1180 --eformat=X > t.zip
-
-Exportation Zip avec fichier
-:   
-
-        ./wsh.php --app=FDL --action=EXPORTXMLFLD --id=1180 --eformat=X --wfile=Y> t.zip
-
-Exportation _Xml_ avec option flat pour une mise à plat des attributs. 
-:   Ce type d'exportation ne permet pas une réimportation
-dans dynacase. Les balises de structure de type "tab" et "frame" ne sont pas représentées. Seules la structure
-concernant les tableaux est maintenu.
+`flat`
+:   Export *à plat*
     
-        ./wsh.php --app=FDL --action=EXPORTXMLFLD --id=1180 --eformat=Y --flat=Y> t.xml
+    *   Y : Les balises de structure de type "tab" et "frame" ne sont pas
+        représentées. Seule la structure concernant les tableaux est maintenue.
+        
+        Ce type d'exportation ne permet pas une réimportation.
+        
+    *   N : Export normal
 
-Exportation _Xml_ avec log. 
-: Cette option permet de connaître le nombre de documents exportées ainsi que la liste de ceux-
-ci.
+`log`
+:   Générer un fichier de log
+    
+    Cette option permet de connaître le nombre de documents exportées ainsi que
+    leur liste.
     
         ./wsh.php --app=FDL --action=EXPORTXMLFLD --id=1180 --eformat=Y --log=/var/tmp/log.txt > t.xml
-        ~$ more /var/tmp/log.txt
+        $ more /var/tmp/log.txt
         EXPORT BEGIN OK : 02/07/2010 15:49:47
         EXPORT OPTION FLAT : no
         EXPORT OPTION WFILE : yes
@@ -142,34 +128,38 @@ ci.
         EXPORT COUNT OK : 3
         EXPORT END OK : 02/07/2010 15:49:47
 
-Exportation _Xml_ avec spécification des attributs à exporter. 
-:   Cela est paramétrable à l'aide d'un fichier de configuration xml
-
-
-Exemple :
-
-    [xml]
-    <?xml version="1.0" encoding="UTF-8"?>
-    <configuration>
-        <family name="ZOO_ANIMAL">
-            <attribute name="AN_NOM"/>
-            <attribute name="AN_ESPECE"/>
-            <attribute name="AN_ENFANT"/>
-        </family>
-            <family name="ZOO_ENCLOS">
-            <attribute name="EN_NOM"/>
-            <attribute name="EN_SURFACE"/>
-        </family>
-    </configuration>
-
-Chaque balise `family` défini les attributs qu'il veut voir apparaître. Seuls
-les attributs "feuille" non structurants sont pris en compte. Les attributs `name`
-désignent les identifiants de familles et d'attributs. Si on exporte un document
-d'une famille qui n'est pas dans le fichier de configuration, l'ensemble de ses
-attributs sera exporté.
-
-    ./wsh.php --app=FDL --action=EXPORTXMLFLD --flat=no --id=ANIMAUX --wfile=yes
-        --eformat=Y --config=configexport.xml --log=/var/tmp/log.txt > animaux.xml
+`config`
+:   Spécifie une liste de paramètres à exporter
+    
+    Cela est paramétrable à l'aide d'un fichier de configuration au format xml
+    
+    Exemple :
+    
+        configexport.xml
+    
+        [xml]
+        <?xml version="1.0" encoding="UTF-8"?>
+        <configuration>
+            <family name="ZOO_ANIMAL">
+                <attribute name="AN_NOM"/>
+                <attribute name="AN_ESPECE"/>
+                <attribute name="AN_ENFANT"/>
+            </family>
+                <family name="ZOO_ENCLOS">
+                <attribute name="EN_NOM"/>
+                <attribute name="EN_SURFACE"/>
+            </family>
+        </configuration>
+    
+        ./wsh.php --app=FDL --action=EXPORTXMLFLD --id=ANIMAUX --eformat=Y --config=configexport.xml > animaux.xml
+    
+    Chaque balise `family` définit les attributs à exporter pour cette famille.
+    Seuls les attributs *feuille* non structurants sont pris en compte.
+    
+    Les attributs `name` désignent les identifiants de familles et d'attributs.
+    
+    Si on exporte un document d'une famille qui n'est pas dans le fichier de
+    configuration, l'ensemble de ses attributs est exporté.
 
 
 <!-- links -->
