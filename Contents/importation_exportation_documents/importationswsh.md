@@ -27,6 +27,7 @@ ligne de commande. Les types suivants sont supportés par le script :
             [keep] to do nothing if same document already present> [update|add|keep]
         --htmlmode=<analyze report mode in html> [yes|no], default is 'yes'
         --reinitattr=<reset attribute before import family update> [yes|no]
+        --reset=<reset options> [default|parameters|attributes|structure|properties|enums]
         --to=<email address to send report>
         --dir=<folder where imported documents are put>
         --strict=<don't import if one error detected> [yes|no], default is 'yes'
@@ -46,7 +47,7 @@ l'adresse du destinataire :
 Pour avoir un fichier de log, l'option `--log` permet de spécifier l'emplacement
 auquel enregistrer le fichier de log :
 
-    ./wsh.php --api= importDocuments --file=animaux.xml --htmlmode=yes --analyze=yes --log=/var/tmp/log.txt
+    ./wsh.php --api=importDocuments --file=animaux.xml --htmlmode=yes --analyze=yes --log=/var/tmp/log.txt
     $ cat /var/tmp/log.txt
     IMPORT BEGIN OK : 02/07/2010 17:10:29
     IMPORT DOC OK : [title:Isabelle] [id:0] [action:added] [changes:{nom:Isabelle}{espèce:1132}] [message:Isabelle à ajouter] 
@@ -55,6 +56,23 @@ auquel enregistrer le fichier de log :
     IMPORT COUNT OK : 2
     IMPORT COUNT KO : 1
     IMPORT END OK : 02/07/2010 17:10:31
+
+## Options pour les importations de familles
+
+L'option `reset` permet d'influer sur l'interprétation de l'importation en
+rajoutant des [ordres de `RESET`][resetfam] à la définition de la famille.
+
+L'option `reset` rajoute l'ordre `RESET` correspondant après chaque `BEGIN` du
+fichier. Toutes les familles définies auront cet ordre ajouté.
+
+    ./wsh.php --api=importDocuments --file=my_family.csv --reset=attributes
+
+Cette option peut être multivalué pour indiqué plusieurs ordre de `RESET`.
+
+    ./wsh.php --api=importDocuments --file=my_family.csv --reset[]=enums --reset[]=default
+
+L'option `reinitattr` est dépréciée. Cette option est équivalente à
+`reset=attributes`.
 
 ## Gestion des erreurs {#core-ref:1ab32c44-3233-4de6-bede-97f0aa58e617}
 
@@ -66,3 +84,4 @@ fichier d'importation ne sera ajouté ou modifié.
 [import_csv]: #core-ref:2fb3284a-2424-44b2-93ae-41dc3969e093
 [import_xml]: #core-ref:81ad5a48-4c0f-468b-90ed-fe462fba7b96
 [import_archive]: #core-ref:021b7db1-7baf-48c4-8eb9-4a388355dd86
+[resetfam]: #core-ref:5c661733-772d-42b8-8b3e-b70453ddfd33

@@ -44,6 +44,17 @@ quotes `'` peuvent être utilisées.
 Pour la récupération des arguments, se référer à la documentation de la
 [classe `ApiUsage`][ApiUsage].
 
+Le passage d'arguments contenant plusieurs valeurs est faite en succédant le
+nom de l'argument avec `[]`.
+
+    ./wsh.php --api=my_test --my_numbers[]=2 --my_numbers[]=4
+
+Dans ce cas la valeur de `my_numbers` sera :
+
+    [php]
+    array("2","4")
+
+
 ### Exécuter des scripts avec wsh {#core-ref:c47cdda0-0221-4dfc-ba14-56376e570372}
 
 Exemple d'appel :

@@ -1103,6 +1103,23 @@ RESET
         Toutes les valeurs des paramètres de famille sont effacées. Ces 
         paramètres utiliseront les valeurs par défaut si elles sont définies.
 
+    `structure`
+    :   Réinitialise la liste des attributs aux seuls attributs
+        définis entre le `BEGIN` et le `END` de la famille.
+        
+        Les définitions des attributs qui ne sont plus définis sont supprimés.
+        Cela veut dire que non seulement la définition de l'attribut est
+        supprimé mais aussi les valeurs de ces attributs sur tous les documents
+        de la famille et des familles dérivées. Cette action est
+        **irréversible**.
+
+    `enums`
+    :   Réinitialise les définitions des énumérés de la famille. 
+
+        Les nouvelles définitions remplaceront les anciennes définitions. Les
+        énumérés définis par les utilisateurs ou les administrateurs seront
+        perdus.
+
 
 Ces instructions de réinitialisation doivent être placées avant la nouvelle
 définition des éléments réinitialisés.
