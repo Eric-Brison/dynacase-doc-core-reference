@@ -59,6 +59,8 @@ book:
       content:  "famille/attribut_type_double.md"
     - level:   3
       content:  "famille/attribut_type_enum.md"
+    - level:   4
+      content:  "famille/def_enum.md"
     - level:   3
       content:  "famille/attribut_type_file.md"
     - level:   3

@@ -675,92 +675,33 @@ L'hyperlien peut être :
 
 #### Caractéristique `[phpfile]` {#core-ref:7362e2ff-cfb5-45f0-a81d-e02eab6d0fb6}
 
-**Facultatif** (Non applicable pour les types "frame", "tab", "array")  
+**Facultatif** (Non applicable pour les types "frame", "tab", "array")
+
 Nom du fichier php pour l'[aide à la saisie][aide_saisie].
 Ce fichier doit être présent dans le répertoire `EXTERNALS`.
 
 #### Caractéristique `[phpfunc]` {#core-ref:1128e658-48f5-440f-9fd1-2d714e99eecd}
 
-**Facultatif** (Non applicable pour les types "frame", "tab", "array") 
-Cette caractéristique est utilisée pour trois usages différents : 
-    
-##### Pour les aides à la saisies {#core-ref:a23b0985-70a6-48f0-9724-2368905eb58e}
+**Facultatif** (Non applicable pour les types "frame", "tab", "array")
 
-Nom et attributs de la fonction pour l'[aide à la saisie][aide_saisie]. 
-Cela nécessite que `phpfile` soit défini.
+Cette caractéristique est utilisée pour trois usages différents :
 
-##### Pour déclarer des attributs calculés {#core-ref:8688316c-6ebf-4c5d-91be-99621a1414c2}
+##### Définition d'une aide à la saisie {#core-ref:a23b0985-70a6-48f0-9724-2368905eb58e}
 
-Nom et attributs de la méthode de calcul s'il s'agit d'un 
-[attribut calculé][attribut_calcule]. 
-Dans ce cas `phpfile` doit être vide.
+Nom et attributs de la fonction pour l'[aide à la saisie][aide_saisie].  
+Dans ce cas `[phpfile][phpfile]` doit être défini.
 
-##### Définition d'énumérés {#core-ref:cd115566-a75d-46b2-908f-00a95ba79f9f}
+##### Définition d'un attribut calculé {#core-ref:8688316c-6ebf-4c5d-91be-99621a1414c2}
 
-Définition des clés-valeurs dans le cas d'un attribut de type énuméré.
-Le type de l'attribut est `enum`. Les aides à la saisie ne sont pas 
-autorisé pour les attributs de type `enum`.
+Nom et attributs de la méthode de calcul s'il s'agit d'un
+[attribut calculé][attribut_calcule].  
+Dans ce cas `[phpfile][phpfile]` doit être vide.
 
-L'ensemble des valeurs est une suite de couples `<clef>|<label>` séparés par des
-virgules. Le label est le texte présenté sur l'interface ; la clef la valeur
-stockée en base de données.
+##### Définition des valeurs d'un énuméré {#core-ref:cd115566-a75d-46b2-908f-00a95ba79f9f}
 
-On peut ainsi modifier les labels sans pour autant changer la clef. La
-suppression d'une clef ne supprime pas les valeurs déjà insérées dans les
-documents ; si le document contient une clef qui n'existe pas ou plus, c'est la
-clef qui sera affichée.
+Ne concerne que le cas des attributs de type `enum`.
 
-Les caractères, ou séquences de caractères, suivants ne sont pas compatibles
-pour la composition d'une clef ou d'un label d'énuméré :
-
-*   Les caractères `"` (quote), `'` (apostrophe) et `&` (ampersand)  
-    sont à proscrire pour la composition des *clefs* d'énumérés.
-*   Les séquences `-dot-` (minus "dot" minus) et `-comma-` (minus "comma" minus) 
-    sont à proscrire pour la  composition des *clefs* ou des *labels* d'énumérés.
-*   Les clefs et les label ne peuvent pas contenir le caractère `|` (pipe).
-
-
-Exemple : `red|Rouge,yellow|Jaune,skyblue|Bleu ciel`.
-
-Si le label contient une virgule il faut échapper celle-ci au moyen d'un
-anti-slash `\`.
-
-Exemple  `green|Vert \, foncé \, clair,yellow|Jaune`.
-
-La clef peut aussi désigner une arborescence. Dans ce cas le séparateur pour la
-définition du chemin est le `.` (point).
-
-Exemple : `france|France,france.midi|Midi-Pyrénées,france.midi.gers|Gers,france.midi.haute-garonne|Haute-Garonne`
-définit l'arborescence :
-
-*   France
-    * Midi-Pyrénées
-        * Gers
-        * Haute-Garonne
-
-Dans le cas d'une arborescence, c'est la clef finale qui est stockée et non le
-chemin.  
-Ainsi, il est possible de changer a posteriori l'arborescence sans impacter les
-clefs déjà stockées. Si le document enregistre l’énuméré "Gers" c'est la clef
-_"gers"_ qui sera stockée et non _"france.midi.gers"_.
-
-Si une clef doit contenir un `.` (point) sans pour autant désigner une arborescence
-il faut échapper celui-ci au moyen d'un anti-slash `\`.
-
-Exemple `19\.6|19,6%,5\.5|5,5%`, permet d'avoir les valeurs `19.6` et `5.5` 
-comme clef.
-
-Les libellés sont soumis à la localisation. La clef de traduction d'un énuméré 
-est : `<FAMILYNAME>#<ATTRID>#<ENUMKEY>` (exemple `MY_FAMILY#my_color#yellow`). 
-`FAMILYNAME` est le nom de la famille et `ATTRID` est l'identifiant de 
-l'attribut en minuscule.
-
-La définition d'un énuméré peut aussi être fournie par une fonction PHP. Dans ce
-cas la caractéristique `phpfile` doit aussi être renseignée (et doit alors
-désigner un fichier publié dans le répertoire `EXTERNALS`). La fonction de
-définition de l'énuméré doit être définie dans le fichier référencé par
-`phpfile`. Cette fonction doit retourner la définition sous la forme d'une
-chaîne de caractères comme décrit ci-dessus.
+[Couples *clé*/*label*][def_enum] correspondant à l'énuméré.
 
 #### Caractéristique `[elink]` {#core-ref:edf84026-7980-442f-bc86-88739e49e3b5}
 
@@ -1182,3 +1123,5 @@ Pour plus de détails sur l'API `importDocuments`, se référer à sa
 [control_de_vue]: #core-ref:017f061a-7c12-42f8-aa9b-276cf706e7e0
 [reset]: #core-ref:5c661733-772d-42b8-8b3e-b70453ddfd33
 [importDocuments]: #core-ref:1c97f553-dcba-454e-96a0-8059230065b3
+[phpfile]: {#core-ref:7362e2ff-cfb5-45f0-a81d-e02eab6d0fb6}
+[def_enum]: #core-ref:eef3e3ec-2d50-41bd-98e1-cc978f0a5178
