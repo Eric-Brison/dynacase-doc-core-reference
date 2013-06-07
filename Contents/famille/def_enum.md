@@ -50,10 +50,19 @@ En outre, les valeurs suivantes doivent être échappées au moyen du caractère
 
 *   `,` (*virgule*)
 
-## Suppression de valeurs {#core-ref:05f987d2-3901-4764-9bf8-96c104ec7bf5}
+## Suppression de valeurs d'énumérés {#core-ref:05f987d2-3901-4764-9bf8-96c104ec7bf5}
 
-Le seul moyen de supprimer des valeurs est actuellement de supprimer des entrées
-de la table `docenum`.
+Si l'énuméré est déclaré avec l'option `system=yes`, les définitions des
+énumérés est réinitialisé à chaque importation.
+
+Si l'énuméré n'a pas cette option, il faut ajouter un ordre
+[`RESET;enums`][resetfamille] pour forcer la réinitialisation avec les nouvelles
+valeurs définies.
+
+**Note** : La suppression d'une valeur dans la définition ne supprime pas les
+valeurs déjà affectés aux documents. Si un document a une valeur non répertoriée
+dans la définition de l'énuméré ce sera cette valeur (brute) qui sera affichée
+car son ancien libellé aura été supprimé.
 
 ## Énumérés multi-niveaux {#core-ref:fd01b48a-6da5-4eef-90e8-d2d274a9e9ce}
 
@@ -61,20 +70,20 @@ Il est possible d'exprimer une *arborescence* des clés au moyen du séparateur
 `.`.
 
 Par exemple, l'énuméré
-`france|France,france.midi|Midi-Pyrénées,france.midi.gers|Gers,france.midi.haute-garonne|Haute-Garonne,france.idf|Ile-de-France,france.idf.paris|Paris`
+`france|France,france.midi|Midi-Pyrénées,france.midi.gers|Gers,france.midi.haute-garonne|Haute-Garonne,france.idf|Île-de-France,france.idf.paris|Paris`
 définit l'arborescence :
 
 *   France
     *   Midi-Pyrénées
         *   Gers
         *   Haute-Garonne
-    *   Ile-de-France
+    *   Île-de-France
         *   Paris
 
 Du point de vue interne, c'est la clé 'finale' qui est stockée. Cela permet de
 modifier l'arborescence sans impacter les clés déjà stockées. Cependant, cela
 implique aussi que **toutes les clés finales d'un énuméré doivent être non-
-ambigües** (par exemple, `un|un,un.one|one,deux|deux,deux.one|one` n'est pas
+ambigües** (par exemple, `un|un,un.one|one,deux|deux,deux.one|one more` n'est pas
 valide, car la clé `one` désigne à la fois `un.one` et `deux.one`).
 
 ## Valeurs dynamiques {#core-ref:df6f9457-51d9-4682-89ac-8825f2719779}
@@ -97,3 +106,4 @@ forme `<FAMILYNAME>#<ATTRID>#<ENUMKEY>` (exemple `MY_FAMILY#my_color#yellow`).
 <!-- links -->
 [declaration_famille]: #core-ref:cfc7f53b-7982-431e-a04b-7b54eddf4a75
 [multi_level]: #core-ref:fd01b48a-6da5-4eef-90e8-d2d274a9e9ce
+[resetfamille]: #core-ref:5c661733-772d-42b8-8b3e-b70453ddfd33
