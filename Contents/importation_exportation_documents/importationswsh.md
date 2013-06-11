@@ -57,17 +57,19 @@ auquel enregistrer le fichier de log :
     IMPORT COUNT KO : 1
     IMPORT END OK : 02/07/2010 17:10:31
 
-## Options pour les importations de familles
+## Options pour les importations de familles {#core-ref:330f2421-4cc5-458a-8502-c0d715e612a6}
 
 L'option `reset` permet d'influer sur l'interprétation de l'importation en
-rajoutant des [ordres de `RESET`][resetfam] à la définition de la famille.
+rajoutant des [instructions de `RESET`][resetfam] à la définition de la famille.
 
-L'option `reset` rajoute l'ordre `RESET` correspondant après chaque `BEGIN` du
-fichier. Toutes les familles définies auront cet ordre ajouté.
+L'option `reset` rajoute l'instruction `RESET` correspondant après chaque
+`BEGIN` du fichier. Toutes les familles définies auront cette instruction
+ajoutée.
 
     ./wsh.php --api=importDocuments --file=my_family.csv --reset=attributes
 
-Cette option peut être multivalué pour indiqué plusieurs ordre de `RESET`.
+Cette option peut être multivaluée pour indiquer plusieurs instructions de
+`RESET`.
 
     ./wsh.php --api=importDocuments --file=my_family.csv --reset[]=enums --reset[]=default
 

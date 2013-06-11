@@ -27,6 +27,8 @@ cette identité au moyen de l'option `--userid`, qui prend comme paramètre le
 
 ### Passage d'arguments {#core-ref:fa9210eb-5bad-4867-a287-e732afc02251}
 
+## Arguments simples {#core-ref:4b368074-f30c-49c3-8c34-6d2d9a9b2ddf}
+
 Il est possible de passer des arguments nommés en rajoutant des options avec la
 notation `--argumentName=argumentValue`. Le nom de l'argument correspond au nom
 de l'option. Ainsi, `--foo=bar` assignera la valeur `"bar"` à l'argument `foo`.
@@ -36,24 +38,26 @@ envoyés au format texte. Aussi, lors de l'utilisation du paramètre `--foo=true
 le script appelé recevra l'argument `"true"` (string) et non pas le booléen
 `true`.
 
+### Arguments multivalués {#core-ref:6cad24b2-bce8-43b6-97bb-a34f4f27328d}
+
 Si la valeur de l'argument comporte des espaces les double-quotes `"`ou les
 quotes `'` peuvent être utilisées.
 
     ./wsh.php --api=my_test --my_number=3 --my_text="l'argument deux"
 
+Le passage d'arguments multivalués se fait au moyen de la notation
+`--argumentName=argumentValue` répétée autant de fois que nécessaire. Ainsi,
+`--my_numbers[]=2 --my_numbers[]=4` assignera la valeur `array("2","4")` à
+l'argument `my_numbers`.
+
 Pour la récupération des arguments, se référer à la documentation de la
 [classe `ApiUsage`][ApiUsage].
 
-Le passage d'arguments contenant plusieurs valeurs est faite en succédant le
-nom de l'argument avec `[]`.
+### Arguments booléens {#core-ref:318ddb5d-f059-439f-a1f8-277fc9949fc9}
 
-    ./wsh.php --api=my_test --my_numbers[]=2 --my_numbers[]=4
-
-Dans ce cas la valeur de `my_numbers` sera :
-
-    [php]
-    array("2","4")
-
+Enfin, il est possible de passer des arguments booléens avec la notation
+`--argumentName` (sans valaur). Ainsi, `--foo` assignera la valeur `true` à
+l'argument `foo`.
 
 ### Exécuter des scripts avec wsh {#core-ref:c47cdda0-0221-4dfc-ba14-56376e570372}
 
