@@ -10,6 +10,9 @@ les accessibilités de l'utilisateur `anonymous`.
 Accès anonyme par `guest.php`
 :   L'accès anonyme effectué par `guest.php`, lance les actions demandés sous
     l'identité de l'utilisateur `anonymous`.
+
+    Cet accès anonyme peut être désactivé en indiquant `no` dans le paramètre
+    applicatif  `CORE_ALLOW_GUEST` de l'application _CORE_.
     
     Exemple :
     

@@ -238,6 +238,20 @@ HTML, le templat peut aussi produire tout type de données textuelles telles que
  fichiers binaires telles que des images mais dans ce cas ce n'est pas l'objet 
  `lay` qui sera utilisé pour le retour.
 
+## Exécuter une action {#core-ref:14b2cf06-da86-46be-832e-942e842c9552}
+
+Une action est exécutée sur le serveur en indiquant le nom de l'application et
+le nom de l'action dans l'url d'accès.
+
+Le nom de l'application est indiqué dans le paramètre `app` et le nom de
+l'action dans le paramètre `action`.
+
+Exemple :
+
+    ?app=MY_APP&action=MY_ACTION
+
+Les actions peuvent aussi être exécutées en mode console avec [_wsh_][actionwsh].
+
 <!-- links -->
 [application]: #core-ref:395f44f1-6699-4ad8-b525-31e65e9b6efb
 [my_app.app]: #core-ref:cf584c21-ebee-4444-8046-da3fa3a2db1b
@@ -246,3 +260,4 @@ HTML, le templat peut aussi produire tout type de données textuelles telles que
 [actionusage]: #core-ref:7a8932eb-a59f-482a-9991-4ee1c634eae4
 [classapplication]: #core-ref:5fca4352-702f-44fb-8ffa-3686545c6c67
 [template]: #core-ref:af9ea76c-069e-49e1-a382-efc8ca35f1eb
+[actionwsh] #core-ref:63832d9f-61a8-4846-a9d5-c34ee58de4a6

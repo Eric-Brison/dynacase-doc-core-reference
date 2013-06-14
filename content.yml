@@ -222,6 +222,20 @@ book:
       flags:
         wip: "work in progress"
       subtoc:   2
+    - level:   2
+      content:  "securite/regles_securite.md"
+    - level:   2
+      content:  "securite/param_profil.md"
+    - level:   2
+      content:  "securite/droits_applicatifs.md"
+    - level:   2
+      content:  "securite/droit_core.md"
+    - level:   2
+      content:  "securite/droits_documents.md"
+    - level:   2
+      content:  "securite/droits_cv.md"
+    - level:   2
+      content:  "securite/droits_workflow.md"
 ##
 # cycles
 ##

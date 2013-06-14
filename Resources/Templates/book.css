@@ -194,3 +194,20 @@ a:hover code {
 #chunk_toc {
     background-color: #fff;
 }
+/* Pour les profil */
+span.aclgreen {
+    background-color:#90EE90; /*lightgreen*/
+    border-radius:5px;
+    font-weight: bold;
+    font-size:150%;
+    padding-left:0.5em;
+    padding-right:0.5em;
+}
+span.aclgrey {
+    background-color:#D3D3D3; /*lightgray*/
+    border-radius:5px;
+    font-weight: bold;
+    font-size:150%;
+    padding-left:0.5em;
+    padding-right:0.5em;
+}

@@ -2,20 +2,32 @@
 
 ## Résumé {#core-ref:7fcd8c91-b981-4ef6-b4b5-7975a17dbe73}
 
-Ce chapitre aborde les points suivants :
+Toute requête effectuée sur le serveur exécute une action d'une application.
+L'action détermine la fonctionnalité attendue par la requête.
+
+Vocabulaire :
 
 Application
-:   Une application est un conteneur permettant de regrouper des *Actions*, des *ACL* et des *paramètres*.
+:   Une application est un conteneur permettant de regrouper des *Actions*, 
+    des *ACL* et des *paramètres*.
 
-Action
-:   Une action est une fonction PHP. Cette fonction peut utiliser l'ensemble de l'API de Dynacase et est exécutée au nom de l'utilisateur en cours (les droits, visibilités et autres sont donc respectés). Elles peuvent être utilisées pour effectuer :
+Action 
+:   Une action est une fonction PHP. Cette fonction peut utiliser
+    l'ensemble de l'API de Dynacase et est exécutée au nom de l'utilisateur en cours
+    (les droits, visibilités et autres sont donc respectés). Elles peuvent être
+    utilisées pour effectuer :
     
     * des exports particuliers (textuel ou binaire),
-    * des traitements particuliers (dupliquer des documents, effectuer des modifications de groupes, créations automatiques, etc.),
-    * des IHM spécifiques (mise en place d'un portail d'accueil, d'interface de manipulation de documents, etc.)
+    * des traitements particuliers (dupliquer des documents, effectuer des 
+        modifications de groupes, créations automatiques, etc.),
+    * des IHM spécifiques (mise en place d'un portail d'accueil, d'interface 
+      de manipulation de documents, etc.)
 
 ACL
-:   Une ACL est un droit applicatif, elle a deux usages complémentaires. Au niveau d'une action, elle indique que l'utilisateur doit posséder cette ACL pour pouvoir utiliser cette action et associée à un compte (rôle, utilisateur, groupe) elle indique que ce compte possède cette ACL.
+:   Une ACL est un droit applicatif, elle a deux usages complémentaires. Au 
+    niveau d'une action, elle indique que l'utilisateur doit posséder cette ACL
+    pour pouvoir utiliser cette action et associée à un compte 
+    (rôle, utilisateur, groupe) elle indique que ce compte possède cette ACL.
 
 ## Application {#core-ref:82e2587e-fe2b-49ce-a4aa-a25fdc9c12c2}
 
@@ -43,9 +55,10 @@ Une liste de définition d'action
 :   Cette liste est présentée sous la forme d'un tableau PHP d'action. La liste des actions est propre à chaque application.
 
 Des paramètres applicatifs
-: Les paramètres applicatifs sont présentés sous la forme d'une liste décrivant l'ensemble des paramètres applicatifs applicables pour l'application
+:   Les paramètres applicatifs sont présentés sous la forme d'une liste décrivant l'ensemble des paramètres applicatifs applicables pour l'application
 
-NB : une application peut hériter d'une autre, elle hérite alors de son paramétrage et des actions et paramètres applicatifs.
+NB : une application peut hériter d'une autre, elle hérite alors de son
+paramétrage et des actions et paramètres applicatifs.
 
 ## ACL {#core-ref:5afe50d4-321c-4dd7-ac1c-9fc3a5076e52}
 
