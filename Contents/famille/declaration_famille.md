@@ -23,7 +23,7 @@ Exemple de définition d'une famille :
     //;properties;;;;;;;;;;;;;;;
     //propid;value;;;;;;;;;;;;;;;
     ICON;zoo_animal.png;;;;
-    METHOD;Method.zoo_animal.php;;;;
+    CLASS;class.zooAnimal.php;;;;
     DFLDID;FLD_ZOO_ANIMAL;;;;
     ;;;;;;;;;;;;;;;;
     //;attributes;;;;;;;;;;;;;;;
@@ -32,7 +32,7 @@ Exemple de définition d'une famille :
     ATTR;AN_IDENTIFICATION;;Identification;N;N;frame;100;W;;;;;;;;
     ATTR;AN_NOM;AN_IDENTIFICATION;nom;Y;N;text;110;W;Y;;;;;;edittemplate=ZOO:ANIMALNAME:U|viewtemplate=ZOO:ANIMALNAME;
     ATTR;AN_TATOUAGE;AN_IDENTIFICATION;tatouage;N;N;int;120;W;;;;;;;edittemplate=ZOO:ANIMALTATOO:S|viewtemplate=ZOO:ANIMALTATOO:S;
-    ATTR;AN_ESPECE;AN_IDENTIFICATION;espèce;N;N;docid('ZOO_ESPECE');130;W;Y;;;;;;creation={es_nom:CT}|doctitle=an_espece_title;
+    ATTR;AN_ESPECE;AN_IDENTIFICATION;espèce;N;N;docid("ZOO_ESPECE");130;W;Y;;;;;;creation={es_nom:CT}|doctitle=an_espece_title;
     ATTR;AN_ESPECE_TITLE;AN_IDENTIFICATION;espèce (titre);Y;N;text;140;H;;;;::getTitle(an_espece);;;;
     ATTR;AN_ORDRE;AN_IDENTIFICATION;ordre;N;N;text;150;R;;;;::getdocvalue(an_espece,es_ordre);;;;
     ATTR;AN_CLASSE;AN_IDENTIFICATION;classe;N;N;docid("ZOO_CLASSE");160;R;;;;::getdocvalue( an_espece , es_classe);;;doctitle=auto;
@@ -45,8 +45,8 @@ Exemple de définition d'une famille :
     ATTR;AN_CARNETSANTE;AN_IDENTIFICATION;Carnet Santé;N;N;menu;230;W;;%S%app=GENERIC&action=GENERIC_ISEARCH&id=%I%&famid=ZOO_CARNETSANTE&viewone=Y;;;;;;
     ATTR;AN_ENCLOS;AN_IDENTIFICATION;Enclos;N;N;menu;240;W;;%S%app=GENERIC&action=GENERIC_ISEARCH&id=%I%&famid=ZOO_ENCLOS&viewone=Y;;;;;;
     ATTR;AN_PARENT;AN_IDENTIFICATION;Parents;N;N;menu;250;W;;%S%app=GENERIC&action=GENERIC_ISEARCH&generic=Y&id=%I%&famid=ZOO_ANIMAL;;;;;;
-    ATTR;AN_PERE;AN_IDENTIFICATION;pere;N;Y;docid('ZOO_ANIMAL');260;R;;;;::getAscendant(M);;;doctitle=auto
-    ATTR;AN_MERE;AN_IDENTIFICATION;mere;N;Y;docid('ZOO_ANIMAL');270;R;;;;::getAscendant(F);;;doctitle=auto
+    ATTR;AN_PERE;AN_IDENTIFICATION;pere;N;Y;docid("ZOO_ANIMAL");260;R;;;;::getAscendant(M);;;doctitle=auto
+    ATTR;AN_MERE;AN_IDENTIFICATION;mere;N;Y;docid("ZOO_ANIMAL");270;R;;;;::getAscendant(F);;;doctitle=auto
     ATTR;AN_FOLDER;;Dossier;N;N;menu;10;W;;%S%app=ZOO&action=ZOO_ANIMALFOLDER&id=%I%;;;;;
     ;;;;;;;;;;;;;;;;
     END;;;;;;;;;;;;;;;;
@@ -56,39 +56,39 @@ comme format de fichier d'importation de famille ou de document.
 
 Ce qui donne, vu dans un tableau :
 
-|          |                       |                   |                |   |            |                     |     |     |      |                                                                              |         |                                       |            |                                  |                                          |                                |  |  |
-| -        |                       |                   |                |   |            |                     |     |     |      |                                                                              |         |                                       |            |                                  |                                          |                                |  |  |
-| BEGIN    |                       | Animal            |                |   | ZOO_ANIMAL |                     |     |     |      |                                                                              |         |                                       |            |                                  |                                          |                                |  |  |
-| //       | properties            |                   |                |   |            |                     |     |     |      |                                                                              |         |                                       |            |                                  |                                          |                                |  |  |
-| //propid | value                 |                   |                |   |            |                     |     |     |      |                                                                              |         |                                       |            |                                  |                                          |                                |  |  |
-| ICON     | zoo_animal.png        |                   |                |   |            |                     |     |     |      |                                                                              |         |                                       |            |                                  |                                          |                                |  |  |
-| METHOD   | Method.zoo_animal.php |                   |                |   |            |                     |     |     |      |                                                                              |         |                                       |            |                                  |                                          |                                |  |  |
-| DFLDID   | FLD_ZOO_ANIMAL        |                   |                |   |            |                     |     |     |      |                                                                              |         |                                       |            |                                  |                                          |                                |  |  |
-|          |                       |                   |                |   |            |                     |     |     |      |                                                                              |         |                                       |            |                                  |                                          |                                |  |  |
-| //       | attributes            |                   |                |   |            |                     |     |     |      |                                                                              |         |                                       |            |                                  |                                          |                                |  |  |
-| //       | idattr                | idframe           | label          | T | A          | type                | ord | vis | need | link                                                                         | phpfile | phpfunc                               | elink      | constraint                       | option                                   | Commentaires                   |  |  |
-|          |                       |                   |                |   |            |                     |     |     |      |                                                                              |         |                                       |            |                                  |                                          |                                |  |  |
-| ATTR     | AN_IDENTIFICATION     |                   | Identification | N | N          | frame               | 100 | W   |      |                                                                              |         |                                       |            |                                  |                                          |                                |  |  |
-| ATTR     | AN_NOM                | AN_IDENTIFICATION | nom            | Y | N          | text                | 110 | W   | Y    |                                                                              |         |                                       |            |                                  | edittemplate=ZOO:ANIMALNAME:U            | viewtemplate=ZOO:ANIMALNAME    |  |  |
-| ATTR     | AN_TATOUAGE           | AN_IDENTIFICATION | tatouage       | N | N          | int                 | 120 | W   |      |                                                                              |         |                                       |            |                                  | edittemplate=ZOO:ANIMALTATOO:S           | viewtemplate=ZOO:ANIMALTATOO:S |  |  |
-| ATTR     | AN_ESPECE             | AN_IDENTIFICATION | espèce         | N | N          | docid('ZOO_ESPECE') | 130 | W   | Y    |                                                                              |         |                                       |            |                                  | creation={es_nom:CT}                     | doctitle=an_espece_title       |  |  |
-| ATTR     | AN_ESPECE_TITLE       | AN_IDENTIFICATION | espèce (titre) | Y | N          | text                | 140 | H   |      |                                                                              |         | ::getTitle(an_espece)                 |            |                                  |                                          |                                |  |  |
-| ATTR     | AN_ORDRE              | AN_IDENTIFICATION | ordre          | N | N          | text                | 150 | R   |      |                                                                              |         | ::getdocvalue(an_espece,es_ordre)     |            |                                  |                                          |                                |  |  |
-| ATTR     | AN_CLASSE             | AN_IDENTIFICATION | classe         | N | N          | docid("ZOO_CLASSE") | 160 | R   |      |                                                                              |         | ::getdocvalue( an_espece , es_classe) |            |                                  | doctitle=auto                            |                                |  |  |
-| ATTR     | AN_SEXE               | AN_IDENTIFICATION | sexe           | N | N          | enum                | 170 | W   |      |                                                                              |         | M                                     | Masculin,F | Féminin,H                        | Hermaphrodite                            |                                |  |  |
-| ATTR     | AN_PHOTO              | AN_IDENTIFICATION | photo          | N | N          | image               | 180 | W   |      |                                                                              |         |                                       |            |                                  |                                          |                                |  |  |
-| ATTR     | AN_NAISSANCE          | AN_IDENTIFICATION | date naissance | N | N          | date                | 190 | W   |      |                                                                              |         |                                       |            | ::validatePastDate(AN_NAISSANCE) |                                          |                                |  |  |
-| ATTR     | AN_ENTREE             | AN_IDENTIFICATION | date entree    | N | N          | date                | 200 | W   |      |                                                                              |         |                                       |            | ::validatePastDate(AN_ENTREE)    |                                          |                                |  |  |
-| ATTR     | AN_ENFANT_T           | AN_IDENTIFICATION | liste enfant   | N | N          | array               | 210 | W   |      |                                                                              |         |                                       |            |                                  |                                          |                                |  |  |
-| ATTR     | AN_ENFANT             | AN_ENFANT_T       | enfant         | N | N          | docid("ZOO_ANIMAL") | 220 | W   |      |                                                                              |         |                                       |            |                                  | creation={an_nom:CT,an_espece:an_espece} |                                |  |  |
-| ATTR     | AN_CARNETSANTE        | AN_IDENTIFICATION | Carnet Santé   | N | N          | menu                | 230 | W   |      | %S%app=GENERIC&action=GENERIC_ISEARCH&id=%I%&famid=ZOO_CARNETSANTE&viewone=Y |         |                                       |            |                                  |                                          |                                |  |  |
-| ATTR     | AN_ENCLOS             | AN_IDENTIFICATION | Enclos         | N | N          | menu                | 240 | W   |      | %S%app=GENERIC&action=GENERIC_ISEARCH&id=%I%&famid=ZOO_ENCLOS&viewone=Y      |         |                                       |            |                                  |                                          |                                |  |  |
-| ATTR     | AN_PARENT             | AN_IDENTIFICATION | Parents        | N | N          | menu                | 250 | W   |      | %S%app=GENERIC&action=GENERIC_ISEARCH&generic=Y&id=%I%&famid=ZOO_ANIMAL      |         |                                       |            |                                  |                                          |                                |  |  |
-| ATTR     | AN_PERE               | AN_IDENTIFICATION | pere           | N | Y          | docid('ZOO_ANIMAL') | 260 | R   |      |                                                                              |         | ::getAscendant(M)                     |            |                                  | doctitle=auto                            |                                |  |  |
-| ATTR     | AN_MERE               | AN_IDENTIFICATION | mere           | N | Y          | docid('ZOO_ANIMAL') | 270 | R   |      |                                                                              |         | ::getAscendant(F)                     |            |                                  | doctitle=auto                            |                                |  |  |
-| ATTR     | AN_FOLDER             |                   | Dossier        | N | N          | menu                | 10  | W   |      | %S%app=ZOO&action=ZOO_ANIMALFOLDER&id=%I%                                    |         |                                       |            |                                  |                                          |                                |  |  |
-|          |                       |                   |                |   |            |                     |     |     |      |                                                                              |         |                                       |            |                                  |                                          |                                |  |  |
-| END      |                       |                   |                |   |            |                     |     |     |      |                                                                              |         |                                       |            |                                  |                                          |                                |  |  |
+|          |                     |                   |                |   |            |                     |     |     |      |                                                                              |         |                                                     |       |                                  |                                          |                                |   |   |
+| -        |                     |                   |                |   |            |                     |     |     |      |                                                                              |         |                                                     |       |                                  |                                          |                                |   |   |
+| BEGIN    |                     | Animal            |                |   | ZOO_ANIMAL |                     |     |     |      |                                                                              |         |                                                     |       |                                  |                                          |                                |   |   |
+| //       | properties          |                   |                |   |            |                     |     |     |      |                                                                              |         |                                                     |       |                                  |                                          |                                |   |   |
+| //propid | value               |                   |                |   |            |                     |     |     |      |                                                                              |         |                                                     |       |                                  |                                          |                                |   |   |
+| ICON     | zoo_animal.png      |                   |                |   |            |                     |     |     |      |                                                                              |         |                                                     |       |                                  |                                          |                                |   |   |
+| CLASS    | class.zooAnimal.php |                   |                |   |            |                     |     |     |      |                                                                              |         |                                                     |       |                                  |                                          |                                |   |   |
+| DFLDID   | FLD_ZOO_ANIMAL      |                   |                |   |            |                     |     |     |      |                                                                              |         |                                                     |       |                                  |                                          |                                |   |   |
+|          |                     |                   |                |   |            |                     |     |     |      |                                                                              |         |                                                     |       |                                  |                                          |                                |   |   |
+| //       | attributes          |                   |                |   |            |                     |     |     |      |                                                                              |         |                                                     |       |                                  |                                          |                                |   |   |
+| //       | idattr              | idframe           | label          | T | A          | type                | ord | vis | need | link                                                                         | phpfile | phpfunc                                             | elink | constraint                       | option                                   | Commentaires                   |   |   |
+|          |                     |                   |                |   |            |                     |     |     |      |                                                                              |         |                                                     |       |                                  |                                          |                                |   |   |
+| ATTR     | AN_IDENTIFICATION   |                   | Identification | N | N          | frame               | 100 | W   |      |                                                                              |         |                                                     |       |                                  |                                          |                                |   |   |
+| ATTR     | AN_NOM              | AN_IDENTIFICATION | nom            | Y | N          | text                | 110 | W   | Y    |                                                                              |         |                                                     |       |                                  | edittemplate=ZOO:ANIMALNAME:U            | viewtemplate=ZOO:ANIMALNAME    |   |   |
+| ATTR     | AN_TATOUAGE         | AN_IDENTIFICATION | tatouage       | N | N          | int                 | 120 | W   |      |                                                                              |         |                                                     |       |                                  | edittemplate=ZOO:ANIMALTATOO:S           | viewtemplate=ZOO:ANIMALTATOO:S |   |   |
+| ATTR     | AN_ESPECE           | AN_IDENTIFICATION | espèce         | N | N          | docid("ZOO_ESPECE") | 130 | W   | Y    |                                                                              |         |                                                     |       |                                  | creation={es_nom:CT}                     | doctitle=an_espece_title       |   |   |
+| ATTR     | AN_ESPECE_TITLE     | AN_IDENTIFICATION | espèce (titre) | Y | N          | text                | 140 | H   |      |                                                                              |         | ::getTitle(an_espece)                               |       |                                  |                                          |                                |   |   |
+| ATTR     | AN_ORDRE            | AN_IDENTIFICATION | ordre          | N | N          | text                | 150 | R   |      |                                                                              |         | ::getdocvalue(an_espece,es_ordre)                   |       |                                  |                                          |                                |   |   |
+| ATTR     | AN_CLASSE           | AN_IDENTIFICATION | classe         | N | N          | docid("ZOO_CLASSE") | 160 | R   |      |                                                                              |         | ::getdocvalue( an_espece , es_classe)               |       |                                  | doctitle=auto                            |                                |   |   |
+| ATTR     | AN_SEXE             | AN_IDENTIFICATION | sexe           | N | N          | enum                | 170 | W   |      |                                                                              |         | M&#124;Masculin,F&#124;Féminin,H&#124;Hermaphrodite |       |                                  |                                          |                                |   |   |
+| ATTR     | AN_PHOTO            | AN_IDENTIFICATION | photo          | N | N          | image               | 180 | W   |      |                                                                              |         |                                                     |       |                                  |                                          |                                |   |   |
+| ATTR     | AN_NAISSANCE        | AN_IDENTIFICATION | date naissance | N | N          | date                | 190 | W   |      |                                                                              |         |                                                     |       | ::validatePastDate(AN_NAISSANCE) |                                          |                                |   |   |
+| ATTR     | AN_ENTREE           | AN_IDENTIFICATION | date entree    | N | N          | date                | 200 | W   |      |                                                                              |         |                                                     |       | ::validatePastDate(AN_ENTREE)    |                                          |                                |   |   |
+| ATTR     | AN_ENFANT_T         | AN_IDENTIFICATION | liste enfant   | N | N          | array               | 210 | W   |      |                                                                              |         |                                                     |       |                                  |                                          |                                |   |   |
+| ATTR     | AN_ENFANT           | AN_ENFANT_T       | enfant         | N | N          | docid("ZOO_ANIMAL") | 220 | W   |      |                                                                              |         |                                                     |       |                                  | creation={an_nom:CT,an_espece:an_espece} |                                |   |   |
+| ATTR     | AN_CARNETSANTE      | AN_IDENTIFICATION | Carnet Santé   | N | N          | menu                | 230 | W   |      | %S%app=GENERIC&action=GENERIC_ISEARCH&id=%I%&famid=ZOO_CARNETSANTE&viewone=Y |         |                                                     |       |                                  |                                          |                                |   |   |
+| ATTR     | AN_ENCLOS           | AN_IDENTIFICATION | Enclos         | N | N          | menu                | 240 | W   |      | %S%app=GENERIC&action=GENERIC_ISEARCH&id=%I%&famid=ZOO_ENCLOS&viewone=Y      |         |                                                     |       |                                  |                                          |                                |   |   |
+| ATTR     | AN_PARENT           | AN_IDENTIFICATION | Parents        | N | N          | menu                | 250 | W   |      | %S%app=GENERIC&action=GENERIC_ISEARCH&generic=Y&id=%I%&famid=ZOO_ANIMAL      |         |                                                     |       |                                  |                                          |                                |   |   |
+| ATTR     | AN_PERE             | AN_IDENTIFICATION | pere           | N | Y          | docid("ZOO_ANIMAL") | 260 | R   |      |                                                                              |         | ::getAscendant(M)                                   |       |                                  | doctitle=auto                            |                                |   |   |
+| ATTR     | AN_MERE             | AN_IDENTIFICATION | mere           | N | Y          | docid("ZOO_ANIMAL") | 270 | R   |      |                                                                              |         | ::getAscendant(F)                                   |       |                                  | doctitle=auto                            |                                |   |   |
+| ATTR     | AN_FOLDER           |                   | Dossier        | N | N          | menu                | 10  | W   |      | %S%app=ZOO&action=ZOO_ANIMALFOLDER&id=%I%                                    |         |                                                     |       |                                  |                                          |                                |   |   |
+|          |                     |                   |                |   |            |                     |     |     |      |                                                                              |         |                                                     |       |                                  |                                          |                                |   |   |
+| END      |                     |                   |                |   |            |                     |     |     |      |                                                                              |         |                                                     |       |                                  |                                          |                                |   |   |
 
 
 La définition d'une famille commence toujours par une ligne de la forme :
@@ -135,16 +135,17 @@ BEGIN
     spécifiques, bien que l'usage de valeurs numériques fixes soit fortement
     déconseillée.
 
-[className]
-:   Nom de la classe PHP de cette famille.
+[className] (déprécié)
+:   Nom de la classe PHP utilisée pour cette famille.
     
     Cette classe doit être présente sur le serveur dans un fichier appelé
     `/FDL/Class.[CLASSNAME].php`.
     
-    Le laisser à vide pour que Dynacase génère la classe automatiquement.
-    
     Permet un héritage autre que celui prévu par défaut par les classes
-    documentaire.
+    documentaire. 
+    
+    L'utilisation de la propriété `CLASS` permet de réaliser cette même
+    fonctionnalité.
 
 [logicalName]
 :   Nom logique de la famille.
@@ -300,7 +301,116 @@ ICON
     Si la famille n'a pas encore d'icône, alors la nouvelle valeur est prise en
     compte.
 
-METHOD
+CLASS
+:   Indique le nom de la classe **_métier_** utilisée par la famille.
+    
+    Ce nom de classe doit être unique parmi l'ensemble des classes PHP utilisées
+    sur le serveur. Il est recommandé d'utiliser un _namespace_ afin d'éviter un
+    conflit de nom.
+    
+    Si la famille définie n'a pas de parent alors la classe _métier_ doit étendre la
+    classe  `Dcp\Family\Document`. Cette classe est une classe héritant de la
+    classe `Doc`.
+    
+    Exemple :
+    
+    | BEGIN |                   | Ma première famille |     | MY_FIRST |
+    | ----- | ----------------- | ------------------- | --- | -------- |
+    | CLASS | My\\MyFirstFamily |                     |     |          |
+    | END   |                   |                     |     |          |
+    
+        [php]
+        namespace My;
+        class MyFirstFamily extends \Dcp\Family\Document {
+            public function myFirstProcedure($x) {
+                return $x+1;
+            }
+        }
+    
+    Si la classe est utilisée avec une famille héritant d'une autre famille,
+    cette classe doit hériter de la classe générée de la famille parente.
+    
+    Exemple :
+    
+    | BEGIN |       IMAGE       |  Photographie |              | MY_PHOTO |     |          |     |
+    | ----- | ----------------- | ------------- | ------------ | -------- | --- | -------- | --- |
+    | CLASS | My\\MyPhotoFamily |               |              |          |     |          |     |
+    | ATTR  | MYPHO_FR_INFO     |               | Informations | N        | N   | frame    | 100 |
+    | ATTR  | MYPHO_EXIF        | MYPHO_FR_INFO | Exif         | N        | N   | longtext | 110 |
+    | END   |                   |               |              |          |     |          |     |
+    
+        [php]
+        namespace My;
+        class MyPhotoFamily extends \Dcp\Family\Image {
+            public function postStore() {
+                $err=parent::postStore();
+                if (! $err) {
+                    if (! $this->getRawValue(\Dcp\Attribute\Image::img_file)) {
+                        $err=_("my::image needed");
+                    }
+                    if (! $this->getRawValue(\Dcp\Attribute\My\My_Photo::mypho_exif)) {
+                        $err=_("my::no exif detected");
+                    }
+                }
+                return $err;
+            }
+        }
+    
+    La classe peut étendre des classes intermédiaires, utiliser des interfaces
+    ou des classes abstraites. La seule contrainte est que la classe générée de
+    la famille parente doit faire partie de la hiérarchie de la classe
+    _métier_.  La classe générée de la famille hérite de cette classe. Elle
+    apporte en plus la définition des attributs définis dans la famille ainsi
+    que le code généré pour les attributs calculés. Le nom de cette classe est
+    `\Dcp\Family\<nom de la famille>`.
+    
+    Hiérarchie de classe lorsque la famille _MY_PHOTO_ est intégrée :
+    
+        [php]
+        namespace \Dcp\CoreFamily {
+            // classe métier de la famille IMAGE
+            class Images extends \Dcp\Family\Document {}
+        }
+        namespace \Dcp\Family {
+            // classe générée de la famille IMAGE
+            class Images extends \Dcp\CoreFamily\Image {}
+        }
+        namespace \My {
+            // classe métier de la famille MY_PHOTO
+            class MyPhotoFamily extends \Dcp\Family\Image {}
+        }
+        namespace \Dcp\Family {
+            // classe générée de la famille MY_PHOTO
+            class My_photo extends \My\MyPhotoFamily {}
+        }
+        
+    Les attributs des classes sont disponibles sous forme de constantes.  Une
+    classe d'attributs est générée lors de l'enregistrement de la famille. Cette
+    classe est nommée avec le nom de la famille dans le namespace
+    `\Dcp\Attribute`. L'usage des constantes permet de s'assurer de la validité
+    des noms d'attributs. La classe d'attribut donne l'accès aux noms d'attribut
+    de la famille et aussi à ceux de ces parents.
+    
+    Lors de l'importation de la famille les contraintes suivantes sont vérifiées :
+    
+    *   Le fichier PHP de la classe doit être accessible par l'_autoloader_. 
+        Les fichiers de classes sont généralement publiés dans
+        le sous-répertoire de l'application livrée par le module. 
+        *   Le nom du fichier ne doit pas commencer par `Method`.
+        *   L'extension du fichier doit être `PHP`.
+    *   La classe doit hériter de la classe finale de la famille parente. 
+        En cas de famille sans héritage, la classe doit hériter de la classe 
+        `\Dcp\Family\Document`.
+    *   La classe ne doit pas être abstraite
+    *   L'encodage du fichier doit être `utf-8` (incluant l'encodage `ascii`).
+    *   Le fichier PHP doit être syntaxiquement correct.
+    *   Le nom de la classe doit être unique parmi l'ensemble des classes PHP 
+        utilisées par Dynacase.
+    *   La propriété `className` ne peut pas être utilisée avec la propriété 
+        `CLASS`.
+
+
+METHOD (déprécié)
 :   Indique le nom du fichier PHP contenant les méthodes supplémentaires de la
     famille.
     
@@ -310,20 +420,23 @@ METHOD
     présents dans le répertoire `FDL`. Il est fortement conseillé d'indiquer
     l'identifiant de la famille dans le nom de fichier
     (par exemple : `Method.MyFamily.php` où `MYFAMILY` est l'identifiant de la
-    famille).
+    famille). Le nom du fichier doit commencer par `Method`.
     
-    Cette propriété peut être utilisé plusieurs fois, avec la sémantique
+    Cette propriété peut être utilisée plusieurs fois, avec la sémantique
     suivante :
     
     *   Lorsque le nom est préfixé par `+`,
-        son contenu est concaténé directement dans la classe générée ;
+        son contenu est concaténé directement dans la classe générée.
     *   Lorsque le nom est préfixé par `*`,
-        le fichier n'est pas intégré directement dans la famille ,
+        le fichier n'est pas intégré directement dans la famille,
         mais une classe intermédiaire est générée.
         Cela permet notamment une surcharge plus fine des méthodes.
     
     Si la valeur est vide, *toutes* les méthodes associées seront enlevées (y
     compris celles déclarées avec `*` ou `+`).
+    
+    À la place de `METHOD`, l'utilisation de la propriété `CLASS` est recommandée
+    afin de définir les classes _métier_ de la famille.
 
 PROFID
 :   Identifiant (nom logique ou identifiant interne) du document profil de

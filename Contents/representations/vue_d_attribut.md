@@ -235,22 +235,25 @@ d'attributs dans le cas d'un tableau ou d'un cadre.
 
 Exemple : 
 
-    Method.MyFamily.php
+    Class.MyFamily.php
 
     [php]
-    /**
-     * Affiche le nombre sur 3 chiffres
-     * @templateController affichage en rouge si négatif, en vert sinon
-     */
-    public function mySpecialNumber($target = "_self", $ulink = true, $abstract = false)
-    {
-        $number=$this->getRawValue("my_number");
-        if ($number > 0) {
-            $this->lay->set("color", "green");
-        } else {
-            $this->lay->set("color", "red");
-        }  
-        $this->lay->set("theNumber", sprintf("%.03d",$number));
+    namespace My;
+    class MyFamily extends \Dcp\Family\Documents {
+      /**
+       * Affiche le nombre sur 3 chiffres
+       * @templateController affichage en rouge si négatif, en vert sinon
+       */
+      public function mySpecialNumber($target = "_self", $ulink = true, $abstract = false)
+      {
+          $number=$this->getRawValue("my_number");
+          if ($number > 0) {
+              $this->lay->set("color", "green");
+          } else {
+              $this->lay->set("color", "red");
+          }  
+          $this->lay->set("theNumber", sprintf("%.03d",$number));
+      }
     }
 
     MYAPP/Layout/mySpecialNumber.html
@@ -262,7 +265,7 @@ Exemple :
 
 Dans cet exemple le template est associé à l'attribut `MY_NUMBER` avec l'option
 `viewtemplate=MYAPP:mySpecialNumber.html`.
-La méthode `mySpecialNumber()` est déclarée dans le fichier [_METHOD_][famprop]
+La méthode `mySpecialNumber()` est déclarée dans le fichier [_CLASS_][famprop]
 de la famille.
 
 ## Vue de modification d'attribut {#core-ref:4faa4b17-56fc-4e42-a091-f1a97b7591b8}
@@ -399,16 +402,20 @@ n'a pas le droit de voir un attribut, la clé `V_ATTRID` génère un
 visibilité.
 Exemple :
 
-    Method.MyFamily.php
+    Class.MyFamily.php
 
     [php]
-    /**
-     * Affiche le nombre sur 3 chiffres
-     * @templateController affichage en rouge si négatif, en vert sinon
-     */
-    public function myEditSpecialNumber($target = "_self", $ulink = true, $abstract = false)
-    {
-        $this->editAttr();
+    
+    namespace My;
+    class MyFamily extends \Dcp\Family\Documents {
+      /**
+       * Affiche le nombre sur 3 chiffres
+       * @templateController affichage en rouge si négatif, en vert sinon
+       */
+      public function myEditSpecialNumber($target = "_self", $ulink = true, $abstract = false)
+      {
+          $this->editAttr();
+      }
     }
 
     MYAPP/Layout/myEditSpecialNumber.html

@@ -108,7 +108,7 @@ Afin de définir une vue personnalisée, il est possible :
     l'identifiant de la zone documentaire dans le paramètre `zone` de l'url
     d'accès au document.
 *   d'indiquer la zone documentaire dans l'attribut `defaultView` du fichier
-   _METHOD_  de la famille pour avoir cette vue par défaut lors de la
+   _CLASS_  de la famille pour avoir cette vue par défaut lors de la
     consultation.
 
     [php]
