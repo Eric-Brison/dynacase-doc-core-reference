@@ -144,7 +144,7 @@ BEGIN
     Permet un héritage autre que celui prévu par défaut par les classes
     documentaire. 
     
-    L'utilisation de la propriété `CLASS` permet de réaliser cette même
+    L'utilisation de la propriété `CLASS` permet de réaliser cette 
     fonctionnalité.
 
 [logicalName]
@@ -388,7 +388,7 @@ CLASS
     classe d'attributs est générée lors de l'enregistrement de la famille. Cette
     classe est nommée avec le nom de la famille dans le namespace
     `\Dcp\Attribute`. L'usage des constantes permet de s'assurer de la validité
-    des noms d'attributs. La classe d'attribut donne l'accès aux noms d'attribut
+    des noms d'attributs. La classe d'attributs donne l'accès aux noms d'attribut
     de la famille et aussi à ceux de ces parents.
     
     Lors de l'importation de la famille les contraintes suivantes sont vérifiées :
@@ -397,14 +397,14 @@ CLASS
         Les fichiers de classes sont généralement publiés dans
         le sous-répertoire de l'application livrée par le module. 
         *   Le nom du fichier ne doit pas commencer par `Method`.
-        *   L'extension du fichier doit être `PHP`.
-    *   La classe doit hériter de la classe finale de la famille parente. 
+        *   L'extension du fichier doit être `php`.
+    *   La classe doit hériter de la classe générée de la famille parente. 
         En cas de famille sans héritage, la classe doit hériter de la classe 
         `\Dcp\Family\Document`.
     *   La classe ne doit pas être abstraite
     *   L'encodage du fichier doit être `utf-8` (incluant l'encodage `ascii`).
     *   Le fichier PHP doit être syntaxiquement correct.
-    *   Le nom de la classe doit être unique parmi l'ensemble des classes PHP 
+    *   Le nom de la classe doit être unique parmi l'ensemble des classes php 
         utilisées par Dynacase.
     *   La propriété `className` ne peut pas être utilisée avec la propriété 
         `CLASS`.
