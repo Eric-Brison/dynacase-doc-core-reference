@@ -146,6 +146,9 @@ BEGIN
     
     L'utilisation de la propriété `CLASS` permet de réaliser cette 
     fonctionnalité.
+    
+    Pour supprimer cette propriété, il faut mettre deux tirets `--` comme valeur.
+    Si la valeur est vide, la propriété conserve son ancienne valeur.
 
 [logicalName]
 :   Nom logique de la famille.
@@ -345,10 +348,10 @@ CLASS
             public function postStore() {
                 $err=parent::postStore();
                 if (! $err) {
-                    if (! $this->getRawValue(\Dcp\Attribute\Image::img_file)) {
+                    if (! $this->getRawValue(\Dcp\AttributeIdentifiers\Image::img_file)) {
                         $err=_("my::image needed");
                     }
-                    if (! $this->getRawValue(\Dcp\Attribute\My\My_Photo::mypho_exif)) {
+                    if (! $this->getRawValue(\Dcp\AttributeIdentifiers\My\My_Photo::mypho_exif)) {
                         $err=_("my::no exif detected");
                     }
                 }
@@ -367,7 +370,7 @@ CLASS
     Hiérarchie de classe lorsque la famille _MY_PHOTO_ est intégrée :
     
         [php]
-        namespace \Dcp\CoreFamily {
+        namespace \Dcp\Core {
             // classe métier de la famille IMAGE
             class Images extends \Dcp\Family\Document {}
         }
@@ -387,7 +390,7 @@ CLASS
     Les attributs des classes sont disponibles sous forme de constantes.  Une
     classe d'attributs est générée lors de l'enregistrement de la famille. Cette
     classe est nommée avec le nom de la famille dans le namespace
-    `\Dcp\Attribute`. L'usage des constantes permet de s'assurer de la validité
+    `\Dcp\AttributeIdentifiers`. L'usage des constantes permet de s'assurer de la validité
     des noms d'attributs. La classe d'attributs donne l'accès aux noms d'attribut
     de la famille et aussi à ceux de ces parents.
     
@@ -410,8 +413,10 @@ CLASS
         `CLASS`.
 
 
-METHOD (déprécié)
-:   Indique le nom du fichier PHP contenant les méthodes supplémentaires de la
+METHOD 
+:   Cette propriété est à utiliser si la famille nécessite des héritages multiples.
+    
+    Indique le nom du fichier PHP contenant les méthodes supplémentaires de la
     famille.
     
     Le fichier référencé doit être disponible dans le répertoire *FDL*. 
@@ -434,6 +439,43 @@ METHOD (déprécié)
     
     Si la valeur est vide, *toutes* les méthodes associées seront enlevées (y
     compris celles déclarées avec `*` ou `+`).
+    
+    Exemple :
+    
+    | BEGIN  |       IMAGE        |  Photographie |              | MY_PHOTO |     |          |     |
+    | ------ | ------------------ | ------------- | ------------ | -------- | --- | -------- | --- |
+    | CLASS  | My\MyPhotoFamily   |               |              |          |     |          |     |
+    | METHOD | Method.MyPhoto.php |               |              |          |     |          |     |
+    | ATTR   | MYPHO_FR_INFO      |               | Informations | N        | N   | frame    | 100 |
+    | ATTR   | MYPHO_EXIF         | MYPHO_FR_INFO | Exif         | N        | N   | longtext | 110 |
+    | END    |                    |               |              |          |     |          |     |
+    Hiérarchie de classe lorsque la famille _MY_PHOTO_ est intégrée :
+    
+        [php]
+        namespace \Dcp\Core {
+            // classe métier de la famille IMAGE
+            class Images extends \Dcp\Family\Document {}
+        }
+        namespace \Dcp\Family {
+            // classe générée de la famille IMAGE
+            class Images extends \Dcp\CoreFamily\Image {}
+        }
+        namespace \My {
+            // classe métier de la famille MY_PHOTO
+            class MyPhotoFamily extends \Dcp\Family\Image {}
+        }
+        namespace  {
+            // classe méthode générée de la famille MY_PHOTO
+            class _Method_MY_PHOTO_ extends \My\MyPhotoFamily {
+                // inclus le contenu de Method.MyPhoto.php
+            }
+        }
+        namespace \Dcp\Family {
+            // classe générée de la famille MY_PHOTO
+            class My_photo extends _Method_MY_PHOTO_ {}
+        }
+    
+    <span class="fixme" data-assignedto="nobody">Description de begin-method-ignore</span>
     
     À la place de `METHOD`, l'utilisation de la propriété `CLASS` est recommandée
     afin de définir les classes _métier_ de la famille.
