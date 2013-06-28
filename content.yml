@@ -488,23 +488,26 @@ book:
       element: "chapter"
       content:  "API/Class_Doc/Properties.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
+    - level:   3
+      element: "chapter"
+      content:  "API/Class_Doc/Method_PreCreated.md"
+      flags:
+        draft: "draft"
     - level:   3
       element: "chapter"
       content:  "API/Class_Doc/Method_PostCreated.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
     - level:   3
       element: "chapter"
-      content:  "API/Class_Doc/Method_PostModify.md"
+      content:  "API/Class_Doc/Method_preStore.md"
       flags:
         wip: "work in progress"
         wip_sub: ""
     - level:   3
       element: "chapter"
-      content:  "API/Class_Doc/Method_PreCreated.md"
+      content:  "API/Class_Doc/Method_postStore.md"
       flags:
         wip: "work in progress"
         wip_sub: ""
