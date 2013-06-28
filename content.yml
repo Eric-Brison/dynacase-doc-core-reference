@@ -690,7 +690,13 @@ book:
         wip_sub: ""
     - level:   3
       element: "chapter"
-      content:  "API/Class_Doc/Method_getValue.md"
+      content:  "API/Class_Doc/Method_getRawValue.md"
+      flags:
+        wip: "work in progress"
+        wip_sub: ""
+    - level:   3
+      element: "chapter"
+      content:  "API/Class_Doc/Method_getAttributeValue.md"
       flags:
         wip: "work in progress"
         wip_sub: ""
