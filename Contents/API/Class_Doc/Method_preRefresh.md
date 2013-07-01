@@ -1,4 +1,4 @@
-# Doc::SpecRefresh() {#core-ref:580d6be1-6b6a-439b-abd7-34b26cfaf2e5}
+# Doc::preRefresh() {#core-ref:580d6be1-6b6a-439b-abd7-34b26cfaf2e5}
 
 <div class="short-description">
 <span class="fixme template">short description for Doc::SpecRefresh()</span>

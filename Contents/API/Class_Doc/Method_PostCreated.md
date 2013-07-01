@@ -21,8 +21,8 @@ Cette méthode est utilisable aussi pour réaliser un post-traitement. Elle ne
 peut pas annuler l'enregistrement. Le document possède un identificateur est
 déjà enregistré en base.
 
-Cette méthode est aussi appelée par lorsque le document est révisé. Une révision
-entraine une création en base de données. 
+Cette méthode est aussi appelée par `Doc::addRevision()` lorsque le document est
+révisé. Une révision entraîne une création en base de données.
 
 ### Avertissements {#core-ref:49929040-b38d-4b2a-9432-98c48af2ff3a}
 
@@ -97,9 +97,11 @@ N/A
 
 <!-- links -->
 [docstore]:         #core-ref:b8540d13-ece6-4e9e-9b72-6a56bca9da12
-[docpostcreated]:   #core-ref:b8f80e6b-a374-4bf4-bc76-47290cd69c45
-[docpoststore]:     #core-ref:99520a31-0aef-4bc6-b20a-114737059d17
-[docprestore]:      #core-ref:3517da95-82fe-4adb-8bc4-ef49ca55edb0
-[docprecreated]:    #core-ref:e85aa9d4-5e62-4a60-9d1c-f60433301747
+[docpostcreated]:   #core-ref:b8f80e6b-a374-4bf4-bc76-47290cd69c45 "Hameçon Doc::postCreated()"
+[docpoststore]:     #core-ref:99520a31-0aef-4bc6-b20a-114737059d17 "Hameçon Doc::postStore()"
+[docprestore]:      #core-ref:3517da95-82fe-4adb-8bc4-ef49ca55edb0 "Hameçon Doc::preStore()"
+[docprecreated]:    #core-ref:e85aa9d4-5e62-4a60-9d1c-f60433301747 "Hameçon Doc::preCreated()"
+[docprerefresh]:    #core-ref:580d6be1-6b6a-439b-abd7-34b26cfaf2e5 "Hameçon Doc::preRefresh()"
+[docpostrefresh]:   #core-ref:9352c534-3691-41e3-b293-599db8e9a4fd "Hameçon Doc::postRefresh()"
 [docaddrevision]:   #core-ref:882e3730-0483-4dbc-9b9d-0d0b5cc31d38
 
