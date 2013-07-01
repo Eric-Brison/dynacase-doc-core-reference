@@ -481,8 +481,7 @@ book:
       element: "chapter"
       content:  "API/Class_Doc.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
       subtoc:   1
     - level:   3
       element: "chapter"
@@ -525,7 +524,12 @@ book:
         wip_sub: ""
     - level:   3
       element: "chapter"
-      content:  "API/Class_Doc/Method_SpecRefresh.md"
+      content:  "API/Class_Doc/Method_preRefresh.md"
+      flags:
+        wip: "work in progress"
+        wip_sub: ""
+      element: "chapter"
+      content:  "API/Class_Doc/Method_postRefresh.md"
       flags:
         wip: "work in progress"
         wip_sub: ""
@@ -797,8 +801,7 @@ book:
       element: "chapter"
       content:  "API/Class_Doc/Method_store.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
     - level:   3
       element: "chapter"
       content:  "API/Class_Doc/Method_viewattr.md"
