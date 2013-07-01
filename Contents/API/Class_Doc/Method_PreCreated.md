@@ -2,7 +2,7 @@
 
 <div class="short-description">
 
-Hameçon utilisé par la méthode `[Doc::Store()][docstore]`. Elle est appelée
+Hameçon utilisé par la méthode [`Doc::Store()`][docstore]. Elle est appelée
 avant l'enregistrement en base de données. Cette méthode doit vérifier si les
 conditions de création de la famille sont valides.
 
@@ -107,7 +107,7 @@ N/A
 *   [Doc::postCreated][docpostcreated]
 *   [Doc::preStore][docprestore]
 *   [Doc::postStore][docpoststore]
-*   [Doc::addRevision][docaddrevision]
+*   [Doc::revise][docrevise]
 
 <!-- links -->
 [docstore]:         #core-ref:b8540d13-ece6-4e9e-9b72-6a56bca9da12
@@ -117,5 +117,5 @@ N/A
 [docprecreated]:    #core-ref:e85aa9d4-5e62-4a60-9d1c-f60433301747 "Hameçon Doc::preCreated()"
 [docprerefresh]:    #core-ref:580d6be1-6b6a-439b-abd7-34b26cfaf2e5 "Hameçon Doc::preRefresh()"
 [docpostrefresh]:   #core-ref:9352c534-3691-41e3-b293-599db8e9a4fd "Hameçon Doc::postRefresh()"
-[docaddrevision]:   #core-ref:882e3730-0483-4dbc-9b9d-0d0b5cc31d38
+[docrevise]:        #core-ref:882e3730-0483-4dbc-9b9d-0d0b5cc31d38
 

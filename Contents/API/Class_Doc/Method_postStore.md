@@ -1,7 +1,7 @@
-# Doc::PostModify() {#core-ref:99520a31-0aef-4bc6-b20a-114737059d17}
+# Doc::postStore() {#core-ref:99520a31-0aef-4bc6-b20a-114737059d17}
 
 <div class="short-description">
-<span class="fixme template">short description for Doc::PostModify()</span>
+<span class="fixme template">short description for Doc::postStore()</span>
 </div>
 <!--
 <div class="applicability">
@@ -12,7 +12,7 @@ Obsolète depuis #.#.#
 ## Description {#core-ref:6a794ff2-4c9c-4bb1-aed7-8c23e3b7ab2d}
 
     [php]
-    <return type> PostModify ( <parameters> )
+    <return type> postStore ( <parameters> )
 
 <span class="fixme template">long description</span>
 
@@ -40,7 +40,7 @@ exemple:
 
 ## Historique {#core-ref:265bde3d-c9a9-4976-8a57-e9c4c980b73c}
 
-<span class="fixme template">Historique</span>
+Anciennement nommé `postModify()`.
 
 ## Exemples {#core-ref:47b6948d-d6a5-4b04-b96d-8657499dc5c2}
 

@@ -1,12 +1,12 @@
 # Propriétés de la classe Doc {#core-ref:9aa8edfa-2f2a-11e2-aaec-838a12b40353}
 
-La classe Doc dispose de plusieurs propriétés.
+La classe `Doc` dispose de plusieurs propriétés.
 
 Ces propriétés peuvent être récupérées au moyen de la méthode `Doc::getProperty`.
 
 De façon générale, bien que ces propriétés ne soient pas marquées comme *private*, leur affectation ne doit passer que par les setters appropriés.
 Les propriétés n'ayant pas de setter spécifiques sont modifiées par effet de bord d'autres méthodes du document
-(par exemple, `Doc::revision` ne doit pas être modifié directement, mais `Doc::addRevision()` incrémentera cette propriété).
+(par exemple, `Doc::revision` ne doit pas être modifié, mais [`Doc::revise`][docrevise] incrémentera cette propriété).
 
 adate
 :   Date de dernier accès au document.
@@ -184,3 +184,6 @@ version
 
 wid
 :   identifiant du document *cycle de vie* associé à ce document.
+
+<!-- links -->
+[docrevise]:    #core-ref:882e3730-0483-4dbc-9b9d-0d0b5cc31d38

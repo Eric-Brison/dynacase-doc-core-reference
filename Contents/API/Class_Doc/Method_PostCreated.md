@@ -1,7 +1,7 @@
 # Doc::postCreated() {#core-ref:b8f80e6b-a374-4bf4-bc76-47290cd69c45}
 
 <div class="short-description"> Hameçon utilisé par la méthode
-`[Doc::Store()][docstore]`. Cette méthode est appelé après l'enregistrement en
+[`Doc::Store()`][docstore]`. Cette méthode est appelé après l'enregistrement en
 base de données
 
 
@@ -21,7 +21,7 @@ Cette méthode est utilisable aussi pour réaliser un post-traitement. Elle ne
 peut pas annuler l'enregistrement. Le document possède un identificateur est
 déjà enregistré en base.
 
-Cette méthode est aussi appelée par `Doc::addRevision()` lorsque le document est
+Cette méthode est aussi appelée par `Doc::revise()` lorsque le document est
 révisé. Une révision entraîne une création en base de données.
 
 ### Avertissements {#core-ref:49929040-b38d-4b2a-9432-98c48af2ff3a}
@@ -93,7 +93,7 @@ N/A
 *   [Doc::preCreated][docprecreated]
 *   [Doc::preStore][docprestore]
 *   [Doc::postStore][docpoststore]
-*   [Doc::addRevision][docaddrevision]
+*   [Doc::revise][docrevise]
 
 <!-- links -->
 [docstore]:         #core-ref:b8540d13-ece6-4e9e-9b72-6a56bca9da12
@@ -103,5 +103,5 @@ N/A
 [docprecreated]:    #core-ref:e85aa9d4-5e62-4a60-9d1c-f60433301747 "Hameçon Doc::preCreated()"
 [docprerefresh]:    #core-ref:580d6be1-6b6a-439b-abd7-34b26cfaf2e5 "Hameçon Doc::preRefresh()"
 [docpostrefresh]:   #core-ref:9352c534-3691-41e3-b293-599db8e9a4fd "Hameçon Doc::postRefresh()"
-[docaddrevision]:   #core-ref:882e3730-0483-4dbc-9b9d-0d0b5cc31d38
+[docrevise]:        #core-ref:882e3730-0483-4dbc-9b9d-0d0b5cc31d38
 

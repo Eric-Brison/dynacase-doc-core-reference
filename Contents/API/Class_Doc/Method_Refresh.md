@@ -1,7 +1,7 @@
 # Doc::Refresh() {#core-ref:0bab02de-50e0-46f2-8bdb-81c62dc86c93}
 
 <div class="short-description">
-<span class="fixme template">short description for Doc::Refresh()</span>
+Méthode utilisé pour mettre à jour les [attributs calculés][computeattr].
 </div>
 <!--
 <div class="applicability">
@@ -12,9 +12,9 @@ Obsolète depuis #.#.#
 ## Description {#core-ref:e8acacec-8062-4c49-944e-57e2e79c83d4}
 
     [php]
-    <return type> Refresh ( <parameters> )
+    <string> refresh ()
 
-<span class="fixme template">long description</span>
+Cette méthode est appelé 
 
 ### Avertissements {#core-ref:9ac95508-ad63-4b73-a757-5e7743a97b3c}
 
@@ -32,7 +32,10 @@ exemple:
 
 ## Valeur de retour {#core-ref:b8232c52-0bcb-45f6-87ea-4d5b1be1e28d}
 
-<span class="fixme template">Valeur de retour</span>
+Cette méthode retourne les message fournis par les hameçons `preRefresh() et
+`postRefresh()`. Ce message est présenté sur l'interface web de consultation de
+document lors de l'affichage du document.
+
 
 ## Erreurs / Exceptions {#core-ref:83715503-3396-423a-b16e-01f49d3cb045}
 
@@ -52,4 +55,11 @@ exemple:
 
 ## Voir aussi {#core-ref:73156d50-77d9-4c1a-a5fc-ba9defb9ad5c}
 
-<span class="fixme template">Voir aussi</span>
+*   [Doc::preRefresh][docprerefresh]
+*   [Doc::postRefresh][docpostrefresh]
+
+<!-- links -->
+[docprerefresh]:    #core-ref:580d6be1-6b6a-439b-abd7-34b26cfaf2e5 "Hameçon Doc::preRefresh()"
+[docpostrefresh]:   #core-ref:9352c534-3691-41e3-b293-599db8e9a4fd "Hameçon Doc::postRefresh()"
+[docrefresh]:       #core-ref:0bab02de-50e0-46f2-8bdb-81c62dc86c93
+[computeattr]:      #core-ref:4565cab9-73c8-4eee-bfa7-218ffbd4b687 "Attributs calculés"

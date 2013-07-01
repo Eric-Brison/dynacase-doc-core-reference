@@ -508,8 +508,7 @@ book:
       element: "chapter"
       content:  "API/Class_Doc/Method_postStore.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
     - level:   3
       element: "chapter"
       content:  "API/Class_Doc/Method_ReallyDelete.md"
@@ -520,25 +519,22 @@ book:
       element: "chapter"
       content:  "API/Class_Doc/Method_Refresh.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
     - level:   3
       element: "chapter"
       content:  "API/Class_Doc/Method_preRefresh.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
+    - level:   3
       element: "chapter"
       content:  "API/Class_Doc/Method_postRefresh.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
     - level:   3
       element: "chapter"
       content:  "API/Class_Doc/Method_SpecRefreshGen.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
     - level:   3
       element: "chapter"
       content:  "API/Class_Doc/Method__array2val.md"
@@ -565,7 +561,7 @@ book:
         wip_sub: ""
     - level:   3
       element: "chapter"
-      content:  "API/Class_Doc/Method_addRevision.md"
+      content:  "API/Class_Doc/Method_revise.md"
       flags:
         wip: "work in progress"
         wip_sub: ""
