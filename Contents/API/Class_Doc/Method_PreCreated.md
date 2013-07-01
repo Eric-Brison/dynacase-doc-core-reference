@@ -1,10 +1,10 @@
 # Doc::preCreated() {#core-ref:e85aa9d4-5e62-4a60-9d1c-f60433301747}
 
-<div class="short-description">
+<div class="short-description" markdown="1">
 
 Hameçon utilisé par la méthode [`Doc::Store()`][docstore]. Elle est appelée
 avant l'enregistrement en base de données. Cette méthode doit vérifier si les
-conditions de création de la famille sont valides.
+conditions de création de document sont valides.
 
 Cette méthode est utilisable aussi pour pré-remplir des attributs avant
 l'enregistrement.
@@ -12,11 +12,7 @@ l'enregistrement.
 Cette méthode est aussi appelé lors de la révision d'un document.
 
 </div>
-<!--
-<div class="applicability">
-Obsolète depuis #.#.#
-</div>
--->
+
 
 ## Description {#core-ref:4707d4b4-3cad-4d76-8d1d-d9fa75f2fe30}
 
@@ -44,7 +40,7 @@ Message d'erreur. Si la méthode retourne une chaîne de caractère non vide, el
 sera considérée comme un message d'erreur et la création de document sera
 abandonnée.
 
-Ce message est aussi stocké dans le paramètre de sortie `$info->preStore` de la
+Ce message est aussi stocké dans le paramètre de sortie `$info->error` de la
 méthode `Doc::store()`.
 
 ## Erreurs / Exceptions {#core-ref:a60d52b1-2de0-4b17-9c30-b149fb8e0af6}
@@ -57,7 +53,7 @@ N/A
 
 ## Exemples {#core-ref:3a95452a-c163-4c2b-8dc1-01794dc778cf}
 
-Dans la famille _MyFamily_, l'enregistrement d'un document ne devra être
+Dans la famille _MyFamily_, la création d'un document ne devra être
 possible que si la somme des attributs MY_NUMBERONE et MY_NUMBERTWO est
 supérieur au paramètre MY_MAX de la famille.
 
@@ -79,7 +75,8 @@ Soit la famille suivante :
     namespace My;
     use \Dcp\AttributeIdentifiers\MyFamily as Aself;
     
-    class MyFamily extends \Dcp\Family\Document
+    class MyFamily extends \
+    Dcp\Family\Document
     {
         public function preCreated()
         {
@@ -93,7 +90,6 @@ Soit la famille suivante :
             return $err;
         }
     }
-
 
 
 

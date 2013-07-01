@@ -1,5 +1,5 @@
 # Doc::postRefresh()  {#core-ref:9352c534-3691-41e3-b293-599db8e9a4fd}
-<div class="short-description">
+<div class="short-description" markdown="1">
 Hameçon utilisé par la méthode [`Doc::refresh()`][docrefresh].
 </div>
 
@@ -13,7 +13,9 @@ Cette méthode est appelée par la méthode [`Doc::refresh()`][docrefresh]
 
 ### Avertissements  {#core-ref:e947ed11-d964-4609-8ed2-72b038ef60af}
 
-N/A
+Les contrôles relatifs au droit de modification sont désactivés pendant l'appel
+de cette méthode. Ceci permet à la méthode [`Doc::setValue()`][docsetvalue] de
+ne pas vérifier les droits de modification.
 
 ## Liste des paramètres  {#core-ref:1006ecfc-2d97-4a2c-ac12-4e8be5f7e40d}
 

@@ -1,6 +1,6 @@
 # Doc::preRefresh() {#core-ref:580d6be1-6b6a-439b-abd7-34b26cfaf2e5}
 
-<div class="short-description">
+<div class="short-description" markdown="1">
 Hameçon utilisé par la méthode [`Doc::refresh()`][docrefresh].
 </div>
 <!--
@@ -19,7 +19,9 @@ Cette méthode est appelée par la méthode [`Doc::refresh()`][docrefresh]
 
 ### Avertissements {#core-ref:605f2425-8887-4085-add7-5d91809198ae}
 
-N/A
+Les contrôles relatifs au droit de modification sont désactivés pendant l'appel
+de cette méthode. Ceci permet à la méthode [`Doc::setValue()`][docsetvalue] de
+ne pas vérifier les droits de modification.
 
 ## Liste des paramètres {#core-ref:07455377-c9a5-4d8f-8fef-d4d7b90362e1}
 
@@ -54,32 +56,34 @@ Soit la famille suivante :
 | ATTR  | MY_MAIL           | MY_IDENTIFICATION | Adresse courriel | N   | N        | text    | 10  | R   |     |                                     |     |
 | END   |                   |                   |                  |     |          |         |     |     |     |                                     |     |
 
+Avec la classe :
 
-namespace My;
-use \Dcp\AttributeIdentifiers\MyFamily as Aself;
-use \Dcp\AttributeIdentifiers\Iuser as Aiuser;
-
-class MyFamily extends \Dcp\Family\Document
-{
-    public function preRefresh()
+    [php]
+    namespace My;
+    use \Dcp\AttributeIdentifiers\MyFamily as Aself;
+    use \Dcp\AttributeIdentifiers\Iuser as Aiuser;
+    
+    class MyFamily extends \Dcp\Family\Document
     {
-        $msg = '';
-        $redactorId = $this->getRawValue(Aself::my_redactor);
-        if ($redactorId) {
-            $du = new_doc($this->dbaccess, $redactorId);
-            if ($du->isAlive()) {
-                $redactorMail=$du->getRawValue(Aiuser::us_mail);
-                if ($redactorMail != $this->getRawValue(Aself::my_mail)) {
-                    $msg=sprintf("L'adresse du rédacteur a été changé.\nNouvelle adresse : %s", $redactorMail);
-                    $this->setValue(Aself::my_mail, $du->getRawValue(Aiuser::us_mail));
+        public function preRefresh()
+        {
+            $msg = '';
+            $redactorId = $this->getRawValue(Aself::my_redactor);
+            if ($redactorId) {
+                $du = new_doc($this->dbaccess, $redactorId);
+                if ($du->isAlive()) {
+                    $redactorMail=$du->getRawValue(Aiuser::us_mail);
+                    if ($redactorMail != $this->getRawValue(Aself::my_mail)) {
+                        $msg=sprintf("L'adresse du rédacteur a été changé.\nNouvelle adresse : %s", $redactorMail);
+                        $this->setValue(Aself::my_mail, $du->getRawValue(Aiuser::us_mail));
+                    }
                 }
+            } else {
+                $this->clearValue(Aself::my_mail);
             }
-        } else {
-            $this->clearValue(Aself::my_mail);
+            return $msg;
         }
-        return $msg;
     }
-}
 
 ## Notes {#core-ref:f41b94f9-2887-4549-9768-7ae711e18bdc}
 
@@ -96,3 +100,4 @@ N/A
 [docpostrefresh]:   #core-ref:9352c534-3691-41e3-b293-599db8e9a4fd "Hameçon Doc::postRefresh()"
 [docrefresh]:       #core-ref:0bab02de-50e0-46f2-8bdb-81c62dc86c93
 [computeattr]:      #core-ref:4565cab9-73c8-4eee-bfa7-218ffbd4b687
+[docsetvalue]:      #core-ref:febc397f-e629-4d47-955d-27cab8f4ed2f

@@ -502,8 +502,7 @@ book:
       element: "chapter"
       content:  "API/Class_Doc/Method_preStore.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
     - level:   3
       element: "chapter"
       content:  "API/Class_Doc/Method_postStore.md"
@@ -808,15 +807,13 @@ book:
       element: "chapter"
       content:  "API/Class_Docfam.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
       subtoc:   1
     - level:   3
       element: "chapter"
       content:  "API/Class_Docfam/Properties.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
     - level:   2
       element: "chapter"
       content:  "API/Class_DocumentList.md"
