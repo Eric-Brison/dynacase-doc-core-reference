@@ -1,7 +1,7 @@
 # Doc::preRefresh() {#core-ref:580d6be1-6b6a-439b-abd7-34b26cfaf2e5}
 
 <div class="short-description">
-<span class="fixme template">short description for Doc::SpecRefresh()</span>
+Hameçon utilisé par la méthode [`Doc::refresh()`][docrefresh].
 </div>
 <!--
 <div class="applicability">
@@ -12,44 +12,87 @@ Obsolète depuis #.#.#
 ## Description {#core-ref:ae076285-e189-4974-a637-14296192545f}
 
     [php]
-    <return type> SpecRefresh ( <parameters> )
+    <string> preRefresh ()
 
-<span class="fixme template">long description</span>
+Cette méthode est appelée par la méthode [`Doc::refresh()`][docrefresh] 
+**avant** la mise à jour des [attributs calculés][computeattr]. 
 
 ### Avertissements {#core-ref:605f2425-8887-4085-add7-5d91809198ae}
 
-<span class="fixme template">Avertissements</span>
+N/A
 
 ## Liste des paramètres {#core-ref:07455377-c9a5-4d8f-8fef-d4d7b90362e1}
 
-<span class="fixme template">Liste des paramètres</span>
-
-<div class="fixme template">
-exemple:  
-[out] (array) `info`
-:   Si `info`est fourni, il sera rempli avec les informations de l'image (taille, couleur, etc.).
-</div>
+Aucun.
 
 ## Valeur de retour {#core-ref:e3f80887-87c0-464f-8f75-12c429c36225}
 
-<span class="fixme template">Valeur de retour</span>
+Cette méthode doit retourner un message. Ce message est retourné par la méthode
+[`Doc::refresh()`][docrefresh].
 
 ## Erreurs / Exceptions {#core-ref:6ea9af28-baa7-458f-b2f3-fff17d51ff4d}
 
-<span class="fixme template">Erreurs / Exceptions</span>
+N/A
 
 ## Historique {#core-ref:5d97339d-ed28-4a7d-ac62-ef93ce8506a6}
 
-<span class="fixme template">Historique</span>
+N/A
 
 ## Exemples {#core-ref:057d6330-a8b0-466c-b953-7d8beefbd8d3}
 
-<span class="fixme template">Exemples</span>
+Récupération de l'adresse mail du rédacteur et mise à jour. Si l'adresse est
+différente un message est retourné.
+
+Soit la famille suivante :
+
+| BEGIN |                   |     Ma famille    |                  |     | MYFAMILY |         |     |     |     |                                     |     |
+| ----- | ----------------- | ----------------- | ---------------- | --- | -------- | ------- | --- | --- | --- | ----------------------------------- | --- |
+| CLASS | My\MyFamily       |                   |                  |     |          |         |     |     |     |                                     |     |
+| //    | idattr            | idframe           | label            | T   | A        | type    | ord | vis | ... | phpfunc                             |     |
+| ATTR  | MY_IDENTIFICATION |                   | Identification   | N   | N        | frame   | 10  | W   |     |                                     |     |
+| ATTR  | MY_REDACTOR       | MY_IDENTIFICATION | rédacteur        | N   | N        | account | 30  | W   |     | ::mySum(MY_NUMBREONE, MY_NUMBERTWO) |     |
+| ATTR  | MY_MAIL           | MY_IDENTIFICATION | Adresse courriel | N   | N        | text    | 10  | R   |     |                                     |     |
+| END   |                   |                   |                  |     |          |         |     |     |     |                                     |     |
+
+
+namespace My;
+use \Dcp\AttributeIdentifiers\MyFamily as Aself;
+use \Dcp\AttributeIdentifiers\Iuser as Aiuser;
+
+class MyFamily extends \Dcp\Family\Document
+{
+    public function preRefresh()
+    {
+        $msg = '';
+        $redactorId = $this->getRawValue(Aself::my_redactor);
+        if ($redactorId) {
+            $du = new_doc($this->dbaccess, $redactorId);
+            if ($du->isAlive()) {
+                $redactorMail=$du->getRawValue(Aiuser::us_mail);
+                if ($redactorMail != $this->getRawValue(Aself::my_mail)) {
+                    $msg=sprintf("L'adresse du rédacteur a été changé.\nNouvelle adresse : %s", $redactorMail);
+                    $this->setValue(Aself::my_mail, $du->getRawValue(Aiuser::us_mail));
+                }
+            }
+        } else {
+            $this->clearValue(Aself::my_mail);
+        }
+        return $msg;
+    }
+}
 
 ## Notes {#core-ref:f41b94f9-2887-4549-9768-7ae711e18bdc}
 
-<span class="fixme template">Notes</span>
+N/A
 
 ## Voir aussi {#core-ref:a46fb72c-91f0-4cd0-b08e-264c8fd1be8e}
 
-<span class="fixme template">Voir aussi</span>
+
+*   [Doc::refresh][docrefresh]
+*   [Doc::postRefresh][docpostrefresh]
+
+<!-- links -->
+[docprerefresh]:    #core-ref:580d6be1-6b6a-439b-abd7-34b26cfaf2e5 "Hameçon Doc::preRefresh()"
+[docpostrefresh]:   #core-ref:9352c534-3691-41e3-b293-599db8e9a4fd "Hameçon Doc::postRefresh()"
+[docrefresh]:       #core-ref:0bab02de-50e0-46f2-8bdb-81c62dc86c93
+[computeattr]:      #core-ref:4565cab9-73c8-4eee-bfa7-218ffbd4b687

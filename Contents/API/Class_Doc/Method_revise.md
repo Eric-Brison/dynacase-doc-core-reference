@@ -1,7 +1,7 @@
-# Doc::addRevision() {#core-ref:882e3730-0483-4dbc-9b9d-0d0b5cc31d38}
+# Doc::revise() {#core-ref:882e3730-0483-4dbc-9b9d-0d0b5cc31d38}
 
 <div class="short-description">
-<span class="fixme template">short description for Doc::addRevision()</span>
+<span class="fixme template">short description for Doc::revise()</span>
 </div>
 <!--
 <div class="applicability">
@@ -12,7 +12,7 @@ Obsolète depuis #.#.#
 ## Description {#core-ref:acc2155b-e52c-46a7-afdd-0161848aa343}
 
     [php]
-    <return type> addRevision ( <parameters> )
+    <return type> revise ( <parameters> )
 
 <span class="fixme template">long description</span>
 
@@ -40,7 +40,7 @@ exemple:
 
 ## Historique {#core-ref:b80227eb-4f01-430a-9882-87b53f2413dc}
 
-<span class="fixme template">Historique</span>
+Anciennement nommé `addRevision`.
 
 ## Exemples {#core-ref:7870434a-e3f7-4357-90c7-7b6d7602b0a4}
 
