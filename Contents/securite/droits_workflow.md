@@ -1,41 +1,44 @@
 # Paramétrage des droits pour un cycle de vie {#core-ref:e0d99925-df0d-4d51-8ebc-d44c4dd03873}
 
-Le [cycle de vie][workflow] ne peut avoir qu'un profil dédié. Les droits d'un
-contrôle de vue sont ceux d'un document auquel sont ajoutés un droit par
-type de transitions définies dans le cycle de vie.
+Le [cycle de vie][workflow] ne peut qu'avoir un profil dédié. Les droits d'un
+workflow sont ceux d'un document auquel sont ajoutés un droit par type de
+transition définie dans le cycle de vie.
 
 ## Transitions {#core-ref:7afaf95b-ff53-430e-aaf0-02992a551964}
 
 Le profil du cycle de vie permet de donner les droits sur le passage de la
 transition. Le nom du droit pour la transition est l'identifiant de la
-transition utilisée dans l'attribut `$transition` de la classe de cycle de vie.
+transition utilisé dans [la propriété `$transitions`][wf_transitions] de la
+[classe de cycle de vie][wf_class].
 
-Extrait d'une classe de cycle de vie :
+Extrait d'une classe de cycle de vie :
 
     [php]
     const TFirst = "my_firstTransition"; 
     const TSecond = "my_secondTransition"; 
     
     public $transitions = array(
-        self::TFirst => array( ) ,
-        self::TSecond => array() 
+        self::TFirst => array(),
+        self::TSecond => array()
     );
+    
     public $cycle = array(
         array(
             "e1" => "EA",
             "e2" => "EB",
-            "t" => self::TFirst
+            "t"  => self::TFirst
         ) ,
         array(
             "e1" => "EB",
             "e2" => "EC",
-            "t" => self::TSecond
+            "t"  => self::TSecond
         ) ,
         array(
             "e1" => "EA",
             "e2" => "EC",
-            "t" => self::TSecond
-        ) 
+            "t"  => self::TSecond
+        )
+    );
 
 Dans ce cycle, deux droits `my_firstTransition` et `my_secondTransition` sont
 ajoutés au profil de ce cycle.
@@ -45,27 +48,23 @@ en indiquant la famille dans l'attribut "dynamique\famille" (`dpdoc_famid`).
 Dans ce cas, ce sont les valeurs des attributs du document associé qui seront
 utilisés pour vérifier les droits d'accès aux transitions.
 
-Avec le profil suivant :
+Avec le profil suivant :
 
 |     Compte    |        my_firstTransition       |       my_secondTransition       |
 | ------------- | :-----------------------------: | :-----------------------------: |
 | MY_FIRSTROLE  | <span class="aclgreen">X</span> |                                 |
 | MY_SECONDROLE |                                 | <span class="aclgreen">X</span> |
 
+les droits suivants sont obtenus sur les transitions :
 
-les droits suivants sont obtenus sur les transitions :
-
-|             Rôles             |  Transition  |  Transition  |  Transition  |
-| ----------------------------- | :----------: | :----------: | :----------: |
-| MY_FIRSTROLE                  | EA &rarr; EB |              |              |
-| MY_SECONDROLE                 |              | EB &rarr; EC | EA &rarr; EC |
-| MY_FIRSTROLE et MY_SECONDROLE | EA &rarr; EB | EB &rarr; EC | EA &rarr; EC |
-|                               |              |              |              |
-
+| Rôles                         | Transition | Transition | Transition |
+| ----------------------------- | :--------: | :--------: | :--------: |
+| MY_FIRSTROLE                  | EA → EB    |            |            |
+| MY_SECONDROLE                 |            | EB → EC    | EA → EC    |
+| MY_FIRSTROLE et MY_SECONDROLE | EA → EB    | EB → EC    | EA → EC    |
 
 Pour l'importation de droits sur un cycle de vie, les identifiants des
 transitions sont utilisés pour référencer les droits spécifiques.
-
 
 |            | Identifiant du profil |  /  | Option |              Droit              |               Droit               |
 | ---------- | --------------------- | --- | ------ | ------------------------------- | --------------------------------- |
@@ -83,6 +82,9 @@ actuel lorsqu'il passe dans cette étape.
 
 
 
+
 <!-- links -->
-[workflow]:     #core-ref:55a53d99-0c24-48d8-8cb9-1caa171f2e9a
-[dynprof]:      #core-ref:bc24834a-b380-4681-ae94-08b93076a7e8 
+[workflow]:         #core-ref:55a53d99-0c24-48d8-8cb9-1caa171f2e9a
+[dynprof]:          #core-ref:bc24834a-b380-4681-ae94-08b93076a7e8
+[wf_transitions]:   #core-ref:0215aec3-671e-40b5-98e9-2ea651eff224
+[wf_class]:         #core-ref:9da51559-24b0-4697-9620-a611a877a7e8

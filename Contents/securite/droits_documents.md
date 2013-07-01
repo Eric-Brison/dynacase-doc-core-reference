@@ -2,22 +2,19 @@
 
 ## Le profil de documents {#core-ref:f1575705-10e8-4bf2-83b3-4c0b5bfb77cf}
 
-Le profil permet de déterminer les droits acquis pour les rôles, les groupes et
-les utilisateurs.
+Un profil de documents permet de déterminer les droits acquis pour les rôles, les
+groupes et les utilisateurs pour un document donné.
 
 Le profil contient la matrice permettant d'associer _comptes_ et _droits_.
 
-Exemple de matrice de droits :
+Exemple de matrice de droits :
 
-|                |                   Droit D1                  |                   Droit D2                  |                   Droit D3                  |
-| -------------- | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: |
-| Rôle R1        | <span class="aclgreen">X</span> |                                             | <span class="aclgreen">X</span> |
-| Rôle R2        |                                             | <span class="aclgreen">X</span> |                                             |
-| Groupe G1      | <span class="aclgreen">X</span> |                                             |                                             |
-| Utilisateur U1 |  <span class="aclgrey">O</span> |  <span class="aclgrey">O</span> |  <span class="aclgrey">O</span> |
-|                |                                             |                                             |                                             |
-
-
+|                    | Droit D1                                    | Droit D2                                    | Droit D3                                    |
+| --------------     | :-----------------------------------------: | :-----------------------------------------: | :-----------------------------------------: |
+| **Rôle R1**        | <span class="aclgreen">X</span>             |                                             | <span class="aclgreen">X</span>             |
+| **Rôle R2**        |                                             | <span class="aclgreen">X</span>             |                                             |
+| **Groupe G1**      | <span class="aclgreen">X</span>             |                                             |                                             |
+| **Utilisateur U1** | <span class="aclgrey">O</span>              | <span class="aclgrey">O</span>              | <span class="aclgrey">O</span>              |
 
 Quatre familles de profils sont définies :
 
@@ -26,7 +23,6 @@ Quatre familles de profils sont définies :
 *   profil de dossier (droit de voir le contenu du dossier)
 *   profil de recherche (droit d'exécuter la recherche)
 
-
 Liste des droits définis pour ces quatre familles de profils :
 
 Légende :
@@ -34,23 +30,23 @@ Légende :
 *    `D` : Pour les profils de Document
 *    `F` : Pour les profils de Dossier (_Folder_)
 *    `S` : Pour les profils de Recherche (_Search_)
-*    `C` : Pour les profils de Famille
+*    `C` : Pour les profils de Famille (_Class_)
 
-| Nom interne  |        Description         |                                                                                                                                                                                                                  Description longue                                                                                                                                                                                                                  | `D` | `F` | `S` | `C` |
-| ------------ | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | --- | --- | --- |
-| view         | voir                       | Voir les caractéristiques du document, du dossier ou de la recherche. Le fait de ne pas voir un dossier n'implique pas de ne pas voir les documents contenus dans le dossier.                                                                                                                                                                                                                                                                        | X   | X   | X   |     |
-| edit         | modifier                   | Modifier les caractéristiques du document, du dossier.                                                                                                                                                                                                                                                                                                                                                                                               | X   | X   | X   |     |
-| delete       | supprimer                  | Supprimer le document, le dossier, la recherche; c'est à dire le mettre à la poubelle.                                                                                                                                                                                                                                                                                                                                                               | X   | X   | X   |     |
-| send         | envoyer                    | Envoyer par courriel le document.                                                                                                                                                                                                                                                                                                                                                                                                                    | X   |     |     |     |
-| unlock       | déverrouiller              | déverrouiller le document.                                                                                                                                                                                                                                                                                                                                                                                                                           | X   | X   | X   |     |
-| viewacl      | voir les droits            | Voir les droits du document.                                                                                                                                                                                                                                                                                                                                                                                                                         | X   | X   | X   |     |
-| modifyacl    | modifier les droits        | Modifier les droits du document.                                                                                                                                                                                                                                                                                                                                                                                                                     | X   | X   | X   |     |
-| open         | ouvrir                     | Ouvrir le dossier. Permet de voir le contenu du dossier                                                                                                                                                                                                                                                                                                                                                                                              |     | X   |     |     |
-| modify       | modifier                   | Modifier le contenu du dossier. Permet d'ajouter ou de supprimer des documents dans le dossier.                                                                                                                                                                                                                                                                                                                                                      |     | X   |     |     |
-| execute      | executer                   | Permet d'exécuter la recherche.                                                                                                                                                                                                                                                                                                                                                                                                                      |     |     | X   |     |
-| create       | créer                      | Autorise la création de document de cette famille.                                                                                                                                                                                                                                                                                                                                                                                                   |     |     |     | X   |
-| icreate      | créer manuellement         | Autorise la création de document de cette famille à partir de l'interface. Si ce droit n'est pas mis est que create est mis, l'utilisateur ne pourra créer le document que de manière indirecte (soit sur une transition, soit sur toutes autres actions particulière mis en place par l'administrateur). Sans ce droit les menus de création de cette famille sont inaccessibles. Si ce droit est mis il faut que le droit 'create' soit aussi mis. |     |     |     | X   |
-| confidential | voir document confidentiel | Permet d'utiliser normalement un document qui est confidentiel. (Confidentiel est une propriété de document).                                                                                                                                                                                                                                                                                                                                        | X   | X   | X   |     |
+| Nom interne  |        Description         |                                                                                                                                                                                                                  Description longue                                                                                                                                                                                                                | `D` | `F` | `S` | `C` |
+| ------------ | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | --- | --- | --- |
+| view         | voir                       | Voir les caractéristiques du document, du dossier ou de la recherche. Le fait de ne pas voir un dossier n'implique pas de ne pas voir les documents contenus dans le dossier.                                                                                                                                                                                                                                                                      | X   | X   | X   |     |
+| edit         | modifier                   | Modifier les caractéristiques du document, du dossier.                                                                                                                                                                                                                                                                                                                                                                                             | X   | X   | X   |     |
+| delete       | supprimer                  | Supprimer le document, le dossier, la recherche ; c'est à dire le mettre à la poubelle.                                                                                                                                                                                                                                                                                                                                                            | X   | X   | X   |     |
+| unlock       | déverrouiller              | Déverrouiller le document.                                                                                                                                                                                                                                                                                                                                                                                                                         | X   | X   | X   |     |
+| viewacl      | voir les droits            | Voir les droits du document.                                                                                                                                                                                                                                                                                                                                                                                                                       | X   | X   | X   |     |
+| modifyacl    | modifier les droits        | Modifier les droits du document.                                                                                                                                                                                                                                                                                                                                                                                                                   | X   | X   | X   |     |
+| confidential | voir document confidentiel | Permet d'utiliser normalement un document qui est confidentiel. (Confidentiel est une propriété de document).                                                                                                                                                                                                                                                                                                                                      | X   | X   | X   |     |
+| send         | envoyer                    | Envoyer par courriel le document.                                                                                                                                                                                                                                                                                                                                                                                                                  | X   |     |     |     |
+| open         | ouvrir                     | Ouvrir le dossier. Permet de voir le contenu du dossier                                                                                                                                                                                                                                                                                                                                                                                            |     | X   |     |     |
+| modify       | modifier                   | Modifier le contenu du dossier. Permet d'ajouter ou de supprimer des documents dans le dossier.                                                                                                                                                                                                                                                                                                                                                    |     | X   |     |     |
+| execute      | executer                   | Permet d'exécuter la recherche.                                                                                                                                                                                                                                                                                                                                                                                                                    |     |     | X   |     |
+| create       | créer                      | Autorise la création de document de cette famille.                                                                                                                                                                                                                                                                                                                                                                                                 |     |     |     | X   |
+| icreate      | créer manuellement         | Autorise la création de document de cette famille à partir de l'interface. Si ce droit n'est pas mis et que `create` est mis, l'utilisateur ne pourra créer le document que de manière indirecte (soit sur une transition, soit sur toute autre action particulière mis en place par l'administrateur). Sans ce droit les menus de création de cette famille sont inaccessibles. Si ce droit est mis il faut que le droit `create` soit aussi mis. |     |     |     | X   |
 
 
 ## Profil liés {#core-ref:edc17da5-bc7c-4d13-9887-e75a9d5ee519}
@@ -58,26 +54,24 @@ Légende :
 Un document _Profil_ est fait pour être appliqué à des documents. Un document
 qui est lié à un profil obtient les mêmes droits que ceux définis sur le profil.
 Dès que les droits du profils sont changés alors tous les documents liés à ce
-profils ont aussi leur droits changés.
+profils ont également leurs droits mis à jour.
 
 Une famille peut indiquer un [profil par défaut][CPROFID] pour les documents de
 cette famille. Une fois cette propriété de famille enregistrée, tous les
-documents seront liés avec le même profil.
+documents seront liés au même profil lors de leur création.
 
-**Un document sans profil n'est pas protégé.** Il est alors accessible est
-modifiable pour tous les utilisateurs.
+**Un document sans profil n'est pas protégé.** Il est alors accessible et
+modifiable par tous les utilisateurs.
 
 ### Lier un profil par fichier d'importation {#core-ref:f48b4516-ded5-4452-9f35-f55e87e8a370}
 
 Le profil d'un document peut être modifié avec un fichier d'importation en
-utilisant la clef `PROFID`. La syntaxe est celle décrite pour 
+utilisant la clef `PROFID`. La syntaxe est celle décrite pour
 l'[exportation de profil][exportprofid].
-
 
 |            | Identifiant du document | Identifiant du profil |
 | ---------- | ----------------------- | --------------------- |
 | __PROFIL__ | MY_DOCUMENT             | MY_PROFIL             |
-
 
 ### Affecter les droits d'un profil par importation {#core-ref:2ec1ae6f-4b2a-4bc2-a100-4e5873538bb5}
 
@@ -85,11 +79,14 @@ Un droit peut être posé sur un rôle, un groupe ou un utilisateur. Pour indiqu
 ce compte il faut utiliser le nom logique du document lié à ce compte ou
 l'identifiant système du compte (attribut _us_whatid_ donné sur le document).
 
-Trois options permette de poser les rôles :
+Trois options permettent de poser les droits :
 
-*   ADD : Ajout de droits, les anciens droits sont conservés (option par défaut)
-*   DELETE :   Supprime des droits
-*   RESET : Efface les droits avant de les ajouter
+*   **`ADD`** : Ajout de droits (option par défaut).  
+    Les anciens droits sont conservés, les droits spécifiés seront ajoutés.
+*   DELETE : Suppression de droits.  
+    Les droits spécifiés sont retirés.
+*   RESET : Réinitialisation des droits.  
+    Les anciens droits sont retirés, les droits spécifiés sont ajoutés.
 
 Chaque droit posé est déclaré après la quatrième colonne. Pour chacun des
 droits, un ou plusieurs identifiant de compte doit être indiqué. Si plusieurs
@@ -100,7 +97,6 @@ par une virgule ou alors dans des cellules séparées.
 | ---------- | --------------------- | --- | ------ | ----------------- | ----------------- | ------------------ |
 | __PROFIL__ | MY_PROFIL             |     | RESET  | view=GALL, GADMIN | edit=GADMIN       | delete=GADMIN      |
 | __PROFIL__ | MY_OTHER_PROFIL       |     |        | view=GALL         | edit=MY_FIRSTROLE | view=MY_FIRSTGROUP |
-|            |                       |     |        |                   |                   |                    |
 
 ### Lier un profil par programmation {#core-ref:b8065dc8-8f14-4749-91a8-a07acc671f1a}
 
@@ -114,15 +110,14 @@ document.
 Un document qui porte son propre profil est déclaré comme _profil dédié_. Cela
 implique que la modification du profil du document n'impactera que lui-même.
 
-Les documents "_profil_" ont tous des profils dédiés.
+Les documents "_profil_" ont tous un profil dédié.
 
-En utilisant un fichier d'importation, l'exemple suivant déclare un profil dédié.
+En utilisant un fichier d'importation, l'exemple suivant déclare un profil
+dédié :
 
 |            | Identifiant du document | Identifiant du profil |
 | ---------- | ----------------------- | --------------------- |
 | __PROFIL__ | MY_DOCUMENT             | MY_DOCUMENT           |
-
-
 
 ## Profil dynamique {#core-ref:bc24834a-b380-4681-ae94-08b93076a7e8}
 
@@ -136,27 +131,28 @@ _[account][accounttype]_ présents dans le document. Les attributs de type
 _[docid][docidtype]_ avec l'option "isuser=yes" sont aussi utilisables comme
 paramètre de droit.
 
-Exemple :
+Exemple :
 
 | BEGIN |                    |      Recette      |                |     | TST_RECETTE |         |     |     |      |      |         |         |       |            |             |
 | ----- | ------------------ | ----------------- | -------------- | --- | ----------- | ------- | --- | --- | ---- | ---- | ------- | ------- | ----- | ---------- | ----------- |
 | //    | idattr             | idframe           | label          | T   | A           | type    | ord | vis | need | link | phpfile | phpfunc | elink | constraint | option      |
-|       |                    |                   |                |     |             |         |     |     |      |      |         |         |       |            |             |
+|       |                    |                   |                |     |             |         |     |     |      |      |         |         |       |            |             |
 | ATTR  | TST_IDENTIFICATION |                   | Identification | N   | N           | frame   | 100 | W   |      |      |         |         |       |            |             |
 | ATTR  | TST_SUBJECT        | AN_IDENTIFICATION | Sujet          | Y   | N           | text    | 110 | W   | Y    |      |         |         |       |            |             |
 | ATTR  | TST_WRITER         | AN_IDENTIFICATION | Rédacteur      | N   | N           | account | 120 | W   |      |      |         |         |       |            |             |
 | ATTR  | TST_OBSERVERS      | AN_IDENTIFICATION | Observateurs   | N   | N           | account | 130 | W   |      |      |         |         |       |            | match=group |
-|       |                    |                   |                |     |             |         |     |     |      |      |         |         |       |            |             |
 
-Dans cette famille, le rédacteur le groupe d'observateur peuvent être utilisés
-dans la définition des droits. Il est possible d'avoir les règles suivantes :
+Dans cette famille, le rédacteur et le groupe d'observateurs peuvent être
+utilisés dans la définition des droits. Il est possible d'avoir les règles
+suivantes :
 
 *   le rédacteur a le droit de voir et de modifier le document
 *   les observateurs ont le droit de voir le document
 
-Si le rédacteur est modifié alors les droits sur le document sont aussi
-modifiés. De même si un utilisateur devient membre de groupe référencé par
-l'attribut `tst_observers` alors il aura le droit de voir ce document.
+Si le rédacteur est modifié alors les droits sur le document sont
+automatiquement (et en temps réel) mis à jour en conséquence. De même si un
+utilisateur devient membre du groupe référencé par l'attribut `tst_observers`
+alors il aura aussitôt le droit de voir ce document.
 
 L'importation de droit pour un profil dynamique se fait en utilisant
 l'identifiant de l'attribut à la place de l'identifiant d'un rôle, d'un groupe
@@ -166,6 +162,9 @@ comme les profils standards.
 |            | Identifiant du profil |  /  | Option |             Droit              |      Droit      |     Droit     |
 | ---------- | --------------------- | --- | ------ | ------------------------------ | --------------- | ------------- |
 | __PROFIL__ | MY_DYNAMIC_PROFIL     |     | RESET  | view=tst_writer, tst_observers | edit=tst_writer | delete=GADMIN |
+
+<span class="fixme" data-assignedto="EBR">Quel est l'ordre de recherche? (que se
+passe-t-il si un groupe a le nom logique `tst_observers`)</span>
 
 ## Profil privé {#core-ref:1a8bca3d-2599-4ef7-8f31-e58b36ee1588}
 
@@ -177,8 +176,9 @@ système du compte.
 
 La fonction `getMyProfil()` permet de récupérer le profil privé de l'utilisateur
 courant. Par défaut, le profil privée donne tous les droits à l'utilisateur
-associé et aucun autre. L'utilisateur peut alors décider d'ajouter d'autre
-groupes ou d'autre utilisateur à son profil pour accéder à ces documents privés.
+associé et aucun droit aux autres utilisateurs. L'utilisateur peut alors décider
+d'ajouter d'autres groupes ou d'autre utilisateurs à son profil pour accéder à
+ces documents privés.
 
 
 

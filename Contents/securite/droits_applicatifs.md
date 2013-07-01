@@ -1,14 +1,14 @@
+# Paramétrage des droits applicatifs {#core-ref:87bc8521-41c4-4ea6-b011-193417d08e2f}
 
-# Paramétrage des droits applicatifs
-
-Afin d'exécuter une [action][actionw], l'utilisateur doit disposer du 
+Afin d'exécuter une [action][actionw], l'utilisateur doit disposer du
 [droit applicatif][acls] requis.
 
-Les droits peuvent être défini avec le _centre d'administration_ ou par importation.
+Les droits peuvent être défini avec le _centre d'administration_ ou par
+importation.
 
-## Format d'importation de droit applicatif
+## Format d'importation de droit applicatif {#core-ref:7366e43f-b943-4f69-8bfa-96967e73ebcd}
 
-Le format de fichier est :
+Le format de fichier est :
 
 *   [CSV][CSV]
     *   Encodage : UTF-8,
@@ -16,15 +16,17 @@ Le format de fichier est :
     *   séparateur de colonnes : `;`.
 *   [ODS][ODS].
 
+Le contenu du fichier suit la syntaxe suivante :
 
-Le contenu du fichier suit la syntaxe suivante :
-
-1.  `ACCESS` : mot-clef indiquant la pose d'un droit
+1.  `ACCESS` : mot-clef indiquant la pose d'un droit
 1.  Identifiant du compte 
-    *   Nom logique d'un document _Rôle_ (`ROLE`), _Groupe_ (`IGROUP`) ou _Utilisateur (`IUSER`) 
-    *   Identifiant système numérique d'un compte. Ceci n'est pas l'identifiant 
-        du document. C'est le numéro indiqué dans   l'attribut `us_whatid` du
-         document correspondant.
+    *   Nom logique d'un document _Rôle_ (`ROLE`), _Groupe_ (`IGROUP`) ou
+        _Utilisateur_ (`IUSER`) 
+    *   Identifiant système numérique d'un compte. Ceci n'est pas l'identifiant
+        du document. C'est le numéro indiqué dans l'attribut `us_whatid` du
+        document correspondant.
+    *   <span class="fixme" data-assignedto="EBR">on peut pas utiliser un
+        login ?</span>
 1.  Nom de l'application
 1.  Nom du droit applicatif
 1.  Nom d'un autre droit, etc.
@@ -42,13 +44,13 @@ supprimer les droits.
 
 L'importation se fait par la commande [_wsh_][wshimport].
 
-## Les droits applicatifs négatifs
+## Les droits applicatifs négatifs {#core-ref:a7f2f357-252f-48f9-8418-bab793da58af}
 
-Les droits applicatifs peuvent aussi être posés de manière à restreindre un accès
-donné par un rôle ou un groupe.
+Les droits applicatifs peuvent aussi être posés de manière à restreindre un
+accès donné par un rôle ou un groupe.
 
 Pour poser un droit applicatif négatif, il faut préfixer le nom du droit avec le
-caractère _moins_ `-`.
+caractère `-` (_moins_).
 
 Exemple :
 
@@ -58,16 +60,20 @@ Exemple :
 | ACCESS | MY_BIGGROUP    | MY_APP      | -MY_THIRDACL |               |             |
 | ACCESS | MY_SPECIALUSER | MY_APP      | -MY_EXTRAACL | MY_SPECIALACL |             |
 
-Si :
+Si :
 
 *   L'utilisateur *MY_SPECIALUSER* est membre du groupe *MY_BIGGROUP*. 
-*   Le rôle *MY_BIGROLES* est associé au groupe  *MY_BIGGROUP*.
+*   Le rôle *MY_BIGROLE* est associé au groupe  *MY_BIGGROUP*.
 
 Alors :
 
-*   L'utilisateur *MY_SPECIALUSER* aura les droits *MY_FIRSTAC*L et *MY_SPECIALACL*
-*   Les membres du groupes *MY_BIGGROUP* (autre que *MY_SPECIALUSER*) auront les 
+*   L'utilisateur *MY_SPECIALUSER* aura les droits *MY_FIRSTACL* et
+    *MY_SPECIALACL*
+*   Les membres du groupes *MY_BIGGROUP* (autre que *MY_SPECIALUSER*) auront les
     droits *MY_FIRSTACL* et *MY_EXTRAACL*.
+
+
+
 
 <!-- links -->
 [acls]:             #core-ref:a98b72ea-c063-4907-abc4-e5171ab55e59 "Déclaration de droits applicatifs"
