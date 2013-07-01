@@ -63,7 +63,7 @@ spécifiée, la vue est automatiquement choisie selon le mécanisme suivant :
 
 1.  restriction à la liste des vues pour lesquelles
     *   le *type* correspond à l'action courante,
-    *   l'utilisateur est autorisé à y accéder,
+    *   l'utilisateur [est autorisé à y accéder][cvprofil],
 2.  classement des vues restantes par numéro d'*ordre* croissant
 ,
 3.  utilisation de la première des vues restantes.

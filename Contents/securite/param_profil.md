@@ -1,38 +1,44 @@
-# Paramètre de profilages {#core-ref:fc37efd3-6254-4bc8-8f8d-7f867c852b67}
+# Paramètres de profilage {#core-ref:fc37efd3-6254-4bc8-8f8d-7f867c852b67}
 
 Les données de paramétrages des règles de paramétrages sont les
 [Rôles][roles], les [groupes][groups] et les [utilisateurs][users].
+<span class="fixme" data-assignedto="EBR">Je ne comprends pas la phrase</span>
 
-Les profils indiquent un ensemble de règles permettant de  déterminer si un
+Les profils indiquent un ensemble de règles permettant de déterminer si un
 utilisateur à le droit requis pour satisfaire sa requête.
 
 Les vérifications d'accès ne se font que sur les utilisateurs. Les rôles et les
-groupes ne peuvent pas se connecter, ils ne servent qu'à propager des droits
+groupes ne pouvant pas se connecter, ils ne servent qu'à propager des droits
 vers les utilisateurs.
 
 Les droits peuvent être posés sur les rôles, les groupes et les utilisateurs.
 
-Règles d'affectation :
+Règles d'affectation :
 
-1.  Un utilisateur peut avoir un ou plusieurs rôles.
-1.  Un groupes peut être associé à un ou plusieurs rôles.
-1.  Un rôle ne peut pas avoir de rôle.
-1.  Un utilisateur peut appartenir à un ou plusieurs groupes.
-1.  Un groupe peut appartenir à un ou plusieurs groupes (arborescence).
-1.  Un groupe fils ne peut pas avoir comme enfant un de ses groupes parents. (pas de cycle)
-1.  Un rôle ne peut pas appartenir à un groupe.
+*   Affectation des rôles :
+    1.  Un *utilisateur* peut avoir un ou plusieurs *rôles*.
+    1.  Un *groupe* peut être associé à un ou plusieurs *rôles*.
+    1.  Un *rôle* ne peut pas avoir de *rôle*.
+*   Affectation des groupes :
+    1.  Un *utilisateur* peut appartenir à un ou plusieurs *groupes*.
+    1.  Un *groupe* peut appartenir à un ou plusieurs *groupes* (arborescence).
+    1.  Un *groupe fils* ne peut pas avoir comme enfant un de ses *groupes
+        parents* (pas de cycle).
+    1.  Un *rôle* ne peut pas appartenir à un *groupe*.
 
-Règles de propagations :
+Règles de propagation :
 
-1.  Si un rôle est donné à un utilisateur alors celui récupère tout les droits
-    posés sur ce rôle. 
+1.  Si un rôle est donné à un utilisateur  
+    alors cet utilisateur récupère tous les droits posés sur le rôle.
 
-1.  Si un rôle est associé à un groupe alors tous les membres (utilisateur)
-    de ce groupe et des sous-groupes récupèrent les droits posés sur le
-    rôle.
+1.  Si un rôle est associé à un groupe  
+    alors tous les membres (utilisateurs) du groupe et de ses sous-groupes
+    récupèrent les droits posés sur le rôle.
 
-1.  Les droits posés sur un groupe sont propagés sur tous les membres du groupes
-     et des sous-groupes.
+1.  Les droits posés sur un groupe sont propagés sur tous les membres
+    (utilisateurs) du groupe et de ses sous-groupes.
+
+## Exemple {#core-ref:b620d7d0-8eb6-4ffa-89a9-be9a34acf190}
 
 ![ Sécurité : Exemple de hiérarchie ](securite/profilaccountgraph.png)
 
@@ -42,6 +48,7 @@ Description de l'exemple ci-dessus :
 *   Le rôle _R2_ a les droits _d3_ et _d2_.
 *   Le rôle _R1_ est associé au groupe _G1_.
 *   Le groupe _G1_ a les droits _d4_ et _d5_.
+*   Le groupe _G2_ appartient au groupe _G1_
 *   Le groupe _G2_ a le droit _d8_.
 *   L'utilisateur _U1_ a le droit _d6_.
 *   L'utilisateur _U1_ appartient au groupe _G2_.
@@ -52,21 +59,35 @@ Description de l'exemple ci-dessus :
 
 L'exemple ci-dessus, donne les droits suivants :
 
-*   Utilisateur `U1` a les droits _d1_, _d2_, _d4_, _d5_, _d6_, _d8_.
-*   Utilisateur `U2` a les droits _d1_, _d2_, _d3_, _d4_, _d5_.
+*   L'utilisateur _U1_ a les droits _d1_, _d2_, _d4_, _d5_, _d6_, _d8_ obtenus
+    comme suit :
+    *   _d1_, _d2_ récupérés de _R1_,
+    *   _d4_, _d5_ récupérés de _G1_,
+    *   _d6_ qu'il a en propre,
+    *   _d8_ récupéré de _G2_.
+*   L'utilisateur _U2_ a les droits _d1_, _d2_, _d3_, _d4_, _d5_ obtenus comme
+    suit :
+    *   _d1_ récupéré de _R1_,
+    *   _d2_ récupéré de _R1_ et _R2_,
+    *   _d3_ récupéré de _R2_,
+    *   _d4_, _d5_ récupérés de _G1_.
 
 
 À ces règles, s'ajoute la notion de [suppléant][suppleant]. Le suppléant
-récupère les droits du titulaire. Si `U2` est suppléant de `U1`, alors les
-droits de `U2` sont :
+récupère les droits du titulaire.
 
-*   _d1_, _d2_, _d3_, _d4_, _d5_, _d6_, _d8_.
+Dans notre cas, si _U2_ est suppléant de _U1_, alors les droits de _U2_ sont :
 
+*   _d1_, _d2_, _d3_, _d4_, _d5_, _d6_, _d8_ obtenus comme suit :
+    *   _d1_, _d2_, _d3_, _d4_, _d5_ qu'il a en propre,
+    *   _d6_, _d8_ obtenus par suppléance.
+
+## Accès anonyme {#core-ref:2030dc59-1e67-4d3b-84e6-54d468f47bc3}
 
 Si l'accès est fait en mode [anonyme][guest], l'utilisateur utilisé pour
-vérifier les droits est `anonymous`. Sur une installation initiale, cet
-utilisateur n'appartient à aucun groupe et n'a aucun rôle.
-
+vérifier les droits est *anonymous guest* (login : `anonymous`, nom logique :
+`USER_GUEST`). Sur une installation initiale, cet utilisateur n'appartient à
+aucun groupe et n'a aucun rôle.
 
 
 

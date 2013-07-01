@@ -1,13 +1,14 @@
-# Niveaux de sécurités {#core-ref:3288cecc-c655-456e-a860-86732ef8ada3}
- 
-Pour accéder à une information documentaire, trois niveaux de sécurités sont
+# Niveaux de sécurité {#core-ref:3288cecc-c655-456e-a860-86732ef8ada3}
+
+Pour accéder à une information documentaire, trois niveaux de sécurité sont
 utilisés. 
 
-1.  Le premier est [l'authentification][authentification]. Ce premier
-    niveau a en charge de vérifier l'identité de l'utilisateur.
-1.  Le deuxième niveau de sécurité permet de vérifier que l'utilisateur a le droit
-    d'exécuter une [action][actiondef].
-1.  Le troisième niveau de sécurité permet de vérifier l'accès à un [document][document].
+1.  L'[authentification][authentification]. Ce premier niveau est en charge de
+    vérifier l'identité de l'utilisateur.
+1.  Le deuxième niveau de sécurité permet de vérifier que l'utilisateur a le
+    droit d'exécuter une [action][actiondef].
+1.  Le troisième niveau de sécurité permet de vérifier l'accès à un
+    [document][document].
 
 
 
