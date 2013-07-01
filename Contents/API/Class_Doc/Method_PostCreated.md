@@ -1,8 +1,9 @@
 # Doc::postCreated() {#core-ref:b8f80e6b-a374-4bf4-bc76-47290cd69c45}
 
-<div class="short-description"> Hameçon utilisé par la méthode
-[`Doc::Store()`][docstore]`. Cette méthode est appelé après l'enregistrement en
-base de données
+<div class="short-description" markdown="1">  
+
+Hameçon utilisé par la méthode [`Doc::Store()`][docstore]`. Cette méthode est
+appelé après l'enregistrement en base de données
 
 
 </div>
@@ -17,9 +18,9 @@ Obsolète depuis #.#.#
     [php]
     <string> postCreated ()
 
-Cette méthode est utilisable aussi pour réaliser un post-traitement. Elle ne
-peut pas annuler l'enregistrement. Le document possède un identificateur est
-déjà enregistré en base.
+Cette méthode est utilisable aussi pour réaliser un post-traitement après une
+création de document. Elle ne peut pas annuler l'enregistrement. Le document
+possède un identificateur est déjà enregistré en base.
 
 Cette méthode est aussi appelée par `Doc::revise()` lorsque le document est
 révisé. Une révision entraîne une création en base de données.
@@ -34,12 +35,12 @@ enregistrés en base par la méthode `Doc::store()`.
 
 ## Liste des paramètres {#core-ref:617d3a6d-a2b7-4288-b874-26c97e5e1307}
 
-Aucun.
+Aucun paramètre.
 
 ## Valeur de retour {#core-ref:355cb8b8-7c9f-41de-b573-0a204a2433f7}
 
-La valeur de retour est un message d'information. Il sera stocké dans le
-paramètre de sortie `$info->postStore` de la méthode `Doc::store()`.
+La valeur de retour est un message d'information. Ce message sera enregistré
+dans l'historique du document.
 
 ## Erreurs / Exceptions {#core-ref:24ecaa74-c05f-4808-ac16-c18bd44aa0d0}
 
@@ -73,11 +74,18 @@ Soit la famille suivante :
     
     class MyFamily extends \Dcp\Family\Document
     {
-        public function postCreated() {
+        public function postCreated()
+        {
+            $msg = '';
             if ($this->revision == 0) { // création initiale
-                $msg=$this->setValue(Aself::my_ref, uniqid('my'));
-                return $msg;
+                $err = $this->setValue(Aself::my_ref, uniqid('my'));
+                if ($err) {
+                    $msg = sprintf("Pas d'identifiant");
+                } else {
+                    $msg = sprintf("Création identifiant %s", $this->getRawValue(Aself::my_ref));
+                }
             }
+            return $msg;
         }
     }
 
