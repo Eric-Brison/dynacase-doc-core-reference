@@ -1,4 +1,4 @@
-# Paramètre de profilages
+# Paramètre de profilages {#core-ref:fc37efd3-6254-4bc8-8f8d-7f867c852b67}
 
 Les données de paramétrages des règles de paramétrages sont les
 [Rôles][roles], les [groupes][groups] et les [utilisateurs][users].

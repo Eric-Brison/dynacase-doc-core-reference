@@ -1,12 +1,12 @@
 
-# Paramétrage des droits applicatifs
+# Paramétrage des droits applicatifs {#core-ref:87bc8521-41c4-4ea6-b011-193417d08e2f}
 
 Afin d'exécuter une [action][actionw], l'utilisateur doit disposer du 
 [droit applicatif][acls] requis.
 
 Les droits peuvent être défini avec le _centre d'administration_ ou par importation.
 
-## Format d'importation de droit applicatif
+## Format d'importation de droit applicatif {#core-ref:7366e43f-b943-4f69-8bfa-96967e73ebcd}
 
 Le format de fichier est :
 
@@ -42,7 +42,7 @@ supprimer les droits.
 
 L'importation se fait par la commande [_wsh_][wshimport].
 
-## Les droits applicatifs négatifs
+## Les droits applicatifs négatifs {#core-ref:a7f2f357-252f-48f9-8418-bab793da58af}
 
 Les droits applicatifs peuvent aussi être posés de manière à restreindre un accès
 donné par un rôle ou un groupe.

@@ -1,4 +1,4 @@
-# Niveaux de sécurités
+# Niveaux de sécurités {#core-ref:3288cecc-c655-456e-a860-86732ef8ada3}
  
 Pour accéder à une information documentaire, trois niveaux de sécurités sont
 utilisés. 

@@ -1,4 +1,4 @@
-# Droits définis sur les applications fournies par Dynacase Core
+# Droits définis sur les applications fournies par Dynacase Core {#core-ref:b708cfe1-f94c-44eb-9983-8760accf54ff}
 
 
 | Application |     Droit      | Mis pas défaut |                                                        Description                                                        |
