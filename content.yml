@@ -228,29 +228,29 @@ book:
     - level:   1
       content:  "cycles/introduction.md"
       flags:
-        wip: "work in progress"
+        draft: "draft"
       subtoc:   2
     - level:   2
       content:  "cycles/implementation.md"
       flags:
-        wip: "work in progress"
+        draft: "draft"
     - level:   2
       content:  "cycles/parametrage_importation.md"
       subtoc:   2
       flags:
-        wip: "work in progress"
+        draft: "draft"
     - level:   3
       content:  "cycles/family_wf.md"
       flags:
-        wip: "work in progress"
+        draft: "draft"
     - level:   3
       content:  "cycles/document_wf.md"
       flags:
-        wip: "work in progress"
+        draft: "draft"
     - level:   3
       content:  "cycles/profilage_wf.md"
       flags:
-        wip: "work in progress"
+        draft: "draft"
 ##
 # API
 ##

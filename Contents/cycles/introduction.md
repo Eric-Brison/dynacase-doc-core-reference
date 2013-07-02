@@ -4,8 +4,8 @@ Le *cycle de vie* (*workflow*) permet de gérer la vie d'un document en lui
 imposant un ensemble d'*étapes* pour aller de sa création jusqu'à sa fin (moment
 à partir duquel le document n'évolue plus).
 
-Dans la suite de ce chapitre, nous allons utiliser l'exemple suivant de cycle de
-vie :
+Dans la suite de ce chapitre, l'exemple suivant de cycle de
+vie sera utilisé :
 
 <svg width="100%" height="470pt"
  viewBox="0.00 0.00 315.00 470.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -143,17 +143,17 @@ L'`activité`
 :   Elle désigne ce qui doit être fait sur un document pour une étape donnée.
 
 L'`état`
-:   Il désignen le statut du document.
+:   Il désigne le statut du document.
     
     On parle d'état lorsque le document est inerte, soit parce que l'on consulte
     des anciennes révisions du document soit parce qu'on est est sur un état
-    final. Il est à Noter qu'ici, *final* ne désigne pas forcément un état en
-    bout de cycle, mais plutot un état pour lequel il n'y a rien à faire. Dans
+    final. Il est à noter qu'ici, *final* ne désigne pas forcément un état en
+    bout de cycle, mais plutôt un état pour lequel il n'y a rien à faire. Dans
     notre exemple, *diffusé* est un état *final*, sans activité, car le document
     reste inerte, même s'il finira à terme par être *archivé*.
 
 On peut résumer ces concepts comme suit :
 
->   Pour une *étape* donnée,  
->   l'*état* désigne *comment le document est arrivé à cette étape*  
->   l'*activité* désigne ce qui doit être fait.
+>   Pour une **étape** donnée,  
+>   l'**état** désigne **comment le document est arrivé à cette étape**  
+>   l'**activité** désigne **ce qui doit être fait**.

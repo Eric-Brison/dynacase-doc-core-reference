@@ -17,24 +17,23 @@ workflow est caractérisée par :
     
 Cette famille doit :
 
-*   Hériter de la famille `WDOC`
-
-*   contenir les [propriétés][proprietes_famille] suivantes :
-    *   `USEFOR;SW`.  
-        Indique que la famille est
-        *   Système (`S`),
-        *   utilisable comme workflow (`W`).
-
+*   Hériter de la famille `WDOC`,
 *   être liée à une classe définissant les états et transitions du cycle.
+
+
+La [propriété][family_properties] `USEFOR` est `SW` par défaut, cela indique que
+la famille est :
+
+*   Système (`S`),         
+*   utilisable comme workflow (`W`).
 
 ### Exemple {#core-ref:be56f166-abe7-4f40-a1c2-7c0474c0fd5a}
 
-|        |              |            |  |  |          |
-| -      |              |            |  |  |          |
-| BEGIN  | WDOC         | Cycle Demo |  |  | WFL_DEMO |
-| USEFOR | SW           |            |  |  |          |
-| CLASS  | Demo\WflDemo |            |  |  |          |
-| END    |              |            |  |  |          |
+|        | Famille parente |  Libellé   |  /  |  /  | Nom logique |
+| ------ | --------------- | ---------- | --- | --- | ----------- |
+| BEGIN  | WDOC            | Cycle Demo |     |     | WFL_DEMO    |
+| CLASS  | Demo\WflDemo    |            |     |     |             |
+| END    |                 |            |     |     |             |
 
 ## La classe de workflow {#core-ref:9da51559-24b0-4697-9620-a611a877a7e8}
 
@@ -56,23 +55,23 @@ La propriété `$cycle` définit le graphe à proprement parler. C'est un tablea
 
 où
 
-*   `e1` est le libellé de l'état de départ,
-*   `e2` est le libellé de l'état d'arrivée,
-*   `t` est le nom de la transition à utiliser pour passer de l'état de départ à
-    l'état d'arrivée.
+*   `e1` est l'identifiant de l'état de départ,
+*   `e2` est l'identifiant de l'état d'arrivée,
+*   `t` est l'identifiant de la transition à utiliser pour passer de l'état 
+    de départ à l'état d'arrivée.
 
 ### `$transitions` {#core-ref:0215aec3-671e-40b5-98e9-2ea651eff224}
 
-La propriété `$transitions` définit l'ensemble des transitions utilisables.
-C'est un tableau associatif à 2 dimensions ; la *clé* de chacun des sous-
-tableaux correspond au *nom de la transition*, et chacun de ces sous-tableaux
-est de la forme
+La propriété `$transitions` définit l'ensemble des types transitions
+utilisables. C'est un tableau associatif à 2 dimensions ; la *clé* de chacun des
+sous- tableaux correspond au *nom de la transition*, et chacun de ces sous-
+tableaux est de la forme
 
     [php]
     array(
         "nr"  => true,
         "m0"  => "myFirstCondition",
-        "m1"  => "mySecondCondtion",
+        "m1"  => "mySecondCondition",
         "m2"  => "myFirstProcess",
         "m3"  => "myLastProcess",
         "ask" => array("askId1", …)
@@ -81,9 +80,9 @@ est de la forme
 où
 
 *   `nr` est un booléen indiquant qu'il ne faut pas demander de raison au
-    changement d'état (*nr* pour *No Reason*).  
+    passage de transition (*nr* pour *No Reason*).  
     La valeur par défaut est à `false` ; dans ce cas, une popup demande à
-    l'utilisateur de préciser la raison du changement d'état.
+    l'utilisateur de préciser la raison du passage de transition.
 *   `m0`, `m1`, `m2`, `m3` sont chacune le nom d'une méthode de la classe de
     workflow.
 *   `ask` est un tableau d'identifiants de paramètres ou d'attributs du
@@ -93,7 +92,7 @@ où
 ### `$firstState` {#core-ref:41a4297b-4623-4dc0-8a75-4d69d3e9ff0a}
 
 La propriété `$firstState` définit l'état initial des documents liés à ce cycle
-de vie. Elle désigne le libellé d'un état.
+de vie. Elle désigne l'identifiant d'un état.
 
 ### `$attrPrefix` {#core-ref:2fb83350-741c-4936-9ae4-34b9f481d098}
 
@@ -105,10 +104,10 @@ en base de données.
 ### `$stateActivity` {#core-ref:e75c4b8d-ec3c-4be9-8824-5ef5fe4117a3}
 
 La propriété `$stateActivity` définit l'ensemble des activités. C'est un tableau
-associatif ; la clé est le libellé de l'état et la valeur et le libellé de
-l'activité.
+associatif ; la clé est l'identifiant' de l'état et la valeur est le libellé
+de l'activité.
 
-### exemple {#core-ref:39cce5a0-2fae-461b-99e8-fbe91f67a172}
+### Exemple {#core-ref:39cce5a0-2fae-461b-99e8-fbe91f67a172}
 
 Considérons le [workflow de l'introduction][wf_intro]. La classe le définissant
 contiendra :
@@ -117,7 +116,7 @@ contiendra :
     
     namespace Demo;
     
-    Class WflDemo extends \dcp\family\WDoc
+    class WflDemo extends \Dcp\Family\WDoc
     {
         public $attrPrefix = "DEMO";
         public $firstState = self::etat_created;
@@ -275,7 +274,7 @@ Quelques remarques sur ce code :
     constantes.
     
     Cela n'est en aucun cas obligatoire, mais permet d'éviter les erreurs de
-    copier-coller ; en effet, les libellés des états, ainsi que les noms des
+    copier-coller ; en effet, les identifiants des états, ainsi que les noms des
     transitions sont utilisés à de nombreux endroits.
     
 *   Les noms des états et des transitions ont été *anonymisés*, et seules les
@@ -283,11 +282,13 @@ Quelques remarques sur ce code :
     
     Puisque les états et transitions vont générer des attributs, ils vont
     également générer des colonnes en base de données. Ces colonnes sont nommées
-    à partir du nom de l'état ou de la transition. Aussi, si demain le client
-    décide que l'état *archivé* doit devenir *classé*, il faudra soit accepter
-    que le nom affiché et le nom stocké soient différents, soit renommer des
-    colonnes en base de données et mettre à jour des fichiers de paramétrage.
-    Aucun de ces 2 choix n'est pérenne ou dénué de risque.
+    à partir des identifiants de l'état ou de la transition. 
+    <span class="fixme" data-assignedto="MCO">A reformuler - le "client" ne fait pas parti du manuel de référence</span>
+    Aussi, si demain le
+    client décide que l'état *archivé* doit devenir *classé*, il faudra soit
+    accepter que le nom affiché et le nom stocké soient différents, soit
+    renommer des colonnes en base de données et mettre à jour des fichiers de
+    paramétrage. Aucun de ces 2 choix n'est pérenne ou dénué de risque.
     
     Avec des constantes anonymisées, il n'y a rien à changer en base de données,
     ni dans les fichiers de paramétrage, il suffit de changer la traduction de
