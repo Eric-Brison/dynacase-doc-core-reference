@@ -531,11 +531,6 @@ book:
         draft: "draft"
     - level:   3
       element: "chapter"
-      content:  "API/Class_Doc/Method_SpecRefreshGen.md"
-      flags:
-        draft: "draft"
-    - level:   3
-      element: "chapter"
       content:  "API/Class_Doc/Method__array2val.md"
       flags:
         wip: "work in progress"
@@ -554,16 +549,14 @@ book:
         wip_sub: ""
     - level:   3
       element: "chapter"
-      content:  "API/Class_Doc/Method_addComment.md"
+      content:  "API/Class_Doc/Method_addHistoryEntry.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
     - level:   3
       element: "chapter"
       content:  "API/Class_Doc/Method_revise.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
     - level:   3
       element: "chapter"
       content:  "API/Class_Doc/Method_control.md"
@@ -694,14 +687,12 @@ book:
       element: "chapter"
       content:  "API/Class_Doc/Method_getRawValue.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
     - level:   3
       element: "chapter"
       content:  "API/Class_Doc/Method_getAttributeValue.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
     - level:   3
       element: "chapter"
       content:  "API/Class_Doc/Method_isAlive.md"
@@ -789,6 +780,11 @@ book:
     - level:   3
       element: "chapter"
       content:  "API/Class_Doc/Method_setValue.md"
+      flags:
+        wip: "work in progress"
+        wip_sub: ""
+      element: "chapter"
+      content:  "API/Class_Doc/Method_setAttributeValue.md"
       flags:
         wip: "work in progress"
         wip_sub: ""

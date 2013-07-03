@@ -1,4 +1,4 @@
-# Doc::getProperty() {#core-ref:80e3ca49-26ea-4090-9fcd-7b92bf9d5c6d}
+# Doc::getPropertyValue() {#core-ref:80e3ca49-26ea-4090-9fcd-7b92bf9d5c6d}
 
 <div class="short-description">
 <span class="fixme template">short description for Doc::getProperty()</span>
@@ -40,7 +40,7 @@ exemple:
 
 ## Historique {#core-ref:00ab5172-cb17-4b01-b02a-b994771cba2f}
 
-<span class="fixme template">Historique</span>
+Anciennement nommé `getProperty`.
 
 ## Exemples {#core-ref:b8e74cec-a2cf-42bc-be6f-3dd6efc82b6b}
 
