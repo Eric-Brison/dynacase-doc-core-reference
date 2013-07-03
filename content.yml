@@ -781,13 +781,12 @@ book:
       element: "chapter"
       content:  "API/Class_Doc/Method_setValue.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
+    - level:   3
       element: "chapter"
       content:  "API/Class_Doc/Method_setAttributeValue.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
     - level:   3
       element: "chapter"
       content:  "API/Class_Doc/Method_store.md"

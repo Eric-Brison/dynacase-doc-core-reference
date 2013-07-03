@@ -144,9 +144,7 @@ Retour d'un tableau. Le document a deux rangées.
                         [timezone_type] => 3
                         [timezone] => Europe/Paris
                     )
-                    
             )
-            
         [1] => Array
             (
                 [my_coauthors] => "5837"
@@ -156,9 +154,7 @@ Retour d'un tableau. Le document a deux rangées.
                         [timezone_type] => 3
                         [timezone] => "Europe/Paris"
                     )
-                    
             )
-            
     )
 
 

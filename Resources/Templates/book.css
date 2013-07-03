@@ -211,3 +211,16 @@ span.aclgrey {
     padding-left:0.5em;
     padding-right:0.5em;
 }
+
+span.ok {
+    background-color:#90EE90; /*lightgreen*/
+    border-radius:5px;
+    padding-left:0.5em;
+    padding-right:0.5em;
+}
+span.ko {
+    background-color:#EE9090; /*lightred*/
+    border-radius:5px;
+    padding-left:0.5em;
+    padding-right:0.5em;
+}
