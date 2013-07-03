@@ -1,4 +1,4 @@
-# Doc::setAttributeValue() 
+# Doc::setAttributeValue()  {#core-ref:1e766800-b2e1-462b-9793-b0261ede8677}
 
 <div class="short-description">
 
@@ -9,18 +9,17 @@ Obsolète depuis #.#.#
 </div>
 -->
 
-## Description 
+## Description  {#core-ref:d0e5e69d-4f7f-4b77-87f7-818656954e90}
 
     [php]
     <string> setAttributeValue ( )
 
 
-
-### Avertissements 
+### Avertissements  {#core-ref:130a9c3c-80e2-4081-b302-d0b81200efc2}
 
 <span class="fixme template">Avertissements</span>
 
-## Liste des paramètres 
+## Liste des paramètres  {#core-ref:4d1ee0a2-6e51-4e69-9e6e-0f55a96374b5}
 
 <span class="fixme template">Liste des paramètres</span>
 
@@ -30,27 +29,27 @@ exemple:
 :   Si `info`est fourni, il sera rempli avec les informations de l'image (taille, couleur, etc.).
 </div>
 
-## Valeur de retour 
+## Valeur de retour  {#core-ref:1c2cdade-e90b-4144-bda0-bb6abde92936}
 
 <span class="fixme template">Valeur de retour</span>
 
-## Erreurs / Exceptions 
+## Erreurs / Exceptions  {#core-ref:caba99e2-da92-4a09-803c-f448a1d838a9}
 
 <span class="fixme template">Erreurs / Exceptions</span>
 
-## Historique 
+## Historique  {#core-ref:2ac0c68c-897b-4ed6-97c9-5d36c8e49db9}
 
 
 
-## Exemples 
+## Exemples  {#core-ref:9ebcbb07-2012-4ef0-9e14-978d4a1762ce}
 
 <span class="fixme template">Exemples</span>
 
-## Notes 
+## Notes  {#core-ref:e3096440-920c-4519-9202-111a534ee171}
 
 <span class="fixme template">Notes</span>
 
-## Voir aussi 
+## Voir aussi  {#core-ref:42b9caf9-a56b-4880-8def-2c3ebd0e20c4}
 
 *   [Doc::setValue()][docsetvalue]
 *   [Doc::getAttributeValue()][docgetattrvalue]

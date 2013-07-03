@@ -17,7 +17,7 @@ document sera mis à jour.
 
 ### Avertissements {#core-ref:fd0141dc-9206-4ce8-8aca-e4908c64a3f4}
 
-N/A
+Aucun.
 
 ## Liste des paramètres {#core-ref:7b480a74-4e45-41ff-8d0a-c15f503feb61}
 
@@ -69,7 +69,7 @@ unicité d'index, problème d'incohérence de type).
 
 ## Historique {#core-ref:cb88c9b8-25d8-4f7e-9147-e7e54509f813}
 
-N/A
+Aucun.
 
 ## Exemples {#core-ref:16fe9687-083a-4dae-9f71-efb291500a03}
 

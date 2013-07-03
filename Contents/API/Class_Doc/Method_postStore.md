@@ -39,7 +39,7 @@ paramètre de sortie `$info->postStore` de la méthode `Doc::store()`.
 
 ## Erreurs / Exceptions {#core-ref:e187697c-5e99-4083-ab9d-05d2a6056435}
 
-N/A
+Aucun.
 
 ## Historique {#core-ref:265bde3d-c9a9-4976-8a57-e9c4c980b73c}
 
@@ -51,7 +51,7 @@ Anciennement nommé `postModify()`.
 
 ## Notes {#core-ref:339dfc65-e878-4451-9145-f7e70b729cf5}
 
-N/A
+Aucun.
 
 ## Voir aussi {#core-ref:ade45758-e063-4c80-8694-6a49f0845270}
 
