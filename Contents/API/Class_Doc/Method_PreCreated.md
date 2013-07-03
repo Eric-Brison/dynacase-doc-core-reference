@@ -80,7 +80,7 @@ Soit la famille suivante :
     {
         public function preCreated()
         {
-            $err = '';
+            $err = parent::preCreated();
             $n1 = $this->getAttributeValue(Aself::my_numberone);
             $n2 = $this->getAttributeValue(Aself::my_numbertwo);
             $max = $this->getFamilyParameterValue(Aself::my_max);
@@ -95,7 +95,8 @@ Soit la famille suivante :
 
 ## Notes {#core-ref:3548a3b2-cd44-412e-9ca5-ace8470fc3d1}
 
-Aucun.
+En cas de famille héritée, il est nécessaire d'appeler l'hameçon du parent pour
+disposer des mêmes fonctionnalités.
 
 ## Voir aussi {#core-ref:e9e47c9a-ab49-4a64-bec8-0db3540456f0}
 

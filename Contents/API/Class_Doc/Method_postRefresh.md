@@ -80,7 +80,8 @@ Avec la classe :
 
 ## Notes  {#core-ref:47c8f567-875a-48a5-943d-7af334150497}
 
-Aucun.
+En cas de famille héritée, il est nécessaire d'appeler l'hameçon du parent pour
+disposer des mêmes fonctionnalités.
 
 ## Voir aussi  {#core-ref:01409847-c705-426c-92f2-e68726f948ba}
 

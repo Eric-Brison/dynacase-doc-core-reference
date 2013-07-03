@@ -47,11 +47,48 @@ Anciennement nommé `postModify()`.
 
 ## Exemples {#core-ref:47b6948d-d6a5-4b04-b96d-8657499dc5c2}
 
-<span class="fixme template">Exemples</span>
+Calcul de la somme des attributs `my_numberone` et `my_numbertwo` et
+enregistrement dans l'attribut `my_sum`.
+
+Soit la famille suivante :
+
+| BEGIN |                   |     Ma famille    |                 |     | MYFAMILY |       |     |     |     |         |     |
+| ----- | ----------------- | ----------------- | --------------- | --- | -------- | ----- | --- | --- | --- | ------- | --- |
+| CLASS | My\MyFamily       |                   |                 |     |          |       |     |     |     |         |     |
+| //    | idattr            | idframe           | label           | T   | A        | type  | ord | vis | ... | phpfunc |     |
+| ATTR  | MY_IDENTIFICATION |                   | Identification  | N   | N        | frame | 10  | W   |     |         |     |
+| ATTR  | MY_NUMBERONE      | MY_IDENTIFICATION | nombre 1        | Y   | N        | int   | 20  | W   |     |         |     |
+| ATTR  | MY_NUMBERTWO      | MY_IDENTIFICATION | nombre 2        | N   | N        | int   | 30  | W   |     |         |     |
+| ATTR  | MY_SUM            | MY_IDENTIFICATION | nombre 1&plus;2 | N   | N        | int   | 30  | R   |     |         |     |
+| END   |                   |                   |                 |     |          |       |     |     |     |         |     |
+
+Avec la classe :
+
+    [php]
+    namespace My;
+    use \Dcp\AttributeIdentifiers\MyFamily as Aself;
+    
+    class MyFamily extends \Dcp\Family\Document
+    {
+        public function mySum($x, $y)
+        {
+            return ($x + $y);
+        }
+        public function postStore()
+        {
+            $err=parent::postStore();
+            if (empty($err)) {
+                $n1 = $this->getAttributeValue(Aself::my_numberone);
+                $n2 = $this->getAttributeValue(Aself::my_numbertwo);
+                $this->setAttributeValue(Aself::my_sum, $this->mySum($n1, $n2));
+            }
+            return $err;
+        }
 
 ## Notes {#core-ref:339dfc65-e878-4451-9145-f7e70b729cf5}
 
-Aucun.
+En cas de famille héritée, il est nécessaire d'appeler l'hameçon du parent pour
+disposer des mêmes fonctionnalités.
 
 ## Voir aussi {#core-ref:ade45758-e063-4c80-8694-6a49f0845270}
 

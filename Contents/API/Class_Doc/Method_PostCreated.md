@@ -93,7 +93,8 @@ Soit la famille suivante :
 
 ## Notes {#core-ref:a17763da-f5a3-480a-9a6e-8f901b767b53}
 
-Aucun.
+En cas de famille héritée, il est nécessaire d'appeler l'hameçon du parent pour
+disposer des mêmes fonctionnalités.
 
 ## Voir aussi {#core-ref:fd05fb03-1114-4b6c-82c6-c44d311925e8}
 

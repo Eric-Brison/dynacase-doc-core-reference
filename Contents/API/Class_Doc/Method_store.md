@@ -172,12 +172,8 @@ Lors d'une mise à jour de documents les hameçons suivants sont lancés :
 
 ## Voir aussi {#core-ref:9e1551ac-c4d3-41ab-bc19-4bb641db900f}
 
-*   [Doc::preCreated][docprecreated]
-*   [Doc::postCreated][docpostcreated]
-*   [Doc::preStore][docprestore]
-*   [Doc::postStore][docpoststore]
-*   [Doc::preRefresh][docprerefresh]
-*   [Doc::postRefresh][docpostrefresh]
+*   [Doc::setAttributeValue][docsetattrvalue]
+*   [Doc::setValue][docsetvalue]
 
 <!-- links -->
 [docstore]:         #core-ref:b8540d13-ece6-4e9e-9b72-6a56bca9da12
@@ -189,3 +185,5 @@ Lors d'une mise à jour de documents les hameçons suivants sont lancés :
 [docpostrefresh]:   #core-ref:9352c534-3691-41e3-b293-599db8e9a4fd "Hameçon Doc::postRefresh()"
 [contraintes]:      #core-ref:7b41906b-f199-41a4-94df-33b9ad34153b
 [docaddrevision]:   #core-ref:882e3730-0483-4dbc-9b9d-0d0b5cc31d38
+[docsetvalue]:      #core-ref:febc397f-e629-4d47-955d-27cab8f4ed2f
+[docsetattrvalue]:  #core-ref:1e766800-b2e1-462b-9793-b0261ede8677
