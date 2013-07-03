@@ -15,7 +15,7 @@ Dynacase.
 
 ### Avertissements {#core-ref:124fbf30-ae8c-4dd7-9023-76b80d7804bb}
 
-N/A
+Aucun.
 
 ## Liste des paramètres {#core-ref:de6252d4-d376-4c35-a85d-f2ff835aa224}
 
@@ -77,11 +77,11 @@ vers le document.
 
 ## Erreurs / Exceptions {#core-ref:d21f852c-d233-408f-aaeb-ff3cca310d4b}
 
-N/A
+Aucun.
 
 ## Historique {#core-ref:3a513f2a-6956-4199-b716-7919790b3d47}
 
-N/A
+Aucun.
 
 ## Exemples {#core-ref:6167c555-8387-460e-bed6-121a67c2bdd8}
 
@@ -94,11 +94,11 @@ N/A
 
 ## Notes {#core-ref:a3c9ae9e-3ed8-4611-9b39-7f742e381d9a}
 
-N/A
+Aucun.
 
 ## Voir aussi {#core-ref:58c61a64-7a4e-4283-9cc1-237fa2b3911d}
 
-N/A
+Aucun.
 
 <!-- links -->
 [docrev]: #core-ref:9bcfd205-fb07-4a71-be06-ba07d4a9cc7c

@@ -34,11 +34,11 @@ Cette méthode doit retourner un message. Ce message est retourné par la métho
 
 ## Erreurs / Exceptions {#core-ref:6ea9af28-baa7-458f-b2f3-fff17d51ff4d}
 
-N/A
+Aucun.
 
 ## Historique {#core-ref:5d97339d-ed28-4a7d-ac62-ef93ce8506a6}
 
-N/A
+Aucun.
 
 ## Exemples {#core-ref:057d6330-a8b0-466c-b953-7d8beefbd8d3}
 
@@ -87,7 +87,7 @@ Avec la classe :
 
 ## Notes {#core-ref:f41b94f9-2887-4549-9768-7ae711e18bdc}
 
-N/A
+Aucun.
 
 ## Voir aussi {#core-ref:a46fb72c-91f0-4cd0-b08e-264c8fd1be8e}
 

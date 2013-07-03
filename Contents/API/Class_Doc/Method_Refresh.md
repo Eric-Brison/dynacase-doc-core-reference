@@ -21,7 +21,7 @@ Cette méthode est appelée depuis la méthode [`Doc::store()`][docstore].
 
 ### Avertissements {#core-ref:9ac95508-ad63-4b73-a757-5e7743a97b3c}
 
-N/A
+Aucun.
 
 ## Liste des paramètres {#core-ref:c80fba75-e3c2-4da6-9ecd-fa5c55b88bc8}
 
@@ -41,14 +41,14 @@ Aucune.
 
 ## Historique {#core-ref:70daceb9-e49d-403f-994a-a56c3e8baa50}
 
-N/A
+Aucun.
 
 ## Exemples {#core-ref:5689d00a-e345-48ec-b7eb-76f18d30c0d9}
 
 Actualisation d'un ensemble de documents.
 
     [php]
-    $s=new SearchDoc("", "MY_FAMILY");
+    $s=new SearchDoc("", "MYFAMILY");
     $s->setObjectReturn();
     $dl=$s->search()->getDocumentList();
     

@@ -21,7 +21,7 @@ soit le type d'attribut.
 
 ### Avertissements {#core-ref:dfe696a3-1202-4829-a8f8-160d00583ae5}
 
-<span class="fixme template">Avertissements</span>
+Aucun.
 
 ## Liste des paramètres {#core-ref:4c2adc5a-0b68-41bc-b411-8f44ce10799d}
 
@@ -130,8 +130,8 @@ celui-ci est remplacé par les caractères `<BR>`.
 *   [Doc::getOldValue()][docgetoldvalue]
 
 <!-- links -->
-[docgetattrvalue]:  #core-ref:e4a8d6ff-7229-4105-81c4-94773ac24dfd}
-[docgetrawvalue]:   #core-ref:f779391c-ee61-4c3a-8976-6b74f83ecc8f}
-[docgetoldvalue]:   #core-ref:dccf7c64-8f4f-4c4a-8d0d-79b21b924848}
-[docsetvalue]:       #core-ref:febc397f-e629-4d47-955d-27cab8f4ed2f}
+[docgetattrvalue]:  #core-ref:e4a8d6ff-7229-4105-81c4-94773ac24dfd
+[docgetrawvalue]:   #core-ref:f779391c-ee61-4c3a-8976-6b74f83ecc8f
+[docgetoldvalue]:   #core-ref:dccf7c64-8f4f-4c4a-8d0d-79b21b924848
+[docsetvalue]:      #core-ref:febc397f-e629-4d47-955d-27cab8f4ed2f
 [computeattr]:      #core-ref:4565cab9-73c8-4eee-bfa7-218ffbd4b687

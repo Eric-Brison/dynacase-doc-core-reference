@@ -48,7 +48,7 @@ Aucune.
 
 ## Historique {#core-ref:672081a6-eb13-429e-9957-dd6f591099f0}
 
-N/A
+Aucun.
 
 ## Exemples {#core-ref:7616c7bc-87bd-4e4e-9be8-e3ee70140c0d}
 
@@ -93,7 +93,7 @@ Soit la famille suivante :
 
 ## Notes {#core-ref:a17763da-f5a3-480a-9a6e-8f901b767b53}
 
-N/A
+Aucun.
 
 ## Voir aussi {#core-ref:fd05fb03-1114-4b6c-82c6-c44d311925e8}
 

@@ -86,4 +86,4 @@ faut utiliser la classe `DocHisto`.
 
 ## Voir aussi {#core-ref:0a8de26a-d296-485c-a78e-ef89220a00f1}
 
-N/A
+Aucun.

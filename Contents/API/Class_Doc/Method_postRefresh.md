@@ -28,7 +28,7 @@ Cette méthode doit retourner un message. Ce message est retourné par la métho
 
 ## Erreurs / Exceptions  {#core-ref:3ebba583-f0dd-4c88-9a3c-0e2e52aaef2b}
 
-N/A
+Aucun.
 
 ## Historique  {#core-ref:be53eb63-b6a2-4168-9121-909f22bce989}
 
@@ -80,7 +80,7 @@ Avec la classe :
 
 ## Notes  {#core-ref:47c8f567-875a-48a5-943d-7af334150497}
 
-N/A
+Aucun.
 
 ## Voir aussi  {#core-ref:01409847-c705-426c-92f2-e68726f948ba}
 
