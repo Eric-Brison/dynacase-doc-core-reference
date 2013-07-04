@@ -16,7 +16,7 @@ Obsolète depuis #.#.#
 ## Description {#core-ref:bc70e39d-7ce2-4559-a6ae-99c48200e2e6}
 
     [php]
-    <string> postCreated ()
+    string postCreated ()
 
 Cette méthode est utilisable aussi pour réaliser un post-traitement après une
 création de document. Elle ne peut pas annuler l'enregistrement. Le document

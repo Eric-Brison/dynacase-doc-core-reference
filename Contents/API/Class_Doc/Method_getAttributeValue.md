@@ -12,7 +12,7 @@ Obsolète depuis #.#.#
 ## Description   {#core-ref:628f94b9-d75d-4d9d-9372-bd7b119ca68a}
 
     [php]
-    <string> getAttributeValue ( string $idAttribute )
+    mixed getAttributeValue ( string $idAttribute )
 
 Retourne la valeur d'un attribut du document.
 

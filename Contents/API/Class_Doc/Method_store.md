@@ -9,7 +9,7 @@ Cette méthode enregistre les modifications d'un document en base de données.
 ## Description {#core-ref:cc7830a4-96e4-4e35-8980-8224905b815d}
 
     [php]
-    <string> store (&$info = null, $skipConstraint = false )
+    string store (storeInfo &$info = null, bool $skipConstraint = false )
 
 Cette méthode permet la modification ou la création de document. Si le document
 n'a pas d'identifiant (`id`), une création de document sera effectuée, sinon le
@@ -21,11 +21,11 @@ Aucun.
 
 ## Liste des paramètres {#core-ref:7b480a74-4e45-41ff-8d0a-c15f503feb61}
 
-[out] (storeInfo) `info`
+(storeInfo) `info`
 :   Si `info` est fourni, il contiendra les différents messages fournis par les
     hameçons ainsi que le code d'erreur.
 
-[in] (bool) `skipConstraint`
+(bool) `skipConstraint`
 :   Si la valeur est `false` alors les [contraintes][contraintes] sur le 
     document ne sont pas testés.
 

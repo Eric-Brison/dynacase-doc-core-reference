@@ -6,7 +6,7 @@ Hameçon utilisé par la méthode [`Doc::refresh()`][docrefresh].
 ## Description  {#core-ref:1c504ccc-70d8-4e3b-a725-a31c1d72db90}
 
     [php]
-    <string> postRefresh ()
+    string postRefresh ()
 
 Cette méthode est appelée par la méthode [`Doc::refresh()`][docrefresh] 
 **après** la mise à jour des [attributs calculés][computeattr]. 
@@ -49,7 +49,7 @@ Soit la famille suivante :
 | ATTR  | MY_IDENTIFICATION |                   | Identification  | N   | N        | frame | 10  | W   |     |                                     |     |
 | ATTR  | MY_NUMBERONE      | MY_IDENTIFICATION | nombre 1        | Y   | N        | int   | 20  | W   |     |                                     |     |
 | ATTR  | MY_NUMBERTWO      | MY_IDENTIFICATION | nombre 2        | N   | N        | int   | 30  | W   |     |                                     |     |
-| ATTR  | MY_SUM            | MY_IDENTIFICATION | nombre 1&plus;2 | N   | N        | int   | 30  | R   |     | ::mySum(MY_NUMBREONE, MY_NUMBERTWO) |     |
+| ATTR  | MY_SUM            | MY_IDENTIFICATION | nombre 1&plus;2 | N   | N        | int   | 30  | R   |     | ::mySum(MY_NUMBERONE, MY_NUMBERTWO) |     |
 | PARAM | MY_PARAMETERS     |                   | Paramètres      | N   | N        | frame | 10  | W   |     |                                     |     |
 | PARAM | MY_MAX            | MY_PARAMETERS     | max             | N   | N        | int   | 20  | W   |     |                                     |     |
 | END   |                   |                   |                 |     |          |       |     |     |     |                                     |     |

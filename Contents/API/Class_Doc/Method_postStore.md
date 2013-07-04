@@ -13,7 +13,7 @@ Obsolète depuis #.#.#
 ## Description {#core-ref:6a794ff2-4c9c-4bb1-aed7-8c23e3b7ab2d}
 
     [php]
-    <string> postStore ()
+    string postStore ()
 
 Cette méthode est utilisable aussi pour réaliser un post-traitement après une
 modification. Elle ne peut pas annuler l'enregistrement. Le document possède un

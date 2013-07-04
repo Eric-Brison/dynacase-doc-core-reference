@@ -7,7 +7,7 @@ Cette méthode crée une révision du document courant.
 ## Description {#core-ref:acc2155b-e52c-46a7-afdd-0161848aa343}
 
     [php]
-    <string> revise ( string $comment )
+    string revise ( string $comment )
 
 Le document courant est enregistré en base et est figé. Sa propriété `locked`
 vaut alors `-1`. La méthode `Doc::isFixed()` permet de savoir si un document est figé.
@@ -25,7 +25,7 @@ Un document qui n'a pas d'identifiant ne peut pas être révisé.
 ## Liste des paramètres {#core-ref:89c75017-4c9d-40c5-8994-e22e742ab011}
 
 
-[in] (string) `comment`
+(string) `comment`
 :   Si `comment` n'est pas vide, le message sera ajouté à l'historique avant la
     révision
 

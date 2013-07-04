@@ -1,4 +1,4 @@
-# Doc::_val2array() {#core-ref:5f4c4ac5-7429-4d07-94d0-245fe63cbfe5}
+# Doc::rawValueToArray() {#core-ref:5f4c4ac5-7429-4d07-94d0-245fe63cbfe5}
 
 <div class="short-description">
 <span class="fixme template">short description for Doc::_val2array()</span>
@@ -40,7 +40,7 @@ exemple:
 
 ## Historique {#core-ref:0d465b43-4d47-4552-b500-aa62d8012c0a}
 
-<span class="fixme template">Historique</span>
+Anciennement nommé `_val2array()`.
 
 ## Exemples {#core-ref:e42d8e3a-6f9d-4d65-92b2-3bd078ebc3aa}
 

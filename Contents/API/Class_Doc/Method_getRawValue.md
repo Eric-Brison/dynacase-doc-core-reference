@@ -12,7 +12,7 @@ Obsolète depuis #.#.#
 ## Description {#core-ref:c1dd1c53-6c29-4ec7-a39e-8c568ea00c96}
 
     [php]
-    <string> getRawValue ( string $idAttribute, 
+    string getRawValue ( string $idAttribute, 
                             mixed $defaultValue = "" )
 
 Cette méthode retourne la valeur d'un attribut telles qu'elle est inscrite en
@@ -25,10 +25,10 @@ Aucun.
 
 ## Liste des paramètres {#core-ref:4c2adc5a-0b68-41bc-b411-8f44ce10799d}
 
-[in] (string) `idAttribute`
+(string) `idAttribute`
 :   Identifiant de l'attribut
 
-[in] (string) `defaultValue`
+(string) `defaultValue`
 :   Valeur par défaut à retourner si la valeur est vide
 
 ## Valeur de retour {#core-ref:f442d952-7de6-4cbe-9391-342b8d89cbaf}
@@ -59,7 +59,7 @@ Soit la famille suivante :
 | ATTR  | MY_IDENTIFICATION |                   | Identification  | N   | N        | frame | 10  | W   |     |                                     |     |
 | ATTR  | MY_NUMBERONE      | MY_IDENTIFICATION | nombre 1        | Y   | N        | int   | 20  | W   |     |                                     |     |
 | ATTR  | MY_NUMBERTWO      | MY_IDENTIFICATION | nombre 2        | N   | N        | int   | 30  | W   |     |                                     |     |
-| ATTR  | MY_SUM            | MY_IDENTIFICATION | nombre 1&plus;2 | N   | N        | int   | 30  | R   |     | ::mySum(MY_NUMBREONE, MY_NUMBERTWO) |     |
+| ATTR  | MY_SUM            | MY_IDENTIFICATION | nombre 1&plus;2 | N   | N        | int   | 30  | R   |     | ::mySum(MY_NUMBERONE, MY_NUMBERTWO) |     |
 | END   |                   |                   |                 |     |          |       |     |     |     |                                     |     |
 
 Utilisation des valeurs de `my_numberone` et `my_numbertwo` pour la méthode
