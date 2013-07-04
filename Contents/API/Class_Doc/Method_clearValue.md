@@ -1,4 +1,4 @@
-# Doc::deleteValue() {#core-ref:30b0592f-f0cd-498f-bc5f-301891c297e0}
+# Doc::clearValue() {#core-ref:30b0592f-f0cd-498f-bc5f-301891c297e0}
 
 <div class="short-description">
 <span class="fixme template">short description for Doc::deleteValue()</span>
@@ -40,7 +40,7 @@ exemple:
 
 ## Historique {#core-ref:fd2d80fe-1ef2-4ba0-870f-19ec9fa65ce6}
 
-<span class="fixme template">Historique</span>
+Anciennement nommé `deleteValue`.
 
 ## Exemples {#core-ref:c293648a-7882-4a87-a1c8-6f7b21d29ac8}
 

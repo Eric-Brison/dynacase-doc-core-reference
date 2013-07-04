@@ -17,7 +17,7 @@ Cette méthode est aussi appelé lors de la révision d'un document.
 ## Description {#core-ref:4707d4b4-3cad-4d76-8d1d-d9fa75f2fe30}
 
     [php]
-    <string> preCreated ()
+    string preCreated ()
 
 Si cette méthode retourne un message d'erreur alors la création sera abandonnée
 et la méthode `Doc::store()` retournera le message fournie par cette méthode

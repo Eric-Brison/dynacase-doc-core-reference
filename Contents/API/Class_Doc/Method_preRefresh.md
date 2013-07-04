@@ -12,7 +12,7 @@ Obsolète depuis #.#.#
 ## Description {#core-ref:ae076285-e189-4974-a637-14296192545f}
 
     [php]
-    <string> preRefresh ()
+    string preRefresh ()
 
 Cette méthode est appelée par la méthode [`Doc::refresh()`][docrefresh] 
 **avant** la mise à jour des [attributs calculés][computeattr]. 
@@ -52,7 +52,7 @@ Soit la famille suivante :
 | CLASS | My\MyFamily       |                   |                  |     |          |         |     |     |     |                                     |     |
 | //    | idattr            | idframe           | label            | T   | A        | type    | ord | vis | ... | phpfunc                             |     |
 | ATTR  | MY_IDENTIFICATION |                   | Identification   | N   | N        | frame   | 10  | W   |     |                                     |     |
-| ATTR  | MY_REDACTOR       | MY_IDENTIFICATION | rédacteur        | N   | N        | account | 30  | W   |     | ::mySum(MY_NUMBREONE, MY_NUMBERTWO) |     |
+| ATTR  | MY_REDACTOR       | MY_IDENTIFICATION | rédacteur        | N   | N        | account | 30  | W   |     | ::mySum(MY_NUMBERONE, MY_NUMBERTWO) |     |
 | ATTR  | MY_MAIL           | MY_IDENTIFICATION | Adresse courriel | N   | N        | text    | 10  | R   |     |                                     |     |
 | END   |                   |                   |                  |     |          |         |     |     |     |                                     |     |
 

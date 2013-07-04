@@ -15,7 +15,7 @@ Obsolète depuis #.#.#
 ## Description  {#core-ref:6a386ab6-e2c9-419e-a8c7-7875df6c2db8}
 
     [php]
-    <string> preStore ()
+    string preStore ()
 
 Si cette méthode retourne un message d'erreur alors la modification sera
 abandonnée et la méthode `Doc::store()` retournera le message fournie par cette

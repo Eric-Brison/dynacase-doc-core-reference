@@ -12,7 +12,7 @@ Obsolète depuis #.#.#
 ## Description {#core-ref:e8acacec-8062-4c49-944e-57e2e79c83d4}
 
     [php]
-    <string> refresh ()
+    string refresh ()
 
 Cette méthode est appelée depuis l'interface lors de la consultation du document
 unitaire mais pas depuis les interfaces présentant les listes de documents.

@@ -12,10 +12,10 @@ Obsolète depuis #.#.#
 ## Description {#core-ref:6770b284-8740-4ba1-8c9d-cc4354f6a7c6}
 
     [php]
-    <string> addHistoryEntry (string $comment = '', 
-                                 int $level = DocHisto::INFO,
-                              string $code = '',
-                                 int $uid = '')
+    string addHistoryEntry (string $comment = '', 
+                               int $level = DocHisto::INFO,
+                            string $code = '',
+                               int $uid = '')
 
 Cette méthode permet d'enregistrer un nouveau message daté dans l'historique du
 document.
@@ -28,10 +28,10 @@ restitués par l'historique ne sont pas traduits.
 ## Liste des paramètres {#core-ref:293eee10-486a-4216-a18c-9fae74e58407}
 
 
-[in] (string) `comment`
+(string) `comment`
 :   Message qui sera enregistré dans l'historique.
 
-[in] (int) `level`
+(int) `level`
 :   Niveau du message :
     
     *   DocHisto::NOTICE : notification
@@ -41,14 +41,14 @@ restitués par l'historique ne sont pas traduits.
     *   DocHisto::ERROR : message d'erreur. Dans ce cas, le message est aussi 
         ajouté au fichier log d'erreur du serveur _Apache_.
 
-[in] (string) `code` 
+(string) `code` 
 :   Code du message. ce code peut être utilisé pour répertorier certaines
     entrées dans l'historique. Par exemple le code `CREATE` est utilisé pour
     indiquer les messages relatifs à la création d'un document. La méthode
     `Doc::getHisto()` permet de filtrer en fonction du code les messages de
     l'historique.
 
-[in] (int) `uid`
+(int) `uid`
 :   Identifiant système du compte utilisateur. Si celui-ci est vide alors le
     message sera attribué à l'utilisateur courant.
 

@@ -33,10 +33,10 @@ supprimés.
 
 ## Liste des paramètres  {#core-ref:4d1ee0a2-6e51-4e69-9e6e-0f55a96374b5}
 
-[in] (string) `attributeIdentifier`
+(string) `attributeIdentifier`
 :   Identifiant de l'attribut à modifier.
 
-[in] (string|string[]) `value` 
+(string|string[]) `value` 
 :   Nouvelle [valeur **typée**][doctypevalue]. Le type de la valeur est fonction
     du type de l'attribut.  
     

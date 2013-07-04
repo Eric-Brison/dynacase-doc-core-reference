@@ -7,7 +7,13 @@ Générer un fragment HTML contenant une ancre HTML vers un document.
 ## Description {#core-ref:8ca28abd-366b-47b8-bf17-9d9e2e952080}
 
     [php]
-    string getDocAnchor ( int $id, [ string $target = "_self" [, bool $htmllink = true [, bool|string $title = false [, bool $js = true [, string $docrev = "latest" [, bool $viewIcon = false ]]]]]] )
+    string getDocAnchor ( int $id, 
+                       string $target = "_self" ,
+                         bool $htmllink = true ,
+                  bool|string $title = false ,
+                         bool $js = true ,
+                       string $docrev = "latest" ,
+                         bool $viewIcon = false  )
 
 Permet de générer un fragment HTML, qui pourra être inséré dans un document
 HTML, et qui contiendra une ancre HTML (`<a href="…">…</a>`) vers un document

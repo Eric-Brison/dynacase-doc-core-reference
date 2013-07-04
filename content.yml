@@ -589,7 +589,7 @@ book:
         wip_sub: ""
     - level:   3
       element: "chapter"
-      content:  "API/Class_Doc/Method_deleteValue.md"
+      content:  "API/Class_Doc/Method_clearValue.md"
       flags:
         wip: "work in progress"
         wip_sub: ""
@@ -633,8 +633,7 @@ book:
       element: "chapter"
       content:  "API/Class_Doc/Method_getDocAnchor.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
     - level:   3
       element: "chapter"
       content:  "API/Class_Doc/Method_getFamDoc.md"
@@ -643,16 +642,14 @@ book:
         wip_sub: ""
     - level:   3
       element: "chapter"
-      content:  "API/Class_Doc/Method_getOldValue.md"
+      content:  "API/Class_Doc/Method_getOldRawValue.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
     - level:   3
       element: "chapter"
-      content:  "API/Class_Doc/Method_getOldValues.md"
+      content:  "API/Class_Doc/Method_getOldRawValues.md"
       flags:
-        wip: "work in progress"
-        wip_sub: ""
+        draft: "draft"
     - level:   3
       element: "chapter"
       content:  "API/Class_Doc/Method_getParamValue.md"

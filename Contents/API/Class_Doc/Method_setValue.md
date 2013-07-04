@@ -1,6 +1,6 @@
 # Doc::setValue() {#core-ref:febc397f-e629-4d47-955d-27cab8f4ed2f}
 
-<div class="short-description">
+<div class="short-description" markdown="1">
 Modifie la valeur _brute_ d'un attribut de document.
 </div>
 
@@ -8,10 +8,11 @@ Modifie la valeur _brute_ d'un attribut de document.
 ## Description {#core-ref:5c8d1bc6-d266-4d2d-affa-f754d882f332}
 
     [php]
-    <string> setValue (       string $attributeIdentifier, 
-                     string|string[] $value, 
-                                 int $index = - 1, 
-                                 int &$kvalue = null )
+    string setValue (
+                  string $attributeIdentifier, 
+         string|string[] $value, 
+                     int $index = - 1, 
+                     int &$kvalue = null )
 
 Modifie la valeur d'un attribut de l'objet _Document_. La modification n'est pas
 enregistrée en base de données.
@@ -25,21 +26,26 @@ Les résultats fournis par la méthode
 [`Doc::getAttributeValue()`][docgetattrvalue] ne peuvent pas être utilisés
 directement par cette méthode.
 
+Si la valeur est une chaîne vide ou égale à `null`, alors la valeur de l'attribut
+ne sera pas modifiée. Si la valeur est égale à un espace ` `, la valeur sera effacée.
+
+Les espaces en début et fin de valeur sont supprimés.
+
 ## Liste des paramètres {#core-ref:43df765e-53c3-478a-9287-20c78d3bbc8a}
 
-[in] (string) `attributeIdentifier`
+(string) `attributeIdentifier`
 :   Identifiant de l'attribut à modifier.
 
-[in] (string|string[]) `value` 
+(string|string[]) `value` 
 :   Nouvelle valeur **brute**. Dans le cas d'un attribut multiple, il est
     possible d'indiquer les différentes [valeurs brutes][rawvalue] dans un
     tableau.
 
-[in] (int) `index`
+(int) `index`
 :   Dans le cas où l'attribut est multiple, indique l'index de la valeur à 
     modifier.
 
-[out] (array) `kvalue`
+(int) `kvalue`
 :   En cas d'erreur et dans le cas où l'attribut est multiple, indique l'index de 
     la valeur erronée.
 
@@ -98,7 +104,7 @@ Avec la classe :
         /**
          * Mise à jour de l'attribut `my_sum` 
          */
-        public function setMyRawSum()
+        protected function setMyRawSum()
         {
             $n1 = intval($this->getRawValue(Aself::my_numberone));
             $n2 = intval($this->getRawValue(Aself::my_numbertwo));
@@ -107,7 +113,7 @@ Avec la classe :
         /**
          * Le rédacteur est l'utilisateur courant 
          */
-        public function setMyRedactor() {
+        protected function setMyRedactor() {
             return $this->setValue(Aself::my_redactor, getCurrentUser()->fid);
         }
         public function postStore()
@@ -130,6 +136,8 @@ Aucunes
 *   [Doc::store()][docstore]
 *   [Doc::getOldValue()][docgetoldvalue]
 *   [Doc::setAttributeValue()][docsetattrvalue]
+*   [Doc::addArrayRow()][docaddarrayrow]
+*   [Doc::clearValue()][docclearValue]
 *   [Doc::postStore()][docpoststore]
 
 <!-- links -->
@@ -140,3 +148,5 @@ Aucunes
 [rawvalue]:         #core-ref:6302d6cf-bbd1-43ec-a74c-2537581d051c
 [docgetattrvalue]:  #core-ref:e4a8d6ff-7229-4105-81c4-94773ac24dfd
 [docsetattrvalue]:  #core-ref:1e766800-b2e1-462b-9793-b0261ede8677
+[docclearValue]:    #core-ref:30b0592f-f0cd-498f-bc5f-301891c297e0
+[docaddarrayrow]:   #core-ref:d75110cb-24f6-4810-9b62-45ce6fd99e70
