@@ -1,46 +1,42 @@
-# Doc::getAttributeValue()   {#core-ref:e4a8d6ff-7229-4105-81c4-94773ac24dfd}
+# Doc::getAttributeValue() {#core-ref:e4a8d6ff-7229-4105-81c4-94773ac24dfd}
 
 <div class="short-description">
-Récupère la valeur d'un attribut de document.
+Récupère la valeur typée d'un attribut de document.
 </div>
-<!--
-<div class="applicability">
-Obsolète depuis #.#.#
-</div>
--->
 
-## Description   {#core-ref:628f94b9-d75d-4d9d-9372-bd7b119ca68a}
+## Description {#core-ref:628f94b9-d75d-4d9d-9372-bd7b119ca68a}
 
     [php]
     mixed getAttributeValue ( string $idAttribute )
 
 Retourne la valeur d'un attribut du document.
 
-### Avertissements   {#core-ref:0ec2a298-1261-4ead-bab6-20e83e8fbb96}
+### Avertissements {#core-ref:0ec2a298-1261-4ead-bab6-20e83e8fbb96}
 
 Le retour de cette méthode peut être utilisé pour mettre à jour des valeurs avec
 la méthode [Doc::setAttributeValue()][docsetattrvalue]. Par contre, ces valeurs
 typées sont incompatibles avec la méthode [Doc::setValue()][docsetvalue] qui
 prend en argument des valeurs brutes.
 
-## Liste des paramètres   {#core-ref:03d13d51-f0cb-4b95-a093-6cc853e60132}
+## Liste des paramètres {#core-ref:03d13d51-f0cb-4b95-a093-6cc853e60132}
 
 [int] (string) `idAttribute`
 :   Identifiant de l'attribut
 
-## Valeur de retour  {#core-ref:b2e45d57-63f8-408f-9779-ebf35e6967e4}
+## Valeur de retour {#core-ref:b2e45d57-63f8-408f-9779-ebf35e6967e4}
 
-Retourne la valeur typée de l'attribut en fonction des types d'attributs :
+Retourne la valeur typée de l'attribut en fonction des types d'attributs :
 
 `date`, `timestamp` 
-:   Les dates sont retournées avec un objet de la classe [`DateTime`][phpdatetime] 
-    (classe interne de PHP).
+:   Les dates sont retournées avec un objet de la classe
+    [`DateTime`][phpdatetime] (classe interne de PHP).
 
 `time`
-:   Les temps sont retournées au format `string` sous la forme "HH:MM:SS".
+:   Les temps sont retournés avec le type `string` sous la forme "HH:MM:SS".
 
 `file`, `image`
-:   Les pointeurs de fichiers sous la forme "[mimeType]|[vaultId]|[fileName]"
+:   Les pointeurs de fichiers sont retournés sous la forme
+    "[mimeType]|[vaultId]|[fileName]".
 
 `int`
 :   Les nombres entiers sont retournés avec le type [`int`][phpint].
@@ -60,30 +56,28 @@ Si une valeur est vide, la valeur `null` sera retournée. Dans le cas d'un
 attribut multiple, le retour pour une valeur vide (aucune valeur) sera un
 tableau vide `array()`.
 
-
 Pour les attributs de type `array`, la valeur retournée est un tableau à deux
-dimensions. La première dimension est l'index (numérique - 0 à _n_) de la rangée
-et la deuxième est l'identifiant de l'attribut. Chaque élément contient une
-valeur typée.
+dimensions. La première dimension est l'index (numérique - `0` à `n`) de la
+rangée et la deuxième est l'identifiant de l'attribut. Chaque élément contient
+une valeur typée.
 
-## Erreurs / Exceptions  {#core-ref:1b94ded3-591f-49da-8862-f03f9b8fd47c}
+## Erreurs / Exceptions {#core-ref:1b94ded3-591f-49da-8862-f03f9b8fd47c}
 
-Retourne une exception `Dcp\Exception` dans les cas suivants :
+Retourne une exception `Dcp\Exception` dans les cas suivants :
 
 *   L'attribut n'existe pas
-*    ou si
-l'attribut est un attribut ne contenant pas de valeur (type `tab`, `frame` ou
-`menu`).
+*    ou si l'attribut est un attribut ne contenant pas de valeur (type `tab`,
+    `frame` ou `menu`).
 
-## Historique  {#core-ref:3d3782b1-2fe9-47f3-a241-05b28e926ead}
+## Historique {#core-ref:3d3782b1-2fe9-47f3-a241-05b28e926ead}
 
 Aucun.
 
-## Exemples  {#core-ref:0e32343d-3eec-43d9-b31b-89fc0516ecca}
+## Exemples {#core-ref:0e32343d-3eec-43d9-b31b-89fc0516ecca}
 
 Soit la famille suivante :
 
-| BEGIN  |                   |     Ma famille    |                  |     | MYFAMILY |         |     |     |      |      |         |                                     |
+| BEGIN  |                   | Ma famille        |                  |     | MYFAMILY |         |     |     |      |      |         |                                     |
 | ------ | ----------------- | ----------------- | ---------------- | --- | -------- | ------- | --- | --- | ---- | ---- | ------- | ----------------------------------- |
 | CLASS  | My\MyFamily       |                   |                  |     |          |         |     |     |      |      |         |                                     |
 | DFLDID | auto              |                   |                  |     |          |         |     |     |      |      |         |                                     |
@@ -93,7 +87,7 @@ Soit la famille suivante :
 | ATTR   | MY_IDENTIFICATION |                   | Identification   | N   | N        | frame   | 10  | W   |      |      |         |                                     |
 | ATTR   | MY_NUMBERONE      | MY_IDENTIFICATION | nombre 1         | Y   | N        | int     | 20  | W   |      |      |         |                                     |
 | ATTR   | MY_NUMBERTWO      | MY_IDENTIFICATION | nombre 2         | N   | N        | int     | 30  | W   |      |      |         |                                     |
-| ATTR   | MY_SUM            | MY_IDENTIFICATION | Nombre 1 &plus;2 | N   | N        | int     | 40  | R   |      |      |         | ::mySum(MY_NUMBERONE, MY_NUMBERTWO) |
+| ATTR   | MY_SUM            | MY_IDENTIFICATION | Nombre 1&plus;2  | N   | N        | int     | 40  | R   |      |      |         | ::mySum(MY_NUMBERONE, MY_NUMBERTWO) |
 | ATTR   | MY_REDACTOR       | MY_IDENTIFICATION | Rédacteur        | N   | N        | account | 50  | W   |      |      |         |                                     |
 | ATTR   | MY_REF            | MY_IDENTIFICATION | référence        | N   | N        | text    | 70  | W   |      |      |         |                                     |
 | ATTR   | MY_T_PARTNER      | MY_IDENTIFICATION | Participants     | N   | N        | array   | 80  | W   |      |      |         |                                     |
@@ -159,11 +153,11 @@ Retour d'un tableau. Le document a deux rangées.
 
 
 
-## Notes  {#core-ref:df249de8-f433-430a-8208-6049b367ca85}
+## Notes {#core-ref:df249de8-f433-430a-8208-6049b367ca85}
 
 Aucunes.
 
-## Voir aussi  {#core-ref:ea3b6c2b-df66-4a38-9dfa-4176f05c8c66}
+## Voir aussi {#core-ref:ea3b6c2b-df66-4a38-9dfa-4176f05c8c66}
 
 *   [Doc::setAttributeValue()][docsetattrvalue]
 *   [Doc::getRawValue()][docgetrawvalue]

@@ -2,30 +2,25 @@
 
 <div class="short-description" markdown="1">
 Hameçon utilisé par la méthode [`Doc::Store()`][docstore]`. Cette méthode est
-appelé après l'enregistrement en base de données
+appelée après l'enregistrement en base de données.
 </div>
-<!--
-<div class="applicability">
-Obsolète depuis #.#.#
-</div>
--->
 
 ## Description {#core-ref:6a794ff2-4c9c-4bb1-aed7-8c23e3b7ab2d}
 
     [php]
     string postStore ()
 
-Cette méthode est utilisable aussi pour réaliser un post-traitement après une
+Cette méthode est aussi utilisable pour réaliser un post-traitement après une
 modification. Elle ne peut pas annuler l'enregistrement. Le document possède un
-identificateur est déjà enregistré en base.
+identificateur et est déjà enregistré en base.
 
 ### Avertissements {#core-ref:a3f912a9-0ccf-4f38-97af-faeac7c423aa}
 
-Il ne faut pas appeler la méthode Doc::store() dans cette méthode au risque
-d'avoir une boucle infinie.
+Il ne faut pas appeler la méthode [`Doc::Store()`][docstore] dans cette méthode
+au risque d'avoir une boucle infinie.
 
-Si des modifications d'attributs sont réalisées dans cette méthode, ils seront
-enregistrés en base par la méthode `Doc::store()`.
+Si des modifications d'attributs sont réalisées dans cette méthode, elles seront
+enregistrés en base par la méthode [`Doc::Store()`][docstore].
 
 
 ## Liste des paramètres {#core-ref:0252e614-71e3-44f8-a4d8-6bc5ea238ce2}
@@ -35,7 +30,7 @@ Aucun paramètre.
 ## Valeur de retour {#core-ref:5ceded6d-ae21-4c1e-b554-537b532aed23}
 
 La valeur de retour est un message d'information. Il sera stocké dans le
-paramètre de sortie `$info->postStore` de la méthode `Doc::store()`.
+paramètre de sortie `$info->postStore` de la méthode [`Doc::Store()`][docstore].
 
 ## Erreurs / Exceptions {#core-ref:e187697c-5e99-4083-ab9d-05d2a6056435}
 
@@ -43,7 +38,7 @@ Aucun.
 
 ## Historique {#core-ref:265bde3d-c9a9-4976-8a57-e9c4c980b73c}
 
-Anciennement nommé `postModify()`.
+Anciennement nommée `postModify()`.
 
 ## Exemples {#core-ref:47b6948d-d6a5-4b04-b96d-8657499dc5c2}
 
@@ -52,15 +47,15 @@ enregistrement dans l'attribut `my_sum`.
 
 Soit la famille suivante :
 
-| BEGIN |                   |     Ma famille    |                 |     | MYFAMILY |       |     |     |     |         |     |
-| ----- | ----------------- | ----------------- | --------------- | --- | -------- | ----- | --- | --- | --- | ------- | --- |
-| CLASS | My\MyFamily       |                   |                 |     |          |       |     |     |     |         |     |
-| //    | idattr            | idframe           | label           | T   | A        | type  | ord | vis | ... | phpfunc |     |
-| ATTR  | MY_IDENTIFICATION |                   | Identification  | N   | N        | frame | 10  | W   |     |         |     |
-| ATTR  | MY_NUMBERONE      | MY_IDENTIFICATION | nombre 1        | Y   | N        | int   | 20  | W   |     |         |     |
-| ATTR  | MY_NUMBERTWO      | MY_IDENTIFICATION | nombre 2        | N   | N        | int   | 30  | W   |     |         |     |
-| ATTR  | MY_SUM            | MY_IDENTIFICATION | nombre 1&plus;2 | N   | N        | int   | 30  | R   |     |         |     |
-| END   |                   |                   |                 |     |          |       |     |     |     |         |     |
+| BEGIN |                   | Ma famille        |                 |     | MYFAMILY |       |     |     |   |         |     |
+| ----- | ----------------- | ----------------- | --------------- | --- | -------- | ----- | --- | --- | - | ------- | --- |
+| CLASS | My\MyFamily       |                   |                 |     |          |       |     |     |   |         |     |
+| //    | idattr            | idframe           | label           | T   | A        | type  | ord | vis | … | phpfunc |     |
+| ATTR  | MY_IDENTIFICATION |                   | Identification  | N   | N        | frame | 10  | W   |   |         |     |
+| ATTR  | MY_NUMBERONE      | MY_IDENTIFICATION | nombre 1        | Y   | N        | int   | 20  | W   |   |         |     |
+| ATTR  | MY_NUMBERTWO      | MY_IDENTIFICATION | nombre 2        | N   | N        | int   | 30  | W   |   |         |     |
+| ATTR  | MY_SUM            | MY_IDENTIFICATION | nombre 1&plus;2 | N   | N        | int   | 30  | R   |   |         |     |
+| END   |                   |                   |                 |     |          |       |     |     |   |         |     |
 
 Avec la classe :
 
@@ -89,6 +84,10 @@ Avec la classe :
 
 En cas de famille héritée, il est nécessaire d'appeler l'hameçon du parent pour
 disposer des mêmes fonctionnalités.
+
+<span class="fixme" data-assignedto="EBR">Au vu de l'exemple et de
+l'explication, cela ressemble fortement à postCreated. Il serait intéressant
+d'ajouter une petite note sur quand préférer l'une ou l'autre.</span>
 
 ## Voir aussi {#core-ref:ade45758-e063-4c80-8694-6a49f0845270}
 

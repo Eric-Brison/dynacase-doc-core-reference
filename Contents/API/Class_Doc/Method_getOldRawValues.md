@@ -5,11 +5,6 @@
 Récupère la liste des valeurs des attributs modifiés.
 
 </div>
-<!--
-<div class="applicability">
-Obsolète depuis #.#.#
-</div>
--->
 
 ## Description {#core-ref:fa85ee0d-6980-401c-ba36-3aab8e147661}
 
@@ -18,7 +13,7 @@ Obsolète depuis #.#.#
 
 Récupère la liste des valeurs des attributs modifié depuis l'instanciation de
 l'objet Document. Voir [Doc::getOldRawValue()][docgetOldValue] pour plus de
-détail.
+détails.
 
 ### Avertissements {#core-ref:23cffd84-bf77-4636-8c41-5762890f54da}
 
@@ -30,9 +25,9 @@ Aucun.
 
 ## Valeur de retour {#core-ref:50244fd3-0a0c-449f-8b77-9b741f85696a}
 
-Retourne un tableau indexé par l'identifiant de l'attribut (en minuscule).
+Retourne un tableau indexé par l'identifiant de l'attribut (en minuscules).
 Chaque attribut modifié à sa propre entrée dans le tableau. Les attribut non
-modifiés non pas d'entrée dans le tableau.
+modifiés n'ont pas d'entrée dans le tableau.
 
 ## Erreurs / Exceptions {#core-ref:9dc9b65f-32fb-4997-8ff1-1817e4ecccb6}
 
@@ -40,11 +35,11 @@ Aucune.
 
 ## Historique {#core-ref:b4f058a2-809c-473d-aa8e-d779d818cc7c}
 
-Anciennement nommé `getOldValues`.
+Cette méthode était anciennement nommée `getOldValues`.
 
 ## Exemples {#core-ref:ff6026de-8afb-4bcb-9680-b32edf234007}
 
-Soit la famille suivante :
+Soit la famille suivante :
 
 | BEGIN |                   |     Ma famille    |                 |     | MYFAMILY |         |     |     |     |                                     |     |
 | ----- | ----------------- | ----------------- | --------------- | --- | -------- | ------- | --- | --- | --- | ----------------------------------- | --- |
@@ -57,7 +52,7 @@ Soit la famille suivante :
 | ATTR  | MY_SUM            | MY_IDENTIFICATION | nombre 1&plus;2 | N   | N        | int     | 30  | R   |     | ::mySum(MY_NUMBERONE, MY_NUMBERTWO) |     |
 | END   |                   |                   |                 |     |          |         |     |     |     |                                     |     |
 
-Avec la classe :
+Avec la classe :
 
     [php]
     namespace My;

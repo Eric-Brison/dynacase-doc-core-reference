@@ -3,16 +3,11 @@
 <div class="short-description">
 Récupère la valeur précédente d'un attribut.
 </div>
-<!--
-<div class="applicability">
-Obsolète depuis #.#.#
-</div>
--->
 
 ## Description {#core-ref:2f2bb592-10dc-42c9-80c8-22fec0f75a32}
 
     [php]
-    string getOldRawValue ( string$idAttribute )
+    string getOldRawValue ( string $idAttribute )
 
 Récupère la valeur précédent l'appel aux méthodes de modification de valeurs
 d'attributs. Si la valeur précédente est inchangée suite à l'appel d'une méthode
@@ -48,7 +43,6 @@ La valeur de retour indique la valeur brute précédente à la modification.
 | "bleu"   | "bleu"      | "jaune"     |
 | "bleu"   | "bleu"      | "jaune"     |
 | " "      | null        | "bleu"      |
-|          |             |             |
 
 Si la valeur n'a pas encore été changée, le retour sera le booléen `false`. Si
 l'identifiant de l'attribut n'existe pas le retour sera aussi `false`.
@@ -59,11 +53,11 @@ Aucune.
 
 ## Historique {#core-ref:22bea8a4-3411-4c84-b4d7-c7bb6c567c01}
 
-Anciennement nommé `getOldValue`.
+Cette méthode était anciennement nommée `getOldValue`.
 
 ## Exemples {#core-ref:6bce923f-670d-470b-88de-9de16df4a868}
 
-### Évolution du retour de getOldRawValue
+### Évolution du retour de getOldRawValue {#core-ref:39d94e76-339d-4b7d-8995-58d038a718f4}
 Le document de l'exemple a son attribut `my_numberone` initialisé à `-3`.
 
     [php]
@@ -77,61 +71,82 @@ Le document de l'exemple a son attribut `my_numberone` initialisé à `-3`.
         printf( "#---------------------\n");
     }
     
+    function updateValue(Doc $doc, $newValue){
+        if(null === $newValue){
+            printf('  efface valeur :null');
+            $doc->clearValue(AMyFamily::my_numberone, $newValue);
+        } else {
+            printf('     maj valeur :');
+            var_dump($newValue);
+            $doc->setValue(AMyFamily::my_numberone, $newValue);
+        }
+    }
+    
     /** @var \Dcp\Family\MyFamily */
     $myDoc = new_Doc("", "MY_DOCUMENT");
     if ($myDoc->isAlive()) {
         printOldValue($myDoc);
-        $myDoc->setValue(AMyFamily::my_numberone, 34);
+        
+        updateValue($myDoc, 34);
         printOldValue($myDoc);
-        $myDoc->setValue(AMyFamily::my_numberone, 35);
+        
+        updateValue($myDoc, 35);
         printOldValue($myDoc);
-        $myDoc->setValue(AMyFamily::my_numberone, 35);
+        
+        updateValue($myDoc, 35);
         printOldValue($myDoc);
-        $myDoc->clearValue(AMyFamily::my_numberone);
+        
+        updateValue($myDoc, null);
         printOldValue($myDoc);
-        $myDoc->setAttributeValue(AMyFamily::my_numberone, 35);
+        
+        updateValue($myDoc, 35);
         printOldValue($myDoc);
     }
     
 Le résultat : 
 
     [php]
-            Valeur :string(2) "-3"
+             Valeur :string(2) "-3"
     Ancienne Valeur :bool(false)
     #---------------------
+         maj valeur :int(34)
              Valeur :string(2) "34"
     Ancienne Valeur :string(2) "-3"
     #---------------------
+         maj valeur :int(35)
              Valeur :string(2) "35"
     Ancienne Valeur :string(2) "34"
     #---------------------
+         maj valeur :int(35)
              Valeur :string(2) "35"
     Ancienne Valeur :string(2) "34"
     #---------------------
+      efface valeur :null
              Valeur :string(0) ""
     Ancienne Valeur :string(2) "35"
     #---------------------
+         maj valeur :int(35)
              Valeur :string(2) "35"
     Ancienne Valeur :string(0) ""
     #---------------------
 
-### Utilisation dans un post-traitement
+### Utilisation dans un post-traitement {#core-ref:74c9ec7e-2adc-4fa4-b13d-4a061d42d164}
 
 Mise à jour conditionnelle d'un attribut. L'attribut `my_countchange` enregistre
 le  nombre de fois que l'attribut `my_numberone` a été changé.
 
-Soit la famille suivante :
+Soit la famille suivante :
 
-| BEGIN |                   |     Ma famille    |                      |     | MYFAMILY |       |     |     |     |         |     |
-| ----- | ----------------- | ----------------- | -------------------- | --- | -------- | ----- | --- | --- | --- | ------- | --- |
-| CLASS | My\MyFamily       |                   |                      |     |          |       |     |     |     |         |     |
-| //    | idattr            | idframe           | label                | T   | A        | type  | ord | vis | ... | phpfunc |     |
-| ATTR  | MY_IDENTIFICATION |                   | Identification       | N   | N        | frame | 10  | W   |     |         |     |
-| ATTR  | MY_NUMBERONE      | MY_IDENTIFICATION | nombre 1             | Y   | N        | int   | 20  | W   |     |         |     |
-| ATTR  | MY_COUTCHANGE     | MY_IDENTIFICATION | nombre de changement | N   | N        | int   | 30  | R   |     |         |     |
-| END   |                   |                   |                      |     |          |       |     |     |     |         |     |
+| BEGIN |                   | Ma famille        |                      |     | MYFAMILY |       |     |     |   |         |     |
+| ----- | ----------------- | ----------------- | -------------------- | --- | -------- | ----- | --- | --- | - | ------- | --- |
+| CLASS | My\MyFamily       |                   |                      |     |          |       |     |     |   |         |     |
+| //    | idattr            | idframe           | label                | T   | A        | type  | ord | vis | … | phpfunc |     |
+| ATTR  | MY_IDENTIFICATION |                   | Identification       | N   | N        | frame | 10  | W   |   |         |     |
+| ATTR  | MY_NUMBERONE      | MY_IDENTIFICATION | nombre 1             | Y   | N        | int   | 20  | W   |   |         |     |
+| ATTR  | MY_COUTCHANGE     | MY_IDENTIFICATION | nombre de changement | N   | N        | int   | 30  | R   |   |         |     |
+| END   |                   |                   |                      |     |          |       |     |     |   |         |     |
 
-Avec la classe :
+Avec la classe :
 
     [php]
     namespace My;
@@ -156,10 +171,8 @@ Avec la classe :
 
 ## Notes {#core-ref:28707bf1-8590-45c2-b489-f3ef7a00b892}
 
-Dans le cas des attribut multi-valués, il est possible d'utiliser la méthode 
+Dans le cas des attribut multi-valués, il est possible d'utiliser la méthode
 [`Doc::rawValueToArray()][rawValueToArray] pour avoir les différentes valeurs.
-
-
 
 ## Voir aussi {#core-ref:cda310f2-33e5-4dea-b2f6-628605685e71}
 

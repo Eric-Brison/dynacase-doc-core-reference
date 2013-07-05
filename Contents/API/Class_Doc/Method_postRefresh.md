@@ -1,9 +1,9 @@
-# Doc::postRefresh()  {#core-ref:9352c534-3691-41e3-b293-599db8e9a4fd}
+# Doc::postRefresh() {#core-ref:9352c534-3691-41e3-b293-599db8e9a4fd}
 <div class="short-description" markdown="1">
 Hameçon utilisé par la méthode [`Doc::refresh()`][docrefresh].
 </div>
 
-## Description  {#core-ref:1c504ccc-70d8-4e3b-a725-a31c1d72db90}
+## Description {#core-ref:1c504ccc-70d8-4e3b-a725-a31c1d72db90}
 
     [php]
     string postRefresh ()
@@ -11,28 +11,28 @@ Hameçon utilisé par la méthode [`Doc::refresh()`][docrefresh].
 Cette méthode est appelée par la méthode [`Doc::refresh()`][docrefresh] 
 **après** la mise à jour des [attributs calculés][computeattr]. 
 
-### Avertissements  {#core-ref:e947ed11-d964-4609-8ed2-72b038ef60af}
+### Avertissements {#core-ref:e947ed11-d964-4609-8ed2-72b038ef60af}
 
 Les contrôles relatifs au droit de modification sont désactivés pendant l'appel
 de cette méthode. Ceci permet à la méthode [`Doc::setValue()`][docsetvalue] de
 ne pas vérifier les droits de modification.
 
-## Liste des paramètres  {#core-ref:1006ecfc-2d97-4a2c-ac12-4e8be5f7e40d}
+## Liste des paramètres {#core-ref:1006ecfc-2d97-4a2c-ac12-4e8be5f7e40d}
 
 Aucun.
 
-## Valeur de retour  {#core-ref:4d5ffcb0-f7bf-4dd1-8c5e-00019f2a31f9}
+## Valeur de retour {#core-ref:4d5ffcb0-f7bf-4dd1-8c5e-00019f2a31f9}
 
 Cette méthode doit retourner un message. Ce message est retourné par la méthode
 [`Doc::refresh()`][docrefresh].
 
-## Erreurs / Exceptions  {#core-ref:3ebba583-f0dd-4c88-9a3c-0e2e52aaef2b}
+## Erreurs / Exceptions {#core-ref:3ebba583-f0dd-4c88-9a3c-0e2e52aaef2b}
 
 Aucun.
 
-## Historique  {#core-ref:be53eb63-b6a2-4168-9121-909f22bce989}
+## Historique {#core-ref:be53eb63-b6a2-4168-9121-909f22bce989}
 
-Cette méthode était anciennement nommé `specRefresh()`.
+Cette méthode était anciennement nommée `specRefresh()`.
 
 ## Exemples {#core-ref:e61b454f-4c98-40e1-b601-8062ec6a1c38}
 
@@ -42,17 +42,17 @@ l'hameçon `postRefresh()`.
 
 Soit la famille suivante :
 
-| BEGIN |                   |     Ma famille    |                 |     | MYFAMILY |       |     |     |     |                                     |     |
-| ----- | ----------------- | ----------------- | --------------- | --- | -------- | ----- | --- | --- | --- | ----------------------------------- | --- |
-| CLASS | My\MyFamily       |                   |                 |     |          |       |     |     |     |                                     |     |
-| //    | idattr            | idframe           | label           | T   | A        | type  | ord | vis | ... | phpfunc                             |     |
-| ATTR  | MY_IDENTIFICATION |                   | Identification  | N   | N        | frame | 10  | W   |     |                                     |     |
-| ATTR  | MY_NUMBERONE      | MY_IDENTIFICATION | nombre 1        | Y   | N        | int   | 20  | W   |     |                                     |     |
-| ATTR  | MY_NUMBERTWO      | MY_IDENTIFICATION | nombre 2        | N   | N        | int   | 30  | W   |     |                                     |     |
-| ATTR  | MY_SUM            | MY_IDENTIFICATION | nombre 1&plus;2 | N   | N        | int   | 30  | R   |     | ::mySum(MY_NUMBERONE, MY_NUMBERTWO) |     |
-| PARAM | MY_PARAMETERS     |                   | Paramètres      | N   | N        | frame | 10  | W   |     |                                     |     |
-| PARAM | MY_MAX            | MY_PARAMETERS     | max             | N   | N        | int   | 20  | W   |     |                                     |     |
-| END   |                   |                   |                 |     |          |       |     |     |     |                                     |     |
+| BEGIN |                   | Ma famille        |                 |     | MYFAMILY |       |     |     |   |                                     |     |
+| ----- | ----------------- | ----------------- | --------------- | --- | -------- | ----- | --- | --- | - | ----------------------------------- | --- |
+| CLASS | My\MyFamily       |                   |                 |     |          |       |     |     |   |                                     |     |
+| //    | idattr            | idframe           | label           | T   | A        | type  | ord | vis | … | phpfunc                             |     |
+| ATTR  | MY_IDENTIFICATION |                   | Identification  | N   | N        | frame | 10  | W   |   |                                     |     |
+| ATTR  | MY_NUMBERONE      | MY_IDENTIFICATION | nombre 1        | Y   | N        | int   | 20  | W   |   |                                     |     |
+| ATTR  | MY_NUMBERTWO      | MY_IDENTIFICATION | nombre 2        | N   | N        | int   | 30  | W   |   |                                     |     |
+| ATTR  | MY_SUM            | MY_IDENTIFICATION | nombre 1&plus;2 | N   | N        | int   | 30  | R   |   | ::mySum(MY_NUMBERONE, MY_NUMBERTWO) |     |
+| PARAM | MY_PARAMETERS     |                   | Paramètres      | N   | N        | frame | 10  | W   |   |                                     |     |
+| PARAM | MY_MAX            | MY_PARAMETERS     | max             | N   | N        | int   | 20  | W   |   |                                     |     |
+| END   |                   |                   |                 |     |          |       |     |     |   |                                     |     |
 
 Avec la classe :
 
@@ -78,12 +78,12 @@ Avec la classe :
         }
     }
 
-## Notes  {#core-ref:47c8f567-875a-48a5-943d-7af334150497}
+## Notes {#core-ref:47c8f567-875a-48a5-943d-7af334150497}
 
 En cas de famille héritée, il est nécessaire d'appeler l'hameçon du parent pour
 disposer des mêmes fonctionnalités.
 
-## Voir aussi  {#core-ref:01409847-c705-426c-92f2-e68726f948ba}
+## Voir aussi {#core-ref:01409847-c705-426c-92f2-e68726f948ba}
 
 *   [Doc::refresh][docrefresh]
 *   [Doc::preRefresh][docprerefresh]

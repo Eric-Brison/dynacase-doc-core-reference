@@ -8,11 +8,10 @@ Modifie la valeur _brute_ d'un attribut de document.
 ## Description {#core-ref:5c8d1bc6-d266-4d2d-affa-f754d882f332}
 
     [php]
-    string setValue (
-                  string $attributeIdentifier, 
-         string|string[] $value, 
-                     int $index = - 1, 
-                     int &$kvalue = null )
+    string setValue (          string $attributeIdentifier,
+                      string|string[] $value,
+                                  int $index = - 1,
+                                  int &$kvalue = null )
 
 Modifie la valeur d'un attribut de l'objet _Document_. La modification n'est pas
 enregistrée en base de données.
@@ -26,10 +25,14 @@ Les résultats fournis par la méthode
 [`Doc::getAttributeValue()`][docgetattrvalue] ne peuvent pas être utilisés
 directement par cette méthode.
 
-Si la valeur est une chaîne vide ou égale à `null`, alors la valeur de l'attribut
-ne sera pas modifiée. Si la valeur est égale à un espace ` `, la valeur sera effacée.
+Si la valeur est une chaîne vide ou égale à `null`, alors la valeur de
+l'attribut ne sera pas modifiée. Si la valeur est égale à un espace ` `, la
+valeur sera effacée.
 
 Les espaces en début et fin de valeur sont supprimés.
+
+<span class="fixme" data-assignedto="EBR">c'est vraiment que les espaces, ou
+alors c'est trim?</span>
 
 ## Liste des paramètres {#core-ref:43df765e-53c3-478a-9287-20c78d3bbc8a}
 
@@ -42,12 +45,17 @@ Les espaces en début et fin de valeur sont supprimés.
     tableau.
 
 (int) `index`
-:   Dans le cas où l'attribut est multiple, indique l'index de la valeur à 
+:   Dans le cas où l'attribut est multiple, indique l'index de la valeur à
     modifier.
 
 (int) `kvalue`
-:   En cas d'erreur et dans le cas où l'attribut est multiple, indique l'index de 
-    la valeur erronée.
+:   En cas d'erreur et dans le cas où l'attribut est multiple, indique l'index
+    de la valeur erronée.
+    <span class="fixme" data-assignedto="EBR">de la première erreur rencontrée?
+    quid lorsqu'il y a plusieurs erreurs ?</span>
+
+<span class="fixme" data-assignedto="EBR">tu ne dis pas qu'on peut lui filer un
+array</span>
 
 ## Valeur de retour {#core-ref:371a06e3-7a06-485c-8e44-d5af576e965f}
 
@@ -56,12 +64,11 @@ Message d'erreur. Retourne une chaîne vide s'il n'y a pas d'erreur.
 ## Erreurs / Exceptions {#core-ref:3b9e376f-b8fa-47b9-8fca-dd1ab55753be}
 
 En cas d'erreur, un message non vide est retourné.
-Les principales causes d'erreurs sont :
+Les principales causes d'erreurs sont :
 
 *   Insuffisance de privilèges. Nécessite le [droit `edit`][profdoc].
-*   Attribut inexistant
-*   Contenu de la valeur incohérent par rapport au type d'attribut
-
+*   Attribut inexistant.
+*   Contenu de la valeur incohérent par rapport au type d'attribut.
 
 ## Historique {#core-ref:35fed792-7f6b-4e44-8e15-c0db55ac1bab}
 
@@ -72,22 +79,22 @@ Aucun.
 Calcul de la somme des attributs `my_numberone` et `my_numbertwo` et
 enregistrement dans l'attribut `my_sum`.
 
-Soit la famille suivante :
+Soit la famille suivante :
 
-| BEGIN |                   |     Ma famille    |                  |     | MYFAMILY |         |     |     |     |         |     |
-| ----- | ----------------- | ----------------- | ---------------- | --- | -------- | ------- | --- | --- | --- | ------- | --- |
-| CLASS | My\MyFamily       |                   |                  |     |          |         |     |     |     |         |     |
-| //    | idattr            | idframe           | label            | T   | A        | type    | ord | vis | ... | phpfunc |     |
-| ATTR  | MY_IDENTIFICATION |                   | Identification   | N   | N        | frame   | 10  | W   |     |         |     |
-| ATTR  | MY_NUMBERONE      | MY_IDENTIFICATION | nombre 1         | Y   | N        | int     | 20  | W   |     |         |     |
-| ATTR  | MY_NUMBERTWO      | MY_IDENTIFICATION | nombre 2         | N   | N        | int     | 30  | W   |     |         |     |
-| ATTR  | MY_REDACTOR       | MY_IDENTIFICATION | rédacteur        | N   | N        | account | 30  | R   |     |         |     |
-| ATTR  | MY_MAIL           | MY_IDENTIFICATION | Adresse courriel | N   | N        | text    | 10  | R   |     |         |     |
-| ATTR  | MY_SUM            | MY_IDENTIFICATION | nombre 1&plus;2  | N   | N        | int     | 30  | R   |     |         |     |
-| END   |                   |                   |                  |     |          |         |     |     |     |         |     |
+| BEGIN |                   | Ma famille        |                  |     | MYFAMILY |         |     |     |   |         |     |
+| ----- | ----------------- | ----------------- | ---------------- | --- | -------- | ------- | --- | --- | - | ------- | --- |
+| CLASS | My\MyFamily       |                   |                  |     |          |         |     |     |   |         |     |
+| //    | idattr            | idframe           | label            | T   | A        | type    | ord | vis | … | phpfunc |     |
+| ATTR  | MY_IDENTIFICATION |                   | Identification   | N   | N        | frame   | 10  | W   |   |         |     |
+| ATTR  | MY_NUMBERONE      | MY_IDENTIFICATION | nombre 1         | Y   | N        | int     | 20  | W   |   |         |     |
+| ATTR  | MY_NUMBERTWO      | MY_IDENTIFICATION | nombre 2         | N   | N        | int     | 30  | W   |   |         |     |
+| ATTR  | MY_REDACTOR       | MY_IDENTIFICATION | rédacteur        | N   | N        | account | 30  | R   |   |         |     |
+| ATTR  | MY_MAIL           | MY_IDENTIFICATION | Adresse courriel | N   | N        | text    | 10  | R   |   |         |     |
+| ATTR  | MY_SUM            | MY_IDENTIFICATION | nombre 1&plus;2  | N   | N        | int     | 30  | R   |   |         |     |
+| END   |                   |                   |                  |     |          |         |     |     |   |         |     |
 
 
-### Mise à jour d'attribut après modification du document
+### Mise à jour d'attribut après modification du document {#core-ref:d89190b4-e6d2-4d47-9fff-bc57fe1d0bd1}
 
 Le rédacteur est le dernier à avoir modifié le document.
 Calcul de la somme des attributs `my_numberone` et `my_numbertwo` et

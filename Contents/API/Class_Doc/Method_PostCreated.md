@@ -2,16 +2,10 @@
 
 <div class="short-description" markdown="1">  
 
-Hameçon utilisé par la méthode [`Doc::Store()`][docstore]`. Cette méthode est
-appelé après l'enregistrement en base de données
-
+Hameçon utilisé par la méthode [`Doc::Store()`][docstore]. Cette méthode est
+appelée après l'enregistrement en base de données.
 
 </div>
-<!--
-<div class="applicability">
-Obsolète depuis #.#.#
-</div>
--->
 
 ## Description {#core-ref:bc70e39d-7ce2-4559-a6ae-99c48200e2e6}
 
@@ -20,18 +14,18 @@ Obsolète depuis #.#.#
 
 Cette méthode est utilisable aussi pour réaliser un post-traitement après une
 création de document. Elle ne peut pas annuler l'enregistrement. Le document
-possède un identificateur est déjà enregistré en base.
+possède un identificateur et est déjà enregistré en base.
 
-Cette méthode est aussi appelée par `Doc::revise()` lorsque le document est
-révisé. Une révision entraîne une création en base de données.
+Cette méthode est aussi appelée par [Doc::revise()][docrevise] lorsque le
+document est révisé. Une révision entraîne une création en base de données.
 
 ### Avertissements {#core-ref:49929040-b38d-4b2a-9432-98c48af2ff3a}
 
-Il ne faut pas appeler la méthode Doc::store() dans cette méthode au risque
-d'avoir une boucle infinie.
+Il ne faut pas appeler la méthode [`Doc::Store()`][docstore] dans cette méthode
+au risque d'avoir une boucle infinie.
 
-Si des modifications d'attributs sont réalisées dans cette méthode, ils seront
-enregistrés en base par la méthode `Doc::store()`.
+Si des modifications d'attributs sont réalisées dans cette méthode, elles seront
+enregistrés en base par la méthode [`Doc::Store()`][docstore].
 
 ## Liste des paramètres {#core-ref:617d3a6d-a2b7-4288-b874-26c97e5e1307}
 
@@ -52,7 +46,7 @@ Aucun.
 
 ## Exemples {#core-ref:7616c7bc-87bd-4e4e-9be8-e3ee70140c0d}
 
-Dans la famille _MyFamily_, une référence unique est enregistré lors de la
+Dans la famille _MyFamily_, une référence unique est enregistrée lors de la
 création du document.
 
 Soit la famille suivante :
@@ -89,12 +83,14 @@ Soit la famille suivante :
         }
     }
 
-
-
 ## Notes {#core-ref:a17763da-f5a3-480a-9a6e-8f901b767b53}
 
 En cas de famille héritée, il est nécessaire d'appeler l'hameçon du parent pour
 disposer des mêmes fonctionnalités.
+
+<span class="fixme" data-assignedto="EBR">Au vu de l'exemple et de
+l'explication, cela ressemble fortement à postStore. Il serait intéressant
+d'ajouter une petite note sur quand préférer l'une ou l'autre.</span>
 
 ## Voir aussi {#core-ref:fd05fb03-1114-4b6c-82c6-c44d311925e8}
 
