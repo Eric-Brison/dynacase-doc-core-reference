@@ -1,24 +1,19 @@
-# Doc::setAttributeValue()  {#core-ref:1e766800-b2e1-462b-9793-b0261ede8677}
+# Doc::setAttributeValue() {#core-ref:1e766800-b2e1-462b-9793-b0261ede8677}
 
 <div class="short-description">
 Modifie la valeur d'un attribut de document.
 </div>
-<!--
-<div class="applicability">
-Obsolète depuis #.#.#
-</div>
--->
 
-## Description  {#core-ref:d0e5e69d-4f7f-4b77-87f7-818656954e90}
+## Description {#core-ref:d0e5e69d-4f7f-4b77-87f7-818656954e90}
 
     [php]
-    <void> setAttributeValue (  string $attributeIdentifier, 
-                                 mixed $value  )
+    <void> setAttributeValue ( string $attributeIdentifier,
+                                mixed $value )
 
 Modifie la valeur d'un attribut de l'objet _Document_. La modification n'est pas
 enregistrée en base de données.
 
-### Avertissements  {#core-ref:130a9c3c-80e2-4081-b302-d0b81200efc2}
+### Avertissements {#core-ref:130a9c3c-80e2-4081-b302-d0b81200efc2}
 
 Pour enregistrer la modification , il est nécessaire d'appeler la méthode
 [`Doc::store()`][docstore].
@@ -30,25 +25,28 @@ directement par cette méthode.
 Pour les valeurs de type `string`, les espaces en début et fin de valeur sont
 supprimés.
 
+<span class="fixme" data-assignedto="EBR">c'est vraiment que les espaces, ou
+alors c'est trim?</span>
 
-## Liste des paramètres  {#core-ref:4d1ee0a2-6e51-4e69-9e6e-0f55a96374b5}
+## Liste des paramètres {#core-ref:4d1ee0a2-6e51-4e69-9e6e-0f55a96374b5}
 
 (string) `attributeIdentifier`
 :   Identifiant de l'attribut à modifier.
 
 (string|string[]) `value` 
 :   Nouvelle [valeur **typée**][doctypevalue]. Le type de la valeur est fonction
-    du type de l'attribut.  
+    du type de l'attribut (voir [les types en fonction de la
+    valeur][doctypevalue]).
     
     Il est possible d'affecter aussi les attributs de type `array` avec un
     tableau à 2 dimensions. La première dimension est l'index de la rangée, la
     deuxième dimension est l'identifiant de l'attribut.
 
-## Valeur de retour  {#core-ref:1c2cdade-e90b-4144-bda0-bb6abde92936}
+## Valeur de retour {#core-ref:1c2cdade-e90b-4144-bda0-bb6abde92936}
 
 Void.
 
-## Erreurs / Exceptions  {#core-ref:caba99e2-da92-4a09-803c-f448a1d838a9}
+## Erreurs / Exceptions {#core-ref:caba99e2-da92-4a09-803c-f448a1d838a9}
 
 Retourne une exception de type `\Dcp\Exception` dans les cas suivants :
 
@@ -56,16 +54,16 @@ Retourne une exception de type `\Dcp\Exception` dans les cas suivants :
 *   Le type attribut ne peut recevoir de valeur (`frame`, `tab`, `menu`)
 
 Retourne une exception de type `\Dcp\AttributeValue\Exception` dans les cas
-suivants :
+suivants :
 
 *   La valeur est incompatible avec le type d'attribut
 *   Une valeur scalaire est donnée pour un attribut multiple.
 
-## Historique  {#core-ref:2ac0c68c-897b-4ed6-97c9-5d36c8e49db9}
+## Historique {#core-ref:2ac0c68c-897b-4ed6-97c9-5d36c8e49db9}
 
 Aucun.
 
-## Exemples  {#core-ref:9ebcbb07-2012-4ef0-9e14-978d4a1762ce}
+## Exemples {#core-ref:9ebcbb07-2012-4ef0-9e14-978d4a1762ce}
 
 Calcul de la somme des attributs `my_numberone` et `my_numbertwo` et
 enregistrement dans l'attribut `my_sum`.
@@ -74,21 +72,22 @@ Mise à jour de l'attribut `my_mail` avec l'adresse courriel du rédacteur.
 
 Soit la famille suivante :
 
-| BEGIN |                   |     Ma famille    |                  |     | MYFAMILY |         |     |     |     |         |     |
-| ----- | ----------------- | ----------------- | ---------------- | --- | -------- | ------- | --- | --- | --- | ------- | --- |
-| CLASS | My\MyFamily       |                   |                  |     |          |         |     |     |     |         |     |
-| //    | idattr            | idframe           | label            | T   | A        | type    | ord | vis | ... | phpfunc |     |
-| ATTR  | MY_IDENTIFICATION |                   | Identification   | N   | N        | frame   | 10  | W   |     |         |     |
-| ATTR  | MY_NUMBERONE      | MY_IDENTIFICATION | nombre 1         | Y   | N        | int     | 20  | W   |     |         |     |
-| ATTR  | MY_NUMBERTWO      | MY_IDENTIFICATION | nombre 2         | N   | N        | int     | 30  | W   |     |         |     |
-| ATTR  | MY_REDACTOR       | MY_IDENTIFICATION | rédacteur        | N   | N        | account | 30  | W   |     |         |     |
-| ATTR  | MY_MAIL           | MY_IDENTIFICATION | Adresse courriel | N   | N        | text    | 10  | R   |     |         |     |
-| ATTR  | MY_SUM            | MY_IDENTIFICATION | nombre 1&plus;2  | N   | N        | int     | 30  | R   |     |         |     |
-| END   |                   |                   |                  |     |          |         |     |     |     |         |     |
+| BEGIN |                   | Ma famille        |                  |     | MYFAMILY |         |     |     |   |         |     |
+| ----- | ----------------- | ----------------- | ---------------- | --- | -------- | ------- | --- | --- | - | ------- | --- |
+| CLASS | My\MyFamily       |                   |                  |     |          |         |     |     |   |         |     |
+| //    | idattr            | idframe           | label            | T   | A        | type    | ord | vis | … | phpfunc |     |
+| ATTR  | MY_IDENTIFICATION |                   | Identification   | N   | N        | frame   | 10  | W   |   |         |     |
+| ATTR  | MY_NUMBERONE      | MY_IDENTIFICATION | nombre 1         | Y   | N        | int     | 20  | W   |   |         |     |
+| ATTR  | MY_NUMBERTWO      | MY_IDENTIFICATION | nombre 2         | N   | N        | int     | 30  | W   |   |         |     |
+| ATTR  | MY_REDACTOR       | MY_IDENTIFICATION | rédacteur        | N   | N        | account | 30  | W   |   |         |     |
+| ATTR  | MY_MAIL           | MY_IDENTIFICATION | Adresse courriel | N   | N        | text    | 10  | R   |   |         |     |
+| ATTR  | MY_SUM            | MY_IDENTIFICATION | nombre 1&plus;2  | N   | N        | int     | 30  | R   |   |         |     |
+| END   |                   |                   |                  |     |          |         |     |     |   |         |     |
 
 
-### Mise à jour d'attribut après modification du document
-Avec la classe :
+### Mise à jour d'attribut après modification du document {#core-ref:83e79e19-4487-4f42-8aab-0839b2d4a022}
+
+Avec la classe :
 
     [php]
     namespace My;
@@ -134,11 +133,11 @@ Avec la classe :
         }
     }
 
-### Exemple avec traitement des exceptions
+### Exemple avec traitement des exceptions {#core-ref:94b572da-55cf-49c5-8d64-a1d64e4f9412}
 
 Calcul de la prochaine échéance dans 7 jours après la dernière modification.
 
-Avec la classe :
+Avec la classe :
 
     [php]
     namespace My;
@@ -172,7 +171,7 @@ Avec la classe :
         }
     }
 
-### Exemple d'affectation de tableau
+### Exemple d'affectation de tableau {#core-ref:65d743bd-c944-4841-b9f3-a77ff9dc25ac}
 Soit les familles suivantes :
 
 | BEGIN  |                   |     Ma famille    |                |     | MYFAMILY |         |     |     |
@@ -181,7 +180,6 @@ Soit les familles suivantes :
 | DFLDID | auto              |                   |                |     |          |         |     |     |
 | ICON   | classe.png        |                   |                |     |          |         |     |     |
 | //     | idattr            | idframe           | label          | T   | A        | type    | ord | vis |
-|        |                   |                   |                |     |          |         |     |     |
 | ATTR   | MY_IDENTIFICATION |                   | Identification | N   | N        | frame   | 10  | W   |
 | ATTR   | MY_REDACTOR       | MY_IDENTIFICATION | Rédacteur      | N   | N        | account | 50  | W   |
 | ATTR   | MY_MAIL           | MY_IDENTIFICATION | Mail           | N   | N        | text    | 60  | R   |
@@ -192,16 +190,15 @@ Soit les familles suivantes :
 |        |                   |                   |                |     |          |         |     |     |
 | END    |                   |                   |                |     |          |         |     |     |
 
-| BEGIN |              |   Contact   |              |     | MYCONTACT |       |     |     |      |                  |     |                                             |     |            |
-| ----- | ------------ | ----------- | ------------ | --- | --------- | ----- | --- | --- | ---- | ---------------- | --- | ------------------------------------------- | --- | ---------- |
-| //    | idattr       | idframe     | label        | T   | A         | type  | ord | vis | need | link             | ... | phpfunc                                     | ... | option     |
-| ATTR  | MY_FR_IDENT  |             | État civil   | N   | N         | frame |     | W   |      |                  |     |                                             |     |            |
-| ATTR  | MY_NAME      | MY_FR_IDENT | nom          | Y   | N         | text  | 30  | W   | Y    |                  |     |                                             |     |            |
-| ATTR  | MY_FNAME     | MY_FR_IDENT | prénom       | Y   | N         | text  | 35  | W   | Y    |                  |     |                                             |     |            |
-| ATTR  | MY_MAIL      | MY_FR_IDENT | mail         | N   | Y         | text  | 40  | W   |      | mailto:%MY_MAIL% |     |                                             |     |            |
-| ATTR  | MY_ISPARTNER | MY_FR_IDENT | Partenaire ? | N   | Y         | enum  | 45  | W   |      |                  |     | no&#124;Pas partenaire, yes&#124;Partenaire |     | system=yes |
-|       |              |             |              |     |           |       |     |     |      |                  |     |                                             |     |            |
-| END   |              |             |              |     |           |       |     |     |      |                  |     |                                             |     |            |
+| BEGIN |              | Contact     |              |     | MYCONTACT |       |     |     |      |                  |   |                                             |     |            |
+| ----- | ------------ | ----------- | ------------ | --- | --------- | ----- | --- | --- | ---- | ---------------- | - | ------------------------------------------- | --- | ---------- |
+| //    | idattr       | idframe     | label        | T   | A         | type  | ord | vis | need | link             | … | phpfunc                                     | ... | option     |
+| ATTR  | MY_FR_IDENT  |             | État civil   | N   | N         | frame |     | W   |      |                  |   |                                             |     |            |
+| ATTR  | MY_NAME      | MY_FR_IDENT | nom          | Y   | N         | text  | 30  | W   | Y    |                  |   |                                             |     |            |
+| ATTR  | MY_FNAME     | MY_FR_IDENT | prénom       | Y   | N         | text  | 35  | W   | Y    |                  |   |                                             |     |            |
+| ATTR  | MY_MAIL      | MY_FR_IDENT | mail         | N   | Y         | text  | 40  | W   |      | mailto:%MY_MAIL% |   |                                             |     |            |
+| ATTR  | MY_ISPARTNER | MY_FR_IDENT | Partenaire ? | N   | Y         | enum  | 45  | W   |      |                  |   | no&#124;Pas partenaire, yes&#124;Partenaire |     | system=yes |
+| END   |              |             |              |     |           |       |     |     |      |                  |   |                                             |     |            |
 
 
 La méthode `setMyPartners` va rechercher tous les contacts *partenaire* et va
@@ -241,7 +238,7 @@ l'adresse mail de chaque partenaire.
     }
 
 
-## Notes  {#core-ref:e3096440-920c-4519-9202-111a534ee171}
+## Notes {#core-ref:e3096440-920c-4519-9202-111a534ee171}
 
 Pour les attributs de type "numérique" et les types "date", plusieurs types de
 valeurs sont autorisés.
@@ -264,10 +261,9 @@ valeurs sont autorisés.
 | timestamp | (DateTime) "2012-03-16 12:54:34" | <span class="ok">OK</span>                          |
 | timestamp | (string) "2012-03-16 12:54:34"   | <span class="ok">OK</span>                          |
 | timestamp | (string) "2012-03-16T12:54:34"   | <span class="ok">OK</span>                          |
-|           |                                  |                                                     |
 
 
-## Voir aussi  {#core-ref:42b9caf9-a56b-4880-8def-2c3ebd0e20c4}
+## Voir aussi {#core-ref:42b9caf9-a56b-4880-8def-2c3ebd0e20c4}
 
 *   [Doc::setValue()][docsetvalue]
 *   [Doc::getAttributeValue()][docgetattrvalue]
@@ -282,4 +278,3 @@ valeurs sont autorisés.
 [docgetrawvalue]:   #core-ref:f779391c-ee61-4c3a-8976-6b74f83ecc8f
 [doctypevalue]:     #core-ref:b2e45d57-63f8-408f-9779-ebf35e6967e4
 [docpoststore]:     #core-ref:99520a31-0aef-4bc6-b20a-114737059d17 "Hameçon Doc::postStore()"
-

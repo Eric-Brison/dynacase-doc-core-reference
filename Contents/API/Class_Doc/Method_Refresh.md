@@ -1,13 +1,8 @@
 # Doc::refresh() {#core-ref:0bab02de-50e0-46f2-8bdb-81c62dc86c93}
 
 <div class="short-description" markdown="1">
-Méthode utilisé pour mettre à jour les [attributs calculés][computeattr].
+Méthode utilisée pour mettre à jour les [attributs calculés][computeattr].
 </div>
-<!--
-<div class="applicability">
-Obsolète depuis #.#.#
-</div>
--->
 
 ## Description {#core-ref:e8acacec-8062-4c49-944e-57e2e79c83d4}
 
@@ -33,7 +28,6 @@ Cette méthode retourne les message fournis par les hameçons
 [`preRefresh()`][docprerefresh] et [`postRefresh()`][docpostrefresh]. Ce message
 est présenté sur l'interface web de consultation de document lors de l'affichage
 du document.
-
 
 ## Erreurs / Exceptions {#core-ref:83715503-3396-423a-b16e-01f49d3cb045}
 
@@ -62,10 +56,10 @@ Actualisation d'un ensemble de documents.
 
 Lors de l'actualisation du document les hameçons suivants sont lancés :
 
-1.  [`Doc::preRefresh()`][docprerefresh]  
-    Calcul des attributs calculés.
-1.  [`Doc::postRefresh()`][docpostrefresh]  
-    Enregistrement en base si modification détectée
+1.  [`Doc::preRefresh()`][docprerefresh]
+1.  *Calcul des attributs calculés*
+1.  [`Doc::postRefresh()`][docpostrefresh]
+1.  *Enregistrement en base si modification détectée*
 
 Les affectations des [attributs calculés][computeattr] sont réalisées par la
 méthode `specRefreshGen()` qui est générée lors de l'importation de la famille.

@@ -4,8 +4,6 @@
 Cette méthode enregistre les modifications d'un document en base de données.
 </div>
 
-
-
 ## Description {#core-ref:cc7830a4-96e4-4e35-8980-8224905b815d}
 
     [php]
@@ -26,15 +24,16 @@ Aucun.
     hameçons ainsi que le code d'erreur.
 
 (bool) `skipConstraint`
-:   Si la valeur est `false` alors les [contraintes][contraintes] sur le 
-    document ne sont pas testés.
+:   Si la valeur est `false` alors les [contraintes][contraintes] sur le
+    document ne sont pas testées.
 
 
 ## Valeur de retour {#core-ref:220144a4-6c58-4480-8247-3dbec4d23913}
 
 La valeur de retour contient le message d'erreur.
-Si l'enregistrement s'est bien passé le retour est une chaine de caractère vide.
-Dans le cas contraire, le texte de l'erreur est retourné.
+
+Si l'enregistrement s'est bien passé le retour est une chaîne de caractères
+vide. Dans le cas contraire, le texte de l'erreur est retourné.
 
 Des informations plus détaillées sont disponibles dans le paramètre `$info`.
 
@@ -43,13 +42,14 @@ Des informations plus détaillées sont disponibles dans le paramètre `$info`.
 Si la création ou la modification n'a pas pu être réalisée, alors la méthode
 retourne un message d'erreur.
 
-Code retour de `$info` : storeInfo::errorCode :
+Code retour de `$info` : storeInfo::errorCode :<span class="fixme" data-
+assignedto="EBR">je comprends pas cette ligne</span>
 
 storeInfo::NO_ERROR
 :   Pas d'erreur.
 
 storeInfo::CREATE_ERROR
-:   Erreur lors de la création. Peut provenir de l'hameçon 
+:   Erreur lors de la création. Peut provenir de l'hameçon
     `Doc::preCreated()`, d'un problème de droits ou d'un problème d'accès à
     la base de données.
 
@@ -64,8 +64,8 @@ storeInfo::PRESTORE_ERROR
 :   Erreur déclenchée par l'hameçon `Doc::preStore()`.
 
 Une exception `Dcp\Db\Exception` peut être levée en cas de problème
-d'enregistrement au niveau de la base de données (problème d'accès, problème de
-unicité d'index, problème d'incohérence de type).
+d'enregistrement au niveau de la base de données (problème d'accès, problème
+d'unicité d'index, problème d'incohérence de type).
 
 ## Historique {#core-ref:cb88c9b8-25d8-4f7e-9147-e7e54509f813}
 
@@ -73,8 +73,7 @@ Aucun.
 
 ## Exemples {#core-ref:16fe9687-083a-4dae-9f71-efb291500a03}
 
-Soit la famille MY_FAMILY suivante :
-
+Soit la famille MY_FAMILY suivante :
 
 | BEGIN |                   |     Ma famille    |                |     | MYFAMILY |       |     |     |
 | ----- | ----------------- | ----------------- | -------------- | --- | -------- | ----- | --- | --- |
@@ -86,7 +85,7 @@ Soit la famille MY_FAMILY suivante :
 | END   |                   |                   |                |     |          |       |     |     |
 
 
-### Modification d'un document 
+### Modification d'un document {#core-ref:513ce90b-f7df-4219-8af3-2400be20a93c}
 
 Exemple d'enregistrement d'une modification sans contrôle d'erreur.
 
@@ -98,8 +97,7 @@ Exemple d'enregistrement d'une modification sans contrôle d'erreur.
     $d->setValue(Aself::my_numberone, 234);
     $d->store($info); // enregistrement en base de données
 
-
-### Création d'un document 
+### Création d'un document {#core-ref:ffb0061e-5c1b-48d9-bc14-7dbe11f136df}
 
 Exemple d'enregistrement d'un nouveau document sans contrôle d'erreur.
 
@@ -113,7 +111,7 @@ Exemple d'enregistrement d'un nouveau document sans contrôle d'erreur.
     $d->store($info);// enregistrement en base de données
     printf("Nouvel identifiant : %d\n", $d->id);
 
-### Contrôle des erreurs d'enregistrement
+### Contrôle des erreurs d'enregistrement {#core-ref:63ad6951-4237-4f1a-8c12-ac7ae4d0244b}
 
 Les codes erreurs de `$info` permettent de préciser l'origine du problème.
 
@@ -148,27 +146,29 @@ Les codes erreurs de `$info` permettent de préciser l'origine du problème.
 
 ## Notes {#core-ref:86dea093-c4a0-4c98-b47b-73fa0221ec30}
 
-Lors d'un ajout de documents les hameçons suivants sont lancés :
+Lors d'un ajout de documents les hameçons suivants sont lancés :
 
 1.  [`Doc::preStore()`][docprestore]
-1.  [`Doc::preCreated()`][docprecreated]  
-    Enregistrement en base
+1.  [`Doc::preCreated()`][docprecreated]
+1.  *Enregistrement en base*
 1.  [`Doc::postCreated()`][docpostcreated]
 1.  [`Doc::preRefresh()`][docprerefresh]
 1.  [`Doc::postRefresh()`][docpostrefresh]  
-    Enregistrement en base si modification détectée depuis dernier enregistrement
+1.  *Enregistrement en base si modification détectée depuis dernier
+    enregistrement*
 1.  [`Doc::postStore()`][docpoststore]  
-    Enregistrement en base si modification détectée depuis dernier enregistrement
+1.  *Enregistrement en base si modification détectée depuis dernier
+    enregistrement*
 
-Lors d'une mise à jour de documents les hameçons suivants sont lancés :
-
+Lors d'une mise à jour de documents les hameçons suivants sont lancés :
 
 1.  [`Doc::preStore()`][docprestore]
 1.  [`Doc::preRefresh()`][docprerefresh]
 1.  [`Doc::postRefresh()`][docpostrefresh]  
-    Enregistrement en base
+1.  *Enregistrement en base*
 1.  [`Doc::postStore()`][docpoststore]  
-    Enregistrement en base si modification détectée depuis dernier enregistrement
+1.  *Enregistrement en base si modification détectée depuis dernier
+    enregistrement*
 
 ## Voir aussi {#core-ref:9e1551ac-c4d3-41ab-bc19-4bb641db900f}
 

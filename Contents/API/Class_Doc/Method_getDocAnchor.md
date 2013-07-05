@@ -7,13 +7,13 @@ Générer un fragment HTML contenant une ancre HTML vers un document.
 ## Description {#core-ref:8ca28abd-366b-47b8-bf17-9d9e2e952080}
 
     [php]
-    string getDocAnchor ( int $id, 
-                       string $target = "_self" ,
-                         bool $htmllink = true ,
-                  bool|string $title = false ,
-                         bool $js = true ,
-                       string $docrev = "latest" ,
-                         bool $viewIcon = false  )
+    string getDocAnchor (         int $id,
+                               string $target = "_self" ,
+                                 bool $htmllink = true ,
+                          bool|string $title = false ,
+                                 bool $js = true ,
+                               string $docrev = "latest" ,
+                                 bool $viewIcon = false  )
 
 Permet de générer un fragment HTML, qui pourra être inséré dans un document
 HTML, et qui contiendra une ancre HTML (`<a href="…">…</a>`) vers un document
@@ -30,7 +30,7 @@ Aucun.
     HTML.
 
 (string) `target`
-:   Le nom du format du lien HTML. Les valeurs supportés sont :
+:   Le nom du format du lien HTML. Les valeurs supportées sont :
     
     *   **`_self` (par défaut)**,
     
@@ -45,7 +45,7 @@ Aucun.
         
     *   `ext` (pour un fragment HTML inséré dans une interface ExtJS),
     
-    toute autre valeur sera prise en compte comme la propriété `target` de
+    toute autre valeur sera prise en compte comme l'attribut `target` de
     l'ancre HTML générée.
 
 (bool) `htmllink`
@@ -63,7 +63,7 @@ Aucun.
 (string) `docrev`
 :   Indique sur quelle révision du document pointera l'ancre HTML.
     
-    Les valeurs possibles  sont :
+    Les valeurs possibles sont :
     
     *   `latest`,
     *   `fixed`,
@@ -75,6 +75,7 @@ Aucun.
 (bool) `viewIcon`
 :   Si `true` l'icône de la famille du document sera présentée
     dans l'ancre HTML.
+    <span class="fixme" data-assignedto="EBR">préciser le markup</span>
 
 ## Valeur de retour {#core-ref:c812a822-8874-49a4-8905-5cc88d2f6eda}
 

@@ -3,19 +3,14 @@
 <div class="short-description">
 Ajoute un message dans l'historique du document.
 </div>
-<!--
-<div class="applicability">
-Obsolète depuis #.#.#
-</div>
--->
 
 ## Description {#core-ref:6770b284-8740-4ba1-8c9d-cc4354f6a7c6}
 
     [php]
-    string addHistoryEntry (string $comment = '', 
-                               int $level = DocHisto::INFO,
-                            string $code = '',
-                               int $uid = '')
+    string addHistoryEntry ( string $comment = '', 
+                                int $level = DocHisto::INFO,
+                             string $code = '',
+                                int $uid = '')
 
 Cette méthode permet d'enregistrer un nouveau message daté dans l'historique du
 document.
@@ -34,11 +29,11 @@ restitués par l'historique ne sont pas traduits.
 (int) `level`
 :   Niveau du message :
     
-    *   DocHisto::NOTICE : notification
-    *   **DocHisto::INFO**   : message d'information
-    *   DocHisto::MESSAGE : message standard
-    *   DocHisto:: WARNING : message d'avertissement
-    *   DocHisto::ERROR : message d'erreur. Dans ce cas, le message est aussi 
+    *   DocHisto::NOTICE : notification
+    *   **DocHisto::INFO** : message d'information (valeur par défaut)
+    *   DocHisto::MESSAGE : message standard
+    *   DocHisto:: WARNING : message d'avertissement
+    *   DocHisto::ERROR : message d'erreur. Dans ce cas, le message est aussi 
         ajouté au fichier log d'erreur du serveur _Apache_.
 
 (string) `code` 
@@ -63,7 +58,7 @@ d'enregistrement.
 
 ## Historique {#core-ref:4d74b50e-414f-4d74-a830-854229e6817e}
 
-Anciennement nommé `addComment`.
+Cette méthode était anciennement nommée `addComment`.
 
 ## Exemples {#core-ref:8713f08c-bdc4-428c-a671-dc025f82f013}
 

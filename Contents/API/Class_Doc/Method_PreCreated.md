@@ -9,7 +9,7 @@ conditions de création de document sont valides.
 Cette méthode est utilisable aussi pour pré-remplir des attributs avant
 l'enregistrement.
 
-Cette méthode est aussi appelé lors de la révision d'un document.
+Cette méthode est aussi appelée lors de la révision d'un document.
 
 </div>
 
@@ -19,9 +19,9 @@ Cette méthode est aussi appelé lors de la révision d'un document.
     [php]
     string preCreated ()
 
-Si cette méthode retourne un message d'erreur alors la création sera abandonnée
-et la méthode `Doc::store()` retournera le message fournie par cette méthode
-afin d'indiquer l'échec.
+Si cette méthode retourne un message d'erreur alors la création est abandonnée
+et la méthode [`Doc::store()`][docstore] retournera le message fourni par cette
+méthode afin d'indiquer l'échec.
 
 ### Avertissements {#core-ref:014358b2-bf94-4af3-af27-c5de57751a46}
 
@@ -36,12 +36,12 @@ Aucun paramètre.
 
 ## Valeur de retour {#core-ref:87b533dd-c54b-4235-8608-8d6c6acfc87a}
 
-Message d'erreur. Si la méthode retourne une chaîne de caractère non vide, elle
+Message d'erreur. Si la méthode retourne une chaîne de caractères non vide, elle
 sera considérée comme un message d'erreur et la création de document sera
 abandonnée.
 
 Ce message est aussi stocké dans le paramètre de sortie `$info->error` de la
-méthode `Doc::store()`.
+méthode [`Doc::store()`][docstore].
 
 ## Erreurs / Exceptions {#core-ref:a60d52b1-2de0-4b17-9c30-b149fb8e0af6}
 
@@ -53,9 +53,9 @@ Aucun.
 
 ## Exemples {#core-ref:3a95452a-c163-4c2b-8dc1-01794dc778cf}
 
-Dans la famille _MyFamily_, la création d'un document ne devra être
-possible que si la somme des attributs MY_NUMBERONE et MY_NUMBERTWO est
-supérieur au paramètre MY_MAX de la famille.
+Dans la famille _MyFamily_, la création d'un document ne devra être possible que
+si la somme des attributs MY_NUMBERONE et MY_NUMBERTWO est inférieur au
+paramètre MY_MAX de la famille.
 
 Soit la famille suivante :
 
@@ -85,18 +85,20 @@ Soit la famille suivante :
             $n2 = $this->getAttributeValue(Aself::my_numbertwo);
             $max = $this->getFamilyParameterValue(Aself::my_max);
             if (($n1 + $n2) > $max) {
-                $err = sprintf("Max %d is reached", $max);
+                $err .= ($err ? "\n" : "") . sprintf("Max %d is reached", $max);
             }
             return $err;
         }
     }
 
-
-
 ## Notes {#core-ref:3548a3b2-cd44-412e-9ca5-ace8470fc3d1}
 
 En cas de famille héritée, il est nécessaire d'appeler l'hameçon du parent pour
 disposer des mêmes fonctionnalités.
+
+<span class="fixme" data-assignedto="EBR">Au vu de l'exemple et de
+l'explication, cela ressemble fortement à prestore. Il serait intéressant
+d'ajouter une petite note sur quand préférer l'une ou l'autre.</span>
 
 ## Voir aussi {#core-ref:e9e47c9a-ab49-4a64-bec8-0db3540456f0}
 

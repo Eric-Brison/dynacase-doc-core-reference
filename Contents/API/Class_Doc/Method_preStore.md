@@ -1,4 +1,4 @@
-# Doc::preStore()  {#core-ref:3517da95-82fe-4adb-8bc4-ef49ca55edb0}
+# Doc::preStore() {#core-ref:3517da95-82fe-4adb-8bc4-ef49ca55edb0}
 
 <div class="short-description" markdown="1">
 Hameçon utilisé par la méthode [`Doc::Store()`][docstore]. Elle est appelée
@@ -6,53 +6,48 @@ avant l'enregistrement en base de données. Cette méthode doit vérifier si les
 conditions de modification de document sont valides.
 
 </div>
-<!--
-<div class="applicability">
-Obsolète depuis #.#.#
-</div>
--->
 
-## Description  {#core-ref:6a386ab6-e2c9-419e-a8c7-7875df6c2db8}
+## Description {#core-ref:6a386ab6-e2c9-419e-a8c7-7875df6c2db8}
 
     [php]
     string preStore ()
 
 Si cette méthode retourne un message d'erreur alors la modification sera
-abandonnée et la méthode `Doc::store()` retournera le message fournie par cette
-méthode afin d'indiquer l'échec.
+abandonnée et la méthode [`Doc::Store()`][docstore] retournera le message fourni
+par cette méthode afin d'indiquer l'échec.
 
 
-### Avertissements  {#core-ref:c3c55aac-e6fb-49f1-b62c-16e57ab8d984}
+### Avertissements {#core-ref:c3c55aac-e6fb-49f1-b62c-16e57ab8d984}
 
 Le document n'a pas encore d'identificateur lors d'une création.
 Cette méthode n'est pas appelée lors d'une révision.
 
-## Liste des paramètres  {#core-ref:63a1e5c8-731a-40b9-b1b3-54dec73995ea}
+## Liste des paramètres {#core-ref:63a1e5c8-731a-40b9-b1b3-54dec73995ea}
 
 Aucun paramètre.
 
-## Valeur de retour  {#core-ref:b6b77dad-14f4-47da-994f-ec8719f01563}
+## Valeur de retour {#core-ref:b6b77dad-14f4-47da-994f-ec8719f01563}
 
-Message d'erreur. Si la méthode retourne une chaîne de caractère non vide, elle
+Message d'erreur. Si la méthode retourne une chaîne de caractères non vide, elle
 sera considérée comme un message d'erreur et la création de document sera
 abandonnée.
 
 Ce message est aussi stocké dans le paramètre de sortie `$info->preStore` de la
-méthode `Doc::store()`.
+méthode [`Doc::Store()`][docstore].
 
-## Erreurs / Exceptions  {#core-ref:3689ef07-59b4-4b63-9763-48d7f6d2565b}
+## Erreurs / Exceptions {#core-ref:3689ef07-59b4-4b63-9763-48d7f6d2565b}
 
 Aucune.
 
-## Historique  {#core-ref:1988b945-7432-48f3-8b55-10eb16d9be00}
+## Historique {#core-ref:1988b945-7432-48f3-8b55-10eb16d9be00}
 
 Aucun.
 
-## Exemples  {#core-ref:2628e1ce-7af9-41dc-acae-0e009091357d}
+## Exemples {#core-ref:2628e1ce-7af9-41dc-acae-0e009091357d}
 
 Dans la famille _MyFamily_, la modification d'un document ne devra être
 possible que si la somme des attributs MY_NUMBERONE et MY_NUMBERTWO est
-supérieur au paramètre MY_MAX de la famille.
+inférieure au paramètre MY_MAX de la famille.
 
 Soit la famille suivante :
 
@@ -87,12 +82,16 @@ Soit la famille suivante :
         }
     }
 
-## Notes  {#core-ref:1815fc08-a3a7-4a80-8c37-9a0487bcf2ba}
+## Notes {#core-ref:1815fc08-a3a7-4a80-8c37-9a0487bcf2ba}
 
 En cas de famille héritée, il est nécessaire d'appeler l'hameçon du parent pour
 disposer des mêmes fonctionnalités.
 
-## Voir aussi  {#core-ref:4d2d6173-d571-4f45-89e5-aa2f9dea64d9}
+<span class="fixme" data-assignedto="EBR">Au vu de l'exemple et de
+l'explication, cela ressemble fortement à preCreated. Il serait intéressant
+d'ajouter une petite note sur quand préférer l'une ou l'autre.</span>
+
+## Voir aussi {#core-ref:4d2d6173-d571-4f45-89e5-aa2f9dea64d9}
 
 *   [Doc::store][docstore]
 *   [Doc::preCreated][docprecreated]
