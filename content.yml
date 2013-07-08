@@ -1151,6 +1151,72 @@ book:
       flags:
         wip: "work in progress"
         wip_sub: ""
+    - level:   2
+      element: "chapter"
+      content:  "API/Class_DocManager.md"
+      flags:
+        new: "new"
+      subtoc:   1
+    - level:   3
+      element: "chapter"
+      content:  "API/Class_DocManager/Method_getDocument.md"
+      flags:
+        draft: "draft"
+    - level:   3
+      element: "chapter"
+      content:  "API/Class_DocManager/Method_createDocument.md"
+      flags:
+        draft: "draft"
+    - level:   3
+      element: "chapter"
+      content:  "API/Class_DocManager/Method_getRawDocument.md"
+      flags:
+        draft: "draft"
+    - level:   3
+      element: "chapter"
+      content:  "API/Class_DocManager/Method_getDocumentFromRawDocument.md"
+      flags:
+        draft: "draft"
+    - level:   3
+      element: "chapter"
+      content:  "API/Class_DocManager/Method_createTemporaryDocument.md"
+      flags:
+        draft: "draft"
+    - level:   3
+      element: "chapter"
+      content:  "API/Class_DocManager/Method_getTitle.md"
+      flags:
+        draft: "draft"
+    - level:   3
+      element: "chapter"
+      content:  "API/Class_DocManager/Method_getRawValue.md"
+      flags:
+        draft: "draft"
+    - level:   3
+      element: "chapter"
+      content:  "API/Class_DocManager/Method_getIdFromName.md"
+      flags:
+        draft: "draft"
+    - level:   3
+      element: "chapter"
+      content:  "API/Class_DocManager/Method_getNameFromId.md"
+      flags:
+        draft: "draft"
+    - level:   3
+      element: "chapter"
+      content:  "API/Class_DocManager/Method_setInCache.md"
+      flags:
+        draft: "draft"
+    - level:   3
+      element: "chapter"
+      content:  "API/Class_DocManager/Method_clearCache.md"
+      flags:
+        draft: "draft"
+    - level:   3
+      element: "chapter"
+      content:  "API/Class_DocManager/Method_removeFromCache.md"
+      flags:
+        draft: "draft"
 #
 # END of API Content
 #
