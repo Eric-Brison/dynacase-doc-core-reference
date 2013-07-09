@@ -243,6 +243,8 @@ book:
 ##
     - level:   1
       content:  "cycles/introduction.md"
+      flags:
+        new: "updated"
       subtoc:   2
     - level:   2
       content:  "cycles/implementation.md"
@@ -251,6 +253,14 @@ book:
       subtoc:   2
     - level:   3
       content:  "cycles/family_wf.md"
+    - level:   3
+      content:  "cycles/family_wf2.md"
+      flags:
+        new: "new"
+    - level:   3
+      content:  "cycles/family_wf3.md"
+      flags:
+        new: "new"
     - level:   3
       content:  "cycles/document_wf.md"
     - level:   3
@@ -1599,6 +1609,10 @@ book:
       flags:
         wip: "work in progress"
         wip_sub: ""
+    - level:   2
+      content:  "Advanced/notifications.md"
+      flags:
+        new: "new"
 ##
 # Trash
 ##
