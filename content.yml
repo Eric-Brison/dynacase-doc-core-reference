@@ -1613,6 +1613,10 @@ book:
       content:  "Advanced/notifications.md"
       flags:
         new: "new"
+    - level:   2
+      content:  "Advanced/notifications2.md"
+      flags:
+        new: "new"
 ##
 # Trash
 ##
