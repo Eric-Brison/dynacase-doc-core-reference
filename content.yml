@@ -1610,11 +1610,24 @@ book:
         wip: "work in progress"
         wip_sub: ""
     - level:   2
-      content:  "Advanced/notifications.md"
+      content:  "Advanced/Notification/intro.md"
+      subtoc:   1
       flags:
         new: "new"
-    - level:   2
-      content:  "Advanced/notifications2.md"
+    - level:   3
+      content:  "Advanced/Notification/usecase.md"
+      flags:
+        new: "new"
+    - level:   3
+      content:  "Advanced/Notification/architecture.md"
+      flags:
+        new: "new"
+    - level:   3
+      content:  "Advanced/Notification/api.md"
+      flags:
+        new: "new"
+    - level:   3
+      content:  "Advanced/Notification/supervision.md"
       flags:
         new: "new"
 ##
