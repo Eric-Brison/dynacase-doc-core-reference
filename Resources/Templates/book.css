@@ -14,12 +14,12 @@ span.flag {
 }
 
 span.flag.wip {
-    background-color: #E9A7A7;
+    background-color: #CC7272;
     color: white;
 }
 
 span.flag.draft {
-    background-color: #ECBA6F;
+    background-color: #B87B1F;
     color: white;
 }
 
@@ -33,23 +33,10 @@ span.flag.new {
     color: white;
 }
 
-/*
-body.flag-wip {
-    background-color: #E9A7A7;
+span.flag.next-release {
+    background-color: #0D5EC9;
+    color: white;
 }
-
-body.flag-draft {
-    background-color: #ECBA6F;
-}
-
-body.flag-need-review {
-    background-color: #57B1E4;
-}
-
-body.flag-new {
-    background-color: #008821;
-}
-*/
 
 .flags-banner {
     position:fixed;
@@ -83,11 +70,11 @@ body.flag-new {
 }
 
 .flags-banner.flag-wip {
-    background-color: #E9A7A7;
+    background-color: #CC7272;
 }
 
 .flags-banner.flag-draft {
-    background-color: #ECBA6F;
+    background-color: #B87B1F;
 }
 
 .flags-banner.flag-need-review {
@@ -98,12 +85,34 @@ body.flag-new {
     background-color: #008821;
 }
 
+.flags-banner.flag-next-release {
+    background-color: #0D5EC9;
+}
 
+.flags-banner.flag-new.flag-next-release {
+    background: linear-gradient(to right,  #008821, #0D5EC9);
+    color: white;
+}
+.flags-banner.flag-new.flag-draft {
+    background: linear-gradient(to right,  #008821, #B87B1F);
+    color: white;
+}
+.flags-banner.flag-new.flag-need-review {
+    background: linear-gradient(to right,  #008821, #57B1E4);
+    color: white;
+}
+
+.flags-banner.flag-new.flag-next-release.flag-draft {
+    background: linear-gradient(to right,  #008821, #0D5EC9, #B87B1F);
+    color: white;
+}
 /*
     Gestion des tables
  */
 
-div.table{overflow: auto;}
+.table{
+    overflow: auto;
+}
 
 /*
     BlockQuotes
@@ -139,49 +148,8 @@ blockquote cite:before {
     content: "\2014 \2009";
 }
 
-.chunk_nav,
-#copy {
-    background-color: rgba(80,80,80,0.15);
-    -moz-animation: fadeout 5s; /* Firefox */
-    -webkit-animation: fadeout 5s; /* Safari and Chrome */
-    -o-animation: fadeout 5s; /* Opera */
-    animation: fadeout 5s;
-}
-@-moz-keyframes fadeout { /* Firefox */
-    from {
-        background-color: rgba(80,80,80,1);
-    }
-    to {
-        background-color: rgba(80,80,80,0.15);
-    }
-}
-@-webkit-keyframes fadeout { /* Safari and Chrome */
-    from {
-        background-color: rgba(80,80,80,1);
-    }
-    to {
-        background-color: rgba(80,80,80,0.15);
-    }
-}
-@-o-keyframes fadeout { /* Opera */
-    from {
-        background-color: rgba(80,80,80,1);
-    }
-    to {
-        background-color: rgba(80,80,80,0.15);
-    }
-}
-@keyframes fadeout {
-    from {
-        background-color: rgba(80,80,80,1);
-    }
-    to {
-        background-color: rgba(80,80,80,0.15);
-    }
-}
-.chunk_nav:hover,
-#copy:hover {
-    background-color: rgba(80,80,80,1);
+.searchZone li.title {
+    background-color: rgb(250, 173, 57);
 }
 
 a code {
@@ -191,11 +159,8 @@ a:hover code {
     color: #ffffff;
     background-color: #8AE234;
 }
-#chunk_toc {
-    background-color: #fff;
-}
 /* Pour les profil */
-span.aclgreen {
+.aclgreen {
     background-color:#90EE90; /*lightgreen*/
     border-radius:5px;
     font-weight: bold;
@@ -203,7 +168,7 @@ span.aclgreen {
     padding-left:0.5em;
     padding-right:0.5em;
 }
-span.aclgrey {
+.aclgrey {
     background-color:#D3D3D3; /*lightgray*/
     border-radius:5px;
     font-weight: bold;
@@ -212,15 +177,39 @@ span.aclgrey {
     padding-right:0.5em;
 }
 
-span.ok {
+.ok {
     background-color:#90EE90; /*lightgreen*/
     border-radius:5px;
     padding-left:0.5em;
     padding-right:0.5em;
 }
-span.ko {
+.ko {
     background-color:#EE9090; /*lightred*/
     border-radius:5px;
     padding-left:0.5em;
     padding-right:0.5em;
 }
+
+.xml .re1, .xml .re2 {
+    color: #2100D5;
+    font-weight: normal;
+}
+
+.figure img {
+    max-width: 100%;
+}
+/* add rules for border in consecutive code */
+div.code + div.code {
+    border-top-style :none;
+    border-bottom-style :none;
+}
+div.code + div.code.last-code {
+    border-bottom-style :solid;
+}
+div.code.first-code {
+    border-top-style :solid;
+    border-bottom-style: none;
+} 
+div.code.last-code {
+    border-bottom-style: solid;
+} 

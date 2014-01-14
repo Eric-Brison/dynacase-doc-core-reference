@@ -1,9 +1,0 @@
-constraint      ::= ( staticClass |  ) '::' methodName '(' ( methodInputs |  ) ')'
-
-methodInputs    ::= methodInput ( ',' methodInput )*
-
-methodInput     ::= '<spaces>'* ( sourceAttributeName | text | keyWord ) '<spaces>'*
-
-text            ::= ( "'" '<text>' ) | ( "'" "[^',]+" "'" ) | ( '"' '[^",]+' '"' )
-
-keyWord         ::= 'THIS' | 'K'
