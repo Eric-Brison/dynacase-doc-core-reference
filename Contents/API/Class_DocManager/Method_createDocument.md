@@ -1,7 +1,7 @@
 # Dcp\DocManager::createDocument()  {#core-ref:2f5afd12-1db3-4c69-a0fa-4b7fb044b723}
 
 <div class="short-description">
-Créé un objet document.
+Crée un objet document.
 </div>
 
 ## Description  {#core-ref:e6362419-d485-4c4a-b618-c1c6f507789f}
