@@ -1,7 +1,7 @@
 # Dcp\DocManager::createTemporaryDocument()  {#core-ref:5e5cda73-398a-49fd-a14f-24ee877cf3fa}
 
 <div class="short-description">
-Créé un objet document temporaire.
+Crée un objet document temporaire.
 </div>
 
 
@@ -10,18 +10,18 @@ Créé un objet document temporaire.
     [php]
     static Dcp\Family\Document createTemporaryDocument(
           int|string $familyIdentifier,
-                bool $useDefaultValues`=true) 
+                bool $useDefaultValues=true) 
 
-Créé un objet document temporaire. La classe de l'objet retourné est
+Créer un objet document temporaire. La classe de l'objet retourné est
 fonction de la famille du document. L'objet document n'a pas encore
 d'identifiant. Son identifiant **temporaire** est donné lors de
 l'enregistrement (`Doc::store()`).
 
-Un identifiant temporaire a une durée de vie de au plus 24h. Cet identifiant
+Un identifiant temporaire a une durée de vie d'au plus 24 heures. Cet identifiant
 est réutilisable dès que la suppression du document temporaire a été effectuée
 par le programme de nettoyage.
 
-Un document temporaire n'a pas de droit.
+Un document temporaire n'a pas de droits.
 
 ### Avertissements  {#core-ref:0d9d3bb9-598c-4793-854d-828b23f0bc1a}
 
@@ -41,7 +41,7 @@ Les documents temporaires sont supprimés toutes les nuits.
 
 ## Valeur de retour  {#core-ref:2524dec9-4ba2-478e-9210-99af8b13b6d6}
 
-Retour un objet de la classe de la famille indiquée.
+Retourne un objet de la classe de la famille indiquée.
 
 
 ## Erreurs / Exceptions  {#core-ref:1e7af7c1-5263-48df-9d97-fb5443821b3c}
