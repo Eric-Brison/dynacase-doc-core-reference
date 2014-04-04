@@ -1,7 +1,7 @@
 # Dcp\DocManager::getNameFromId()  {#core-ref:64654ded-b124-4573-a936-42f8605d20d7}
 
 <div class="short-description">
-Retourne l'identifiant associé au nom logique 
+Retourne le nom logique associé à l'identifiant numérique.
 </div>
 
 
