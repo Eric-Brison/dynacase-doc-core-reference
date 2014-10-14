@@ -1,7 +1,7 @@
 # Dcp\DocManager::createDocument()  {#core-ref:2f5afd12-1db3-4c69-a0fa-4b7fb044b723}
 
 <div class="short-description">
-Créé un objet document.
+Crée un objet document.
 </div>
 
 ## Description  {#core-ref:e6362419-d485-4c4a-b618-c1c6f507789f}
@@ -36,7 +36,7 @@ Le document n'est pas mis en cache.
 
 ## Valeur de retour  {#core-ref:c56ff484-79ce-4183-b4ce-1020ed320e8f}
 
-Retour un objet de la classe de la famille indiquée.
+Retourne un objet de la classe de la famille indiquée.
 
 
 ## Erreurs / Exceptions  {#core-ref:0e8a72e8-e6fc-46a7-a4d3-7741f6cb0b90}
@@ -44,7 +44,7 @@ Retour un objet de la classe de la famille indiquée.
 Exception `\Dcp\DocManager\Exception` :
 
 *   `DMG0001`: Si l'identifiant de famille n'est pas syntaxiquement valide.
-    L'identifiant doit être un nombre positif ou une  chaine de caractère non
+    L'identifiant doit être un nombre positif ou une  chaîne de caractère non
     vide.
 *   `DMG0002`: Si la famille n'existe pas.
 *   `DMG0003`: Si le droit de créer n'est pas accordé (droit `create`). 
