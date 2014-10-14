@@ -51,8 +51,9 @@ Aucun.
 
 ## Exemples  {#core-ref:763002ea-76f0-4b1b-9fdd-f4aae37084d6}
 
-Conversion depuis `Dcp\DocManager::getRawDocument`.
-La document `1234` est de la famille `MY_FAMILY`.
+* Conversion depuis `Dcp\DocManager::getRawDocument`.
+
+Le document `1234` est de la famille `MY_FAMILY`.
 
     [php]
     use AMyFamily as \Dcp\AttributeIdentifiers\MyFamily
