@@ -11,7 +11,7 @@ Retourne les valeurs et les propriétés brutes d'un document.
     static string[] Dcp\DocManager::getRawDocument (  int|string $documentIdentifier,
                                                             bool $latest=true )
 
-Retourne un tableau de valeurs de document issus de la base de données.
+Retourne un tableau de valeurs de document issues de la base de données.
 
 ### Avertissements  {#core-ref:d466656a-6f8f-4f53-9e6b-f29d150edae5}
 
@@ -52,8 +52,9 @@ Remplace le fonction `getTDoc`.
 
 ### Accès par identifiant {#core-ref:e9e12924-473b-4562-8223-06eeae896b9a}
 
-Identifiant numérique :
-La document `1234` est de la famille `MY_FAMILY`.
+* Identifiant numérique
+
+Le document `1234` est de la famille `MY_FAMILY`.
 
     [php]
     use AMyFamily as \Dcp\AttributeIdentifiers\MyFamily
