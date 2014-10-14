@@ -30,7 +30,7 @@ Les droits d'accès ne sont pas vérifiés.
 
 (bool) `useCache`
 
-:   Par défaut, la cache est activé. Cela signifie que le document est récupéré
+:   Par défaut, le cache est activé. Cela signifie que le document est récupéré
     du cache s'il est présent dans celui-ci. Sinon, les données du document sont 
     récupérées de la base de données.  
     Si `useCache` est mis à `false`, les données du document sont systématiquement
@@ -119,12 +119,12 @@ Nom logique :
 
 ## Notes  {#core-ref:e5cba349-c3f7-41ba-ad8d-2214abb43ed5}
 
-L'utilisation cette méthode dans une boucle qui potentiellement va instancier de
-nombreux documents est déconseillé le temps de création d'un nouvel objet
+L'utilisation de cette méthode dans une boucle, qui potentiellement va instancier de
+nombreux documents, est déconseillée car le temps de création d'un nouvel objet
 document est important.
 
 Pour une utilisation en boucle, il est préférable d'utiliser les classes
-[`DocumentList`][doclist] ou [`SearchDoc`][searchdoc] qui manipule des listes de
+[`DocumentList`][doclist] ou [`SearchDoc`][searchdoc] qui manipulent des listes de
 documents.
 
 
