@@ -29,12 +29,12 @@ Cette méthode utilise le cache par défaut.
 :   Identifiant de l'attribut ou de la propriété.
 
 (bool) `latest` 
-:   Utilisable que uniquement pour les identifiants numériques. Indique si on veut la
+:   Utilisable uniquement pour les identifiants numériques. Indique si on veut la
     révision précise correspondant à l'identifiant ou la dernière révision.
 
 (bool) `useCache`
 
-:   Par défaut, la cache est activé. Cela signifie que la valeur est récupérée
+:   Par défaut, le cache est activé. Cela signifie que la valeur est récupérée
     du cache s'il est présent dans celui-ci. Sinon, la valeur est 
     récupérée de la base de données.  
     Si `useCache` est mis à `false`, la valeur est systématiquement
