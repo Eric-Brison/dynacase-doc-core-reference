@@ -1,3 +1,0 @@
-# SMTP {#core-ref:c31a8788-0b6a-498a-8565-25f1c2516516}
-
-Les paramètres ci-dessous concernent le mécanisme d'envoi de courriels.

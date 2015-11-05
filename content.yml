@@ -1,1302 +1,166 @@
 book:
-  title: "Manuel de référence"
+  title: "Études"
   module: "Core"
-  version: "3.3"
+  version: "3.x"
   edition: "1"
-  githubsrc: "https://github.com/Anakeen/dynacase-doc-core-reference"
-  googleSearchAPI : "008147054905479727235:j5nj6h1_ye4"
   chapters:
 #
     - level:   1
       content:  "preambule.md"
-    - level:   2
-      content:  "historique/historique.md"
-##
-# Introduction_dynacase
-##
     - level:   1
-      content:  "Introduction_dynacase/introduction.md"
-      subtoc:   2
-    - level:   2
-      content:  "Introduction_dynacase/famille_document_attribut.md"
-    - level:   2
-      content:  "Introduction_dynacase/cycle_de_vie.md"
-    - level:   2
-      content:  "Introduction_dynacase/application_action.md"
-    - level:   2
-      content:  "Introduction_dynacase/account_groupe_role.md"
-    - level:   2
-      content:  "Introduction_dynacase/security.md"
-    - level:   2
-      content:  "Introduction_dynacase/internationalisation.md"
-##
-# object_model
-##
-    - level:   1
-      content:  "object_model/introduction.md"
-      subtoc:   2
-    - level:   2
-      content:  "object_model/hooks.md"
-    - level:   2
-      content:  "object_model/revision.md"
+      content:  "Etudes/Notification/intro.md"
       flags:
-        review : "À relire"
-        update : "Modifié"
-##
-# famille
-##
-    - level:   1
-      content:  "famille/introduction.md"
+        new: "À étudier"
       subtoc:   1
     - level:   2
-      content:  "famille/attributs.md"
-      subtoc:   2
+      content:  "Etudes/Notification/usecase.md"
+    - level:   2
+      content:  "Etudes/Notification/architecture.md"
+    - level:   2
+      content:  "Etudes/Notification/api.md"
     - level:   3
-      content:  "famille/attribut_type_common.md"
-    - level:   3
-      content:  "famille/attributsdata.md"
-      subtoc:   1
-      flags:
-        review : "À relire"
-        update : "Modifié"
-    - level:   4
-      content:  "famille/attribut_type_account.md"
-    - level:   4
-      content:  "famille/attribut_type_color.md"
-    - level:   4
-      content:  "famille/attribut_type_date.md"
-    - level:   4
-      content:  "famille/attribut_type_docid.md"
-    - level:   4
-      content:  "famille/attribut_type_double.md"
-    - level:   4
-      content:  "famille/attribut_type_enum.md"
-    - level:   5
-      content:  "famille/def_enum.md"
-    - level:   4
-      content:  "famille/attribut_type_file.md"
-    - level:   4
-      content:  "famille/attribut_type_htmltext.md"
-    - level:   4
-      content:  "famille/attribut_type_idoc.md"
-    - level:   4
-      content:  "famille/attribut_type_ifile.md"
-    - level:   4
-      content:  "famille/attribut_type_image.md"
-    - level:   4
-      content:  "famille/attribut_type_int.md"
-    - level:   4
-      content:  "famille/attribut_type_longtext.md"
-    - level:   4
-      content:  "famille/attribut_type_money.md"
-    - level:   4
-      content:  "famille/attribut_type_password.md"
-    - level:   4
-      content:  "famille/attribut_type_text.md"
-    - level:   4
-      content:  "famille/attribut_type_thesaurus.md"
-    - level:   4
-      content:  "famille/attribut_type_time.md"
-    - level:   4
-      content:  "famille/attribut_type_timestamp.md"
-    - level:   4
-      content:  "famille/attribut_type_xml.md"    
-    - level:   3
-      content:  "famille/attributsstruct.md"
-      subtoc:   1
-      review : "À relire"
-      flags:
-        update : "Modifié"
-    - level:   4
-      content:  "famille/attribut_type_array.md"
-      flags:
-        review : "À relire"
-        update : "Modifié"
-    - level:   4
-      content:  "famille/attribut_type_frame.md"
-    - level:   4
-      content:  "famille/attribut_type_tab.md"
-    - level:   3
-      content:  "famille/attributsaction.md"
-      subtoc:   1
-      review : "À relire"
-      flags:
-        new : "Modifié"
-    - level:   4
-      content:  "famille/attribut_type_action.md"
-    - level:   4
-      content:  "famille/attribut_type_menu.md"
-    - level:   2
-      content:  "famille/attribut_visibility.md"
-    - level:   2
-      content:  "famille/parametres.md"
-    - level:   2
-      content:  "famille/attributs_calcules.md"
-    - level:   2
-      content:  "famille/contraintes.md"
-    - level:   2
-      content:  "famille/aides_a_la_saisie.md"
-    - level:   2
-      content:  "famille/declaration_famille.md"
-##
-# documents_systemes
-##
-    - level:   1
-      content:  "documents_systemes/introduction.md"
-      subtoc:   2
-    - level:   2
-      content:  "documents_systemes/recherches.md"
-      subtoc:   2
-    - level:   3
-      content:  "documents_systemes/Search.md"
-    - level:   3
-      content:  "documents_systemes/DSearch.md"
-    - level:   3
-      content:  "documents_systemes/MSearch.md"
-    - level:   3
-      content:  "documents_systemes/SSearch.md"
-    - level:   3
-      content:  "documents_systemes/report.md"
-    - level:   2
-      content:  "documents_systemes/dossier.md"
-    - level:   2
-      content:  "documents_systemes/masques.md"
-    - level:   2
-      content:  "documents_systemes/controles_de_vues.md"
-    - level:   2
-      content:  "documents_systemes/modeles_de_mail.md"
-    - level:   2
-      content:  "documents_systemes/minuteurs.md"
-##
-# representations
-##
-    - level:   1
-      content:  "representations/introduction.md"
-      subtoc:   2
-    - level:   2
-      content:  "representations/template_usage.md"
-    - level:   2
-      content:  "representations/vue_de_documents.md"
-    - level:   2
-      content:  "representations/vue_specifique_de_documents.md"
-    - level:   2
-      content:  "representations/vue_d_attribut.md"
-    - level:   2
-      content:  "representations/vue_de_range_tableau.md"
-    - level:   2
-      content:  "representations/ooo_layout.md"
+      content:  "Etudes/Notification/supervision.md"
+
 ##
 # importation_exportation_documents
 ##
+
     - level:   1
-      content:  "importation_exportation_documents/introduction.md"
-      subtoc:   2
-    - level:   2
-      content:  "importation_exportation_documents/importations.md"
+      content:  "Etudes/Account/aintro.md"
       flags:
-        review : "À relire"
-        update : "Modifié"
-    - level:   2
-      content:  "importation_exportation_documents/importationsxml.md"
-    - level:   2
-      content:  "importation_exportation_documents/importationsarchive.md"
-    - level:   2
-      content:  "importation_exportation_documents/importationswsh.md"
-    - level:   2
-      content:  "importation_exportation_documents/exportations.md"
-    - level:   2
-      content:  "importation_exportation_documents/exportationsxml.md"
-    - level:   2
-      content:  "importation_exportation_documents/exportationsprofil.md"
-##
-# comptes_groupes_roles
-##
-    - level:   1
-      content:  "comptes_groupes_roles/introduction.md"
+        new: "À étudier"
       subtoc:   2
     - level:   2
-      content:  "comptes_groupes_roles/utilisateurs.md"
+      content:  "Etudes/Account/accountObject.md"
+      flags:
+        new: "À étudier"
     - level:   2
-      content:  "comptes_groupes_roles/groupes.md"
-    - level:   2
-      content:  "comptes_groupes_roles/roles.md"
-    - level:   2
-      content:  "comptes_groupes_roles/importation_comptes.md"
-##
-# securite
-##
+      content:  "Etudes/Account/authent.md"
+      flags:
+        new: "À étudier"
+
     - level:   1
-      content:  "securite/introduction.md"
+      content:  "Etudes/Security/sintro.md"
+      flags:
+        new: "À étudier"
       subtoc:   2
     - level:   2
-      content:  "securite/regles_securite.md"
+      content:  "Etudes/Security/attributes.md"
     - level:   2
-      content:  "securite/param_profil.md"
+      content:  "Etudes/Security/sudo.md"
     - level:   2
-      content:  "securite/droits_applicatifs.md"
-    - level:   2
-      content:  "securite/droit_core.md"
-    - level:   2
-      content:  "securite/droits_documents.md"
-    - level:   2
-      content:  "securite/droits_cv.md"
-    - level:   2
-      content:  "securite/droits_workflow.md"
+      content:  "Etudes/Security/sdm.md"
 ##
 # cycles
 ##
+
     - level:   1
-      content:  "cycles/introduction.md"
+      content:  "Etudes/Workflow/wintro.md"
       subtoc:   2
     - level:   2
-      content:  "cycles/implementation.md"
+      content:  "Etudes/Workflow/family_wf3.md"
+      flags:
+        new: "À étudier"
     - level:   2
-      content:  "cycles/parametrage_importation.md"
-      subtoc:   2
-    - level:   3
-      content:  "cycles/family_wf.md"
-    - level:   3
-      content:  "cycles/document_wf.md"
-    - level:   3
-      content:  "cycles/profilage_wf.md"
-    - level:   2
-      content:  "cycles/wf_api.md"
+      content:  "Etudes/Workflow/wprocessus.md"
+      flags:
+        new: "À étudier"
 ##
-# API
-##
-    - level:  1
-      content:  "dynacase_cli/introduction.md"
-##
-# applications_actions
+# Doc Manager
 ##
     - level:   1
-      content:  "applications_actions/introduction.md"
+      content:  "Etudes/Api/Class_DocManager.md"
+      flags:
+        review : "Réalisé en 3.3"
       subtoc:   2
     - level:   2
-      content:  "applications_actions/ecrire_application.md"
+      element: "chapter"
+      content:  "Etudes/Api/Class_DocManager/methods.md"
+      subtoc:   1
+    - level:   3
+      element: "chapter"
+      content:  "Etudes/Api/Class_DocManager/Method_getDocument.md"
+    - level:   3
+      element: "chapter"
+      content:  "Etudes/Api/Class_DocManager/Method_createDocument.md"
+    - level:   3
+      element: "chapter"
+      content:  "Etudes/Api/Class_DocManager/Method_createTemporaryDocument.md"
+    - level:   3
+      element: "chapter"
+      content:  "Etudes/Api/Class_DocManager/Method_getRawDocument.md"
+    - level:   3
+      element: "chapter"
+      content:  "Etudes/Api/Class_DocManager/Method_getDocumentFromRawDocument.md"
+    - level:   3
+      element: "chapter"
+      content:  "Etudes/Api/Class_DocManager/Method_getTitle.md"
+    - level:   3
+      element: "chapter"
+      content:  "Etudes/Api/Class_DocManager/Method_getRawValue.md"
+    - level:   3
+      element: "chapter"
+      content:  "Etudes/Api/Class_DocManager/Method_getIdFromName.md"
+    - level:   4
+      element: "chapter"
+      content:  "Etudes/Api/Class_DocManager/Method_getNameFromId.md"
     - level:   2
-      content:  "applications_actions/ecrire_action.md"
-    - level:   2
-      content:  "applications_actions/parametres_applicatifs.md"
-    - level:   2
-      content:  "applications_actions/droits_applicatifs.md"
-    - level:   2
-      content:  "applications_actions/herite_application.md"
-##
-# API (cf https://docs.google.com/a/anakeen.com/spreadsheet/ccc?key=0At_Kbrf9EDr8dHRkM1BqbjdGQnN1TXVPLXE4eUhJOGc#gid=0)
-##
+      element: "chapter"
+      content:  "Etudes/Api/Class_DocManager/cache.md"
+      subtoc:   1
+    - level:   3
+      element: "chapter"
+      content:  "Etudes/Api/Class_DocManager/Method_cache.md"
+    - level:   3
+      element: "chapter"
+      content:  "Etudes/Api/Class_DocManager/Method_addDocument.md"
+    - level:   3
+      element: "chapter"
+      content:  "Etudes/Api/Class_DocManager/Method_clearCache.md"
+    - level:   3
+      element: "chapter"
+      content:  "Etudes/Api/Class_DocManager/Method_removeDocument.md"
+    - level:   3
+      element: "chapter"
+      content:  "Etudes/Api/Class_DocManager/Method_isInCache.md"
+    - level:   3
+      element: "chapter"
+      content:  "Etudes/Api/Class_DocManager/Method_setCacheHandler.md"
     - level:   1
-      content:  "API/introduction.md"
+      content:  "Etudes/Database/introduction.md"
       subtoc:   2
-#
-# START of API Content
-#
-#  Build date : jeudi 22 novembre 2012, 18:44:24 (UTC+0100)
-    - level:   2
-      element: "chapter"
-      content:  "API/Class_Action.md"
-      subtoc:   1
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Action/Method_canExecute.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Action/Method_exitError.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Action/Method_getImageUrl.md"
-    - level:   2
-      element: "chapter"
-      content:  "API/Class_ActionUsage.md"
-      subtoc:   1
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_ActionUsage/Method_getUsage.md"
-    - level:   2
-      element: "chapter"
-      content:  "API/Class_ApiUsage.md"
-      subtoc:   1
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_ApiUsage/Method_addEmptyParameter.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_ApiUsage/Method_addHiddenParameter.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_ApiUsage/Method_addRequiredParameter.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_ApiUsage/Method_addOptionalParameter.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_ApiUsage/Method_setDefinitionText.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_ApiUsage/Method_setStrictMode.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_ApiUsage/Method_verify.md"
-    - level:   2
-      element: "chapter"
-      content:  "API/Class_Application.md"
-      subtoc:   1
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Application/Method_addCssCode.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Application/Method_addCssRef.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Application/Method_addJsCode.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Application/Method_addJsRef.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Application/Method_getCSSLink.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Application/Method_getJSLink.md"
-    - level:   2
-      element: "chapter"
-      content:  "API/Class_Dir.md"
-      subtoc:   2
-    - level:   3
-      element: "chapter"
-      content: "API/Class_Dir/methods.md"
-      subtoc:  1
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Dir/Method_insertDocument.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Dir/Method_insertMultipleDocuments.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Dir/Method_removeDocument.md"
-    - level:   3
-      element: "chapter"
-      content: "API/Class_Dir/hooks.md"
-      subtoc:  1
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Dir/Method_preInsertDocument.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Dir/Method_postInsertDocument.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Dir/Method_preInsertMultipleDocuments.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Dir/Method_postInsertMultipleDocuments.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Dir/Method_preRemoveDocument.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Dir/Method_postRemoveDocument.md"
-    - level:   2
-      element: "chapter"
-      content:  "API/Class_Doc.md"
-      subtoc:   2
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Doc/Properties.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Doc/dochooks.md"
-      subtoc:   1
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_PreCreated.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_PostCreated.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_preDelete.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_postDelete.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_preDuplicate.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_postDuplicate.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_preStore.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_postStore.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_preRefresh.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_postRefresh.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_preImport.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_postImport.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_preUndelete.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_postUndelete.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_preConsultation.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_preEdition.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Doc/docmethods.md"
-      subtoc:   1
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_addArrayRow.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_addHistoryEntry.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_clearValue.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_arrayToRawValue.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_hasPermission.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_delete.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_clearArrayValues.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_disableEditControl.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_duplicate.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_editattr.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_enableEditControl.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_getArrayRawValues.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_getAttribute.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_getCustomTitle.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_getDate.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_getDocAnchor.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_getFamilyDocument.md"
-      flags:
-        update : "Modifié"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_getFamilyParameterValue.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_getMultipleRawValues.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_getOldRawValue.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_getOldRawValues.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_getPropertyValue.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_getState.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_getTitle.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_getRawValue.md"
-      flags:
-        review : "À relire"
-        update : "Modifié"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_getAttributeValue.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_isAlive.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_isChanged.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_getLatestId.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_rawValueToArray.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_removeArrayRow.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_Refresh.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_revise.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_setState.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_setValue.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_setAttributeValue.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_store.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_undelete.md"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_Doc/Method_viewattr.md"
-    - level:   2
-      element: "chapter"
-      content:  "API/Class_Docfam.md"
-      subtoc:   1
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Docfam/Properties.md"
-    - level:   2
-      element: "chapter"
-      content:  "API/Class_DocumentList.md"
-      subtoc:   1
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_DocumentList/Method_addDocumentIdentifiers.md"
-    - level:   2
-      element: "chapter"
-      content:  "API/Class_Layout.md"
-      subtoc:   1
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Layout/Method_gen.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Layout/Method_set.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Layout/Method_eSet.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Layout/Method_setBlockData.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Layout/Method_eSetBlockData.md"
-    - level:   2
-      element: "chapter"
-      content:  "API/Class_Log.md"
-      subtoc:   1
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Log/Method_debug.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Log/Method_deprecated.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Log/Method_error.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Log/Method_fatal.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Log/Method_info.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_Log/Method_warning.md"
-    - level:   2
-      element: "chapter"
-      content:  "API/Class_ApplicationParameterManager.md"
-      subtoc:   1
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_ApplicationParameterManager/Method_getCommonParameterValue.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_ApplicationParameterManager/Method_getParameter.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_ApplicationParameterManager/Method_getParameters.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_ApplicationParameterManager/Method_getParameterValue.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_ApplicationParameterManager/Method_getScopedParameterValue.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_ApplicationParameterManager/Method_getUserParameterDefaultValue.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_ApplicationParameterManager/Method_getUserParameterValue.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_ApplicationParameterManager/Method_resetCache.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_ApplicationParameterManager/Method_setCommonParameterValue.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_ApplicationParameterManager/Method_setParameterValue.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_ApplicationParameterManager/Method_setUserParameterDefaultValue.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_ApplicationParameterManager/Method_setUserParameterValue.md"
-    - level:   2
-      element: "chapter"
-      content:  "API/Class_SearchAccount.md"
-      subtoc:   1
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchAccount/Method_addFilter.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchAccount/Method_addGroupFilter.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchAccount/Method_addRoleFilter.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchAccount/Method_getLoginFromDocName.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchAccount/Method_search.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchAccount/Method_setReturnType.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchAccount/Method_setOrder.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchAccount/Method_setSlice.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchAccount/Method_setStart.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchAccount/Method_setTypeFilter.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchAccount/Method_overrideViewControl.md"
-    - level:   2
-      element: "chapter"
-      content:  "API/Class_SearchDoc.md"
-      subtoc:   1
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_setObjectReturn.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_setOrder.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_setPertinenceOrder.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_setSlice.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_setStart.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_setRecursiveSearch.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_useCollection.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_addFilter.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_addGeneralFilter.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_onlyCount.md"
-      flags:
-        update : "Modifié"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_join.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_overrideViewControl.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_excludeConfidential.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_search.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_reset.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_count.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_getDocumentList.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_getError.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_getIds.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_returnsOnly.md"
-      flags:
-        update : "Modifié"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_getSearchInfo.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_SearchDoc/Method_getNextDoc.md"
-      element: "chapter"
-    - level:   2
-      content:  "API/Class_DocManager.md"
-      flags:
-        new: "Nouveauté"
-      subtoc:   2
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_DocManager/methods.md"
-      subtoc:   1
-      flags:
-        new: "Nouveauté"
-        draft: "À relire"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_DocManager/Method_getDocument.md"
-      flags:
-        new: "Nouveauté"
-        draft: "À relire"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_DocManager/Method_createDocument.md"
-      flags:
-        new: "Nouveauté"
-        draft: "À relire"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_DocManager/Method_createTemporaryDocument.md"
-      flags:
-        new: "Nouveauté"
-        draft: "À relire"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_DocManager/Method_getRawDocument.md"
-      flags:
-        new: "Nouveauté"
-        draft: "À relire"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_DocManager/Method_getDocumentFromRawDocument.md"
-      flags:
-        new: "Nouveauté"
-        draft: "À relire"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_DocManager/Method_getTitle.md"
-      flags:
-        new: "Nouveauté"
-        draft: "À relire"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_DocManager/Method_getRawValue.md"
-      flags:
-        new: "Nouveauté"
-        draft: "À relire"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_DocManager/Method_getIdFromName.md"
-      flags:
-        new: "Nouveauté"
-        draft: "À relire"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_DocManager/Method_getNameFromId.md"
-      flags:
-        new: "Nouveauté"
-        draft: "À relire"
-    - level:   3
-      element: "chapter"
-      content:  "API/Class_DocManager/cache.md"
-      subtoc:   1
-      flags:
-        new: "Nouveauté"
-        draft: "À relire"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_DocManager/Method_cache.md"
-      flags:
-        draft: "À relire"
-        new: "Nouveauté"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_DocManager/Method_addDocument.md"
-      flags:
-        draft: "À relire"
-        new: "Nouveauté"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_DocManager/Method_clearCache.md"
-      flags:
-        new: "Nouveauté"
-        draft: "À relire"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_DocManager/Method_removeDocument.md"
-      flags:
-        draft: "À relire"
-        new: "Nouveauté"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_DocManager/Method_isInCache.md"
-      flags:
-        draft: "À relire"
-        new: "Nouveauté"
-    - level:   4
-      element: "chapter"
-      content:  "API/Class_DocManager/Method_setCacheHandler.md"
-      flags:
-        draft: "À relire"
-        new: "Nouveauté"
-    - level:   2
-      element: "chapter"
-      content:  "API/Utils_DocManager.md"
-      flags:
-        obsolete release: "Obsolète 3.3"
-      subtoc:   1
-    - level:   3
-      element: "chapter"
-      content:  "API/Utils_DocManager/Utils_new_Doc.md"
-      flags:
-        obsolete release: "Obsolète 3.3"
-    - level:   3
-      element: "chapter"
-      flags:
-        obsolete release: "Obsolète 3.3"
-      content:  "API/Utils_DocManager/Utils_createDoc.md"
-    - level:   3
-      element: "chapter"
-      content:  "API/Utils_DocManager/Utils_createTmpDoc.md"
-      flags:
-        obsolete release: "Obsolète 3.3"
-#
-# END of API Content
-#
-
-#
-# Applications / zones de ref
-#
-    - level:   1
-      content:  "Actions_zones_ref/introduction.md"
-
-      subtoc:   1
-    - level:   2
-      content:  "Actions_zones_ref/zones/zone_fdl_html_head.md"
-
-    - level:   2
-      content:  "Actions_zones_ref/zones/zone_fdl_html_foot.md"
-
-    - level : 2
-      content:  "Actions_zones_ref/zones/zone_fdl_input_attribute.md"
-
-    - level : 2
-      content:  "Actions_zones_ref/zones/zone_fdl_view_frame.md"
-
-    - level : 2
-      content:  "Actions_zones_ref/zones/zone_fdl_edit_frame.md"
-
-    - level : 2
-      content:  "Actions_zones_ref/zones/zone_fdl_view_array.md"
-
-    - level : 2
-      content:  "Actions_zones_ref/zones/zone_fdl_edit_array.md"
-
-    - level : 2
-      content:  "Actions_zones_ref/zones/zone_edit_parameters.md"
-
-    - level : 2
-      content:  "Actions_zones_ref/actions/action_fdl_opendoc.md"
-
-    - level : 2
-      content:  "Actions_zones_ref/actions/action_fdl_impcard.md"
-
-    - level : 2
-      content:  "Actions_zones_ref/actions/action_fdl_exportfile.md"
-
-    - level : 2
-      content:  "Actions_zones_ref/actions/action_fdl_method.md"
-
-
-#
-# parametres de ref
-#
-    - level:   1
-      content:  "parameters_ref/introduction.md"
-      subtoc:   2
-
     - level: 2
-      content: "parameters_ref/access.md"
-      subtoc:   1
-    - level: 3
-      content: "parameters_ref/core_urlindex.md"
-    - level: 3
-      content: "parameters_ref/core_mailaction.md"
-    - level: 3
-      content: "parameters_ref/core_start_app.md"
-    - level: 2
-      content: "parameters_ref/system.md"
-      subtoc:   1
+      content: "Etudes/Database/core_dbdocviewcompat.md"
       flags:
-        update : "Modifié"
-    - level: 3
-      content: "parameters_ref/core_loglevel.md"
-    - level: 3
-      content: "parameters_ref/memory_limit.md"
-    - level: 3
-      content: "parameters_ref/core_sessionttl.md"
-    - level: 3
-      content: "parameters_ref/authent_pwdmindigitlength.md"
-    - level: 3
-      content: "parameters_ref/authent_pwdminlength.md"
-    - level: 3
-      content: "parameters_ref/authent_pwdminloweralphalength.md"
-    - level: 3
-      content: "parameters_ref/authent_pwdminupperalphalength.md"
-    - level: 3
-      content: "parameters_ref/authent_accountexpiredelay.md"
-    - level: 3
-      content: "parameters_ref/authent_failurecount.md"
-    - level: 3
-      content: "parameters_ref/core_dbdocviewcompat.md"
+        review : "Réalisé en 3.3"
+    - level:   2
+      content:  "Etudes/Database/importations.md"
       flags:
-        review : "À relire"
-        new : "Nouveauté"
-    - level: 2
-      content: "parameters_ref/smtp.md"
-      subtoc:   1
-    - level: 3
-      content: "parameters_ref/smtp_from.md"
-    - level: 3
-      content: "parameters_ref/smtp_host.md"
-    - level: 3
-      content: "parameters_ref/smtp_login.md"
-    - level: 3
-      content: "parameters_ref/smtp_passwd.md"
-    - level: 3
-      content: "parameters_ref/smtp_port.md"
+        review : "Réalisé en 3.3"
+    - level:   2
+      content:  "Etudes/Database/databaseaccess.md"
+    - level:   2
+      content:  "Etudes/Database/dbdoc.md"
+      flags:
+        review : "Réalisé en 3.3"
+    - level:   2
+      content:  "Etudes/Database/dbdocfam.md"
+    - level:   2
+      content:  "Etudes/Api/queries.md"
+      flags:
+        new: "À étudier"
+    - level:   2
+      content:  "Etudes/Database/displayValue.md"
+      flags:
+        new: "À étudier"
 
-    - level: 2
-      content: "parameters_ref/te.md"
-      subtoc:   1
-    - level: 3
-      content: "parameters_ref/te_activate.md"
-    - level: 3
-      content: "parameters_ref/te_fulltext.md"
-    - level: 3
-      content: "parameters_ref/te_host.md"
-    - level: 3
-      content: "parameters_ref/te_port.md"
-    - level: 3
-      content: "parameters_ref/te_timeout.md"
-    - level: 3
-      content: "parameters_ref/te_urlindex.md"
 
-    - level: 2
-      content: "parameters_ref/client_interface.md"
-      subtoc:   1
-    - level: 3
-      content: "parameters_ref/core_client.md"
-    - level: 3
-      content: "parameters_ref/core_realm.md"
-    - level: 3
-      content: "parameters_ref/core_logoclient.md"
-    - level: 3
-      content: "parameters_ref/dynacase_favico.md"
-
-##
-# wsh de ref
-##
     - level:   1
-      content:  "wsh_ref/introduction.md"
-      subtoc:   1
-    - level:   2
-      content:  "wsh_ref/refreshGroups.md"
-    - level:   2
-      content:  "wsh_ref/manageApplications.md"
-    - level:   2
-      content:  "wsh_ref/cleanFamily.md"
-    - level:   2
-      content:  "wsh_ref/cleanFamilyParameter.md"
-    - level:   2
-      content:  "wsh_ref/manageContextCrontab.md"
-    - level:   2
-      content:  "wsh_ref/initializeDocrelTable.md"
-    - level:   2
-      content:  "wsh_ref/cleanContext.md"
-    - level:   2
-      content:  "wsh_ref/generateDocumentClass.md"
-    - level:   2
-      content:  "wsh_ref/destroyFamily.md"
-    - level:   2
-      content:  "wsh_ref/fixMultipleAliveRevision.md"
-    - level:   2
-      content:  "wsh_ref/getApplicationParameter.md"
-    - level:   2
-      content:  "wsh_ref/importDocuments.md"
-    - level:   2
-      content:  "wsh_ref/refreshDocuments.md"
-    - level:   2
-      content:  "wsh_ref/setApplicationParameter.md"
-    - level:   2
-      content:  "wsh_ref/setStyle.md"
-    - level:   2
-      content:  "wsh_ref/checkVault.md"
-    - level:   2
-      content:  "wsh_ref/refreshVaultIndex.md"
+      content:  "Etudes/Routeur/rootIntro.md"
+      flags:
+        new: "À étudier"
+      subtoc:   2
 
-##
-# Advanced
-##
+
     - level:   1
-      content:  "Advanced/introduction.md"
-      subtoc:   2
-    - level:   2
-      content:  "Style/styles.md"
-    - level:   2
-      content:  "Advanced/Internationalisation/introduction.md"
-      subtoc:   2
-    - level:   3
-      content:  "Advanced/Internationalisation/description.md"
-
-    - level:   3
-      content:  "Advanced/Internationalisation/catalogue.md"
-
-    - level:   4
-      content:  "Advanced/Internationalisation/localelayout.md"
-
-    - level:   4
-      content:  "Advanced/Internationalisation/localeworkflow.md"
-
-    - level:   3
-      content:  "Advanced/Internationalisation/localegenphp.md"
-
-    - level:   4
-      content:  "Advanced/Internationalisation/localegenfamily.md"
-
-    - level:   4
-      content:  "Advanced/Internationalisation/localegencv.md"
-
-    - level:   4
-      content:  "Advanced/Internationalisation/localegenlayout.md"
-
-    - level:   3
-      content:  "Advanced/Internationalisation/translate.md"
-
-    - level:   3
-      content:  "Advanced/Internationalisation/publish.md"
-
-    - level:   3
-      content:  "Advanced/Internationalisation/setlanguage.md"
-
-    - level:   3
-      content:  "Advanced/Internationalisation/addlanguage.md"
-
-    - level:   3
-      content:  "Advanced/Internationalisation/javascript.md"
-
-    - level:   2
-      content:  "Advanced/Cinematique/introduction.md"
-      subtoc:   2
-    - level:   3
-      content:  "Advanced/Cinematique/actionrequest.md"
-    - level:   3
-      content:  "Advanced/Cinematique/docrequest.md"
-    - level:   3
-      content:  "Advanced/Cinematique/staterequest.md"
-    - level:   3
-      content:  "Advanced/Cinematique/wshrequest.md"
-    - level:   2
-      content:  "Advanced/Database/introduction.md"
-      flags:
-        update : "Modifié"
-      subtoc:   2
-    - level:   3
-      content:  "Advanced/Database/databaseaccess.md"
-    - level:   3
-      content:  "Advanced/Database/simplequery.md"
-    - level:   3
-      content:  "Advanced/Database/dbdoc.md"
-      flags:
-        review : "À relire"
-        update : "Modifié"
-    - level:   3
-      content:  "Advanced/Database/dbdocfam.md"
-      flags:
-        review : "À relire"
-        update : "Modifié"
-    - level:   3
-      content:  "Advanced/Database/dbattr.md"
-
-    - level:   3
-      content:  "Advanced/Database/dbaccount.md"
-    - level:   3
-      content:  "Advanced/Database/dbsecurity.md"
-    - level:   3
-      content:  "Advanced/Database/dbhistory.md"
-    - level:   3
-      content:  "Advanced/Database/dbvault.md"
-      flags:
-        update : "Modifié"
-    - level:   3
-      content:  "Advanced/Database/dbapp.md"
-    - level:   3
-      content:  "Advanced/Database/dbparam.md"
-      flags:
-        update : "Modifié"
-    - level:   2
-      content:  "Advanced/Persistance/introduction.md"
-      subtoc:   2
-    - level:   3
-      content:  "Advanced/Persistance/dbobj.md"
-    - level:   3
-      content:  "Advanced/Persistance/querydb.md"
-    - level:   3
-      content:  "Advanced/Persistance/transaction.md"
-    - level:   2
-      content:  "Advanced/Persistance/user.md"
-    - level:   2
-      content:  "Advanced/Migration/introduction.md"
-    - level:   2
-      content:  "Advanced/Recherche/introduction.md"
-      subtoc:   2
-    - level:   3
-      content:  "Advanced/Recherche/searchdoc.md"
-    - level:   4
-      content:  "Advanced/Recherche/critereattribut.md"
-      flags:
-        review : "À relire"
-        update : "Modifié"
-    - level:   4
-      content:  "Advanced/Recherche/critereid.md"
-    - level:   4
-      content:  "Advanced/Recherche/criteredossier.md"
-    - level:   4
-      content:  "Advanced/Recherche/critereacl.md"
-    - level:   4
-      content:  "Advanced/Recherche/critererevision.md"
-      flags:
-        review : "À relire"
-        update : "Modifié"
-    - level:   4
-      content:  "Advanced/Recherche/docrel.md"
-    - level:   4
-      content:  "Advanced/Recherche/critereitecallback.md"
-    - level:   4
-      content:  "Advanced/Recherche/count.md"
-    - level:   4
-      content:  "Advanced/Recherche/errors.md"
-      flags:
-        update : "Modifié"
-    - level:   4
-      content:  "Advanced/Recherche/generalsearch.md"
-    - level:   3
-      content:  "Advanced/Recherche/dsearch.md"
-    - level:   3
-      content:  "Advanced/Recherche/rapport.md"
-    - level:   3
-      content:  "Advanced/Recherche/ssearch.md"
-    - level:   2
-      content:  "Advanced/Authent/introduction.md"
-      subtoc:   1
-    - level:   3
-      content:  "Advanced/Authent/parameters.md"
-    - level:   3
-      content:  "Advanced/Authent/open_provider.md"
-    - level:   3
-      content:  "Advanced/Authent/guest.md"
-    - level:   3
-      content:  "Advanced/Authent/provider.md"
-    - level:   2
-      content:  "Advanced/Security/introduction.md"
-      subtoc:   2
-    - level:   3
-      content:  "Advanced/Security/controlaction.md"
-    - level:   3
-      content:  "Advanced/Security/controldoc.md"
-    - level:   3
-      content:  "Advanced/Security/controlfile.md"
-    - level:   3
-      content:  "Advanced/Security/confidential.md"
-    - level:   2
-      content:  "Advanced/Template/introduction.md"
-      subtoc:   1
-    - level:   3
-      content:  "Advanced/Template/texte.md"
-    - level:   3
-      content:  "Advanced/Template/encode.md"
-    - level:   3
-      content:  "Advanced/Template/tag_list_texte.md"
-    - level:   3
-      content:  "Advanced/Template/odt.md"
-      subtoc:   2
-    - level:   4
-      content:  "Advanced/Template/odtcontrol.md"
-    - level:   4
-      content:  "Advanced/Template/odtcaution.md"
-    - level:   4
-      content:  "Advanced/Template/odtrepeat.md"
-    - level:   4
-      content:  "Advanced/Template/odtprop.md"
-    - level:   3
-      content:  "Advanced/Template/convertpdf.md"
-    - level:   3
-      content:  "Advanced/Template/formatcollection.md"
-    - level:   2
-      content:  "Advanced/familles/introduction.md"
-      subtoc:   3
-    - level:   3
-      content:  "Advanced/familles/processus.md"
-    - level:   2
-      content:  "Advanced/autoloader.md"
-
+      content:  "Etudes/CMIS/cmisintro.md"
