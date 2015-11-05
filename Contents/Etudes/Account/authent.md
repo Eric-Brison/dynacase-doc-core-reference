@@ -1,0 +1,1 @@
+# Paramétrage de l'authentification
